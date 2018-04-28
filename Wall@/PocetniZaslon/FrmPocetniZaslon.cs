@@ -15,7 +15,7 @@ namespace PocetniZaslon
         public FrmPocetniZaslon()
         {
             InitializeComponent();
-            
         }
     }
 }
+
