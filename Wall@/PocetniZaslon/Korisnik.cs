@@ -13,7 +13,7 @@ namespace PocetniZaslon
         public string Prezime { get; set; }
         public string Email { get; set; }
         private string Lozinka { get; set; }
-
+        
         public Korisnik(int id, string ime, string prezime, string email, string lozinka)
         {
             this.ID = id;
