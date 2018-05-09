@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PocetniZaslon
 {
-    public partial class FrmPocetniZaslon : Form
+    public partial class GlavniIzbornik : Form
     {
-        public FrmPocetniZaslon()
+        public GlavniIzbornik()
         {
             InitializeComponent();
         }

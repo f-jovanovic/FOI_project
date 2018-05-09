@@ -16,7 +16,7 @@ namespace PocetniZaslon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPocetniZaslon());
+            Application.Run(new GlavniIzbornik());
         }
     }
 }
