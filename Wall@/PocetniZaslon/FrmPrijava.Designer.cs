@@ -35,6 +35,7 @@
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnPrijava = new System.Windows.Forms.Button();
             this.btnRegistracija = new System.Windows.Forms.Button();
+            this.cboxMaskLozinka = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +74,7 @@
             this.txtLozinka.Name = "txtLozinka";
             this.txtLozinka.Size = new System.Drawing.Size(332, 38);
             this.txtLozinka.TabIndex = 3;
+            this.txtLozinka.UseSystemPasswordChar = true;
             // 
             // pbLogo
             // 
@@ -93,6 +95,7 @@
             this.btnPrijava.TabIndex = 5;
             this.btnPrijava.Text = "Prijava";
             this.btnPrijava.UseVisualStyleBackColor = true;
+            this.btnPrijava.Click += new System.EventHandler(this.btnPrijava_Click);
             // 
             // btnRegistracija
             // 
@@ -104,11 +107,23 @@
             this.btnRegistracija.Text = "Registracija";
             this.btnRegistracija.UseVisualStyleBackColor = true;
             // 
+            // cboxMaskLozinka
+            // 
+            this.cboxMaskLozinka.AutoSize = true;
+            this.cboxMaskLozinka.Location = new System.Drawing.Point(138, 426);
+            this.cboxMaskLozinka.Name = "cboxMaskLozinka";
+            this.cboxMaskLozinka.Size = new System.Drawing.Size(120, 21);
+            this.cboxMaskLozinka.TabIndex = 7;
+            this.cboxMaskLozinka.Text = "Prikaži lozinku";
+            this.cboxMaskLozinka.UseVisualStyleBackColor = true;
+            this.cboxMaskLozinka.CheckedChanged += new System.EventHandler(this.cboxMaskLozinka_CheckedChanged);
+            // 
             // FrmPrijava
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 653);
+            this.Controls.Add(this.cboxMaskLozinka);
             this.Controls.Add(this.btnRegistracija);
             this.Controls.Add(this.btnPrijava);
             this.Controls.Add(this.pbLogo);
@@ -137,5 +152,6 @@
         private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.Button btnPrijava;
         private System.Windows.Forms.Button btnRegistracija;
+        private System.Windows.Forms.CheckBox cboxMaskLozinka;
     }
 }
