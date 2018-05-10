@@ -1,6 +1,6 @@
 ﻿namespace PocetniZaslon
 {
-    partial class GlavniIzbornik
+    partial class FrmGlavniIzbornik
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GlavniIzbornik));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGlavniIzbornik));
             this.splitterMenuScreen = new System.Windows.Forms.Splitter();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.btnOdjava = new System.Windows.Forms.Button();
