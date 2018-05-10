@@ -47,7 +47,7 @@
             this.splitterMenuScreen.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.splitterMenuScreen.Location = new System.Drawing.Point(0, 0);
             this.splitterMenuScreen.Name = "splitterMenuScreen";
-            this.splitterMenuScreen.Size = new System.Drawing.Size(245, 985);
+            this.splitterMenuScreen.Size = new System.Drawing.Size(258, 985);
             this.splitterMenuScreen.TabIndex = 9;
             this.splitterMenuScreen.TabStop = false;
             // 
@@ -64,85 +64,101 @@
             // 
             // btnOdjava
             // 
+            this.btnOdjava.BackColor = System.Drawing.Color.White;
+            this.btnOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOdjava.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnOdjava.Location = new System.Drawing.Point(12, 896);
             this.btnOdjava.Name = "btnOdjava";
             this.btnOdjava.Size = new System.Drawing.Size(233, 77);
             this.btnOdjava.TabIndex = 17;
             this.btnOdjava.Text = "Odjava";
-            this.btnOdjava.UseVisualStyleBackColor = true;
+            this.btnOdjava.UseVisualStyleBackColor = false;
             // 
             // btnPostavke
             // 
+            this.btnPostavke.BackColor = System.Drawing.Color.White;
+            this.btnPostavke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPostavke.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnPostavke.Location = new System.Drawing.Point(12, 813);
             this.btnPostavke.Name = "btnPostavke";
             this.btnPostavke.Size = new System.Drawing.Size(233, 77);
             this.btnPostavke.TabIndex = 16;
             this.btnPostavke.Text = "Postavke";
-            this.btnPostavke.UseVisualStyleBackColor = true;
+            this.btnPostavke.UseVisualStyleBackColor = false;
             // 
             // btnStatistika
             // 
+            this.btnStatistika.BackColor = System.Drawing.Color.White;
+            this.btnStatistika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistika.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnStatistika.Location = new System.Drawing.Point(12, 730);
             this.btnStatistika.Name = "btnStatistika";
             this.btnStatistika.Size = new System.Drawing.Size(233, 77);
             this.btnStatistika.TabIndex = 15;
             this.btnStatistika.Text = "Statistika";
-            this.btnStatistika.UseVisualStyleBackColor = true;
+            this.btnStatistika.UseVisualStyleBackColor = false;
             // 
             // btnInvesticijskiPortfolio
             // 
+            this.btnInvesticijskiPortfolio.BackColor = System.Drawing.Color.White;
+            this.btnInvesticijskiPortfolio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInvesticijskiPortfolio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnInvesticijskiPortfolio.Location = new System.Drawing.Point(12, 647);
             this.btnInvesticijskiPortfolio.Name = "btnInvesticijskiPortfolio";
             this.btnInvesticijskiPortfolio.Size = new System.Drawing.Size(233, 77);
             this.btnInvesticijskiPortfolio.TabIndex = 14;
             this.btnInvesticijskiPortfolio.Text = "Investicijski portfolio";
-            this.btnInvesticijskiPortfolio.UseVisualStyleBackColor = true;
+            this.btnInvesticijskiPortfolio.UseVisualStyleBackColor = false;
             // 
             // btnPregled
             // 
+            this.btnPregled.BackColor = System.Drawing.Color.White;
+            this.btnPregled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPregled.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnPregled.Location = new System.Drawing.Point(12, 564);
             this.btnPregled.Name = "btnPregled";
             this.btnPregled.Size = new System.Drawing.Size(233, 77);
             this.btnPregled.TabIndex = 13;
-            this.btnPregled.Text = "Pregled";
-            this.btnPregled.UseVisualStyleBackColor = true;
+            this.btnPregled.Text = "Pregled transakcija";
+            this.btnPregled.UseVisualStyleBackColor = false;
             // 
             // btnUnosTransakcije
             // 
+            this.btnUnosTransakcije.BackColor = System.Drawing.Color.White;
+            this.btnUnosTransakcije.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnosTransakcije.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnUnosTransakcije.Location = new System.Drawing.Point(12, 481);
             this.btnUnosTransakcije.Name = "btnUnosTransakcije";
             this.btnUnosTransakcije.Size = new System.Drawing.Size(233, 77);
             this.btnUnosTransakcije.TabIndex = 12;
             this.btnUnosTransakcije.Text = "Unos transakcija";
-            this.btnUnosTransakcije.UseVisualStyleBackColor = true;
+            this.btnUnosTransakcije.UseVisualStyleBackColor = false;
             // 
             // btnBankovniRacun
             // 
+            this.btnBankovniRacun.BackColor = System.Drawing.Color.White;
+            this.btnBankovniRacun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBankovniRacun.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnBankovniRacun.Location = new System.Drawing.Point(12, 398);
             this.btnBankovniRacun.Name = "btnBankovniRacun";
             this.btnBankovniRacun.Size = new System.Drawing.Size(233, 77);
             this.btnBankovniRacun.TabIndex = 11;
             this.btnBankovniRacun.Text = "Bankovni računi";
-            this.btnBankovniRacun.UseVisualStyleBackColor = true;
+            this.btnBankovniRacun.UseVisualStyleBackColor = false;
             // 
             // btnZaslon
             // 
+            this.btnZaslon.BackColor = System.Drawing.Color.White;
+            this.btnZaslon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZaslon.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnZaslon.Location = new System.Drawing.Point(12, 315);
             this.btnZaslon.Name = "btnZaslon";
             this.btnZaslon.Size = new System.Drawing.Size(233, 77);
             this.btnZaslon.TabIndex = 10;
             this.btnZaslon.Text = "Početni zaslon";
-            this.btnZaslon.UseVisualStyleBackColor = true;
+            this.btnZaslon.UseVisualStyleBackColor = false;
             // 
-            // GlavniIzbornik
+            // FrmGlavniIzbornik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,7 +175,7 @@
             this.Controls.Add(this.splitterMenuScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
-            this.Name = "GlavniIzbornik";
+            this.Name = "FrmGlavniIzbornik";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wall@";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

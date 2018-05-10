@@ -54,18 +54,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bankovni_racun.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="FrmGlavniIzbornik.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGlavniIzbornik.Designer.cs">
       <DependentUpon>FrmGlavniIzbornik.cs</DependentUpon>
     </Compile>
+    <Compile Include="investicija.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="investicijski_portfolio.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="kategorije_transakcije.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="korisnik.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="stanje_investicije.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="transakcija.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="transakcija_investicije.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vrsta_investicije.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vrsta_racuna.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vrsta_transakcije.cs">
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Wall%40Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Wall%40Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wall%40Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Wall%40Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Wall%40Model.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -109,6 +147,12 @@
     <Content Include="Wall%40Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Wall%40Model.Context.cs</LastGenOutput>
+      <DependentUpon>Wall%40Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Wall%40Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Wall%40Model.edmx</DependentUpon>
+      <LastGenOutput>Wall%40Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
