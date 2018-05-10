@@ -51,8 +51,15 @@
     <Compile Include="GlavniIzbornik.Designer.cs">
       <DependentUpon>GlavniIzbornik.cs</DependentUpon>
     </Compile>
+    <Compile Include="Korisnici.cs" />
+    <Compile Include="Korisnik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WalletDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WalletDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GlavniIzbornik.resx">
       <DependentUpon>GlavniIzbornik.cs</DependentUpon>
     </EmbeddedResource>
@@ -74,6 +81,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="WalletDataSet.xsc">
+      <DependentUpon>WalletDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="WalletDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WalletDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WalletDataSet.xss">
+      <DependentUpon>WalletDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
