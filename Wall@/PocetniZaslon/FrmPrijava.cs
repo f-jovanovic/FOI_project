@@ -22,12 +22,18 @@ namespace PocetniZaslon
 
         private void btnPrijava_Click(object sender, EventArgs e)
         {
-            korisnik trenutniKorisnik = new korisnik();
+            korisnik trenutniKorisnik = new korisnik(); // Instanciranje korisnika koje pri uspješnoj prijavi bilježi točno tog korisnika.
+
+            /*
+             Čitanje liste korisnika, tako da možemo provjeriti točnost login podataka.
+             */
             BindingList<korisnik> korisnici = null;
             using (var db = new Entities())
             {
                 korisnici = new BindingList<korisnik>(db.korisnik.ToList());
             }
+
+
             foreach (var item in korisnici)
             {
                 if (txtEmail.Text == item.email)
@@ -36,7 +42,7 @@ namespace PocetniZaslon
                     {
                         MessageBox.Show("Prijava uspješna");
                         trenutniKorisnik = item;
-                        FrmGlavniIzbornik glavniIzbornik = new FrmGlavniIzbornik();
+                        FrmGlavniIzbornik glavniIzbornik = new FrmGlavniIzbornik(); // Ako je login dobar onda se pokrene FrmGlavniIzbornik, a ovaj se zatvara tek kad je i onaj closed.
                         this.Hide();
                         glavniIzbornik.ShowDialog();
                         this.Close();
@@ -50,16 +56,11 @@ namespace PocetniZaslon
             }
         }
 
-        private void cboxMaskLozinka_CheckedChanged(object sender, EventArgs e)
+        private void cboxMaskLozinka_CheckedChanged(object sender, EventArgs e) // Checkbox za otkrivanje/skrivanje lozinke.
         {
-            if (cboxMaskLozinka.Checked)
-            {
-                txtLozinka.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                txtLozinka.UseSystemPasswordChar = true;
-            }
+            if (cboxMaskLozinka.Checked) txtLozinka.UseSystemPasswordChar = false;
+
+            else txtLozinka.UseSystemPasswordChar = true;
 
         }
     }
