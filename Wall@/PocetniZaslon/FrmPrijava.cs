@@ -69,5 +69,13 @@ namespace PocetniZaslon
             else txtLozinka.UseSystemPasswordChar = true;
 
         }
+
+        private void btnRegistracija_Click(object sender, EventArgs e) // Prikaz forme za registraciju novog korisnika.
+        {
+            FrmRegistracija registracija = new FrmRegistracija();
+            this.Hide();
+            registracija.ShowDialog();
+            this.Show();
+        }
     }
 }

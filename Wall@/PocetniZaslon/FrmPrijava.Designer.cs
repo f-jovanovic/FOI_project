@@ -106,6 +106,7 @@
             this.btnRegistracija.TabIndex = 6;
             this.btnRegistracija.Text = "Registracija";
             this.btnRegistracija.UseVisualStyleBackColor = true;
+            this.btnRegistracija.Click += new System.EventHandler(this.btnRegistracija_Click);
             // 
             // cboxMaskLozinka
             // 
