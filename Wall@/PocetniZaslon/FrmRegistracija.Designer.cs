@@ -40,6 +40,9 @@
             this.txtLozinka = new System.Windows.Forms.TextBox();
             this.txtPonoviLozinku = new System.Windows.Forms.TextBox();
             this.btnRegistracija = new System.Windows.Forms.Button();
+            this.lblWarningLozinka = new System.Windows.Forms.Label();
+            this.lblWarningEmail = new System.Windows.Forms.Label();
+            this.lblWarningPonoviLozinku = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNaslov
@@ -109,6 +112,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(547, 38);
             this.txtEmail.TabIndex = 6;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtIme
             // 
@@ -117,6 +121,7 @@
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(547, 38);
             this.txtIme.TabIndex = 7;
+            this.txtIme.TextChanged += new System.EventHandler(this.txtIme_TextChanged);
             // 
             // txtPrezime
             // 
@@ -125,6 +130,7 @@
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(547, 38);
             this.txtPrezime.TabIndex = 8;
+            this.txtPrezime.TextChanged += new System.EventHandler(this.txtPrezime_TextChanged);
             // 
             // txtLozinka
             // 
@@ -134,6 +140,7 @@
             this.txtLozinka.Size = new System.Drawing.Size(476, 38);
             this.txtLozinka.TabIndex = 9;
             this.txtLozinka.UseSystemPasswordChar = true;
+            this.txtLozinka.TextChanged += new System.EventHandler(this.txtLozinka_TextChanged);
             // 
             // txtPonoviLozinku
             // 
@@ -143,9 +150,11 @@
             this.txtPonoviLozinku.Size = new System.Drawing.Size(476, 38);
             this.txtPonoviLozinku.TabIndex = 10;
             this.txtPonoviLozinku.UseSystemPasswordChar = true;
+            this.txtPonoviLozinku.TextChanged += new System.EventHandler(this.txtPonoviLozinku_TextChanged);
             // 
             // btnRegistracija
             // 
+            this.btnRegistracija.Enabled = false;
             this.btnRegistracija.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnRegistracija.Location = new System.Drawing.Point(207, 551);
             this.btnRegistracija.Name = "btnRegistracija";
@@ -153,12 +162,52 @@
             this.btnRegistracija.TabIndex = 11;
             this.btnRegistracija.Text = "Registriraj se";
             this.btnRegistracija.UseVisualStyleBackColor = true;
+            this.btnRegistracija.Click += new System.EventHandler(this.btnRegistracija_Click);
+            // 
+            // lblWarningLozinka
+            // 
+            this.lblWarningLozinka.AutoSize = true;
+            this.lblWarningLozinka.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblWarningLozinka.ForeColor = System.Drawing.Color.Red;
+            this.lblWarningLozinka.Location = new System.Drawing.Point(197, 399);
+            this.lblWarningLozinka.Name = "lblWarningLozinka";
+            this.lblWarningLozinka.Size = new System.Drawing.Size(311, 23);
+            this.lblWarningLozinka.TabIndex = 12;
+            this.lblWarningLozinka.Text = "Duljina lozinke je minimalno 8 znakova!";
+            this.lblWarningLozinka.Visible = false;
+            // 
+            // lblWarningEmail
+            // 
+            this.lblWarningEmail.AutoSize = true;
+            this.lblWarningEmail.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblWarningEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblWarningEmail.Location = new System.Drawing.Point(127, 149);
+            this.lblWarningEmail.Name = "lblWarningEmail";
+            this.lblWarningEmail.Size = new System.Drawing.Size(308, 23);
+            this.lblWarningEmail.TabIndex = 13;
+            this.lblWarningEmail.Text = "Postoji korisnik sa navedenim emailom!";
+            this.lblWarningEmail.Visible = false;
+            // 
+            // lblWarningPonoviLozinku
+            // 
+            this.lblWarningPonoviLozinku.AutoSize = true;
+            this.lblWarningPonoviLozinku.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblWarningPonoviLozinku.ForeColor = System.Drawing.Color.Red;
+            this.lblWarningPonoviLozinku.Location = new System.Drawing.Point(197, 471);
+            this.lblWarningPonoviLozinku.Name = "lblWarningPonoviLozinku";
+            this.lblWarningPonoviLozinku.Size = new System.Drawing.Size(210, 23);
+            this.lblWarningPonoviLozinku.TabIndex = 14;
+            this.lblWarningPonoviLozinku.Text = "Lozinke se ne podudaraju!";
+            this.lblWarningPonoviLozinku.Visible = false;
             // 
             // FrmRegistracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 653);
+            this.Controls.Add(this.lblWarningPonoviLozinku);
+            this.Controls.Add(this.lblWarningEmail);
+            this.Controls.Add(this.lblWarningLozinka);
             this.Controls.Add(this.btnRegistracija);
             this.Controls.Add(this.txtPonoviLozinku);
             this.Controls.Add(this.txtLozinka);
@@ -196,5 +245,8 @@
         private System.Windows.Forms.TextBox txtLozinka;
         private System.Windows.Forms.TextBox txtPonoviLozinku;
         private System.Windows.Forms.Button btnRegistracija;
+        private System.Windows.Forms.Label lblWarningLozinka;
+        private System.Windows.Forms.Label lblWarningEmail;
+        private System.Windows.Forms.Label lblWarningPonoviLozinku;
     }
 }
