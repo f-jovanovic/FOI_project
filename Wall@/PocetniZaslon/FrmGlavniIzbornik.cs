@@ -16,6 +16,11 @@ namespace PocetniZaslon
         {
             InitializeComponent();
         }
+
+        private void btnOdjava_Click(object sender, EventArgs e) // Zatvori formu on-click (gasi se aplikacija cijela).
+        {
+            this.Close();
+        }
     }
 }
 

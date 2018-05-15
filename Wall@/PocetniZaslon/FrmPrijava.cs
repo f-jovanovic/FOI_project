@@ -26,6 +26,7 @@ namespace PocetniZaslon
 
             /*
              Čitanje liste korisnika, tako da možemo provjeriti točnost login podataka.
+             Vidi skriptu.
              */
             BindingList<korisnik> korisnici = null;
             using (var db = new Entities())
@@ -33,26 +34,31 @@ namespace PocetniZaslon
                 korisnici = new BindingList<korisnik>(db.korisnik.ToList());
             }
 
-
+            bool provjera = false; // Varijabla za provjeru korisnika (da ne ispisuje foreach više puta poruke).
             foreach (var item in korisnici)
             {
                 if (txtEmail.Text == item.email)
                 {
-                    if (txtLozinka.Text == item.lozinka)
-                    {
-                        MessageBox.Show("Prijava uspješna");
-                        trenutniKorisnik = item;
-                        FrmGlavniIzbornik glavniIzbornik = new FrmGlavniIzbornik(); // Ako je login dobar onda se pokrene FrmGlavniIzbornik, a ovaj se zatvara tek kad je i onaj closed.
-                        this.Hide();
-                        glavniIzbornik.ShowDialog();
-                        this.Close();
-                    }
-                    else MessageBox.Show("Kriva lozinka");
+                    provjera = true;
+                    trenutniKorisnik = item;
                 }
                 else
                 {
-                    MessageBox.Show("Nepostojeći korisnik");
+                    provjera = false;
                 }
+            }
+
+            if (provjera == true)
+            {
+                if (txtLozinka.Text == trenutniKorisnik.lozinka)
+                {
+                    MessageBox.Show("Prijava uspješna");
+                    FrmGlavniIzbornik glavniIzbornik = new FrmGlavniIzbornik(); // Ako je login dobar onda se pokrene FrmGlavniIzbornik, login je skriven i zatvara se skupa sa izbornikom.
+                    this.Hide();
+                    glavniIzbornik.ShowDialog();
+                    this.Close();
+                }
+                else MessageBox.Show("Kriva lozinka");
             }
         }
 
