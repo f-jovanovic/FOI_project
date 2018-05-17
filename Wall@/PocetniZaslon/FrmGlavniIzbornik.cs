@@ -17,9 +17,9 @@ namespace PocetniZaslon
             InitializeComponent();
         }
 
-        private void btnOdjava_Click(object sender, EventArgs e) // Zatvori formu on-click (gasi se aplikacija cijela).
+        private void btnOdjava_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Restart(); // Klikom na odjava aplikacija se resetira.
         }
     }
 }

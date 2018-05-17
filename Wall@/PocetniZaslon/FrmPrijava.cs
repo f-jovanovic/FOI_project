@@ -41,6 +41,7 @@ namespace PocetniZaslon
                 {
                     provjera = true;
                     trenutniKorisnik = item;
+                    break; // break da ne ode dalje ako nađe korisnika, pošto je email unique.
                 }
                 else
                 {
@@ -59,6 +60,10 @@ namespace PocetniZaslon
                     this.Close();
                 }
                 else MessageBox.Show("Kriva lozinka");
+            }
+            else
+            {
+                MessageBox.Show("Nepostojeći korisnik");
             }
         }
 
