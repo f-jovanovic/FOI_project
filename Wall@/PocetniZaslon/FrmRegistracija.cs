@@ -73,20 +73,33 @@ namespace PocetniZaslon
             {
                 if (txtEmail.Text == item.email) emailPostoji = true;
             }
+            if (emailPostoji) lblWarningEmail.Show();
 
-            if (emailPostoji) lblWarningEmail.Show(); 
 
-            // Provjera duljine lozinke, ako je < od 8 onda prikaži warning.
-            if (txtLozinka.TextLength < 8) lblWarningLozinka.Show();
+            if (txtLozinka.TextLength < 8) lblWarningLozinka.Show(); // Provjera duljine lozinke, ako je < od 8 onda prikaži warning.
 
-            // Provjera jesu li upisane lozinke iste, ako nisu prikaži warning.
-            if (txtLozinka.Text != txtPonoviLozinku.Text) lblWarningPonoviLozinku.Show();
+            else if (txtLozinka.Text != txtPonoviLozinku.Text) lblWarningPonoviLozinku.Show(); // Provjera jesu li upisane lozinke iste, ako nisu prikaži warning.
 
-            // TO DO
-            /*
-             * Dodati spajanje na bazu ako je sve dobro uneseno.
-             * Ostvariti sinkronizaciju.
-             */
+
+            else if (!emailPostoji)
+            {
+                korisnik noviKorisnik = new korisnik(); // Instanciramo novog korisnika kojeg ćemo unijeti.
+
+                noviKorisnik.email = txtEmail.Text.ToString(); // Zabilježe se vrijednosti textboxova.
+                noviKorisnik.ime_korisnika = txtIme.Text.ToString();
+                noviKorisnik.prezime_korisnika = txtPrezime.Text.ToString();
+                noviKorisnik.lozinka = txtLozinka.Text.ToString();
+                noviKorisnik.datum_registracije = DateTime.Now;
+
+                using (Entities db = new Entities()) // Dodaj korisnika u listu korisnika, i to vrati u bazu.
+                {
+                    db.korisnik.Add(noviKorisnik);
+                    db.SaveChanges();
+                }
+
+                MessageBox.Show("Korisnik " + noviKorisnik.email + " kreiran."); // Potvrda da je korisnik registriran.
+                this.Close(); // Zatvori formu i vrati se na prijavu.
+            }
         }
     }
 }
