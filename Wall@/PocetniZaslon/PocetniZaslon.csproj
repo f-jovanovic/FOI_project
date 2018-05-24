@@ -137,6 +137,9 @@
     <EmbeddedResource Include="FrmRegistracija.resx">
       <DependentUpon>FrmRegistracija.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Forme\FrmBankovniRacuni.resx">
+      <DependentUpon>FrmBankovniRacuni.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
