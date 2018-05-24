@@ -12,13 +12,13 @@ namespace PocetniZaslon
     using System;
     using System.Collections.Generic;
     
-    public partial class stanje_investicije
+    public partial class Stanje_investicije
     {
         public int id_stanja { get; set; }
         public int id_investicije { get; set; }
-        public Nullable<decimal> vrijednost_investicije { get; set; }
+        public decimal vrijednost_investicije { get; set; }
         public System.DateTime vrijeme_stanja { get; set; }
     
-        public virtual investicija investicija { get; set; }
+        public virtual Investicija Investicija { get; set; }
     }
 }

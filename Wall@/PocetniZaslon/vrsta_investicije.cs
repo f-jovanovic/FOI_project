@@ -12,18 +12,18 @@ namespace PocetniZaslon
     using System;
     using System.Collections.Generic;
     
-    public partial class vrsta_investicije
+    public partial class Vrsta_investicije
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public vrsta_investicije()
+        public Vrsta_investicije()
         {
-            this.investicija = new HashSet<investicija>();
+            this.Investicija = new HashSet<Investicija>();
         }
     
         public int id_vrsta_investicije { get; set; }
         public string naziv_vrste_investicije { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<investicija> investicija { get; set; }
+        public virtual ICollection<Investicija> Investicija { get; set; }
     }
 }

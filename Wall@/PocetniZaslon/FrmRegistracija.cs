@@ -61,10 +61,10 @@ namespace PocetniZaslon
         private void btnRegistracija_Click(object sender, EventArgs e)
         {
             // Dohvati sve korisnike iz baze.
-            BindingList<korisnik> korisnici = null;
-            using (var db = new Entities())
+            BindingList<Korisnik> korisnici = null;
+            using (var db = new WalletEntities())
             {
-                korisnici = new BindingList<korisnik>(db.korisnik.ToList());
+                korisnici = new BindingList<Korisnik>(db.Korisnik.ToList());
             }
 
             // Provjeri postoji li mail u bazi, ako da postavi bool na true i prikaži warning.
@@ -83,7 +83,7 @@ namespace PocetniZaslon
 
             else if (!emailPostoji)
             {
-                korisnik noviKorisnik = new korisnik(); // Instanciramo novog korisnika kojeg ćemo unijeti.
+                Korisnik noviKorisnik = new Korisnik(); // Instanciramo novog korisnika kojeg ćemo unijeti.
 
                 noviKorisnik.email = txtEmail.Text.ToString(); // Zabilježe se vrijednosti textboxova.
                 noviKorisnik.ime_korisnika = txtIme.Text.ToString();
@@ -91,9 +91,9 @@ namespace PocetniZaslon
                 noviKorisnik.lozinka = txtLozinka.Text.ToString();
                 noviKorisnik.datum_registracije = DateTime.Now;
 
-                using (Entities db = new Entities()) // Dodaj korisnika u listu korisnika, i to vrati u bazu.
+                using (WalletEntities db = new WalletEntities()) // Dodaj korisnika u listu korisnika, i to vrati u bazu.
                 {
-                    db.korisnik.Add(noviKorisnik);
+                    db.Korisnik.Add(noviKorisnik);
                     db.SaveChanges();
                 }
 

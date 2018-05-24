@@ -12,18 +12,18 @@ namespace PocetniZaslon
     using System;
     using System.Collections.Generic;
     
-    public partial class vrsta_racuna
+    public partial class Vrsta_racuna
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public vrsta_racuna()
+        public Vrsta_racuna()
         {
-            this.bankovni_racun = new HashSet<bankovni_racun>();
+            this.Bankovni_racun = new HashSet<Bankovni_racun>();
         }
     
         public int id_vrsta_racuna { get; set; }
         public string naziv_vrste_racuna { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<bankovni_racun> bankovni_racun { get; set; }
+        public virtual ICollection<Bankovni_racun> Bankovni_racun { get; set; }
     }
 }

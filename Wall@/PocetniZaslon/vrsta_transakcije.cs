@@ -12,21 +12,21 @@ namespace PocetniZaslon
     using System;
     using System.Collections.Generic;
     
-    public partial class vrsta_transakcije
+    public partial class Vrsta_transakcije
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public vrsta_transakcije()
+        public Vrsta_transakcije()
         {
-            this.kategorije_transakcije = new HashSet<kategorije_transakcije>();
-            this.transakcija_investicije = new HashSet<transakcija_investicije>();
+            this.Kategorije_transakcije = new HashSet<Kategorije_transakcije>();
+            this.Transakcija_investicije = new HashSet<Transakcija_investicije>();
         }
     
         public int id_vrsta_transakcije { get; set; }
         public string naziv_vrste_transakcije { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<kategorije_transakcije> kategorije_transakcije { get; set; }
+        public virtual ICollection<Kategorije_transakcije> Kategorije_transakcije { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<transakcija_investicije> transakcija_investicije { get; set; }
+        public virtual ICollection<Transakcija_investicije> Transakcija_investicije { get; set; }
     }
 }

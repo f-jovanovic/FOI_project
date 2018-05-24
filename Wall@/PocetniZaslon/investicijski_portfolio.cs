@@ -12,19 +12,19 @@ namespace PocetniZaslon
     using System;
     using System.Collections.Generic;
     
-    public partial class investicijski_portfolio
+    public partial class Investicijski_portfolio
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public investicijski_portfolio()
+        public Investicijski_portfolio()
         {
-            this.transakcija_investicije = new HashSet<transakcija_investicije>();
+            this.Transakcija_investicije = new HashSet<Transakcija_investicije>();
         }
     
         public int id_portfolia { get; set; }
         public int id_korisnik { get; set; }
     
-        public virtual korisnik korisnik { get; set; }
+        public virtual Korisnik Korisnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<transakcija_investicije> transakcija_investicije { get; set; }
+        public virtual ICollection<Transakcija_investicije> Transakcija_investicije { get; set; }
     }
 }

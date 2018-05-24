@@ -12,13 +12,13 @@ namespace PocetniZaslon
     using System;
     using System.Collections.Generic;
     
-    public partial class korisnik
+    public partial class Korisnik
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public korisnik()
+        public Korisnik()
         {
-            this.bankovni_racun = new HashSet<bankovni_racun>();
-            this.investicijski_portfolio = new HashSet<investicijski_portfolio>();
+            this.Bankovni_racun = new HashSet<Bankovni_racun>();
+            this.Investicijski_portfolio = new HashSet<Investicijski_portfolio>();
         }
     
         public int id_korisnik { get; set; }
@@ -29,8 +29,8 @@ namespace PocetniZaslon
         public System.DateTime datum_registracije { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<bankovni_racun> bankovni_racun { get; set; }
+        public virtual ICollection<Bankovni_racun> Bankovni_racun { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<investicijski_portfolio> investicijski_portfolio { get; set; }
+        public virtual ICollection<Investicijski_portfolio> Investicijski_portfolio { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace PocetniZaslon
     using System;
     using System.Collections.Generic;
     
-    public partial class transakcija_investicije
+    public partial class Transakcija_investicije
     {
         public int id_transakcije_investicije { get; set; }
         public int id_vrsta_transakcije { get; set; }
@@ -20,11 +20,11 @@ namespace PocetniZaslon
         public int id_investicije { get; set; }
         public int id_portfolia { get; set; }
         public Nullable<decimal> iznos_transakcije_investicije { get; set; }
-        public Nullable<System.DateTime> datum_transakcije_investicije { get; set; }
-        public int kolicina_investicije { get; set; }
+        public Nullable<System.DateTime> vrijeme_transakcije_investicije { get; set; }
+        public decimal kolicina_investicije { get; set; }
     
-        public virtual investicija investicija { get; set; }
-        public virtual investicijski_portfolio investicijski_portfolio { get; set; }
-        public virtual vrsta_transakcije vrsta_transakcije { get; set; }
+        public virtual Investicija Investicija { get; set; }
+        public virtual Investicijski_portfolio Investicijski_portfolio { get; set; }
+        public virtual Vrsta_transakcije Vrsta_transakcije { get; set; }
     }
 }

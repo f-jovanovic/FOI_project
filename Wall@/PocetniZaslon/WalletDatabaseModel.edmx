@@ -4,41 +4,41 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WalletDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="bankovni_racun">
+      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bankovni_racun">
           <Key>
             <PropertyRef Name="iban" />
           </Key>
           <Property Name="iban" Type="varchar" MaxLength="21" Nullable="false" />
           <Property Name="id_vrsta_racuna" Type="int" Nullable="false" />
           <Property Name="id_korisnik" Type="int" Nullable="false" />
-          <Property Name="nadimak_racuna" Type="nvarchar" MaxLength="255" />
-          <Property Name="stanje_racuna" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="naziv_racuna" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="stanje_racuna" Type="decimal" Precision="19" Scale="2" />
         </EntityType>
-        <EntityType Name="investicija">
+        <EntityType Name="Investicija">
           <Key>
             <PropertyRef Name="id_investicije" />
           </Key>
           <Property Name="id_investicije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_vrsta_investicije" Type="int" Nullable="false" />
-          <Property Name="naziv_investicije" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="naziv_investicije" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <EntityType Name="investicijski_portfolio">
+        <EntityType Name="Investicijski_portfolio">
           <Key>
             <PropertyRef Name="id_portfolia" />
           </Key>
           <Property Name="id_portfolia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_korisnik" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="kategorije_transakcije">
+        <EntityType Name="Kategorije_transakcije">
           <Key>
             <PropertyRef Name="id_kategorije_transakcije" />
           </Key>
           <Property Name="id_kategorije_transakcije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_vrsta_transakcije" Type="int" Nullable="false" />
-          <Property Name="naziv_kategorije" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="naziv_kategorije" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <EntityType Name="korisnik">
+        <EntityType Name="Korisnik">
           <Key>
             <PropertyRef Name="id_korisnik" />
           </Key>
@@ -49,30 +49,30 @@
           <Property Name="lozinka" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="datum_registracije" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="stanje_investicije">
+        <EntityType Name="Stanje_investicije">
           <Key>
             <PropertyRef Name="id_stanja" />
           </Key>
           <Property Name="id_stanja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_investicije" Type="int" Nullable="false" />
-          <Property Name="vrijednost_investicije" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="vrijednost_investicije" Type="decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="vrijeme_stanja" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="transakcija">
+        <EntityType Name="Transakcija">
           <Key>
             <PropertyRef Name="id_transakcije" />
           </Key>
           <Property Name="id_transakcije" Type="int" Nullable="false" />
           <Property Name="iban" Type="varchar" MaxLength="21" Nullable="false" />
-          <Property Name="iznos_transakcije" Type="decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="datum_transakcije" Type="date" />
+          <Property Name="iznos_transakcije" Type="decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="vrijeme_transakcije" Type="datetime" />
           <Property Name="opis_transakcije" Type="nvarchar" MaxLength="255" />
-          <Property Name="lokacija_slike_racuna" Type="varchar" MaxLength="255" />
+          <Property Name="lokacija_slike_racuna" Type="nvarchar" MaxLength="255" />
           <Property Name="id_vlastite_transakcije" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view '18027_DB.dbo.transakcija_ima_kategorije' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="transakcija_ima_kategorije">
+warning 6002: The table/view '18027_DB.dbo.Transakcija_ima_kategorije' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Transakcija_ima_kategorije">
           <Key>
             <PropertyRef Name="id_kategorije_transakcije" />
             <PropertyRef Name="id_transakcije2" />
@@ -80,7 +80,7 @@ warning 6002: The table/view '18027_DB.dbo.transakcija_ima_kategorije' does not 
           <Property Name="id_kategorije_transakcije" Type="int" Nullable="false" />
           <Property Name="id_transakcije2" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="transakcija_investicije">
+        <EntityType Name="Transakcija_investicije">
           <Key>
             <PropertyRef Name="id_transakcije_investicije" />
           </Key>
@@ -89,290 +89,290 @@ warning 6002: The table/view '18027_DB.dbo.transakcija_ima_kategorije' does not 
           <Property Name="iban" Type="varchar" MaxLength="21" />
           <Property Name="id_investicije" Type="int" Nullable="false" />
           <Property Name="id_portfolia" Type="int" Nullable="false" />
-          <Property Name="iznos_transakcije_investicije" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="datum_transakcije_investicije" Type="date" />
-          <Property Name="kolicina_investicije" Type="int" Nullable="false" />
+          <Property Name="iznos_transakcije_investicije" Type="decimal" Precision="19" Scale="2" />
+          <Property Name="vrijeme_transakcije_investicije" Type="datetime" />
+          <Property Name="kolicina_investicije" Type="decimal" Precision="19" Scale="4" Nullable="false" />
         </EntityType>
-        <EntityType Name="vrsta_investicije">
+        <EntityType Name="Vrsta_investicije">
           <Key>
             <PropertyRef Name="id_vrsta_investicije" />
           </Key>
           <Property Name="id_vrsta_investicije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="naziv_vrste_investicije" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="naziv_vrste_investicije" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <EntityType Name="vrsta_racuna">
+        <EntityType Name="Vrsta_racuna">
           <Key>
             <PropertyRef Name="id_vrsta_racuna" />
           </Key>
           <Property Name="id_vrsta_racuna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="naziv_vrste_racuna" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <EntityType Name="vrsta_transakcije">
+        <EntityType Name="Vrsta_transakcije">
           <Key>
             <PropertyRef Name="id_vrsta_transakcije" />
           </Key>
           <Property Name="id_vrsta_transakcije" Type="int" Nullable="false" />
-          <Property Name="naziv_vrste_transakcije" Type="varchar" MaxLength="255" />
+          <Property Name="naziv_vrste_transakcije" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
         <Association Name="fk_bankovni_racun_korisnik">
-          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
-          <End Role="bankovni_racun" Type="Self.bankovni_racun" Multiplicity="*" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+          <End Role="Bankovni_racun" Type="Self.Bankovni_racun" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="korisnik">
+            <Principal Role="Korisnik">
               <PropertyRef Name="id_korisnik" />
             </Principal>
-            <Dependent Role="bankovni_racun">
+            <Dependent Role="Bankovni_racun">
               <PropertyRef Name="id_korisnik" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_bankovni_racun_vrsta_racuna1">
-          <End Role="vrsta_racuna" Type="Self.vrsta_racuna" Multiplicity="1" />
-          <End Role="bankovni_racun" Type="Self.bankovni_racun" Multiplicity="*" />
+          <End Role="Vrsta_racuna" Type="Self.Vrsta_racuna" Multiplicity="1" />
+          <End Role="Bankovni_racun" Type="Self.Bankovni_racun" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="vrsta_racuna">
+            <Principal Role="Vrsta_racuna">
               <PropertyRef Name="id_vrsta_racuna" />
             </Principal>
-            <Dependent Role="bankovni_racun">
+            <Dependent Role="Bankovni_racun">
               <PropertyRef Name="id_vrsta_racuna" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_investicija_vrsta_investicije1">
-          <End Role="vrsta_investicije" Type="Self.vrsta_investicije" Multiplicity="1" />
-          <End Role="investicija" Type="Self.investicija" Multiplicity="*" />
+          <End Role="Vrsta_investicije" Type="Self.Vrsta_investicije" Multiplicity="1" />
+          <End Role="Investicija" Type="Self.Investicija" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="vrsta_investicije">
+            <Principal Role="Vrsta_investicije">
               <PropertyRef Name="id_vrsta_investicije" />
             </Principal>
-            <Dependent Role="investicija">
+            <Dependent Role="Investicija">
               <PropertyRef Name="id_vrsta_investicije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_investicijski_portfolio_korisnik1">
-          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
-          <End Role="investicijski_portfolio" Type="Self.investicijski_portfolio" Multiplicity="*" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+          <End Role="Investicijski_portfolio" Type="Self.Investicijski_portfolio" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="korisnik">
+            <Principal Role="Korisnik">
               <PropertyRef Name="id_korisnik" />
             </Principal>
-            <Dependent Role="investicijski_portfolio">
+            <Dependent Role="Investicijski_portfolio">
               <PropertyRef Name="id_korisnik" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_kategorije_transakcije_vrsta_transakcije1">
-          <End Role="vrsta_transakcije" Type="Self.vrsta_transakcije" Multiplicity="1" />
-          <End Role="kategorije_transakcije" Type="Self.kategorije_transakcije" Multiplicity="*" />
+          <End Role="Vrsta_transakcije" Type="Self.Vrsta_transakcije" Multiplicity="1" />
+          <End Role="Kategorije_transakcije" Type="Self.Kategorije_transakcije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="vrsta_transakcije">
+            <Principal Role="Vrsta_transakcije">
               <PropertyRef Name="id_vrsta_transakcije" />
             </Principal>
-            <Dependent Role="kategorije_transakcije">
+            <Dependent Role="Kategorije_transakcije">
               <PropertyRef Name="id_vrsta_transakcije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_stanje_investicije_investicija1">
-          <End Role="investicija" Type="Self.investicija" Multiplicity="1" />
-          <End Role="stanje_investicije" Type="Self.stanje_investicije" Multiplicity="*" />
+          <End Role="Investicija" Type="Self.Investicija" Multiplicity="1" />
+          <End Role="Stanje_investicije" Type="Self.Stanje_investicije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="investicija">
+            <Principal Role="Investicija">
               <PropertyRef Name="id_investicije" />
             </Principal>
-            <Dependent Role="stanje_investicije">
+            <Dependent Role="Stanje_investicije">
               <PropertyRef Name="id_investicije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_transakcija_ima_kategorije_kategorije_transakcije1">
-          <End Role="kategorije_transakcije" Type="Self.kategorije_transakcije" Multiplicity="1" />
-          <End Role="transakcija_ima_kategorije" Type="Self.transakcija_ima_kategorije" Multiplicity="*" />
+          <End Role="Kategorije_transakcije" Type="Self.Kategorije_transakcije" Multiplicity="1" />
+          <End Role="Transakcija_ima_kategorije" Type="Self.Transakcija_ima_kategorije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="kategorije_transakcije">
+            <Principal Role="Kategorije_transakcije">
               <PropertyRef Name="id_kategorije_transakcije" />
             </Principal>
-            <Dependent Role="transakcija_ima_kategorije">
+            <Dependent Role="Transakcija_ima_kategorije">
               <PropertyRef Name="id_kategorije_transakcije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_transakcija_ima_kategorije_transakcija1">
-          <End Role="transakcija" Type="Self.transakcija" Multiplicity="1" />
-          <End Role="transakcija_ima_kategorije" Type="Self.transakcija_ima_kategorije" Multiplicity="*" />
+          <End Role="Transakcija" Type="Self.Transakcija" Multiplicity="1" />
+          <End Role="Transakcija_ima_kategorije" Type="Self.Transakcija_ima_kategorije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="transakcija">
+            <Principal Role="Transakcija">
               <PropertyRef Name="id_transakcije" />
             </Principal>
-            <Dependent Role="transakcija_ima_kategorije">
+            <Dependent Role="Transakcija_ima_kategorije">
               <PropertyRef Name="id_transakcije2" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_transakcija_investicije_investicija1">
-          <End Role="investicija" Type="Self.investicija" Multiplicity="1" />
-          <End Role="transakcija_investicije" Type="Self.transakcija_investicije" Multiplicity="*" />
+          <End Role="Investicija" Type="Self.Investicija" Multiplicity="1" />
+          <End Role="Transakcija_investicije" Type="Self.Transakcija_investicije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="investicija">
+            <Principal Role="Investicija">
               <PropertyRef Name="id_investicije" />
             </Principal>
-            <Dependent Role="transakcija_investicije">
+            <Dependent Role="Transakcija_investicije">
               <PropertyRef Name="id_investicije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_transakcija_investicije_investicijski_portfolio1">
-          <End Role="investicijski_portfolio" Type="Self.investicijski_portfolio" Multiplicity="1" />
-          <End Role="transakcija_investicije" Type="Self.transakcija_investicije" Multiplicity="*" />
+          <End Role="Investicijski_portfolio" Type="Self.Investicijski_portfolio" Multiplicity="1" />
+          <End Role="Transakcija_investicije" Type="Self.Transakcija_investicije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="investicijski_portfolio">
+            <Principal Role="Investicijski_portfolio">
               <PropertyRef Name="id_portfolia" />
             </Principal>
-            <Dependent Role="transakcija_investicije">
+            <Dependent Role="Transakcija_investicije">
               <PropertyRef Name="id_portfolia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_transakcija_investicije_vrsta_transakcije1">
-          <End Role="vrsta_transakcije" Type="Self.vrsta_transakcije" Multiplicity="1" />
-          <End Role="transakcija_investicije" Type="Self.transakcija_investicije" Multiplicity="*" />
+          <End Role="Vrsta_transakcije" Type="Self.Vrsta_transakcije" Multiplicity="1" />
+          <End Role="Transakcija_investicije" Type="Self.Transakcija_investicije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="vrsta_transakcije">
+            <Principal Role="Vrsta_transakcije">
               <PropertyRef Name="id_vrsta_transakcije" />
             </Principal>
-            <Dependent Role="transakcija_investicije">
+            <Dependent Role="Transakcija_investicije">
               <PropertyRef Name="id_vrsta_transakcije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_transakcija_transakcija1">
-          <End Role="transakcija" Type="Self.transakcija" Multiplicity="0..1" />
-          <End Role="transakcija1" Type="Self.transakcija" Multiplicity="*" />
+          <End Role="Transakcija" Type="Self.Transakcija" Multiplicity="0..1" />
+          <End Role="Transakcija1" Type="Self.Transakcija" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="transakcija">
+            <Principal Role="Transakcija">
               <PropertyRef Name="id_transakcije" />
             </Principal>
-            <Dependent Role="transakcija1">
+            <Dependent Role="Transakcija1">
               <PropertyRef Name="id_vlastite_transakcije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="WalletDBModelStoreContainer">
-          <EntitySet Name="bankovni_racun" EntityType="Self.bankovni_racun" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="investicija" EntityType="Self.investicija" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="investicijski_portfolio" EntityType="Self.investicijski_portfolio" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="kategorije_transakcije" EntityType="Self.kategorije_transakcije" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="korisnik" EntityType="Self.korisnik" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="stanje_investicije" EntityType="Self.stanje_investicije" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="transakcija" EntityType="Self.transakcija" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="transakcija_investicije" EntityType="Self.transakcija_investicije" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="vrsta_investicije" EntityType="Self.vrsta_investicije" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="vrsta_racuna" EntityType="Self.vrsta_racuna" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="vrsta_transakcije" EntityType="Self.vrsta_transakcije" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="transakcija_ima_kategorije" EntityType="Self.transakcija_ima_kategorije" store:Type="Tables" store:Schema="dbo">
+        <EntityContainer Name="DBModelStoreContainer">
+          <EntitySet Name="Bankovni_racun" EntityType="Self.Bankovni_racun" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Investicija" EntityType="Self.Investicija" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Investicijski_portfolio" EntityType="Self.Investicijski_portfolio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategorije_transakcije" EntityType="Self.Kategorije_transakcije" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Korisnik" EntityType="Self.Korisnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stanje_investicije" EntityType="Self.Stanje_investicije" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transakcija" EntityType="Self.Transakcija" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transakcija_investicije" EntityType="Self.Transakcija_investicije" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vrsta_investicije" EntityType="Self.Vrsta_investicije" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vrsta_racuna" EntityType="Self.Vrsta_racuna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vrsta_transakcije" EntityType="Self.Vrsta_transakcije" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transakcija_ima_kategorije" EntityType="Self.Transakcija_ima_kategorije" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [transakcija_ima_kategorije].[id_kategorije_transakcije] AS [id_kategorije_transakcije], 
-    [transakcija_ima_kategorije].[id_transakcije2] AS [id_transakcije2]
-    FROM [dbo].[transakcija_ima_kategorije] AS [transakcija_ima_kategorije]</DefiningQuery>
+    [Transakcija_ima_kategorije].[id_kategorije_transakcije] AS [id_kategorije_transakcije], 
+    [Transakcija_ima_kategorije].[id_transakcije2] AS [id_transakcije2]
+    FROM [dbo].[Transakcija_ima_kategorije] AS [Transakcija_ima_kategorije]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="fk_bankovni_racun_korisnik" Association="Self.fk_bankovni_racun_korisnik">
-            <End Role="korisnik" EntitySet="korisnik" />
-            <End Role="bankovni_racun" EntitySet="bankovni_racun" />
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Bankovni_racun" EntitySet="Bankovni_racun" />
           </AssociationSet>
           <AssociationSet Name="fk_bankovni_racun_vrsta_racuna1" Association="Self.fk_bankovni_racun_vrsta_racuna1">
-            <End Role="vrsta_racuna" EntitySet="vrsta_racuna" />
-            <End Role="bankovni_racun" EntitySet="bankovni_racun" />
+            <End Role="Vrsta_racuna" EntitySet="Vrsta_racuna" />
+            <End Role="Bankovni_racun" EntitySet="Bankovni_racun" />
           </AssociationSet>
           <AssociationSet Name="fk_investicija_vrsta_investicije1" Association="Self.fk_investicija_vrsta_investicije1">
-            <End Role="vrsta_investicije" EntitySet="vrsta_investicije" />
-            <End Role="investicija" EntitySet="investicija" />
+            <End Role="Vrsta_investicije" EntitySet="Vrsta_investicije" />
+            <End Role="Investicija" EntitySet="Investicija" />
           </AssociationSet>
           <AssociationSet Name="fk_investicijski_portfolio_korisnik1" Association="Self.fk_investicijski_portfolio_korisnik1">
-            <End Role="korisnik" EntitySet="korisnik" />
-            <End Role="investicijski_portfolio" EntitySet="investicijski_portfolio" />
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Investicijski_portfolio" EntitySet="Investicijski_portfolio" />
           </AssociationSet>
           <AssociationSet Name="fk_kategorije_transakcije_vrsta_transakcije1" Association="Self.fk_kategorije_transakcije_vrsta_transakcije1">
-            <End Role="vrsta_transakcije" EntitySet="vrsta_transakcije" />
-            <End Role="kategorije_transakcije" EntitySet="kategorije_transakcije" />
+            <End Role="Vrsta_transakcije" EntitySet="Vrsta_transakcije" />
+            <End Role="Kategorije_transakcije" EntitySet="Kategorije_transakcije" />
           </AssociationSet>
           <AssociationSet Name="fk_stanje_investicije_investicija1" Association="Self.fk_stanje_investicije_investicija1">
-            <End Role="investicija" EntitySet="investicija" />
-            <End Role="stanje_investicije" EntitySet="stanje_investicije" />
+            <End Role="Investicija" EntitySet="Investicija" />
+            <End Role="Stanje_investicije" EntitySet="Stanje_investicije" />
           </AssociationSet>
           <AssociationSet Name="fk_transakcija_ima_kategorije_kategorije_transakcije1" Association="Self.fk_transakcija_ima_kategorije_kategorije_transakcije1">
-            <End Role="kategorije_transakcije" EntitySet="kategorije_transakcije" />
-            <End Role="transakcija_ima_kategorije" EntitySet="transakcija_ima_kategorije" />
+            <End Role="Kategorije_transakcije" EntitySet="Kategorije_transakcije" />
+            <End Role="Transakcija_ima_kategorije" EntitySet="Transakcija_ima_kategorije" />
           </AssociationSet>
           <AssociationSet Name="fk_transakcija_ima_kategorije_transakcija1" Association="Self.fk_transakcija_ima_kategorije_transakcija1">
-            <End Role="transakcija" EntitySet="transakcija" />
-            <End Role="transakcija_ima_kategorije" EntitySet="transakcija_ima_kategorije" />
+            <End Role="Transakcija" EntitySet="Transakcija" />
+            <End Role="Transakcija_ima_kategorije" EntitySet="Transakcija_ima_kategorije" />
           </AssociationSet>
           <AssociationSet Name="fk_transakcija_investicije_investicija1" Association="Self.fk_transakcija_investicije_investicija1">
-            <End Role="investicija" EntitySet="investicija" />
-            <End Role="transakcija_investicije" EntitySet="transakcija_investicije" />
+            <End Role="Investicija" EntitySet="Investicija" />
+            <End Role="Transakcija_investicije" EntitySet="Transakcija_investicije" />
           </AssociationSet>
           <AssociationSet Name="fk_transakcija_investicije_investicijski_portfolio1" Association="Self.fk_transakcija_investicije_investicijski_portfolio1">
-            <End Role="investicijski_portfolio" EntitySet="investicijski_portfolio" />
-            <End Role="transakcija_investicije" EntitySet="transakcija_investicije" />
+            <End Role="Investicijski_portfolio" EntitySet="Investicijski_portfolio" />
+            <End Role="Transakcija_investicije" EntitySet="Transakcija_investicije" />
           </AssociationSet>
           <AssociationSet Name="fk_transakcija_investicije_vrsta_transakcije1" Association="Self.fk_transakcija_investicije_vrsta_transakcije1">
-            <End Role="vrsta_transakcije" EntitySet="vrsta_transakcije" />
-            <End Role="transakcija_investicije" EntitySet="transakcija_investicije" />
+            <End Role="Vrsta_transakcije" EntitySet="Vrsta_transakcije" />
+            <End Role="Transakcija_investicije" EntitySet="Transakcija_investicije" />
           </AssociationSet>
           <AssociationSet Name="fk_transakcija_transakcija1" Association="Self.fk_transakcija_transakcija1">
-            <End Role="transakcija" EntitySet="transakcija" />
-            <End Role="transakcija1" EntitySet="transakcija" />
+            <End Role="Transakcija" EntitySet="Transakcija" />
+            <End Role="Transakcija1" EntitySet="Transakcija" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="WalletDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="bankovni_racun">
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bankovni_racun">
           <Key>
             <PropertyRef Name="iban" />
           </Key>
           <Property Name="iban" Type="String" MaxLength="21" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="id_vrsta_racuna" Type="Int32" Nullable="false" />
           <Property Name="id_korisnik" Type="Int32" Nullable="false" />
-          <Property Name="nadimak_racuna" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="stanje_racuna" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="korisnik" Relationship="Self.fk_bankovni_racun_korisnik" FromRole="bankovni_racun" ToRole="korisnik" />
-          <NavigationProperty Name="vrsta_racuna" Relationship="Self.fk_bankovni_racun_vrsta_racuna1" FromRole="bankovni_racun" ToRole="vrsta_racuna" />
+          <Property Name="naziv_racuna" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stanje_racuna" Type="Decimal" Precision="19" Scale="2" />
+          <NavigationProperty Name="Korisnik" Relationship="Self.fk_bankovni_racun_korisnik" FromRole="Bankovni_racun" ToRole="Korisnik" />
+          <NavigationProperty Name="Vrsta_racuna" Relationship="Self.fk_bankovni_racun_vrsta_racuna1" FromRole="Bankovni_racun" ToRole="Vrsta_racuna" />
         </EntityType>
-        <EntityType Name="investicija">
+        <EntityType Name="Investicija">
           <Key>
             <PropertyRef Name="id_investicije" />
           </Key>
           <Property Name="id_investicije" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_vrsta_investicije" Type="Int32" Nullable="false" />
-          <Property Name="naziv_investicije" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="vrsta_investicije" Relationship="Self.fk_investicija_vrsta_investicije1" FromRole="investicija" ToRole="vrsta_investicije" />
-          <NavigationProperty Name="stanje_investicije" Relationship="Self.fk_stanje_investicije_investicija1" FromRole="investicija" ToRole="stanje_investicije" />
-          <NavigationProperty Name="transakcija_investicije" Relationship="Self.fk_transakcija_investicije_investicija1" FromRole="investicija" ToRole="transakcija_investicije" />
+          <Property Name="naziv_investicije" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Vrsta_investicije" Relationship="Self.fk_investicija_vrsta_investicije1" FromRole="Investicija" ToRole="Vrsta_investicije" />
+          <NavigationProperty Name="Stanje_investicije" Relationship="Self.fk_stanje_investicije_investicija1" FromRole="Investicija" ToRole="Stanje_investicije" />
+          <NavigationProperty Name="Transakcija_investicije" Relationship="Self.fk_transakcija_investicije_investicija1" FromRole="Investicija" ToRole="Transakcija_investicije" />
         </EntityType>
-        <EntityType Name="investicijski_portfolio">
+        <EntityType Name="Investicijski_portfolio">
           <Key>
             <PropertyRef Name="id_portfolia" />
           </Key>
           <Property Name="id_portfolia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_korisnik" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="korisnik" Relationship="Self.fk_investicijski_portfolio_korisnik1" FromRole="investicijski_portfolio" ToRole="korisnik" />
-          <NavigationProperty Name="transakcija_investicije" Relationship="Self.fk_transakcija_investicije_investicijski_portfolio1" FromRole="investicijski_portfolio" ToRole="transakcija_investicije" />
+          <NavigationProperty Name="Korisnik" Relationship="Self.fk_investicijski_portfolio_korisnik1" FromRole="Investicijski_portfolio" ToRole="Korisnik" />
+          <NavigationProperty Name="Transakcija_investicije" Relationship="Self.fk_transakcija_investicije_investicijski_portfolio1" FromRole="Investicijski_portfolio" ToRole="Transakcija_investicije" />
         </EntityType>
-        <EntityType Name="kategorije_transakcije">
+        <EntityType Name="Kategorije_transakcije">
           <Key>
             <PropertyRef Name="id_kategorije_transakcije" />
           </Key>
           <Property Name="id_kategorije_transakcije" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_vrsta_transakcije" Type="Int32" Nullable="false" />
-          <Property Name="naziv_kategorije" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="vrsta_transakcije" Relationship="Self.fk_kategorije_transakcije_vrsta_transakcije1" FromRole="kategorije_transakcije" ToRole="vrsta_transakcije" />
-          <NavigationProperty Name="transakcija" Relationship="Self.transakcija_ima_kategorije" FromRole="kategorije_transakcije" ToRole="transakcija" />
+          <Property Name="naziv_kategorije" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Vrsta_transakcije" Relationship="Self.fk_kategorije_transakcije_vrsta_transakcije1" FromRole="Kategorije_transakcije" ToRole="Vrsta_transakcije" />
+          <NavigationProperty Name="Transakcija" Relationship="Self.Transakcija_ima_kategorije" FromRole="Kategorije_transakcije" ToRole="Transakcija" />
         </EntityType>
-        <EntityType Name="korisnik">
+        <EntityType Name="Korisnik">
           <Key>
             <PropertyRef Name="id_korisnik" />
           </Key>
@@ -382,35 +382,35 @@ warning 6002: The table/view '18027_DB.dbo.transakcija_ima_kategorije' does not 
           <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="lozinka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="datum_registracije" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="bankovni_racun" Relationship="Self.fk_bankovni_racun_korisnik" FromRole="korisnik" ToRole="bankovni_racun" />
-          <NavigationProperty Name="investicijski_portfolio" Relationship="Self.fk_investicijski_portfolio_korisnik1" FromRole="korisnik" ToRole="investicijski_portfolio" />
+          <NavigationProperty Name="Bankovni_racun" Relationship="Self.fk_bankovni_racun_korisnik" FromRole="Korisnik" ToRole="Bankovni_racun" />
+          <NavigationProperty Name="Investicijski_portfolio" Relationship="Self.fk_investicijski_portfolio_korisnik1" FromRole="Korisnik" ToRole="Investicijski_portfolio" />
         </EntityType>
-        <EntityType Name="stanje_investicije">
+        <EntityType Name="Stanje_investicije">
           <Key>
             <PropertyRef Name="id_stanja" />
           </Key>
           <Property Name="id_stanja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_investicije" Type="Int32" Nullable="false" />
-          <Property Name="vrijednost_investicije" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="vrijednost_investicije" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="vrijeme_stanja" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="investicija" Relationship="Self.fk_stanje_investicije_investicija1" FromRole="stanje_investicije" ToRole="investicija" />
+          <NavigationProperty Name="Investicija" Relationship="Self.fk_stanje_investicije_investicija1" FromRole="Stanje_investicije" ToRole="Investicija" />
         </EntityType>
-        <EntityType Name="transakcija">
+        <EntityType Name="Transakcija">
           <Key>
             <PropertyRef Name="id_transakcije" />
           </Key>
           <Property Name="id_transakcije" Type="Int32" Nullable="false" />
           <Property Name="iban" Type="String" MaxLength="21" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="iznos_transakcije" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="datum_transakcije" Type="DateTime" Precision="0" />
+          <Property Name="iznos_transakcije" Type="Decimal" Precision="19" Scale="2" Nullable="false" />
+          <Property Name="vrijeme_transakcije" Type="DateTime" Precision="3" />
           <Property Name="opis_transakcije" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="lokacija_slike_racuna" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lokacija_slike_racuna" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="id_vlastite_transakcije" Type="Int32" />
-          <NavigationProperty Name="transakcija1" Relationship="Self.fk_transakcija_transakcija1" FromRole="transakcija" ToRole="transakcija1" />
-          <NavigationProperty Name="transakcija2" Relationship="Self.fk_transakcija_transakcija1" FromRole="transakcija1" ToRole="transakcija" />
-          <NavigationProperty Name="kategorije_transakcije" Relationship="Self.transakcija_ima_kategorije" FromRole="transakcija" ToRole="kategorije_transakcije" />
+          <NavigationProperty Name="Transakcija1" Relationship="Self.fk_transakcija_transakcija1" FromRole="Transakcija" ToRole="Transakcija1" />
+          <NavigationProperty Name="Transakcija2" Relationship="Self.fk_transakcija_transakcija1" FromRole="Transakcija1" ToRole="Transakcija" />
+          <NavigationProperty Name="Kategorije_transakcije" Relationship="Self.Transakcija_ima_kategorije" FromRole="Transakcija" ToRole="Kategorije_transakcije" />
         </EntityType>
-        <EntityType Name="transakcija_investicije">
+        <EntityType Name="Transakcija_investicije">
           <Key>
             <PropertyRef Name="id_transakcije_investicije" />
           </Key>
@@ -419,217 +419,217 @@ warning 6002: The table/view '18027_DB.dbo.transakcija_ima_kategorije' does not 
           <Property Name="iban" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
           <Property Name="id_investicije" Type="Int32" Nullable="false" />
           <Property Name="id_portfolia" Type="Int32" Nullable="false" />
-          <Property Name="iznos_transakcije_investicije" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="datum_transakcije_investicije" Type="DateTime" Precision="0" />
-          <Property Name="kolicina_investicije" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="investicija" Relationship="Self.fk_transakcija_investicije_investicija1" FromRole="transakcija_investicije" ToRole="investicija" />
-          <NavigationProperty Name="investicijski_portfolio" Relationship="Self.fk_transakcija_investicije_investicijski_portfolio1" FromRole="transakcija_investicije" ToRole="investicijski_portfolio" />
-          <NavigationProperty Name="vrsta_transakcije" Relationship="Self.fk_transakcija_investicije_vrsta_transakcije1" FromRole="transakcija_investicije" ToRole="vrsta_transakcije" />
+          <Property Name="iznos_transakcije_investicije" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="vrijeme_transakcije_investicije" Type="DateTime" Precision="3" />
+          <Property Name="kolicina_investicije" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Investicija" Relationship="Self.fk_transakcija_investicije_investicija1" FromRole="Transakcija_investicije" ToRole="Investicija" />
+          <NavigationProperty Name="Investicijski_portfolio" Relationship="Self.fk_transakcija_investicije_investicijski_portfolio1" FromRole="Transakcija_investicije" ToRole="Investicijski_portfolio" />
+          <NavigationProperty Name="Vrsta_transakcije" Relationship="Self.fk_transakcija_investicije_vrsta_transakcije1" FromRole="Transakcija_investicije" ToRole="Vrsta_transakcije" />
         </EntityType>
-        <EntityType Name="vrsta_investicije">
+        <EntityType Name="Vrsta_investicije">
           <Key>
             <PropertyRef Name="id_vrsta_investicije" />
           </Key>
           <Property Name="id_vrsta_investicije" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="naziv_vrste_investicije" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="investicija" Relationship="Self.fk_investicija_vrsta_investicije1" FromRole="vrsta_investicije" ToRole="investicija" />
+          <Property Name="naziv_vrste_investicije" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Investicija" Relationship="Self.fk_investicija_vrsta_investicije1" FromRole="Vrsta_investicije" ToRole="Investicija" />
         </EntityType>
-        <EntityType Name="vrsta_racuna">
+        <EntityType Name="Vrsta_racuna">
           <Key>
             <PropertyRef Name="id_vrsta_racuna" />
           </Key>
           <Property Name="id_vrsta_racuna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="naziv_vrste_racuna" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="bankovni_racun" Relationship="Self.fk_bankovni_racun_vrsta_racuna1" FromRole="vrsta_racuna" ToRole="bankovni_racun" />
+          <NavigationProperty Name="Bankovni_racun" Relationship="Self.fk_bankovni_racun_vrsta_racuna1" FromRole="Vrsta_racuna" ToRole="Bankovni_racun" />
         </EntityType>
-        <EntityType Name="vrsta_transakcije">
+        <EntityType Name="Vrsta_transakcije">
           <Key>
             <PropertyRef Name="id_vrsta_transakcije" />
           </Key>
           <Property Name="id_vrsta_transakcije" Type="Int32" Nullable="false" />
-          <Property Name="naziv_vrste_transakcije" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="kategorije_transakcije" Relationship="Self.fk_kategorije_transakcije_vrsta_transakcije1" FromRole="vrsta_transakcije" ToRole="kategorije_transakcije" />
-          <NavigationProperty Name="transakcija_investicije" Relationship="Self.fk_transakcija_investicije_vrsta_transakcije1" FromRole="vrsta_transakcije" ToRole="transakcija_investicije" />
+          <Property Name="naziv_vrste_transakcije" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Kategorije_transakcije" Relationship="Self.fk_kategorije_transakcije_vrsta_transakcije1" FromRole="Vrsta_transakcije" ToRole="Kategorije_transakcije" />
+          <NavigationProperty Name="Transakcija_investicije" Relationship="Self.fk_transakcija_investicije_vrsta_transakcije1" FromRole="Vrsta_transakcije" ToRole="Transakcija_investicije" />
         </EntityType>
         <Association Name="fk_bankovni_racun_korisnik">
-          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
-          <End Role="bankovni_racun" Type="Self.bankovni_racun" Multiplicity="*" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+          <End Role="Bankovni_racun" Type="Self.Bankovni_racun" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="korisnik">
+            <Principal Role="Korisnik">
               <PropertyRef Name="id_korisnik" />
             </Principal>
-            <Dependent Role="bankovni_racun">
+            <Dependent Role="Bankovni_racun">
               <PropertyRef Name="id_korisnik" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_bankovni_racun_vrsta_racuna1">
-          <End Role="vrsta_racuna" Type="Self.vrsta_racuna" Multiplicity="1" />
-          <End Role="bankovni_racun" Type="Self.bankovni_racun" Multiplicity="*" />
+          <End Role="Vrsta_racuna" Type="Self.Vrsta_racuna" Multiplicity="1" />
+          <End Role="Bankovni_racun" Type="Self.Bankovni_racun" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="vrsta_racuna">
+            <Principal Role="Vrsta_racuna">
               <PropertyRef Name="id_vrsta_racuna" />
             </Principal>
-            <Dependent Role="bankovni_racun">
+            <Dependent Role="Bankovni_racun">
               <PropertyRef Name="id_vrsta_racuna" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_investicija_vrsta_investicije1">
-          <End Role="vrsta_investicije" Type="Self.vrsta_investicije" Multiplicity="1" />
-          <End Role="investicija" Type="Self.investicija" Multiplicity="*" />
+          <End Role="Vrsta_investicije" Type="Self.Vrsta_investicije" Multiplicity="1" />
+          <End Role="Investicija" Type="Self.Investicija" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="vrsta_investicije">
+            <Principal Role="Vrsta_investicije">
               <PropertyRef Name="id_vrsta_investicije" />
             </Principal>
-            <Dependent Role="investicija">
+            <Dependent Role="Investicija">
               <PropertyRef Name="id_vrsta_investicije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_stanje_investicije_investicija1">
-          <End Role="investicija" Type="Self.investicija" Multiplicity="1" />
-          <End Role="stanje_investicije" Type="Self.stanje_investicije" Multiplicity="*" />
+          <End Role="Investicija" Type="Self.Investicija" Multiplicity="1" />
+          <End Role="Stanje_investicije" Type="Self.Stanje_investicije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="investicija">
+            <Principal Role="Investicija">
               <PropertyRef Name="id_investicije" />
             </Principal>
-            <Dependent Role="stanje_investicije">
+            <Dependent Role="Stanje_investicije">
               <PropertyRef Name="id_investicije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_transakcija_investicije_investicija1">
-          <End Role="investicija" Type="Self.investicija" Multiplicity="1" />
-          <End Role="transakcija_investicije" Type="Self.transakcija_investicije" Multiplicity="*" />
+          <End Role="Investicija" Type="Self.Investicija" Multiplicity="1" />
+          <End Role="Transakcija_investicije" Type="Self.Transakcija_investicije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="investicija">
+            <Principal Role="Investicija">
               <PropertyRef Name="id_investicije" />
             </Principal>
-            <Dependent Role="transakcija_investicije">
+            <Dependent Role="Transakcija_investicije">
               <PropertyRef Name="id_investicije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_investicijski_portfolio_korisnik1">
-          <End Role="korisnik" Type="Self.korisnik" Multiplicity="1" />
-          <End Role="investicijski_portfolio" Type="Self.investicijski_portfolio" Multiplicity="*" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+          <End Role="Investicijski_portfolio" Type="Self.Investicijski_portfolio" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="korisnik">
+            <Principal Role="Korisnik">
               <PropertyRef Name="id_korisnik" />
             </Principal>
-            <Dependent Role="investicijski_portfolio">
+            <Dependent Role="Investicijski_portfolio">
               <PropertyRef Name="id_korisnik" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_transakcija_investicije_investicijski_portfolio1">
-          <End Role="investicijski_portfolio" Type="Self.investicijski_portfolio" Multiplicity="1" />
-          <End Role="transakcija_investicije" Type="Self.transakcija_investicije" Multiplicity="*" />
+          <End Role="Investicijski_portfolio" Type="Self.Investicijski_portfolio" Multiplicity="1" />
+          <End Role="Transakcija_investicije" Type="Self.Transakcija_investicije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="investicijski_portfolio">
+            <Principal Role="Investicijski_portfolio">
               <PropertyRef Name="id_portfolia" />
             </Principal>
-            <Dependent Role="transakcija_investicije">
+            <Dependent Role="Transakcija_investicije">
               <PropertyRef Name="id_portfolia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_kategorije_transakcije_vrsta_transakcije1">
-          <End Role="vrsta_transakcije" Type="Self.vrsta_transakcije" Multiplicity="1" />
-          <End Role="kategorije_transakcije" Type="Self.kategorije_transakcije" Multiplicity="*" />
+          <End Role="Vrsta_transakcije" Type="Self.Vrsta_transakcije" Multiplicity="1" />
+          <End Role="Kategorije_transakcije" Type="Self.Kategorije_transakcije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="vrsta_transakcije">
+            <Principal Role="Vrsta_transakcije">
               <PropertyRef Name="id_vrsta_transakcije" />
             </Principal>
-            <Dependent Role="kategorije_transakcije">
+            <Dependent Role="Kategorije_transakcije">
               <PropertyRef Name="id_vrsta_transakcije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_transakcija_transakcija1">
-          <End Role="transakcija" Type="Self.transakcija" Multiplicity="0..1" />
-          <End Role="transakcija1" Type="Self.transakcija" Multiplicity="*" />
+          <End Role="Transakcija" Type="Self.Transakcija" Multiplicity="0..1" />
+          <End Role="Transakcija1" Type="Self.Transakcija" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="transakcija">
+            <Principal Role="Transakcija">
               <PropertyRef Name="id_transakcije" />
             </Principal>
-            <Dependent Role="transakcija1">
+            <Dependent Role="Transakcija1">
               <PropertyRef Name="id_vlastite_transakcije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_transakcija_investicije_vrsta_transakcije1">
-          <End Role="vrsta_transakcije" Type="Self.vrsta_transakcije" Multiplicity="1" />
-          <End Role="transakcija_investicije" Type="Self.transakcija_investicije" Multiplicity="*" />
+          <End Role="Vrsta_transakcije" Type="Self.Vrsta_transakcije" Multiplicity="1" />
+          <End Role="Transakcija_investicije" Type="Self.Transakcija_investicije" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="vrsta_transakcije">
+            <Principal Role="Vrsta_transakcije">
               <PropertyRef Name="id_vrsta_transakcije" />
             </Principal>
-            <Dependent Role="transakcija_investicije">
+            <Dependent Role="Transakcija_investicije">
               <PropertyRef Name="id_vrsta_transakcije" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="transakcija_ima_kategorije">
-          <End Role="kategorije_transakcije" Type="Self.kategorije_transakcije" Multiplicity="*" />
-          <End Role="transakcija" Type="Self.transakcija" Multiplicity="*" />
+        <Association Name="Transakcija_ima_kategorije">
+          <End Role="Kategorije_transakcije" Type="Self.Kategorije_transakcije" Multiplicity="*" />
+          <End Role="Transakcija" Type="Self.Transakcija" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="bankovni_racun" EntityType="Self.bankovni_racun" />
-          <EntitySet Name="investicija" EntityType="Self.investicija" />
-          <EntitySet Name="investicijski_portfolio" EntityType="Self.investicijski_portfolio" />
-          <EntitySet Name="kategorije_transakcije" EntityType="Self.kategorije_transakcije" />
-          <EntitySet Name="korisnik" EntityType="Self.korisnik" />
-          <EntitySet Name="stanje_investicije" EntityType="Self.stanje_investicije" />
-          <EntitySet Name="transakcija" EntityType="Self.transakcija" />
-          <EntitySet Name="transakcija_investicije" EntityType="Self.transakcija_investicije" />
-          <EntitySet Name="vrsta_investicije" EntityType="Self.vrsta_investicije" />
-          <EntitySet Name="vrsta_racuna" EntityType="Self.vrsta_racuna" />
-          <EntitySet Name="vrsta_transakcije" EntityType="Self.vrsta_transakcije" />
+        <EntityContainer Name="WalletEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bankovni_racun" EntityType="Self.Bankovni_racun" />
+          <EntitySet Name="Investicija" EntityType="Self.Investicija" />
+          <EntitySet Name="Investicijski_portfolio" EntityType="Self.Investicijski_portfolio" />
+          <EntitySet Name="Kategorije_transakcije" EntityType="Self.Kategorije_transakcije" />
+          <EntitySet Name="Korisnik" EntityType="Self.Korisnik" />
+          <EntitySet Name="Stanje_investicije" EntityType="Self.Stanje_investicije" />
+          <EntitySet Name="Transakcija" EntityType="Self.Transakcija" />
+          <EntitySet Name="Transakcija_investicije" EntityType="Self.Transakcija_investicije" />
+          <EntitySet Name="Vrsta_investicije" EntityType="Self.Vrsta_investicije" />
+          <EntitySet Name="Vrsta_racuna" EntityType="Self.Vrsta_racuna" />
+          <EntitySet Name="Vrsta_transakcije" EntityType="Self.Vrsta_transakcije" />
           <AssociationSet Name="fk_bankovni_racun_korisnik" Association="Self.fk_bankovni_racun_korisnik">
-            <End Role="korisnik" EntitySet="korisnik" />
-            <End Role="bankovni_racun" EntitySet="bankovni_racun" />
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Bankovni_racun" EntitySet="Bankovni_racun" />
           </AssociationSet>
           <AssociationSet Name="fk_bankovni_racun_vrsta_racuna1" Association="Self.fk_bankovni_racun_vrsta_racuna1">
-            <End Role="vrsta_racuna" EntitySet="vrsta_racuna" />
-            <End Role="bankovni_racun" EntitySet="bankovni_racun" />
+            <End Role="Vrsta_racuna" EntitySet="Vrsta_racuna" />
+            <End Role="Bankovni_racun" EntitySet="Bankovni_racun" />
           </AssociationSet>
           <AssociationSet Name="fk_investicija_vrsta_investicije1" Association="Self.fk_investicija_vrsta_investicije1">
-            <End Role="vrsta_investicije" EntitySet="vrsta_investicije" />
-            <End Role="investicija" EntitySet="investicija" />
+            <End Role="Vrsta_investicije" EntitySet="Vrsta_investicije" />
+            <End Role="Investicija" EntitySet="Investicija" />
           </AssociationSet>
           <AssociationSet Name="fk_stanje_investicije_investicija1" Association="Self.fk_stanje_investicije_investicija1">
-            <End Role="investicija" EntitySet="investicija" />
-            <End Role="stanje_investicije" EntitySet="stanje_investicije" />
+            <End Role="Investicija" EntitySet="Investicija" />
+            <End Role="Stanje_investicije" EntitySet="Stanje_investicije" />
           </AssociationSet>
           <AssociationSet Name="fk_transakcija_investicije_investicija1" Association="Self.fk_transakcija_investicije_investicija1">
-            <End Role="investicija" EntitySet="investicija" />
-            <End Role="transakcija_investicije" EntitySet="transakcija_investicije" />
+            <End Role="Investicija" EntitySet="Investicija" />
+            <End Role="Transakcija_investicije" EntitySet="Transakcija_investicije" />
           </AssociationSet>
           <AssociationSet Name="fk_investicijski_portfolio_korisnik1" Association="Self.fk_investicijski_portfolio_korisnik1">
-            <End Role="korisnik" EntitySet="korisnik" />
-            <End Role="investicijski_portfolio" EntitySet="investicijski_portfolio" />
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Investicijski_portfolio" EntitySet="Investicijski_portfolio" />
           </AssociationSet>
           <AssociationSet Name="fk_transakcija_investicije_investicijski_portfolio1" Association="Self.fk_transakcija_investicije_investicijski_portfolio1">
-            <End Role="investicijski_portfolio" EntitySet="investicijski_portfolio" />
-            <End Role="transakcija_investicije" EntitySet="transakcija_investicije" />
+            <End Role="Investicijski_portfolio" EntitySet="Investicijski_portfolio" />
+            <End Role="Transakcija_investicije" EntitySet="Transakcija_investicije" />
           </AssociationSet>
           <AssociationSet Name="fk_kategorije_transakcije_vrsta_transakcije1" Association="Self.fk_kategorije_transakcije_vrsta_transakcije1">
-            <End Role="vrsta_transakcije" EntitySet="vrsta_transakcije" />
-            <End Role="kategorije_transakcije" EntitySet="kategorije_transakcije" />
+            <End Role="Vrsta_transakcije" EntitySet="Vrsta_transakcije" />
+            <End Role="Kategorije_transakcije" EntitySet="Kategorije_transakcije" />
           </AssociationSet>
           <AssociationSet Name="fk_transakcija_transakcija1" Association="Self.fk_transakcija_transakcija1">
-            <End Role="transakcija" EntitySet="transakcija" />
-            <End Role="transakcija1" EntitySet="transakcija" />
+            <End Role="Transakcija" EntitySet="Transakcija" />
+            <End Role="Transakcija1" EntitySet="Transakcija" />
           </AssociationSet>
           <AssociationSet Name="fk_transakcija_investicije_vrsta_transakcije1" Association="Self.fk_transakcija_investicije_vrsta_transakcije1">
-            <End Role="vrsta_transakcije" EntitySet="vrsta_transakcije" />
-            <End Role="transakcija_investicije" EntitySet="transakcija_investicije" />
+            <End Role="Vrsta_transakcije" EntitySet="Vrsta_transakcije" />
+            <End Role="Transakcija_investicije" EntitySet="Transakcija_investicije" />
           </AssociationSet>
-          <AssociationSet Name="transakcija_ima_kategorije" Association="Self.transakcija_ima_kategorije">
-            <End Role="kategorije_transakcije" EntitySet="kategorije_transakcije" />
-            <End Role="transakcija" EntitySet="transakcija" />
+          <AssociationSet Name="Transakcija_ima_kategorije" Association="Self.Transakcija_ima_kategorije">
+            <End Role="Kategorije_transakcije" EntitySet="Kategorije_transakcije" />
+            <End Role="Transakcija" EntitySet="Transakcija" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -637,47 +637,47 @@ warning 6002: The table/view '18027_DB.dbo.transakcija_ima_kategorije' does not 
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="WalletDBModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="bankovni_racun">
-            <EntityTypeMapping TypeName="WalletDBModel.bankovni_racun">
-              <MappingFragment StoreEntitySet="bankovni_racun">
+        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="WalletEntities">
+          <EntitySetMapping Name="Bankovni_racun">
+            <EntityTypeMapping TypeName="DBModel.Bankovni_racun">
+              <MappingFragment StoreEntitySet="Bankovni_racun">
                 <ScalarProperty Name="iban" ColumnName="iban" />
                 <ScalarProperty Name="id_vrsta_racuna" ColumnName="id_vrsta_racuna" />
                 <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
-                <ScalarProperty Name="nadimak_racuna" ColumnName="nadimak_racuna" />
+                <ScalarProperty Name="naziv_racuna" ColumnName="naziv_racuna" />
                 <ScalarProperty Name="stanje_racuna" ColumnName="stanje_racuna" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="investicija">
-            <EntityTypeMapping TypeName="WalletDBModel.investicija">
-              <MappingFragment StoreEntitySet="investicija">
+          <EntitySetMapping Name="Investicija">
+            <EntityTypeMapping TypeName="DBModel.Investicija">
+              <MappingFragment StoreEntitySet="Investicija">
                 <ScalarProperty Name="id_investicije" ColumnName="id_investicije" />
                 <ScalarProperty Name="id_vrsta_investicije" ColumnName="id_vrsta_investicije" />
                 <ScalarProperty Name="naziv_investicije" ColumnName="naziv_investicije" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="investicijski_portfolio">
-            <EntityTypeMapping TypeName="WalletDBModel.investicijski_portfolio">
-              <MappingFragment StoreEntitySet="investicijski_portfolio">
+          <EntitySetMapping Name="Investicijski_portfolio">
+            <EntityTypeMapping TypeName="DBModel.Investicijski_portfolio">
+              <MappingFragment StoreEntitySet="Investicijski_portfolio">
                 <ScalarProperty Name="id_portfolia" ColumnName="id_portfolia" />
                 <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="kategorije_transakcije">
-            <EntityTypeMapping TypeName="WalletDBModel.kategorije_transakcije">
-              <MappingFragment StoreEntitySet="kategorije_transakcije">
+          <EntitySetMapping Name="Kategorije_transakcije">
+            <EntityTypeMapping TypeName="DBModel.Kategorije_transakcije">
+              <MappingFragment StoreEntitySet="Kategorije_transakcije">
                 <ScalarProperty Name="id_kategorije_transakcije" ColumnName="id_kategorije_transakcije" />
                 <ScalarProperty Name="id_vrsta_transakcije" ColumnName="id_vrsta_transakcije" />
                 <ScalarProperty Name="naziv_kategorije" ColumnName="naziv_kategorije" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="korisnik">
-            <EntityTypeMapping TypeName="WalletDBModel.korisnik">
-              <MappingFragment StoreEntitySet="korisnik">
+          <EntitySetMapping Name="Korisnik">
+            <EntityTypeMapping TypeName="DBModel.Korisnik">
+              <MappingFragment StoreEntitySet="Korisnik">
                 <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
                 <ScalarProperty Name="ime_korisnika" ColumnName="ime_korisnika" />
                 <ScalarProperty Name="prezime_korisnika" ColumnName="prezime_korisnika" />
@@ -687,9 +687,9 @@ warning 6002: The table/view '18027_DB.dbo.transakcija_ima_kategorije' does not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="stanje_investicije">
-            <EntityTypeMapping TypeName="WalletDBModel.stanje_investicije">
-              <MappingFragment StoreEntitySet="stanje_investicije">
+          <EntitySetMapping Name="Stanje_investicije">
+            <EntityTypeMapping TypeName="DBModel.Stanje_investicije">
+              <MappingFragment StoreEntitySet="Stanje_investicije">
                 <ScalarProperty Name="id_stanja" ColumnName="id_stanja" />
                 <ScalarProperty Name="id_investicije" ColumnName="id_investicije" />
                 <ScalarProperty Name="vrijednost_investicije" ColumnName="vrijednost_investicije" />
@@ -697,62 +697,62 @@ warning 6002: The table/view '18027_DB.dbo.transakcija_ima_kategorije' does not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="transakcija">
-            <EntityTypeMapping TypeName="WalletDBModel.transakcija">
-              <MappingFragment StoreEntitySet="transakcija">
+          <EntitySetMapping Name="Transakcija">
+            <EntityTypeMapping TypeName="DBModel.Transakcija">
+              <MappingFragment StoreEntitySet="Transakcija">
                 <ScalarProperty Name="id_transakcije" ColumnName="id_transakcije" />
                 <ScalarProperty Name="iban" ColumnName="iban" />
                 <ScalarProperty Name="iznos_transakcije" ColumnName="iznos_transakcije" />
-                <ScalarProperty Name="datum_transakcije" ColumnName="datum_transakcije" />
+                <ScalarProperty Name="vrijeme_transakcije" ColumnName="vrijeme_transakcije" />
                 <ScalarProperty Name="opis_transakcije" ColumnName="opis_transakcije" />
                 <ScalarProperty Name="lokacija_slike_racuna" ColumnName="lokacija_slike_racuna" />
                 <ScalarProperty Name="id_vlastite_transakcije" ColumnName="id_vlastite_transakcije" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="transakcija_investicije">
-            <EntityTypeMapping TypeName="WalletDBModel.transakcija_investicije">
-              <MappingFragment StoreEntitySet="transakcija_investicije">
+          <EntitySetMapping Name="Transakcija_investicije">
+            <EntityTypeMapping TypeName="DBModel.Transakcija_investicije">
+              <MappingFragment StoreEntitySet="Transakcija_investicije">
                 <ScalarProperty Name="id_transakcije_investicije" ColumnName="id_transakcije_investicije" />
                 <ScalarProperty Name="id_vrsta_transakcije" ColumnName="id_vrsta_transakcije" />
                 <ScalarProperty Name="iban" ColumnName="iban" />
                 <ScalarProperty Name="id_investicije" ColumnName="id_investicije" />
                 <ScalarProperty Name="id_portfolia" ColumnName="id_portfolia" />
                 <ScalarProperty Name="iznos_transakcije_investicije" ColumnName="iznos_transakcije_investicije" />
-                <ScalarProperty Name="datum_transakcije_investicije" ColumnName="datum_transakcije_investicije" />
+                <ScalarProperty Name="vrijeme_transakcije_investicije" ColumnName="vrijeme_transakcije_investicije" />
                 <ScalarProperty Name="kolicina_investicije" ColumnName="kolicina_investicije" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vrsta_investicije">
-            <EntityTypeMapping TypeName="WalletDBModel.vrsta_investicije">
-              <MappingFragment StoreEntitySet="vrsta_investicije">
+          <EntitySetMapping Name="Vrsta_investicije">
+            <EntityTypeMapping TypeName="DBModel.Vrsta_investicije">
+              <MappingFragment StoreEntitySet="Vrsta_investicije">
                 <ScalarProperty Name="id_vrsta_investicije" ColumnName="id_vrsta_investicije" />
                 <ScalarProperty Name="naziv_vrste_investicije" ColumnName="naziv_vrste_investicije" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vrsta_racuna">
-            <EntityTypeMapping TypeName="WalletDBModel.vrsta_racuna">
-              <MappingFragment StoreEntitySet="vrsta_racuna">
+          <EntitySetMapping Name="Vrsta_racuna">
+            <EntityTypeMapping TypeName="DBModel.Vrsta_racuna">
+              <MappingFragment StoreEntitySet="Vrsta_racuna">
                 <ScalarProperty Name="id_vrsta_racuna" ColumnName="id_vrsta_racuna" />
                 <ScalarProperty Name="naziv_vrste_racuna" ColumnName="naziv_vrste_racuna" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vrsta_transakcije">
-            <EntityTypeMapping TypeName="WalletDBModel.vrsta_transakcije">
-              <MappingFragment StoreEntitySet="vrsta_transakcije">
+          <EntitySetMapping Name="Vrsta_transakcije">
+            <EntityTypeMapping TypeName="DBModel.Vrsta_transakcije">
+              <MappingFragment StoreEntitySet="Vrsta_transakcije">
                 <ScalarProperty Name="id_vrsta_transakcije" ColumnName="id_vrsta_transakcije" />
                 <ScalarProperty Name="naziv_vrste_transakcije" ColumnName="naziv_vrste_transakcije" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="transakcija_ima_kategorije" TypeName="WalletDBModel.transakcija_ima_kategorije" StoreEntitySet="transakcija_ima_kategorije">
-            <EndProperty Name="kategorije_transakcije">
+          <AssociationSetMapping Name="Transakcija_ima_kategorije" TypeName="DBModel.Transakcija_ima_kategorije" StoreEntitySet="Transakcija_ima_kategorije">
+            <EndProperty Name="Kategorije_transakcije">
               <ScalarProperty Name="id_kategorije_transakcije" ColumnName="id_kategorije_transakcije" />
             </EndProperty>
-            <EndProperty Name="transakcija">
+            <EndProperty Name="Transakcija">
               <ScalarProperty Name="id_transakcije" ColumnName="id_transakcije2" />
             </EndProperty>
           </AssociationSetMapping>

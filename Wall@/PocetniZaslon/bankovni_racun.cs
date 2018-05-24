@@ -12,15 +12,15 @@ namespace PocetniZaslon
     using System;
     using System.Collections.Generic;
     
-    public partial class bankovni_racun
+    public partial class Bankovni_racun
     {
         public string iban { get; set; }
         public int id_vrsta_racuna { get; set; }
         public int id_korisnik { get; set; }
-        public string nadimak_racuna { get; set; }
+        public string naziv_racuna { get; set; }
         public Nullable<decimal> stanje_racuna { get; set; }
     
-        public virtual korisnik korisnik { get; set; }
-        public virtual vrsta_racuna vrsta_racuna { get; set; }
+        public virtual Korisnik Korisnik { get; set; }
+        public virtual Vrsta_racuna Vrsta_racuna { get; set; }
     }
 }

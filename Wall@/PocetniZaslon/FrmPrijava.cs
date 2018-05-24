@@ -22,16 +22,16 @@ namespace PocetniZaslon
 
         private void btnPrijava_Click(object sender, EventArgs e)
         {
-            korisnik trenutniKorisnik = new korisnik(); // Instanciranje korisnika koje pri uspješnoj prijavi bilježi točno tog korisnika.
+            Korisnik trenutniKorisnik = new Korisnik(); // Instanciranje korisnika koje pri uspješnoj prijavi bilježi točno tog korisnika.
 
             /*
              Čitanje liste korisnika, tako da možemo provjeriti točnost login podataka.
              Vidi skriptu.
              */
-            BindingList<korisnik> korisnici = null;
-            using (var db = new Entities())
+            BindingList<Korisnik> korisnici = null;
+            using (var db = new WalletEntities())
             {
-                korisnici = new BindingList<korisnik>(db.korisnik.ToList());
+                korisnici = new BindingList<Korisnik>(db.Korisnik.ToList());
             }
 
             bool provjera = false; // Varijabla za provjeru korisnika (da ne ispisuje foreach više puta poruke).
