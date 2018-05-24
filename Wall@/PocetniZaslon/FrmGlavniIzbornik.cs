@@ -21,6 +21,14 @@ namespace PocetniZaslon
         {
             Application.Restart(); // Klikom na odjava aplikacija se resetira.
         }
-    }
+
+		private void btnBankovniRacun_Click(object sender, EventArgs e) // Klikom na Bankovni racuni otvara se forma FrmBankovniRacuni.
+		{
+			MDI_Forme.FrmBankovniRacuni formaBankovniRacun = new MDI_Forme.FrmBankovniRacuni();
+			formaBankovniRacun.MdiParent = this;
+			formaBankovniRacun.WindowState = FormWindowState.Maximized;
+			formaBankovniRacun.Show();
+		}
+	}
 }
 
