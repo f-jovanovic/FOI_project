@@ -12,8 +12,10 @@ namespace PocetniZaslon.MDI_Forme
 {
 	public partial class FrmBankovniRacuni : Form
 	{
-		public FrmBankovniRacuni()
+		Korisnik trenutniKorisnik = null;
+		public FrmBankovniRacuni(Korisnik korisnik)
 		{
+			trenutniKorisnik = korisnik;
 			InitializeComponent();
 		}
 	}

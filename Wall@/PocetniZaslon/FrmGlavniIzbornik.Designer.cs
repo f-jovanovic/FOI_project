@@ -39,6 +39,7 @@
 			this.btnUnosTransakcije = new System.Windows.Forms.Button();
 			this.btnBankovniRacun = new System.Windows.Forms.Button();
 			this.btnZaslon = new System.Windows.Forms.Button();
+			this.lblTrenutniKorisnikImePrezime = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -176,11 +177,21 @@
 			this.btnZaslon.UseVisualStyleBackColor = false;
 			this.btnZaslon.Click += new System.EventHandler(this.btnZaslon_Click);
 			// 
+			// lblTrenutniKorisnikImePrezime
+			// 
+			this.lblTrenutniKorisnikImePrezime.AutoSize = true;
+			this.lblTrenutniKorisnikImePrezime.Location = new System.Drawing.Point(9, 201);
+			this.lblTrenutniKorisnikImePrezime.Name = "lblTrenutniKorisnikImePrezime";
+			this.lblTrenutniKorisnikImePrezime.Size = new System.Drawing.Size(35, 13);
+			this.lblTrenutniKorisnikImePrezime.TabIndex = 20;
+			this.lblTrenutniKorisnikImePrezime.Text = "label1";
+			// 
 			// FrmGlavniIzbornik
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1424, 800);
+			this.Controls.Add(this.lblTrenutniKorisnikImePrezime);
 			this.Controls.Add(this.pictureBoxLogo);
 			this.Controls.Add(this.btnOdjava);
 			this.Controls.Add(this.btnPostavke);
@@ -201,6 +212,7 @@
 			this.SizeChanged += new System.EventHandler(this.FrmGlavniIzbornik_SizeChanged);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
@@ -215,6 +227,7 @@
         private System.Windows.Forms.Button btnUnosTransakcije;
         private System.Windows.Forms.Button btnBankovniRacun;
         private System.Windows.Forms.Button btnZaslon;
-    }
+		private System.Windows.Forms.Label lblTrenutniKorisnikImePrezime;
+	}
 }
 

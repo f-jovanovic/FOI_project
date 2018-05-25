@@ -54,7 +54,7 @@ namespace PocetniZaslon
                 if (txtLozinka.Text == trenutniKorisnik.lozinka)
                 {
                     MessageBox.Show("Prijava uspješna");
-                    FrmGlavniIzbornik glavniIzbornik = new FrmGlavniIzbornik(); // Ako je login dobar onda se pokrene FrmGlavniIzbornik, login je skriven i zatvara se skupa sa izbornikom.
+                    FrmGlavniIzbornik glavniIzbornik = new FrmGlavniIzbornik(trenutniKorisnik); // Ako je login dobar onda se pokrene FrmGlavniIzbornik, login je skriven i zatvara se skupa sa izbornikom.
                     this.Hide();
                     glavniIzbornik.ShowDialog();
                     this.Close();

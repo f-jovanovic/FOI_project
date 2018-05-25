@@ -12,9 +12,14 @@ namespace PocetniZaslon
 {
 	public partial class FrmGlavniIzbornik : Form
 	{
-		public FrmGlavniIzbornik()
+		Korisnik trenutniKorisnik = null;
+		public FrmGlavniIzbornik(Korisnik korisnik)
 		{
+			trenutniKorisnik = korisnik;
+
 			InitializeComponent();
+
+			lblTrenutniKorisnikImePrezime.Text = trenutniKorisnik.ime_korisnika + " " + trenutniKorisnik.prezime_korisnika;
 		}
 
 		#region Upravljanje Gumbima Glavnog Izbornika
@@ -31,7 +36,7 @@ namespace PocetniZaslon
 		private void btnBankovniRacun_Click(object sender, EventArgs e) // Klikom na Bankovni racuni otvara se forma FrmBankovniRacuni unutar MDI containera
 		{
 			UgasiSveOtvoreneProzore();
-			MDI_Forme.FrmBankovniRacuni formaBankovniRacun = new MDI_Forme.FrmBankovniRacuni();
+			MDI_Forme.FrmBankovniRacuni formaBankovniRacun = new MDI_Forme.FrmBankovniRacuni(trenutniKorisnik);
 			formaBankovniRacun.MdiParent = this;
 			formaBankovniRacun.Dock = DockStyle.Fill;
 			formaBankovniRacun.Show();
