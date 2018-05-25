@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace PocetniZaslon
 {
-    public partial class FrmGlavniIzbornik : Form
-    {
-        public FrmGlavniIzbornik()
-        {
-            InitializeComponent();
-        }
+	public partial class FrmGlavniIzbornik : Form
+	{
+		public FrmGlavniIzbornik()
+		{
+			InitializeComponent();
+		}
 
 		#region Upravljanje Gumbima Glavnog Izbornika
 
@@ -27,7 +27,7 @@ namespace PocetniZaslon
 		{
 			if (this.MdiChildren.Count<Form>() > 0) this.ActiveMdiChild.Close();
 		}
-		
+
 		private void btnBankovniRacun_Click(object sender, EventArgs e) // Klikom na Bankovni racuni otvara se forma FrmBankovniRacuni unutar MDI containera
 		{
 			UgasiSveOtvoreneProzore();
@@ -35,6 +35,7 @@ namespace PocetniZaslon
 			formaBankovniRacun.MdiParent = this;
 			formaBankovniRacun.Dock = DockStyle.Fill;
 			formaBankovniRacun.Show();
+			PrilagodiElementeChild(formaBankovniRacun);
 		}
 
 		private void btnZaslon_Click(object sender, EventArgs e)
@@ -72,7 +73,53 @@ namespace PocetniZaslon
 			Application.Restart(); // Klikom na odjava aplikacija se resetira.
 		}
 
+		private void FrmGlavniIzbornik_SizeChanged(object sender, EventArgs e)
+		{
+			if (this.MdiChildren.Count<Form>() > 0) PrilagodiElementeChild(this.ActiveMdiChild);
+		}
+
+		/// <summary>
+		/// Metoda raspoređuje sve elemente forme u njenu sredinu."
+		/// </summary>
+
+		public void PrilagodiElementeChild(Form forma)
+		{
+			int krajnjiLijeviRub = forma.Width;
+			int krajnjiGornjiRub = forma.Height;
+			int krajnjiDesniRub = 0;
+			int krajnjiDonjiRub = 0;
+
+			int locationX, locationY, widthElementa, heightElementa;
+
+			foreach (Control elementForme in forma.Controls)
+			{
+				locationX = elementForme.Location.X;
+				locationY = elementForme.Location.Y;
+				widthElementa = elementForme.Width;
+				heightElementa = elementForme.Height;
+
+				if (locationX < krajnjiLijeviRub) krajnjiLijeviRub = locationX;
+				if (locationY < krajnjiGornjiRub) krajnjiGornjiRub = locationY;
+
+				if (locationX + widthElementa > krajnjiDesniRub) krajnjiDesniRub = locationX + widthElementa;
+				if (locationY + heightElementa > krajnjiDonjiRub) krajnjiDonjiRub = locationY + heightElementa;
+			}
+
+			foreach (Control elementForme in forma.Controls)
+			{
+				elementForme.Location = new Point(
+					elementForme.Location.X - krajnjiLijeviRub, //stavlja lokaciju u sredinu po x osi
+					elementForme.Location.Y - krajnjiGornjiRub // stavlja lokaciju u sredinu po y osi
+					);
+				elementForme.Location = new Point(
+					elementForme.Location.X + (forma.Width / 2 - (krajnjiDesniRub - krajnjiLijeviRub) / 2), //stavlja lokaciju u sredinu po x osi
+					elementForme.Location.Y + (forma.Height / 2 - (krajnjiDonjiRub - krajnjiGornjiRub) / 2) // stavlja lokaciju u sredinu po y osi
+					);
+			}
+		}
+
 		#endregion
+
 	}
 }
 
