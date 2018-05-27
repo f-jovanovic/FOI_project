@@ -32,12 +32,15 @@ namespace PocetniZaslon.MDI_Forme
 			bankovniracunBindingSource.DataSource = listaRacuna;
 		}
 
+
+		//Ovisno o odabranom racunu unutar combo boxa prikazuje nam se IBAN, vrsta racuna i stanje racuna
 		private void PrikaziPodatkeOdabranogRacuna()
 		{
 			Bankovni_racun odabraniBankovniRacun = bankovniracunBindingSource.Current as Bankovni_racun;
 			if (odabraniBankovniRacun != null)
 			{
 				lblIbanOdabranogRacuna.Text = odabraniBankovniRacun.iban;
+				//dohvaćamo naziv vrste računa preko vanjskog ključa
 				using (var db = new WalletEntities())
 				{
 					Vrsta_racuna vrsta = (from t in db.Vrsta_racuna
@@ -59,8 +62,17 @@ namespace PocetniZaslon.MDI_Forme
 
 		private void btnDodajNoviRacun_Click(object sender, EventArgs e)
 		{
-			MDI_Forme.FrmBankovniRacunDodaj formaDodavanjaRacuna = new FrmBankovniRacunDodaj();
+			MDI_Forme.FrmBankovniRacunDodaj formaDodavanjaRacuna = new FrmBankovniRacunDodaj(trenutniKorisnik);
 			formaDodavanjaRacuna.ShowDialog();
+			PrikaziBankovneRacunePremaKorisniku();
+		}
+
+		private void btnUredi_Click(object sender, EventArgs e)
+		{
+			Bankovni_racun odabraniRacun = bankovniracunBindingSource.Current as Bankovni_racun;
+			MDI_Forme.FrmBankovniRacunDodaj formaDodavanjaRacuna = new FrmBankovniRacunDodaj(trenutniKorisnik, odabraniRacun);
+			formaDodavanjaRacuna.ShowDialog();
+			PrikaziBankovneRacunePremaKorisniku();
 		}
 	}
 }

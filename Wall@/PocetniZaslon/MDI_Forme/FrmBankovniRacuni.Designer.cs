@@ -41,6 +41,7 @@
 			this.lblVrstaOdabranogRacuna = new System.Windows.Forms.Label();
 			this.lblStanjeOdabranogRacuna = new System.Windows.Forms.Label();
 			this.btnIzbrisiRacun = new System.Windows.Forms.Button();
+			this.btnUredi = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -163,11 +164,23 @@
 			this.btnIzbrisiRacun.Text = "Izbrisi racun";
 			this.btnIzbrisiRacun.UseVisualStyleBackColor = true;
 			// 
+			// btnUredi
+			// 
+			this.btnUredi.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnUredi.Location = new System.Drawing.Point(766, 280);
+			this.btnUredi.Name = "btnUredi";
+			this.btnUredi.Size = new System.Drawing.Size(75, 23);
+			this.btnUredi.TabIndex = 11;
+			this.btnUredi.Text = "Uredi račun";
+			this.btnUredi.UseVisualStyleBackColor = true;
+			this.btnUredi.Click += new System.EventHandler(this.btnUredi_Click);
+			// 
 			// FrmBankovniRacuni
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(850, 579);
+			this.Controls.Add(this.btnUredi);
 			this.Controls.Add(this.btnIzbrisiRacun);
 			this.Controls.Add(this.lblStanjeOdabranogRacuna);
 			this.Controls.Add(this.lblVrstaOdabranogRacuna);
@@ -202,5 +215,6 @@
 		private System.Windows.Forms.Label lblStanjeOdabranogRacuna;
 		private System.Windows.Forms.Button btnIzbrisiRacun;
 		private System.Windows.Forms.BindingSource bankovniracunBindingSource;
+		private System.Windows.Forms.Button btnUredi;
 	}
 }
