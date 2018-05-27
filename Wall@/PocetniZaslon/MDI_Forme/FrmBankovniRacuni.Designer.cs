@@ -28,17 +28,20 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.lblMojiBankovniRacuni = new System.Windows.Forms.Label();
 			this.lblOdaberiteRacun = new System.Windows.Forms.Label();
 			this.lblIban = new System.Windows.Forms.Label();
 			this.lblVrstaRacuna = new System.Windows.Forms.Label();
 			this.lblStanjeRacuna = new System.Windows.Forms.Label();
 			this.cboRacun = new System.Windows.Forms.ComboBox();
+			this.bankovniracunBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.btnDodajNoviRacun = new System.Windows.Forms.Button();
 			this.lblIbanOdabranogRacuna = new System.Windows.Forms.Label();
 			this.lblVrstaOdabranogRacuna = new System.Windows.Forms.Label();
 			this.lblStanjeOdabranogRacuna = new System.Windows.Forms.Label();
 			this.btnIzbrisiRacun = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lblMojiBankovniRacuni
@@ -93,22 +96,32 @@
 			// 
 			// cboRacun
 			// 
-			this.cboRacun.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cboRacun.DataSource = this.bankovniracunBindingSource;
+			this.cboRacun.DisplayMember = "naziv_racuna";
+			this.cboRacun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cboRacun.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cboRacun.FormattingEnabled = true;
 			this.cboRacun.Location = new System.Drawing.Point(237, 234);
 			this.cboRacun.Name = "cboRacun";
-			this.cboRacun.Size = new System.Drawing.Size(604, 37);
+			this.cboRacun.Size = new System.Drawing.Size(604, 40);
 			this.cboRacun.TabIndex = 5;
+			this.cboRacun.ValueMember = "iban";
+			// 
+			// bankovniracunBindingSource
+			// 
+			this.bankovniracunBindingSource.DataSource = typeof(PocetniZaslon.Bankovni_racun);
+			this.bankovniracunBindingSource.CurrentChanged += new System.EventHandler(this.bankovniracunBindingSource_CurrentChanged);
 			// 
 			// btnDodajNoviRacun
 			// 
-			this.btnDodajNoviRacun.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnDodajNoviRacun.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnDodajNoviRacun.Location = new System.Drawing.Point(362, 513);
 			this.btnDodajNoviRacun.Name = "btnDodajNoviRacun";
 			this.btnDodajNoviRacun.Size = new System.Drawing.Size(231, 54);
 			this.btnDodajNoviRacun.TabIndex = 6;
 			this.btnDodajNoviRacun.Text = "Dodaj novi račun";
 			this.btnDodajNoviRacun.UseVisualStyleBackColor = true;
+			this.btnDodajNoviRacun.Click += new System.EventHandler(this.btnDodajNoviRacun_Click);
 			// 
 			// lblIbanOdabranogRacuna
 			// 
@@ -142,7 +155,7 @@
 			// 
 			// btnIzbrisiRacun
 			// 
-			this.btnIzbrisiRacun.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnIzbrisiRacun.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.btnIzbrisiRacun.Location = new System.Drawing.Point(610, 513);
 			this.btnIzbrisiRacun.Name = "btnIzbrisiRacun";
 			this.btnIzbrisiRacun.Size = new System.Drawing.Size(231, 54);
@@ -169,6 +182,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "FrmBankovniRacuni";
 			this.Text = "FrmBankovniRacuni";
+			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -187,5 +201,6 @@
 		private System.Windows.Forms.Label lblVrstaOdabranogRacuna;
 		private System.Windows.Forms.Label lblStanjeOdabranogRacuna;
 		private System.Windows.Forms.Button btnIzbrisiRacun;
+		private System.Windows.Forms.BindingSource bankovniracunBindingSource;
 	}
 }

@@ -87,6 +87,12 @@
     <Compile Include="Korisnik.cs">
       <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MDI_Forme\FrmBankovniRacunDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Forme\FrmBankovniRacunDodaj.Designer.cs">
+      <DependentUpon>FrmBankovniRacunDodaj.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDI_Forme\FrmBankovniRacuni.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     <EmbeddedResource Include="FrmRegistracija.resx">
       <DependentUpon>FrmRegistracija.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Forme\FrmBankovniRacunDodaj.resx">
+      <DependentUpon>FrmBankovniRacunDodaj.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmBankovniRacuni.resx">
       <DependentUpon>FrmBankovniRacuni.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +160,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Bankovni_racun.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
