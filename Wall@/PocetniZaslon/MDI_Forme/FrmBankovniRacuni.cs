@@ -59,7 +59,8 @@ namespace PocetniZaslon.MDI_Forme
 
 		private void btnDodajNoviRacun_Click(object sender, EventArgs e)
 		{
-
+			MDI_Forme.FrmBankovniRacunDodaj formaDodavanjaRacuna = new FrmBankovniRacunDodaj();
+			formaDodavanjaRacuna.ShowDialog();
 		}
 	}
 }

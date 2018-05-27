@@ -30,7 +30,6 @@
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGlavniIzbornik));
 			this.splitterMenuScreen = new System.Windows.Forms.Splitter();
-			this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
 			this.btnOdjava = new System.Windows.Forms.Button();
 			this.btnPostavke = new System.Windows.Forms.Button();
 			this.btnStatistika = new System.Windows.Forms.Button();
@@ -40,6 +39,7 @@
 			this.btnBankovniRacun = new System.Windows.Forms.Button();
 			this.btnZaslon = new System.Windows.Forms.Button();
 			this.lblTrenutniKorisnikImePrezime = new System.Windows.Forms.Label();
+			this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -52,18 +52,6 @@
 			this.splitterMenuScreen.Size = new System.Drawing.Size(194, 800);
 			this.splitterMenuScreen.TabIndex = 9;
 			this.splitterMenuScreen.TabStop = false;
-			// 
-			// pictureBoxLogo
-			// 
-			this.pictureBoxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.BackgroundImage")));
-			this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.pictureBoxLogo.Location = new System.Drawing.Point(9, 10);
-			this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(2);
-			this.pictureBoxLogo.Name = "pictureBoxLogo";
-			this.pictureBoxLogo.Size = new System.Drawing.Size(175, 158);
-			this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.pictureBoxLogo.TabIndex = 18;
-			this.pictureBoxLogo.TabStop = false;
 			// 
 			// btnOdjava
 			// 
@@ -185,6 +173,18 @@
 			this.lblTrenutniKorisnikImePrezime.Size = new System.Drawing.Size(35, 13);
 			this.lblTrenutniKorisnikImePrezime.TabIndex = 20;
 			this.lblTrenutniKorisnikImePrezime.Text = "label1";
+			// 
+			// pictureBoxLogo
+			// 
+			this.pictureBoxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.BackgroundImage")));
+			this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.pictureBoxLogo.Location = new System.Drawing.Point(9, 10);
+			this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(2);
+			this.pictureBoxLogo.Name = "pictureBoxLogo";
+			this.pictureBoxLogo.Size = new System.Drawing.Size(175, 158);
+			this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.pictureBoxLogo.TabIndex = 18;
+			this.pictureBoxLogo.TabStop = false;
 			// 
 			// FrmGlavniIzbornik
 			// 

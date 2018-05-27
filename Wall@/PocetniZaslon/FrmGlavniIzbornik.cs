@@ -89,37 +89,40 @@ namespace PocetniZaslon
 
 		public void PrilagodiElementeChild(Form forma)
 		{
-			int krajnjiLijeviRub = forma.Width;
-			int krajnjiGornjiRub = forma.Height;
-			int krajnjiDesniRub = 0;
-			int krajnjiDonjiRub = 0;
-
-			int locationX, locationY, widthElementa, heightElementa;
-
-			foreach (Control elementForme in forma.Controls)
+			if (forma != null)
 			{
-				locationX = elementForme.Location.X;
-				locationY = elementForme.Location.Y;
-				widthElementa = elementForme.Width;
-				heightElementa = elementForme.Height;
+				int krajnjiLijeviRub = forma.Width;
+				int krajnjiGornjiRub = forma.Height;
+				int krajnjiDesniRub = 0;
+				int krajnjiDonjiRub = 0;
 
-				if (locationX < krajnjiLijeviRub) krajnjiLijeviRub = locationX;
-				if (locationY < krajnjiGornjiRub) krajnjiGornjiRub = locationY;
+				int locationX, locationY, widthElementa, heightElementa;
 
-				if (locationX + widthElementa > krajnjiDesniRub) krajnjiDesniRub = locationX + widthElementa;
-				if (locationY + heightElementa > krajnjiDonjiRub) krajnjiDonjiRub = locationY + heightElementa;
-			}
+				foreach (Control elementForme in forma.Controls)
+				{
+					locationX = elementForme.Location.X;
+					locationY = elementForme.Location.Y;
+					widthElementa = elementForme.Width;
+					heightElementa = elementForme.Height;
 
-			foreach (Control elementForme in forma.Controls)
-			{
-				elementForme.Location = new Point(
-					elementForme.Location.X - krajnjiLijeviRub, //stavlja lokaciju u sredinu po x osi
-					elementForme.Location.Y - krajnjiGornjiRub // stavlja lokaciju u sredinu po y osi
-					);
-				elementForme.Location = new Point(
-					elementForme.Location.X + (forma.Width / 2 - (krajnjiDesniRub - krajnjiLijeviRub) / 2), //stavlja lokaciju u sredinu po x osi
-					elementForme.Location.Y + (forma.Height / 2 - (krajnjiDonjiRub - krajnjiGornjiRub) / 2) // stavlja lokaciju u sredinu po y osi
-					);
+					if (locationX < krajnjiLijeviRub) krajnjiLijeviRub = locationX;
+					if (locationY < krajnjiGornjiRub) krajnjiGornjiRub = locationY;
+
+					if (locationX + widthElementa > krajnjiDesniRub) krajnjiDesniRub = locationX + widthElementa;
+					if (locationY + heightElementa > krajnjiDonjiRub) krajnjiDonjiRub = locationY + heightElementa;
+				}
+
+				foreach (Control elementForme in forma.Controls)
+				{
+					elementForme.Location = new Point(
+						elementForme.Location.X - krajnjiLijeviRub, //stavlja lokaciju u sredinu po x osi
+						elementForme.Location.Y - krajnjiGornjiRub // stavlja lokaciju u sredinu po y osi
+						);
+					elementForme.Location = new Point(
+						elementForme.Location.X + (forma.Width / 2 - (krajnjiDesniRub - krajnjiLijeviRub) / 2), //stavlja lokaciju u sredinu po x osi
+						elementForme.Location.Y + (forma.Height / 2 - (krajnjiDonjiRub - krajnjiGornjiRub) / 2) // stavlja lokaciju u sredinu po y osi
+						);
+				}
 			}
 		}
 
