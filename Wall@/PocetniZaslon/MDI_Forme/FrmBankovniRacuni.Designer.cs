@@ -42,6 +42,7 @@
 			this.lblStanjeOdabranogRacuna = new System.Windows.Forms.Label();
 			this.btnIzbrisiRacun = new System.Windows.Forms.Button();
 			this.btnUredi = new System.Windows.Forms.Button();
+			this.btnObrisi = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -167,7 +168,7 @@
 			// btnUredi
 			// 
 			this.btnUredi.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnUredi.Location = new System.Drawing.Point(766, 280);
+			this.btnUredi.Location = new System.Drawing.Point(680, 280);
 			this.btnUredi.Name = "btnUredi";
 			this.btnUredi.Size = new System.Drawing.Size(75, 23);
 			this.btnUredi.TabIndex = 11;
@@ -175,11 +176,23 @@
 			this.btnUredi.UseVisualStyleBackColor = true;
 			this.btnUredi.Click += new System.EventHandler(this.btnUredi_Click);
 			// 
+			// btnObrisi
+			// 
+			this.btnObrisi.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnObrisi.Location = new System.Drawing.Point(766, 280);
+			this.btnObrisi.Name = "btnObrisi";
+			this.btnObrisi.Size = new System.Drawing.Size(75, 23);
+			this.btnObrisi.TabIndex = 12;
+			this.btnObrisi.Text = "Obriši račun";
+			this.btnObrisi.UseVisualStyleBackColor = true;
+			this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
+			// 
 			// FrmBankovniRacuni
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(850, 579);
+			this.Controls.Add(this.btnObrisi);
 			this.Controls.Add(this.btnUredi);
 			this.Controls.Add(this.btnIzbrisiRacun);
 			this.Controls.Add(this.lblStanjeOdabranogRacuna);
@@ -216,5 +229,6 @@
 		private System.Windows.Forms.Button btnIzbrisiRacun;
 		private System.Windows.Forms.BindingSource bankovniracunBindingSource;
 		private System.Windows.Forms.Button btnUredi;
+		private System.Windows.Forms.Button btnObrisi;
 	}
 }

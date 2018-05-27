@@ -70,8 +70,30 @@ namespace PocetniZaslon.MDI_Forme
 		private void btnUredi_Click(object sender, EventArgs e)
 		{
 			Bankovni_racun odabraniRacun = bankovniracunBindingSource.Current as Bankovni_racun;
-			MDI_Forme.FrmBankovniRacunDodaj formaDodavanjaRacuna = new FrmBankovniRacunDodaj(trenutniKorisnik, odabraniRacun);
-			formaDodavanjaRacuna.ShowDialog();
+			if(odabraniRacun != null)
+			{
+				MDI_Forme.FrmBankovniRacunDodaj formaDodavanjaRacuna = new FrmBankovniRacunDodaj(trenutniKorisnik, odabraniRacun);
+				formaDodavanjaRacuna.ShowDialog();
+				PrikaziBankovneRacunePremaKorisniku();
+			}
+		}
+
+		//BRISANJE RAČUNA, JAKO BITNO MIJENJATI AKO JE RAČUN VEĆ VEZAN NA NEŠTO
+		private void btnObrisi_Click(object sender, EventArgs e)
+		{
+			Bankovni_racun odabraniRacun = bankovniracunBindingSource.Current as Bankovni_racun;
+			if (odabraniRacun != null)
+			{
+				if (MessageBox.Show("Da li ste sigurni?", "Upozorenje!", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+				{
+					using (var db = new WalletEntities())
+					{
+						db.Bankovni_racun.Attach(odabraniRacun);
+						db.Bankovni_racun.Remove(odabraniRacun);
+						db.SaveChanges();
+					}
+				}
+			}
 			PrikaziBankovneRacunePremaKorisniku();
 		}
 	}

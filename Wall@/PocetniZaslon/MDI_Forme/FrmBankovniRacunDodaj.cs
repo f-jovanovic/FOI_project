@@ -30,6 +30,7 @@ namespace PocetniZaslon.MDI_Forme
 
 			InitializeComponent();
 
+			this.Text = "Uređivanje računa";
 			btnDodajNoviRacun.Text = "Promijeni";
 			txtIban.Enabled = false;
 			txtStanjeRacuna.Enabled = false;
