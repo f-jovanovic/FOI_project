@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\FOI\PI - Git\r18027\Wall@\PocetniZaslon\WalletDatabaseModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\PiProjekt\Wall@\PocetniZaslon\WalletDatabaseModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

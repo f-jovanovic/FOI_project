@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bankovni_racun">
           <Key>
             <PropertyRef Name="iban" />
@@ -258,6 +258,30 @@ warning 6002: The table/view '18027_DB.dbo.Transakcija_ima_kategorije' does not 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Transakcija_Bankovni_racun_iban_fk">
+          <End Role="Bankovni_racun" Type="Self.Bankovni_racun" Multiplicity="1" />
+          <End Role="Transakcija" Type="Self.Transakcija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bankovni_racun">
+              <PropertyRef Name="iban" />
+            </Principal>
+            <Dependent Role="Transakcija">
+              <PropertyRef Name="iban" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Transakcija_investicije_Bankovni_racun_iban_fk">
+          <End Role="Bankovni_racun" Type="Self.Bankovni_racun" Multiplicity="0..1" />
+          <End Role="Transakcija_investicije" Type="Self.Transakcija_investicije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bankovni_racun">
+              <PropertyRef Name="iban" />
+            </Principal>
+            <Dependent Role="Transakcija_investicije">
+              <PropertyRef Name="iban" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DBModelStoreContainer">
           <EntitySet Name="Bankovni_racun" EntityType="Self.Bankovni_racun" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Investicija" EntityType="Self.Investicija" Schema="dbo" store:Type="Tables" />
@@ -324,9 +348,16 @@ warning 6002: The table/view '18027_DB.dbo.Transakcija_ima_kategorije' does not 
             <End Role="Transakcija" EntitySet="Transakcija" />
             <End Role="Transakcija1" EntitySet="Transakcija" />
           </AssociationSet>
+          <AssociationSet Name="Transakcija_Bankovni_racun_iban_fk" Association="Self.Transakcija_Bankovni_racun_iban_fk">
+            <End Role="Bankovni_racun" EntitySet="Bankovni_racun" />
+            <End Role="Transakcija" EntitySet="Transakcija" />
+          </AssociationSet>
+          <AssociationSet Name="Transakcija_investicije_Bankovni_racun_iban_fk" Association="Self.Transakcija_investicije_Bankovni_racun_iban_fk">
+            <End Role="Bankovni_racun" EntitySet="Bankovni_racun" />
+            <End Role="Transakcija_investicije" EntitySet="Transakcija_investicije" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -341,6 +372,8 @@ warning 6002: The table/view '18027_DB.dbo.Transakcija_ima_kategorije' does not 
           <Property Name="stanje_racuna" Type="Decimal" Precision="19" Scale="2" />
           <NavigationProperty Name="Korisnik" Relationship="Self.fk_bankovni_racun_korisnik" FromRole="Bankovni_racun" ToRole="Korisnik" />
           <NavigationProperty Name="Vrsta_racuna" Relationship="Self.fk_bankovni_racun_vrsta_racuna1" FromRole="Bankovni_racun" ToRole="Vrsta_racuna" />
+          <NavigationProperty Name="Transakcija" Relationship="DBModel.Transakcija_Bankovni_racun_iban_fk" FromRole="Bankovni_racun" ToRole="Transakcija" />
+          <NavigationProperty Name="Transakcija_investicije" Relationship="DBModel.Transakcija_investicije_Bankovni_racun_iban_fk" FromRole="Bankovni_racun" ToRole="Transakcija_investicije" />
         </EntityType>
         <EntityType Name="Investicija">
           <Key>
@@ -409,6 +442,7 @@ warning 6002: The table/view '18027_DB.dbo.Transakcija_ima_kategorije' does not 
           <NavigationProperty Name="Transakcija1" Relationship="Self.fk_transakcija_transakcija1" FromRole="Transakcija" ToRole="Transakcija1" />
           <NavigationProperty Name="Transakcija2" Relationship="Self.fk_transakcija_transakcija1" FromRole="Transakcija1" ToRole="Transakcija" />
           <NavigationProperty Name="Kategorije_transakcije" Relationship="Self.Transakcija_ima_kategorije" FromRole="Transakcija" ToRole="Kategorije_transakcije" />
+          <NavigationProperty Name="Bankovni_racun" Relationship="DBModel.Transakcija_Bankovni_racun_iban_fk" FromRole="Transakcija" ToRole="Bankovni_racun" />
         </EntityType>
         <EntityType Name="Transakcija_investicije">
           <Key>
@@ -425,6 +459,7 @@ warning 6002: The table/view '18027_DB.dbo.Transakcija_ima_kategorije' does not 
           <NavigationProperty Name="Investicija" Relationship="Self.fk_transakcija_investicije_investicija1" FromRole="Transakcija_investicije" ToRole="Investicija" />
           <NavigationProperty Name="Investicijski_portfolio" Relationship="Self.fk_transakcija_investicije_investicijski_portfolio1" FromRole="Transakcija_investicije" ToRole="Investicijski_portfolio" />
           <NavigationProperty Name="Vrsta_transakcije" Relationship="Self.fk_transakcija_investicije_vrsta_transakcije1" FromRole="Transakcija_investicije" ToRole="Vrsta_transakcije" />
+          <NavigationProperty Name="Bankovni_racun" Relationship="DBModel.Transakcija_investicije_Bankovni_racun_iban_fk" FromRole="Transakcija_investicije" ToRole="Bankovni_racun" />
         </EntityType>
         <EntityType Name="Vrsta_investicije">
           <Key>
@@ -631,7 +666,39 @@ warning 6002: The table/view '18027_DB.dbo.Transakcija_ima_kategorije' does not 
             <End Role="Kategorije_transakcije" EntitySet="Kategorije_transakcije" />
             <End Role="Transakcija" EntitySet="Transakcija" />
           </AssociationSet>
+          <AssociationSet Name="Transakcija_Bankovni_racun_iban_fk" Association="DBModel.Transakcija_Bankovni_racun_iban_fk">
+            <End Role="Bankovni_racun" EntitySet="Bankovni_racun" />
+            <End Role="Transakcija" EntitySet="Transakcija" />
+          </AssociationSet>
+          <AssociationSet Name="Transakcija_investicije_Bankovni_racun_iban_fk" Association="DBModel.Transakcija_investicije_Bankovni_racun_iban_fk">
+            <End Role="Bankovni_racun" EntitySet="Bankovni_racun" />
+            <End Role="Transakcija_investicije" EntitySet="Transakcija_investicije" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="Transakcija_Bankovni_racun_iban_fk">
+          <End Type="DBModel.Bankovni_racun" Role="Bankovni_racun" Multiplicity="1" />
+          <End Type="DBModel.Transakcija" Role="Transakcija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bankovni_racun">
+              <PropertyRef Name="iban" />
+            </Principal>
+            <Dependent Role="Transakcija">
+              <PropertyRef Name="iban" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Transakcija_investicije_Bankovni_racun_iban_fk">
+          <End Type="DBModel.Bankovni_racun" Role="Bankovni_racun" Multiplicity="0..1" />
+          <End Type="DBModel.Transakcija_investicije" Role="Transakcija_investicije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bankovni_racun">
+              <PropertyRef Name="iban" />
+            </Principal>
+            <Dependent Role="Transakcija_investicije">
+              <PropertyRef Name="iban" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

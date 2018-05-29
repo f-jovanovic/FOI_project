@@ -14,6 +14,13 @@ namespace PocetniZaslon
     
     public partial class Bankovni_racun
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Bankovni_racun()
+        {
+            this.Transakcija = new HashSet<Transakcija>();
+            this.Transakcija_investicije = new HashSet<Transakcija_investicije>();
+        }
+    
         public string iban { get; set; }
         public int id_vrsta_racuna { get; set; }
         public int id_korisnik { get; set; }
@@ -22,5 +29,9 @@ namespace PocetniZaslon
     
         public virtual Korisnik Korisnik { get; set; }
         public virtual Vrsta_racuna Vrsta_racuna { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Transakcija> Transakcija { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Transakcija_investicije> Transakcija_investicije { get; set; }
     }
 }

@@ -34,5 +34,6 @@ namespace PocetniZaslon
         public virtual Transakcija Transakcija2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kategorije_transakcije> Kategorije_transakcije { get; set; }
+        public virtual Bankovni_racun Bankovni_racun { get; set; }
     }
 }

@@ -27,6 +27,8 @@
         <AssociationConnector Association="DBModel.fk_transakcija_transakcija1" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.fk_transakcija_investicije_vrsta_transakcije1" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.Transakcija_ima_kategorije" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.Transakcija_Bankovni_racun_iban_fk" />
+        <AssociationConnector Association="DBModel.Transakcija_investicije_Bankovni_racun_iban_fk" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
