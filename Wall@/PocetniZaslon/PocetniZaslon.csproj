@@ -99,6 +99,12 @@
     <Compile Include="MDI_Forme\FrmBankovniRacuni.Designer.cs">
       <DependentUpon>FrmBankovniRacuni.cs</DependentUpon>
     </Compile>
+    <Compile Include="MDI_Forme\FrmInvesticijskiPortfolio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Forme\FrmInvesticijskiPortfolio.Designer.cs">
+      <DependentUpon>FrmInvesticijskiPortfolio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stanje_investicije.cs">
