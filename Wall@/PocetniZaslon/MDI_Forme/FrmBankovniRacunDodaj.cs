@@ -50,6 +50,7 @@ namespace PocetniZaslon.MDI_Forme
 			}
 		}
 
+
 		private void PrikaziVrsteBankovnihRacuna()
 		{
 			BindingList<Vrsta_racuna> listaVrstaRacuna = null;
@@ -80,7 +81,8 @@ namespace PocetniZaslon.MDI_Forme
 		//dodavanje novog korisnika
 		private void btnDodajNoviRacun_Click(object sender, EventArgs e)
 		{
-			Vrsta_racuna odabranaVrstaRacuna = vrstaracunaBindingSource.Current as Vrsta_racuna;
+			Vrsta_racuna odabranaVrstaRacuna = null;
+			odabranaVrstaRacuna = vrstaracunaBindingSource.Current as Vrsta_racuna;
 			bool postojiRacunSIstimIbanom = false;
 
 			if (odabraniRacun == null) // provjeravamo radi li se o novom unosu ili uređivanju
@@ -94,6 +96,7 @@ namespace PocetniZaslon.MDI_Forme
 					{
 						db.Korisnik.Attach(trenutniKorisnik);
 						db.Vrsta_racuna.Attach(odabranaVrstaRacuna);
+
 						Bankovni_racun noviBankovniRacun = new Bankovni_racun
 						{
 							iban = txtIban.Text,
@@ -104,6 +107,8 @@ namespace PocetniZaslon.MDI_Forme
 						};
 						db.Bankovni_racun.Add(noviBankovniRacun);
 						db.SaveChanges();
+						db.Entry(trenutniKorisnik).State = System.Data.Entity.EntityState.Detached;
+						db.Entry(odabranaVrstaRacuna).State = System.Data.Entity.EntityState.Detached;
 					}
 				}
 			}
