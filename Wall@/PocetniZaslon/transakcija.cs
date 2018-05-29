@@ -21,19 +21,19 @@ namespace PocetniZaslon
             this.Kategorije_transakcije = new HashSet<Kategorije_transakcije>();
         }
     
-        public int id_transakcije { get; set; }
         public string iban { get; set; }
         public decimal iznos_transakcije { get; set; }
         public Nullable<System.DateTime> vrijeme_transakcije { get; set; }
         public string opis_transakcije { get; set; }
         public string lokacija_slike_racuna { get; set; }
         public Nullable<int> id_vlastite_transakcije { get; set; }
+        public int id_transakcije { get; set; }
     
+        public virtual Bankovni_racun Bankovni_racun { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transakcija> Transakcija1 { get; set; }
         public virtual Transakcija Transakcija2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kategorije_transakcije> Kategorije_transakcije { get; set; }
-        public virtual Bankovni_racun Bankovni_racun { get; set; }
     }
 }

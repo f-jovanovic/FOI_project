@@ -29,8 +29,9 @@ namespace PocetniZaslon.MDI_Forme
 			odabraniRacun = racun;
 
 			InitializeComponent();
-
+			//mijenjanje izgleda i unaprijed unesenih stvari u formu jer se radi nad postojećim računom
 			this.Text = "Uređivanje računa";
+			lblMojiBankovniRacuni.Text = "Uređivanje bankovnog računa.";
 			btnDodajNoviRacun.Text = "Promijeni";
 			txtIban.Enabled = false;
 			txtStanjeRacuna.Enabled = false;

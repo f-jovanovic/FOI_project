@@ -25,10 +25,10 @@ namespace PocetniZaslon
         public int id_vrsta_investicije { get; set; }
         public string naziv_investicije { get; set; }
     
-        public virtual Vrsta_investicije Vrsta_investicije { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stanje_investicije> Stanje_investicije { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transakcija_investicije> Transakcija_investicije { get; set; }
+        public virtual Vrsta_investicije Vrsta_investicije { get; set; }
     }
 }

@@ -23,8 +23,8 @@ namespace PocetniZaslon
         public int id_portfolia { get; set; }
         public int id_korisnik { get; set; }
     
-        public virtual Korisnik Korisnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transakcija_investicije> Transakcija_investicije { get; set; }
+        public virtual Korisnik Korisnik { get; set; }
     }
 }

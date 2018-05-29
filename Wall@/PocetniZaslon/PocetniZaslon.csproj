@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bankovni_racun.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FrmGlavniIzbornik.cs">
       <SubType>Form</SubType>
@@ -76,16 +76,16 @@
       <DependentUpon>FrmRegistracija.cs</DependentUpon>
     </Compile>
     <Compile Include="Investicija.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Investicijski_portfolio.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Kategorije_transakcije.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Korisnik.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MDI_Forme\FrmBankovniRacunDodaj.cs">
       <SubType>Form</SubType>
@@ -102,37 +102,37 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stanje_investicije.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Transakcija.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Transakcija_investicije.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Vrsta_investicije.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Vrsta_racuna.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Vrsta_transakcije.cs">
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="WalletDatabaseModel.Context.cs">
+    <Compile Include="WalletDatabseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WalletDatabaseModel.Context.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="WalletDatabaseModel.cs">
+    <Compile Include="WalletDatabseModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WalletDatabaseModel.tt</DependentUpon>
+      <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="WalletDatabaseModel.Designer.cs">
+    <Compile Include="WalletDatabseModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WalletDatabaseModel.edmx</DependentUpon>
+      <DependentUpon>WalletDatabseModel.edmx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FrmGlavniIzbornik.resx">
       <DependentUpon>FrmGlavniIzbornik.cs</DependentUpon>
@@ -171,12 +171,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="WalletDatabaseModel.edmx">
+    <EntityDeploy Include="WalletDatabseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WalletDatabaseModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>WalletDatabseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="WalletDatabaseModel.edmx.diagram">
-      <DependentUpon>WalletDatabaseModel.edmx</DependentUpon>
+    <None Include="WalletDatabseModel.edmx.diagram">
+      <DependentUpon>WalletDatabseModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -189,15 +189,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WalletDatabaseModel.Context.tt">
+    <Content Include="WalletDatabseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WalletDatabaseModel.edmx</DependentUpon>
-      <LastGenOutput>WalletDatabaseModel.Context.cs</LastGenOutput>
+      <DependentUpon>WalletDatabseModel.edmx</DependentUpon>
+      <LastGenOutput>WalletDatabseModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="WalletDatabaseModel.tt">
+    <Content Include="WalletDatabseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WalletDatabaseModel.edmx</DependentUpon>
-      <LastGenOutput>WalletDatabaseModel.cs</LastGenOutput>
+      <DependentUpon>WalletDatabseModel.edmx</DependentUpon>
+      <LastGenOutput>WalletDatabseModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

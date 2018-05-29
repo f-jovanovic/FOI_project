@@ -40,7 +40,6 @@
 			this.lblIbanOdabranogRacuna = new System.Windows.Forms.Label();
 			this.lblVrstaOdabranogRacuna = new System.Windows.Forms.Label();
 			this.lblStanjeOdabranogRacuna = new System.Windows.Forms.Label();
-			this.btnIzbrisiRacun = new System.Windows.Forms.Button();
 			this.btnUredi = new System.Windows.Forms.Button();
 			this.btnObrisi = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
@@ -117,7 +116,7 @@
 			// btnDodajNoviRacun
 			// 
 			this.btnDodajNoviRacun.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDodajNoviRacun.Location = new System.Drawing.Point(362, 513);
+			this.btnDodajNoviRacun.Location = new System.Drawing.Point(610, 513);
 			this.btnDodajNoviRacun.Name = "btnDodajNoviRacun";
 			this.btnDodajNoviRacun.Size = new System.Drawing.Size(231, 54);
 			this.btnDodajNoviRacun.TabIndex = 6;
@@ -155,16 +154,6 @@
 			this.lblStanjeOdabranogRacuna.TabIndex = 9;
 			this.lblStanjeOdabranogRacuna.Text = "N/A";
 			// 
-			// btnIzbrisiRacun
-			// 
-			this.btnIzbrisiRacun.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnIzbrisiRacun.Location = new System.Drawing.Point(610, 513);
-			this.btnIzbrisiRacun.Name = "btnIzbrisiRacun";
-			this.btnIzbrisiRacun.Size = new System.Drawing.Size(231, 54);
-			this.btnIzbrisiRacun.TabIndex = 10;
-			this.btnIzbrisiRacun.Text = "Izbrisi racun";
-			this.btnIzbrisiRacun.UseVisualStyleBackColor = true;
-			// 
 			// btnUredi
 			// 
 			this.btnUredi.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -194,7 +183,6 @@
 			this.ClientSize = new System.Drawing.Size(850, 579);
 			this.Controls.Add(this.btnObrisi);
 			this.Controls.Add(this.btnUredi);
-			this.Controls.Add(this.btnIzbrisiRacun);
 			this.Controls.Add(this.lblStanjeOdabranogRacuna);
 			this.Controls.Add(this.lblVrstaOdabranogRacuna);
 			this.Controls.Add(this.lblIbanOdabranogRacuna);
@@ -226,7 +214,6 @@
 		private System.Windows.Forms.Label lblIbanOdabranogRacuna;
 		private System.Windows.Forms.Label lblVrstaOdabranogRacuna;
 		private System.Windows.Forms.Label lblStanjeOdabranogRacuna;
-		private System.Windows.Forms.Button btnIzbrisiRacun;
 		private System.Windows.Forms.BindingSource bankovniracunBindingSource;
 		private System.Windows.Forms.Button btnUredi;
 		private System.Windows.Forms.Button btnObrisi;

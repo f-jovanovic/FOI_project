@@ -20,7 +20,9 @@ namespace PocetniZaslon.MDI_Forme
 			InitializeComponent();
 			PrikaziBankovneRacunePremaKorisniku();
 		}
-
+		/// <summary>
+		/// Metoda koja vraća listu svih bankovnih računa trenutnog korisnika
+		/// </summary>
 		private void PrikaziBankovneRacunePremaKorisniku()
 		{
 			BindingList<Bankovni_racun> listaRacuna = null;
@@ -81,11 +83,22 @@ namespace PocetniZaslon.MDI_Forme
 		//BRISANJE RAČUNA, JAKO BITNO MIJENJATI AKO JE RAČUN VEĆ VEZAN NA NEŠTO
 		private void btnObrisi_Click(object sender, EventArgs e)
 		{
+			BrisanjeRacuna();
+		}
+
+		/// <summary>
+		/// Metoda koja briše odabrani račun
+		/// </summary>
+		private void BrisanjeRacuna()
+		{
 			Bankovni_racun odabraniRacun = bankovniracunBindingSource.Current as Bankovni_racun;
 			if (odabraniRacun != null)
 			{
 				if (MessageBox.Show("Da li ste sigurni?", "Upozorenje!", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
 				{
+					//provjera ako postoje transakcije ili transakcije investicija vezane na bankovni račun, ako postoje onda se brišu
+					ObrisiTransakcijeITransakcijeInvesticija(odabraniRacun);
+					//nakon provjere (i brisanja postojećih) transakcija i transakcija investicija brišemo račun
 					using (var db = new WalletEntities())
 					{
 						db.Bankovni_racun.Attach(odabraniRacun);
@@ -95,6 +108,48 @@ namespace PocetniZaslon.MDI_Forme
 				}
 			}
 			PrikaziBankovneRacunePremaKorisniku();
+		}
+
+		/// <summary>
+		/// Metoda koja briše sve transakcije iz tablice Transakcija i Transakcija_investicija koje imaju vanjski ključ na odabrani bankovni račun
+		/// </summary>
+		private void ObrisiTransakcijeITransakcijeInvesticija(Bankovni_racun odabraniRacun)
+		{
+			List<Transakcija> listaTransakcija = new List<Transakcija>();
+			List<Transakcija_investicije> listaTransakcijaInvesticija = new List<Transakcija_investicije>();
+			using (var db = new WalletEntities())
+			{
+				db.Bankovni_racun.Attach(odabraniRacun);
+				listaTransakcija = odabraniRacun.Transakcija.ToList();
+				listaTransakcijaInvesticija = odabraniRacun.Transakcija_investicije.ToList();
+
+			}
+			//brisanje svih povezanih transakcija za odabrani račun
+			foreach (var transakcija in listaTransakcija)
+			{
+				using (var db = new WalletEntities())
+				{
+					if (transakcija.iban == odabraniRacun.iban)
+					{
+						db.Transakcija.Attach(transakcija);
+						db.Transakcija.Remove(transakcija);
+						db.SaveChanges();
+					}
+				}
+			}
+			//brisanje svih povezanih transakcija investicije za odabrani račun
+			foreach (var transakcijaInvesticije in listaTransakcijaInvesticija)
+			{
+				using (var db = new WalletEntities())
+				{
+					if (transakcijaInvesticije.iban == odabraniRacun.iban)
+					{
+						db.Transakcija_investicije.Attach(transakcijaInvesticije);
+						db.Transakcija_investicije.Remove(transakcijaInvesticije);
+						db.SaveChanges();
+					}
+				}
+			}
 		}
 	}
 }

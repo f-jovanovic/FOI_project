@@ -23,9 +23,9 @@ namespace PocetniZaslon
         public Nullable<System.DateTime> vrijeme_transakcije_investicije { get; set; }
         public decimal kolicina_investicije { get; set; }
     
+        public virtual Bankovni_racun Bankovni_racun { get; set; }
         public virtual Investicija Investicija { get; set; }
         public virtual Investicijski_portfolio Investicijski_portfolio { get; set; }
         public virtual Vrsta_transakcije Vrsta_transakcije { get; set; }
-        public virtual Bankovni_racun Bankovni_racun { get; set; }
     }
 }

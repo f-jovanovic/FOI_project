@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aea33162f3bd44c0b8789fc13b264c91" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Bankovni_racun" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Investicija" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Investicijski_portfolio" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Kategorije_transakcije" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Korisnik" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Stanje_investicije" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Transakcija" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Transakcija_investicije" Width="1.875" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Vrsta_investicije" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Vrsta_racuna" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Vrsta_transakcije" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.fk_bankovni_racun_korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.fk_bankovni_racun_vrsta_racuna1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.Transakcija_Bankovni_racun_iban_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.Transakcija_investicije_Bankovni_racun_iban_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.fk_stanje_investicije_investicija1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.fk_transakcija_investicije_investicija1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.Investicija_Vrsta_investicije_id_vrsta_investicije_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.fk_transakcija_investicije_investicijski_portfolio1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.Investicijski_portfolio_Korisnik_id_korisnik_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.Kategorije_transakcije_Vrsta_transakcije_id_vrsta_transakcije_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.Transakcija_Transakcija_id_transakcije_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.fk_transakcija_investicije_vrsta_transakcije1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.Transakcija_ima_kategorije" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
