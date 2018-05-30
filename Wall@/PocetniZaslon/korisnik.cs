@@ -19,6 +19,7 @@ namespace PocetniZaslon
         {
             this.Bankovni_racun = new HashSet<Bankovni_racun>();
             this.Investicijski_portfolio = new HashSet<Investicijski_portfolio>();
+            this.Kategorije_transakcije = new HashSet<Kategorije_transakcije>();
         }
     
         public int id_korisnik { get; set; }
@@ -32,5 +33,7 @@ namespace PocetniZaslon
         public virtual ICollection<Bankovni_racun> Bankovni_racun { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Investicijski_portfolio> Investicijski_portfolio { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Kategorije_transakcije> Kategorije_transakcije { get; set; }
     }
 }

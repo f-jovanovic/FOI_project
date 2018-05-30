@@ -22,6 +22,10 @@ namespace PocetniZaslon.MDI_Forme
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Metoda za zatvaranje svih MDI Child formi kako bi prikazali samo jednu formu u MDI containeru.
+        /// </summary>
+        /// <param name="form"></param>
         private void ZatvoriForme(Form form)
         {
             foreach (var item in this.MdiParent.MdiChildren)
@@ -30,16 +34,15 @@ namespace PocetniZaslon.MDI_Forme
             }
         }
 
+        #region Navigacija za unos različitih transakcija
         private void btnTrosak_Click(object sender, EventArgs e)
         {
-            
-            FrmUnosTransakcijaTrosak frmUnosTransakcijaTrosak = new FrmUnosTransakcijaTrosak(trenutniKorisnik);
-            
-            frmUnosTransakcijaTrosak.MdiParent = this.MdiParent;
-            frmUnosTransakcijaTrosak.Dock = DockStyle.Fill;
-            ZatvoriForme(frmUnosTransakcijaTrosak);
-            frmUnosTransakcijaTrosak.Show();
-            frmGlavni.PrilagodiElementeChild(frmUnosTransakcijaTrosak);
+            FrmUnosTransakcijaRashod frmUnosTransakcijaRashod = new FrmUnosTransakcijaRashod(trenutniKorisnik);
+            frmUnosTransakcijaRashod.MdiParent = this.MdiParent;
+            frmUnosTransakcijaRashod.Dock = DockStyle.Fill;
+            ZatvoriForme(frmUnosTransakcijaRashod);
+            frmUnosTransakcijaRashod.Show();
+            frmGlavni.PrilagodiElementeChild(frmUnosTransakcijaRashod);
         }
 
         private void btnPrihod_Click(object sender, EventArgs e)
@@ -61,5 +64,6 @@ namespace PocetniZaslon.MDI_Forme
             frmUnosTransakcijaInterni.Show();
             frmGlavni.PrilagodiElementeChild(frmUnosTransakcijaInterni);
         }
+        #endregion
     }
 }
