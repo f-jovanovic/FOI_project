@@ -29,6 +29,7 @@
         <AssociationConnector Association="DBModel.Transakcija_Transakcija_id_transakcije_fk" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.fk_transakcija_investicije_vrsta_transakcije1" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.Transakcija_ima_kategorije" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.Kategorije_transakcije_Korisnik_id_korisnik_fk" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

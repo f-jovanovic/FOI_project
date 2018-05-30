@@ -33,7 +33,7 @@ namespace PocetniZaslon.MDI_Forme
 			}
 			bankovniracunBindingSource.DataSource = listaRacuna;
 		}
-
+		
 
 		//Ovisno o odabranom racunu unutar combo boxa prikazuje nam se IBAN, vrsta racuna i stanje racuna
 		private void PrikaziPodatkeOdabranogRacuna()

@@ -61,6 +61,11 @@ namespace PocetniZaslon
 		private void btnInvesticijskiPortfolio_Click(object sender, EventArgs e)
 		{
 			UgasiSveOtvoreneProzore();
+			MDI_Forme.FrmInvesticijskiPortfolio formaInvesticijskiPortfolio = new MDI_Forme.FrmInvesticijskiPortfolio(trenutniKorisnik);
+			formaInvesticijskiPortfolio.MdiParent = this;
+			formaInvesticijskiPortfolio.Dock = DockStyle.Fill;
+			formaInvesticijskiPortfolio.Show();
+			PrilagodiElementeChild(formaInvesticijskiPortfolio);
 		}
 
 		private void btnStatistika_Click(object sender, EventArgs e)
