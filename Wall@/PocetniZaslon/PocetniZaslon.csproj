@@ -105,6 +105,18 @@
     <Compile Include="MDI_Forme\FrmUnosTransakcija.Designer.cs">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
     </Compile>
+    <Compile Include="MDI_Forme\FrmUnosTransakcijaPrihod_Interni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Forme\FrmUnosTransakcijaPrihod_Interni.Designer.cs">
+      <DependentUpon>FrmUnosTransakcijaPrihod_Interni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDI_Forme\FrmUnosTransakcijaTrosak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Forme\FrmUnosTransakcijaTrosak.Designer.cs">
+      <DependentUpon>FrmUnosTransakcijaTrosak.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stanje_investicije.cs">
@@ -157,6 +169,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcija.resx">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcijaPrihod_Interni.resx">
+      <DependentUpon>FrmUnosTransakcijaPrihod_Interni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcijaTrosak.resx">
+      <DependentUpon>FrmUnosTransakcijaTrosak.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
