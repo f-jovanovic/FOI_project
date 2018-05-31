@@ -57,6 +57,12 @@
     <Compile Include="Bankovni_racun.cs">
       <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.Designer.cs">
+      <DependentUpon>FrmKategorijeTransakcijaDodaj.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGlavniIzbornik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WalletDatabseModel.edmx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.resx">
+      <DependentUpon>FrmKategorijeTransakcijaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGlavniIzbornik.resx">
       <DependentUpon>FrmGlavniIzbornik.cs</DependentUpon>
     </EmbeddedResource>

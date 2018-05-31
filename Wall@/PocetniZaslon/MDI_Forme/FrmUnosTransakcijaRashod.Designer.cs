@@ -46,9 +46,9 @@
             this.dtpVrijemeTransakcijeRashod = new System.Windows.Forms.DateTimePicker();
             this.lblKategorije = new System.Windows.Forms.Label();
             this.btnDodajKategoriju = new System.Windows.Forms.Button();
-            this.btnUrediKategoriju = new System.Windows.Forms.Button();
             this.btnIzbrisiKategoriju = new System.Windows.Forms.Button();
             this.chkKategorije = new System.Windows.Forms.CheckedListBox();
+            this.lblNeispravanIznos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,6 +119,7 @@
             this.txtIznos.Name = "txtIznos";
             this.txtIznos.Size = new System.Drawing.Size(665, 51);
             this.txtIznos.TabIndex = 3;
+            this.txtIznos.TextChanged += new System.EventHandler(this.txtIznos_TextChanged);
             // 
             // txtOpis
             // 
@@ -203,7 +204,7 @@
             // 
             this.lblKategorije.AutoSize = true;
             this.lblKategorije.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblKategorije.Location = new System.Drawing.Point(1019, 126);
+            this.lblKategorije.Location = new System.Drawing.Point(1015, 126);
             this.lblKategorije.Name = "lblKategorije";
             this.lblKategorije.Size = new System.Drawing.Size(292, 45);
             this.lblKategorije.TabIndex = 10;
@@ -212,32 +213,24 @@
             // btnDodajKategoriju
             // 
             this.btnDodajKategoriju.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajKategoriju.Location = new System.Drawing.Point(1013, 658);
+            this.btnDodajKategoriju.Location = new System.Drawing.Point(1013, 614);
             this.btnDodajKategoriju.Name = "btnDodajKategoriju";
             this.btnDodajKategoriju.Size = new System.Drawing.Size(298, 39);
             this.btnDodajKategoriju.TabIndex = 12;
             this.btnDodajKategoriju.Text = "Dodaj kategoriju";
             this.btnDodajKategoriju.UseVisualStyleBackColor = true;
-            // 
-            // btnUrediKategoriju
-            // 
-            this.btnUrediKategoriju.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnUrediKategoriju.Location = new System.Drawing.Point(1013, 703);
-            this.btnUrediKategoriju.Name = "btnUrediKategoriju";
-            this.btnUrediKategoriju.Size = new System.Drawing.Size(298, 39);
-            this.btnUrediKategoriju.TabIndex = 13;
-            this.btnUrediKategoriju.Text = "Uredi kategoriju";
-            this.btnUrediKategoriju.UseVisualStyleBackColor = true;
+            this.btnDodajKategoriju.Click += new System.EventHandler(this.btnDodajKategoriju_Click);
             // 
             // btnIzbrisiKategoriju
             // 
             this.btnIzbrisiKategoriju.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIzbrisiKategoriju.Location = new System.Drawing.Point(1013, 748);
+            this.btnIzbrisiKategoriju.Location = new System.Drawing.Point(1013, 659);
             this.btnIzbrisiKategoriju.Name = "btnIzbrisiKategoriju";
             this.btnIzbrisiKategoriju.Size = new System.Drawing.Size(298, 39);
             this.btnIzbrisiKategoriju.TabIndex = 14;
             this.btnIzbrisiKategoriju.Text = "Izbriši kategoriju";
             this.btnIzbrisiKategoriju.UseVisualStyleBackColor = true;
+            this.btnIzbrisiKategoriju.Click += new System.EventHandler(this.btnIzbrisiKategoriju_Click);
             // 
             // chkKategorije
             // 
@@ -245,17 +238,29 @@
             this.chkKategorije.FormattingEnabled = true;
             this.chkKategorije.Location = new System.Drawing.Point(1013, 175);
             this.chkKategorije.Name = "chkKategorije";
-            this.chkKategorije.Size = new System.Drawing.Size(298, 463);
+            this.chkKategorije.Size = new System.Drawing.Size(298, 433);
             this.chkKategorije.TabIndex = 15;
+            this.chkKategorije.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkKategorije_MouseUp);
+            // 
+            // lblNeispravanIznos
+            // 
+            this.lblNeispravanIznos.AutoSize = true;
+            this.lblNeispravanIznos.Font = new System.Drawing.Font("Segoe UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblNeispravanIznos.ForeColor = System.Drawing.Color.Red;
+            this.lblNeispravanIznos.Location = new System.Drawing.Point(317, 303);
+            this.lblNeispravanIznos.Name = "lblNeispravanIznos";
+            this.lblNeispravanIznos.Size = new System.Drawing.Size(320, 38);
+            this.lblNeispravanIznos.TabIndex = 16;
+            this.lblNeispravanIznos.Text = "Neispravno unesen iznos!";
             // 
             // FrmUnosTransakcijaRashod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1323, 883);
+            this.Controls.Add(this.lblNeispravanIznos);
             this.Controls.Add(this.chkKategorije);
             this.Controls.Add(this.btnIzbrisiKategoriju);
-            this.Controls.Add(this.btnUrediKategoriju);
             this.Controls.Add(this.btnDodajKategoriju);
             this.Controls.Add(this.lblKategorije);
             this.Controls.Add(this.dtpVrijemeTransakcijeRashod);
@@ -301,8 +306,8 @@
         private System.Windows.Forms.DateTimePicker dtpVrijemeTransakcijeRashod;
         private System.Windows.Forms.Label lblKategorije;
         private System.Windows.Forms.Button btnDodajKategoriju;
-        private System.Windows.Forms.Button btnUrediKategoriju;
         private System.Windows.Forms.Button btnIzbrisiKategoriju;
         private System.Windows.Forms.CheckedListBox chkKategorije;
+        private System.Windows.Forms.Label lblNeispravanIznos;
     }
 }
