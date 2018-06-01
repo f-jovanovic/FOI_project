@@ -21,7 +21,22 @@ namespace PocetniZaslon.MDI_Forme
 			lblInvesticijskiPortfolio.Location = new Point(this.Width / 2 - lblInvesticijskiPortfolio.Width / 2, lblInvesticijskiPortfolio.Location.Y);
 			PrikaziBankovneRacunePremaKorisniku();
 			PrikaziVrsteInvesticije();
+			PrikaziImenaInvesticija();
 		}
+		/// <summary>
+		/// Prikazuje postojece investicije za comboBox u transakcijama investicija
+		/// </summary>
+		private void PrikaziImenaInvesticija()
+		{
+			BindingList<Investicija> listaImena = null;
+
+			using (var db = new WalletEntities())
+			{
+				listaImena = new BindingList<Investicija>(db.Investicija.ToList());
+			}
+			investicijaBindingSource.DataSource = listaImena;
+		}
+
 		/// <summary>
 		/// Prikazuje postojece bankovne racune korisnika
 		/// </summary>
@@ -51,7 +66,7 @@ namespace PocetniZaslon.MDI_Forme
 
 		private void rBtnKupi_CheckedChanged(object sender, EventArgs e)
 		{
-			KupiInvesticiju();
+			
 		}
 
 		/// <summary>
@@ -59,6 +74,57 @@ namespace PocetniZaslon.MDI_Forme
 		/// </summary>
 		private void KupiInvesticiju()
 		{
+			Bankovni_racun bankovni_Racun = null;
+			bankovni_Racun = bankovniracunBindingSource.Current as Bankovni_racun;
+			Investicija investicija = null;
+			investicija = investicijaBindingSource.Current as Investicija;
+			
+			using (var db = new WalletEntities())
+			{
+				db.Investicija.Attach(investicija);
+				db.Bankovni_racun.Attach(bankovni_Racun);
+				int idPort = 0;
+				int idVrsteTrans = 0;
+				//dobavlja vanjski kljuc id_portfolia
+				foreach (var item in db.Investicijski_portfolio)
+				{
+					Investicijski_portfolio investicijski = (from t in db.Investicijski_portfolio
+															 where t.id_korisnik == trenutniKorisnik.id_korisnik
+															 select t).First();
+					idPort = item.id_portfolia;
+				}
+				//dobavlja vanjski kljuc  za kupi transakciju, vrstu transakcije
+				if (rBtnKupi.Checked == true)
+				{
+					foreach (var item in db.Vrsta_transakcije)
+					{
+						Vrsta_transakcije vrsta = (from t in db.Vrsta_transakcije
+											   where t.id_vrsta_transakcije == 2
+											   select t).First();
+						idVrsteTrans = item.id_vrsta_transakcije;
+					}
+					
+				}
+				Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
+				{
+					vrijeme_transakcije_investicije = dateDatum.Value,
+					kolicina_investicije = decimal.Parse(txtBoxKolicina.Text),
+					iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text),
+					Bankovni_racun = bankovni_Racun,
+					Investicija = investicija,
+					id_portfolia = idPort,
+					id_vrsta_transakcije = idVrsteTrans,
+				};
+				db.Transakcija_investicije.Add(transakcija_Investicije);
+				decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
+				bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna - ukupniIznos;
+				//brise ti se bankovni racun na kojem si radio transakciju
+				db.SaveChanges();
+				db.Entry(investicija).State = System.Data.Entity.EntityState.Deleted;
+				db.Entry(bankovni_Racun).State = System.Data.Entity.EntityState.Deleted;
+				txtBoxKolicina.Clear();
+				txtBoxIznosTransInv.Clear();
+			}
 		}
 
 		private void btnDodajInvesticiju_Click(object sender, EventArgs e)
@@ -66,16 +132,11 @@ namespace PocetniZaslon.MDI_Forme
 			DodajInvesticiju();
 		}
 		
-
 		/// <summary>
 		/// metoda za dodavanje investicije koju korisnik zeli kupiti
 		/// </summary>
 		private void DodajInvesticiju()
 		{
-			//to do 
-			//provjera postoji li investicija istog naziva - dun
-			//dodavanje investicije - ovo jesi
-
 			Vrsta_investicije vrsta = null;
 			vrsta = vrstainvesticijeBindingSource.Current as Vrsta_investicije;
 			bool postojiNaziv = false;
@@ -102,7 +163,6 @@ namespace PocetniZaslon.MDI_Forme
 					gBoxInvesticije.Text = txtBoxNazivInvesticije.Text.ToString();
 					gBoxInvesticije.Refresh();
 				}
-
 			}
 			txtBoxNazivInvesticije.Clear();
 		}
@@ -121,6 +181,35 @@ namespace PocetniZaslon.MDI_Forme
 				foreach (var investicija in listaInvesticija) if (investicija.naziv_investicije.ToLower() == txtBoxNazivInvesticije.Text.ToLower()) postojiNaziv = true;
 			}
 			return postojiNaziv;
+		}
+		/// <summary>
+		/// ovisno o tome koji je radio btn oznacen izvršava se kupi ili prodaj
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btnIzvrsiTransakciju_Click(object sender, EventArgs e)
+		{
+			if (rBtnKupi.Checked == true)
+			{
+				KupiInvesticiju();
+			}
+			else
+			{
+				//ProdajInvesticiju();
+			}
+			
+		}
+
+		private void btnObrisiInvesticiju_Click(object sender, EventArgs e)
+		{
+			ObrisiInvesticiju();
+		}
+		/// <summary>
+		/// metoda koja sluzi za brisanje investicije
+		/// </summary>
+		private void ObrisiInvesticiju()
+		{
+
 		}
 	}
 }

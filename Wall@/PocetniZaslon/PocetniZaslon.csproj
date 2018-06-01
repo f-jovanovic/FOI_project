@@ -171,6 +171,8 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Bankovni_racun.datasource" />
+    <None Include="Properties\DataSources\Investicija.datasource" />
+    <None Include="Properties\DataSources\Transakcija_investicije.datasource" />
     <None Include="Properties\DataSources\Vrsta_investicije.datasource" />
     <None Include="Properties\DataSources\Vrsta_racuna.datasource" />
     <None Include="Properties\Settings.settings">
