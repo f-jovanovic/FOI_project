@@ -29,12 +29,12 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.lblInvesticijskiPortfolio = new System.Windows.Forms.Label();
 			this.gBoxTransakcija = new System.Windows.Forms.GroupBox();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -55,6 +55,7 @@
 			this.transakcijainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.gBoxMojeInvesticije = new System.Windows.Forms.GroupBox();
+			this.btnObrisiInvesticiju = new System.Windows.Forms.Button();
 			this.cBoxVrstaInvesticije = new System.Windows.Forms.ComboBox();
 			this.vrstainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.txtBoxNazivInvesticije = new System.Windows.Forms.TextBox();
@@ -74,7 +75,6 @@
 			this.lblUkupnaVrijednost2 = new System.Windows.Forms.Label();
 			this.lblVrijednostInvest2 = new System.Windows.Forms.Label();
 			this.bankovniracunBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-			this.btnObrisiInvesticiju = new System.Windows.Forms.Button();
 			this.gBoxTransakcija.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
@@ -286,6 +286,17 @@
 			this.gBoxMojeInvesticije.TabStop = false;
 			this.gBoxMojeInvesticije.Text = "Moje investicije";
 			// 
+			// btnObrisiInvesticiju
+			// 
+			this.btnObrisiInvesticiju.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnObrisiInvesticiju.Location = new System.Drawing.Point(805, 695);
+			this.btnObrisiInvesticiju.Name = "btnObrisiInvesticiju";
+			this.btnObrisiInvesticiju.Size = new System.Drawing.Size(144, 70);
+			this.btnObrisiInvesticiju.TabIndex = 8;
+			this.btnObrisiInvesticiju.Text = "Obriši investiciju";
+			this.btnObrisiInvesticiju.UseVisualStyleBackColor = true;
+			this.btnObrisiInvesticiju.Click += new System.EventHandler(this.btnObrisiInvesticiju_Click);
+			// 
 			// cBoxVrstaInvesticije
 			// 
 			this.cBoxVrstaInvesticije.DataSource = this.vrstainvesticijeBindingSource;
@@ -358,16 +369,16 @@
 			// 
 			// chart1
 			// 
-			chartArea1.Name = "ChartArea1";
-			this.chart1.ChartAreas.Add(chartArea1);
-			legend1.Name = "Legend1";
-			this.chart1.Legends.Add(legend1);
+			chartArea3.Name = "ChartArea1";
+			this.chart1.ChartAreas.Add(chartArea3);
+			legend3.Name = "Legend1";
+			this.chart1.Legends.Add(legend3);
 			this.chart1.Location = new System.Drawing.Point(6, 43);
 			this.chart1.Name = "chart1";
-			series1.ChartArea = "ChartArea1";
-			series1.Legend = "Legend1";
-			series1.Name = "Series1";
-			this.chart1.Series.Add(series1);
+			series3.ChartArea = "ChartArea1";
+			series3.Legend = "Legend1";
+			series3.Name = "Series1";
+			this.chart1.Series.Add(series3);
 			this.chart1.Size = new System.Drawing.Size(468, 300);
 			this.chart1.TabIndex = 1;
 			this.chart1.Text = "chart1";
@@ -429,16 +440,16 @@
 			// 
 			// chart2
 			// 
-			chartArea2.Name = "ChartArea1";
-			this.chart2.ChartAreas.Add(chartArea2);
-			legend2.Name = "Legend1";
-			this.chart2.Legends.Add(legend2);
+			chartArea4.Name = "ChartArea1";
+			this.chart2.ChartAreas.Add(chartArea4);
+			legend4.Name = "Legend1";
+			this.chart2.Legends.Add(legend4);
 			this.chart2.Location = new System.Drawing.Point(6, 43);
 			this.chart2.Name = "chart2";
-			series2.ChartArea = "ChartArea1";
-			series2.Legend = "Legend1";
-			series2.Name = "Series1";
-			this.chart2.Series.Add(series2);
+			series4.ChartArea = "ChartArea1";
+			series4.Legend = "Legend1";
+			series4.Name = "Series1";
+			this.chart2.Series.Add(series4);
 			this.chart2.Size = new System.Drawing.Size(468, 300);
 			this.chart2.TabIndex = 1;
 			this.chart2.Text = "chart1";
@@ -486,17 +497,6 @@
 			// bankovniracunBindingSource1
 			// 
 			this.bankovniracunBindingSource1.DataSource = typeof(PocetniZaslon.Bankovni_racun);
-			// 
-			// btnObrisiInvesticiju
-			// 
-			this.btnObrisiInvesticiju.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnObrisiInvesticiju.Location = new System.Drawing.Point(805, 695);
-			this.btnObrisiInvesticiju.Name = "btnObrisiInvesticiju";
-			this.btnObrisiInvesticiju.Size = new System.Drawing.Size(144, 70);
-			this.btnObrisiInvesticiju.TabIndex = 8;
-			this.btnObrisiInvesticiju.Text = "Obriši investiciju";
-			this.btnObrisiInvesticiju.UseVisualStyleBackColor = true;
-			this.btnObrisiInvesticiju.Click += new System.EventHandler(this.btnObrisiInvesticiju_Click);
 			// 
 			// FrmInvesticijskiPortfolio
 			// 

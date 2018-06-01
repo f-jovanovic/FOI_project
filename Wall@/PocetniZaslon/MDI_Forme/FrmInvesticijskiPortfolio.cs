@@ -99,11 +99,10 @@ namespace PocetniZaslon.MDI_Forme
 					foreach (var item in db.Vrsta_transakcije)
 					{
 						Vrsta_transakcije vrsta = (from t in db.Vrsta_transakcije
-											   where t.id_vrsta_transakcije == 2
-											   select t).First();
-						idVrsteTrans = item.id_vrsta_transakcije;
+												   where t.id_vrsta_transakcije == 2
+												   select t).First();
+						idVrsteTrans = 2;
 					}
-					
 				}
 				Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
 				{
@@ -115,17 +114,70 @@ namespace PocetniZaslon.MDI_Forme
 					id_portfolia = idPort,
 					id_vrsta_transakcije = idVrsteTrans,
 				};
-				db.Transakcija_investicije.Add(transakcija_Investicije);
 				decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
 				bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna - ukupniIznos;
-				//brise ti se bankovni racun na kojem si radio transakciju
+				db.Transakcija_investicije.Add(transakcija_Investicije);
 				db.SaveChanges();
 				db.Entry(investicija).State = System.Data.Entity.EntityState.Deleted;
-				db.Entry(bankovni_Racun).State = System.Data.Entity.EntityState.Deleted;
 				txtBoxKolicina.Clear();
 				txtBoxIznosTransInv.Clear();
 			}
 		}
+		/// <summary>
+		/// ova metoda sluzi kako bi korisnik mogao prodati investicije, čime se povecava iznos na odabranom bankovnom racunu
+		/// </summary>
+		private void ProdajInvesticiju()
+		{
+			Bankovni_racun bankovni_Racun = null;
+			bankovni_Racun = bankovniracunBindingSource.Current as Bankovni_racun;
+			Investicija investicija = null;
+			investicija = investicijaBindingSource.Current as Investicija;
+
+			using (var db = new WalletEntities())
+			{
+				db.Investicija.Attach(investicija);
+				db.Bankovni_racun.Attach(bankovni_Racun);
+				int idPort = 0;
+				int idVrsteTrans = 0;
+				//dobavlja vanjski kljuc id_portfolia
+				foreach (var item in db.Investicijski_portfolio)
+				{
+					Investicijski_portfolio investicijski = (from t in db.Investicijski_portfolio
+															 where t.id_korisnik == trenutniKorisnik.id_korisnik
+															 select t).First();
+					idPort = item.id_portfolia;
+				}
+				//dobavlja vanjski kljuc  za kupi transakciju, vrstu transakcije
+				if (rBtnProdaj.Checked == true)
+				{
+					foreach (var item in db.Vrsta_transakcije)
+					{
+						Vrsta_transakcije vrsta = (from t in db.Vrsta_transakcije
+												   where t.id_vrsta_transakcije == 1
+												   select t).First();
+						idVrsteTrans = 1;
+					}
+				}
+				Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
+				{
+					vrijeme_transakcije_investicije = dateDatum.Value,
+					kolicina_investicije = decimal.Parse(txtBoxKolicina.Text),
+					iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text),
+					Bankovni_racun = bankovni_Racun,
+					Investicija = investicija,
+					id_portfolia = idPort,
+					id_vrsta_transakcije = idVrsteTrans,
+				};
+				decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
+				bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna + ukupniIznos;
+				db.Transakcija_investicije.Add(transakcija_Investicije);
+				db.SaveChanges();
+				db.Entry(investicija).State = System.Data.Entity.EntityState.Deleted;
+				txtBoxKolicina.Clear();
+				txtBoxIznosTransInv.Clear();
+			}
+		}
+
 
 		private void btnDodajInvesticiju_Click(object sender, EventArgs e)
 		{
@@ -195,7 +247,7 @@ namespace PocetniZaslon.MDI_Forme
 			}
 			else
 			{
-				//ProdajInvesticiju();
+				ProdajInvesticiju();
 			}
 			
 		}
