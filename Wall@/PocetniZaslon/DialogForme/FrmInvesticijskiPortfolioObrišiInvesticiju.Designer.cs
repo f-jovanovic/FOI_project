@@ -29,22 +29,23 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnObrisiInvesticiju = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.cBoxInvesticije = new System.Windows.Forms.ComboBox();
 			this.investicijaBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// button1
+			// btnObrisiInvesticiju
 			// 
-			this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-			this.button1.Location = new System.Drawing.Point(125, 364);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(176, 45);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Obriši investiciju";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnObrisiInvesticiju.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+			this.btnObrisiInvesticiju.Location = new System.Drawing.Point(125, 364);
+			this.btnObrisiInvesticiju.Name = "btnObrisiInvesticiju";
+			this.btnObrisiInvesticiju.Size = new System.Drawing.Size(176, 45);
+			this.btnObrisiInvesticiju.TabIndex = 0;
+			this.btnObrisiInvesticiju.Text = "Obriši investiciju";
+			this.btnObrisiInvesticiju.UseVisualStyleBackColor = true;
+			this.btnObrisiInvesticiju.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// label1
 			// 
@@ -79,9 +80,10 @@
 			this.ClientSize = new System.Drawing.Size(463, 497);
 			this.Controls.Add(this.cBoxInvesticije);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btnObrisiInvesticiju);
 			this.Name = "FrmInvesticijskiPortfolioObrišiInvesticiju";
-			this.Text = "FrmInvesticijskiPortfolioObrišiInvesticiju";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Forma za brisanje investicija";
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -90,7 +92,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnObrisiInvesticiju;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ComboBox cBoxInvesticije;
 		private System.Windows.Forms.BindingSource investicijaBindingSource;

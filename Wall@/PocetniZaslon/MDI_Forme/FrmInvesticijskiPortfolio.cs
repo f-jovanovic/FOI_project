@@ -256,6 +256,7 @@ namespace PocetniZaslon.MDI_Forme
 		{
 			DialogForme.FrmInvesticijskiPortfolioObrišiInvesticiju frmInvesticijskiPortfolioObrišiInvesticiju = new DialogForme.FrmInvesticijskiPortfolioObrišiInvesticiju(trenutniKorisnik);
 			frmInvesticijskiPortfolioObrišiInvesticiju.ShowDialog();
+			PrikaziImenaInvesticija();
 		}
 	}
 }
