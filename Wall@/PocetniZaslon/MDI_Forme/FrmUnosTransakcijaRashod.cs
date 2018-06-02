@@ -41,26 +41,19 @@ namespace PocetniZaslon.MDI_Forme
             chkKategorije.Items.Clear();
 
             BindingList<Bankovni_racun> listBankovniRacuni = null;
-            List<Kategorije_transakcije> listKategorije = null;
 
             using (WalletEntities db = new WalletEntities())
             {
                 db.Korisnik.Attach(trenutniKorisnik);
                 listBankovniRacuni = new BindingList<Bankovni_racun>(trenutniKorisnik.Bankovni_racun.ToList());
-                listKategorije = new List<Kategorije_transakcije>(db.Kategorije_transakcije.ToList());
 
-                foreach (var item in listKategorije.ToList())
+                foreach (var item in db.Kategorije_transakcije.ToList())
                 {
-                    if (item.Vrsta_transakcije.naziv_vrste_transakcije != "Rashod") listKategorije.Remove(item);
-                    if (item.Korisnik != null && item.Korisnik != trenutniKorisnik) listKategorije.Remove(item);
+                    if (item.id_vrsta_transakcije == 2 && (item.id_korisnik == trenutniKorisnik.id_korisnik || item.Korisnik == null)) chkKategorije.Items.Add(item.naziv_kategorije);
                 }
             }
 
             bankovniracunBindingSource.DataSource = listBankovniRacuni;
-            foreach (var item in listKategorije)
-            {
-                chkKategorije.Items.Add(item.naziv_kategorije);
-            }
         }
 
         /// <summary>
@@ -72,7 +65,6 @@ namespace PocetniZaslon.MDI_Forme
         {
             using (WalletEntities db = new WalletEntities())
             {
-                db.Korisnik.Attach(trenutniKorisnik);
                 db.Bankovni_racun.Attach(bankovniracunBindingSource.Current as Bankovni_racun);
 
                 Transakcija noviRashod = new Transakcija
@@ -101,10 +93,17 @@ namespace PocetniZaslon.MDI_Forme
                     }
                 }
 
+                foreach (Bankovni_racun racun in db.Bankovni_racun)
+                {
+                    if (racun == bankovniracunBindingSource.Current) racun.stanje_racuna -= noviRashod.iznos_transakcije;
+                }
+
                 db.Transakcija.Add(noviRashod);
                 db.SaveChanges();
             }
+
             RefreshPodaci();
+
             MessageBox.Show("Transakcija uspješno unesena!");
 
             // Prolazi se kroz sve kontrole glavne forme, i izvršava se click na gumb UnosTransakcije.
@@ -112,15 +111,46 @@ namespace PocetniZaslon.MDI_Forme
             {
                 if (kontrole.GetType() == typeof(Button) && kontrole.Name == "btnUnosTransakcije") (kontrole as Button).PerformClick();
             }
-            
+
         }
 
         #region Upravljanje kategorijama
         private void btnDodajKategoriju_Click(object sender, EventArgs e)
         {
-            Dialog_forme.FrmKategorijeTransakcijaDodaj frmDodajKategoriju = new Dialog_forme.FrmKategorijeTransakcijaDodaj(trenutniKorisnik, null);
+            Dialog_forme.FrmKategorijeTransakcijaDodaj frmDodajKategoriju = new Dialog_forme.FrmKategorijeTransakcijaDodaj(trenutniKorisnik, 2, null);
             frmDodajKategoriju.ShowDialog();
             RefreshPodaci();
+        }
+
+        private void btnUrediKategoriju_Click(object sender, EventArgs e)
+        {
+            if (chkKategorije.CheckedItems.Count != 1) MessageBox.Show("Potrebno je označiti točno jednu kategoriju za uređivanje!");
+            else
+            {
+                Kategorije_transakcije kategorija = null;
+                using (WalletEntities db = new WalletEntities())
+                {
+                    foreach (var item in chkKategorije.CheckedItems)
+                    {
+                        kategorija = (from t in db.Kategorije_transakcije
+                                      where t.naziv_kategorije == item.ToString() && t.id_vrsta_transakcije == 2
+                                      select t).First();
+                    }
+                }
+
+                Dialog_forme.FrmKategorijeTransakcijaDodaj frmUrediKategoriju = new Dialog_forme.FrmKategorijeTransakcijaDodaj(trenutniKorisnik, 2, kategorija);
+                frmUrediKategoriju.ShowDialog();
+
+                // iz nekog razloga podaci se updateaju jedino kad je ovo ovdje pozvano... bilo gdje izvan, identičan kod, kad ga se pozove ne prikaže novi naziv :(
+                chkKategorije.Items.Clear();
+                using (var db = new WalletEntities())
+                {
+                    foreach (var item in db.Kategorije_transakcije.ToList())
+                    {
+                        if (item.id_vrsta_transakcije == 2 && (item.id_korisnik == trenutniKorisnik.id_korisnik || item.Korisnik == null)) chkKategorije.Items.Add(item.naziv_kategorije);
+                    }
+                }
+            }
         }
 
         private void btnIzbrisiKategoriju_Click(object sender, EventArgs e)
@@ -133,7 +163,7 @@ namespace PocetniZaslon.MDI_Forme
                     {
                         foreach (var odabranaKategorija in chkKategorije.CheckedItems)
                         {
-                            if (kategorija.naziv_kategorije == odabranaKategorija.ToString() && kategorija.id_vrsta_transakcije == 2 && kategorija.id_korisnik != null)
+                            if (kategorija.naziv_kategorije == odabranaKategorija.ToString() && kategorija.id_vrsta_transakcije == 2 && kategorija.id_korisnik == trenutniKorisnik.id_korisnik)
                             {
                                 if (kategorija.Transakcija.Count == 0) db.Kategorije_transakcije.Remove(kategorija);
                                 else
@@ -142,6 +172,10 @@ namespace PocetniZaslon.MDI_Forme
                                     {
                                         if (transakcija.Kategorije_transakcije.Contains(kategorija)) transakcija.Kategorije_transakcije.Remove(kategorija);
                                         kategorija.Transakcija.Remove(transakcija);
+
+                                        if (transakcija.Kategorije_transakcije.Count == 0) transakcija.Kategorije_transakcije.Add((from t in db.Kategorije_transakcije
+                                                                                                                                   where t.id_kategorije_transakcije == 2
+                                                                                                                                   select t).First());
                                     }
                                 }
                             }
@@ -158,6 +192,9 @@ namespace PocetniZaslon.MDI_Forme
         {
             if (chkKategorije.CheckedItems.Count > 0) btnIzbrisiKategoriju.Enabled = true;
             else btnIzbrisiKategoriju.Enabled = false;
+
+            if (chkKategorije.CheckedItems.Count != 1) btnUrediKategoriju.Enabled = false;
+            else btnUrediKategoriju.Enabled = true;
         }
         #endregion
 

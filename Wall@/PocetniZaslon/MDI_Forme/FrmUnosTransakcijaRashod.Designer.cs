@@ -49,6 +49,7 @@
             this.btnIzbrisiKategoriju = new System.Windows.Forms.Button();
             this.chkKategorije = new System.Windows.Forms.CheckedListBox();
             this.lblNeispravanIznos = new System.Windows.Forms.Label();
+            this.btnUrediKategoriju = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,9 +57,10 @@
             // 
             this.lblNoviRashod.AutoSize = true;
             this.lblNoviRashod.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblNoviRashod.Location = new System.Drawing.Point(385, 3);
+            this.lblNoviRashod.Location = new System.Drawing.Point(289, 2);
+            this.lblNoviRashod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNoviRashod.Name = "lblNoviRashod";
-            this.lblNoviRashod.Size = new System.Drawing.Size(378, 81);
+            this.lblNoviRashod.Size = new System.Drawing.Size(302, 65);
             this.lblNoviRashod.TabIndex = 1;
             this.lblNoviRashod.Text = "Novi rashod";
             // 
@@ -66,9 +68,10 @@
             // 
             this.lblBankovniRacun.AutoSize = true;
             this.lblBankovniRacun.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblBankovniRacun.Location = new System.Drawing.Point(53, 126);
+            this.lblBankovniRacun.Location = new System.Drawing.Point(40, 102);
+            this.lblBankovniRacun.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBankovniRacun.Name = "lblBankovniRacun";
-            this.lblBankovniRacun.Size = new System.Drawing.Size(242, 45);
+            this.lblBankovniRacun.Size = new System.Drawing.Size(200, 37);
             this.lblBankovniRacun.TabIndex = 2;
             this.lblBankovniRacun.Text = "Bankovni račun:";
             // 
@@ -76,9 +79,10 @@
             // 
             this.lblIznos.AutoSize = true;
             this.lblIznos.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblIznos.Location = new System.Drawing.Point(35, 249);
+            this.lblIznos.Location = new System.Drawing.Point(26, 202);
+            this.lblIznos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblIznos.Name = "lblIznos";
-            this.lblIznos.Size = new System.Drawing.Size(256, 45);
+            this.lblIznos.Size = new System.Drawing.Size(212, 37);
             this.lblIznos.TabIndex = 4;
             this.lblIznos.Text = "Iznos transakcije:";
             // 
@@ -86,9 +90,10 @@
             // 
             this.lblDatum.AutoSize = true;
             this.lblDatum.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblDatum.Location = new System.Drawing.Point(12, 372);
+            this.lblDatum.Location = new System.Drawing.Point(9, 302);
+            this.lblDatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDatum.Name = "lblDatum";
-            this.lblDatum.Size = new System.Drawing.Size(279, 45);
+            this.lblDatum.Size = new System.Drawing.Size(232, 37);
             this.lblDatum.TabIndex = 5;
             this.lblDatum.Text = "Datum transakcije:";
             // 
@@ -96,9 +101,10 @@
             // 
             this.lblOpis.AutoSize = true;
             this.lblOpis.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblOpis.Location = new System.Drawing.Point(43, 455);
+            this.lblOpis.Location = new System.Drawing.Point(32, 370);
+            this.lblOpis.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblOpis.Name = "lblOpis";
-            this.lblOpis.Size = new System.Drawing.Size(247, 45);
+            this.lblOpis.Size = new System.Drawing.Size(204, 37);
             this.lblOpis.TabIndex = 6;
             this.lblOpis.Text = "Opis transakcije:";
             // 
@@ -106,28 +112,31 @@
             // 
             this.lblSlika.AutoSize = true;
             this.lblSlika.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSlika.Location = new System.Drawing.Point(99, 721);
+            this.lblSlika.Location = new System.Drawing.Point(74, 586);
+            this.lblSlika.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSlika.Name = "lblSlika";
-            this.lblSlika.Size = new System.Drawing.Size(196, 45);
+            this.lblSlika.Size = new System.Drawing.Size(162, 37);
             this.lblSlika.TabIndex = 7;
             this.lblSlika.Text = "Slika računa:";
             // 
             // txtIznos
             // 
             this.txtIznos.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtIznos.Location = new System.Drawing.Point(311, 249);
+            this.txtIznos.Location = new System.Drawing.Point(233, 202);
+            this.txtIznos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtIznos.Name = "txtIznos";
-            this.txtIznos.Size = new System.Drawing.Size(665, 51);
+            this.txtIznos.Size = new System.Drawing.Size(500, 43);
             this.txtIznos.TabIndex = 3;
             this.txtIznos.TextChanged += new System.EventHandler(this.txtIznos_TextChanged);
             // 
             // txtOpis
             // 
             this.txtOpis.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtOpis.Location = new System.Drawing.Point(311, 455);
+            this.txtOpis.Location = new System.Drawing.Point(233, 370);
+            this.txtOpis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtOpis.Multiline = true;
             this.txtOpis.Name = "txtOpis";
-            this.txtOpis.Size = new System.Drawing.Size(665, 209);
+            this.txtOpis.Size = new System.Drawing.Size(500, 171);
             this.txtOpis.TabIndex = 5;
             // 
             // cboBankovniRacun
@@ -136,9 +145,10 @@
             this.cboBankovniRacun.DisplayMember = "naziv_racuna";
             this.cboBankovniRacun.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cboBankovniRacun.FormattingEnabled = true;
-            this.cboBankovniRacun.Location = new System.Drawing.Point(311, 126);
+            this.cboBankovniRacun.Location = new System.Drawing.Point(233, 102);
+            this.cboBankovniRacun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboBankovniRacun.Name = "cboBankovniRacun";
-            this.cboBankovniRacun.Size = new System.Drawing.Size(424, 53);
+            this.cboBankovniRacun.Size = new System.Drawing.Size(319, 44);
             this.cboBankovniRacun.TabIndex = 1;
             this.cboBankovniRacun.ValueMember = "iban";
             // 
@@ -150,18 +160,20 @@
             // 
             this.dtpDatumTransakcijeRashod.CalendarFont = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpDatumTransakcijeRashod.Font = new System.Drawing.Font("Segoe UI", 19.8F);
-            this.dtpDatumTransakcijeRashod.Location = new System.Drawing.Point(311, 373);
+            this.dtpDatumTransakcijeRashod.Location = new System.Drawing.Point(233, 303);
+            this.dtpDatumTransakcijeRashod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpDatumTransakcijeRashod.Name = "dtpDatumTransakcijeRashod";
-            this.dtpDatumTransakcijeRashod.Size = new System.Drawing.Size(326, 51);
+            this.dtpDatumTransakcijeRashod.Size = new System.Drawing.Size(246, 43);
             this.dtpDatumTransakcijeRashod.TabIndex = 4;
             // 
             // btnSkenirajBarkod
             // 
             this.btnSkenirajBarkod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSkenirajBarkod.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSkenirajBarkod.Location = new System.Drawing.Point(645, 721);
+            this.btnSkenirajBarkod.Location = new System.Drawing.Point(484, 586);
+            this.btnSkenirajBarkod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSkenirajBarkod.Name = "btnSkenirajBarkod";
-            this.btnSkenirajBarkod.Size = new System.Drawing.Size(331, 53);
+            this.btnSkenirajBarkod.Size = new System.Drawing.Size(248, 43);
             this.btnSkenirajBarkod.TabIndex = 7;
             this.btnSkenirajBarkod.Text = "Skeniraj barkod računa";
             this.btnSkenirajBarkod.UseVisualStyleBackColor = true;
@@ -170,9 +182,10 @@
             // 
             this.btnDodajSliku.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDodajSliku.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajSliku.Location = new System.Drawing.Point(311, 721);
+            this.btnDodajSliku.Location = new System.Drawing.Point(233, 586);
+            this.btnDodajSliku.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDodajSliku.Name = "btnDodajSliku";
-            this.btnDodajSliku.Size = new System.Drawing.Size(309, 53);
+            this.btnDodajSliku.Size = new System.Drawing.Size(232, 43);
             this.btnDodajSliku.TabIndex = 6;
             this.btnDodajSliku.Text = "Dodaj sliku računa";
             this.btnDodajSliku.UseVisualStyleBackColor = true;
@@ -181,9 +194,10 @@
             // 
             this.btnSpremiTransakcijuRashod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSpremiTransakcijuRashod.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSpremiTransakcijuRashod.Location = new System.Drawing.Point(400, 816);
+            this.btnSpremiTransakcijuRashod.Location = new System.Drawing.Point(300, 663);
+            this.btnSpremiTransakcijuRashod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSpremiTransakcijuRashod.Name = "btnSpremiTransakcijuRashod";
-            this.btnSpremiTransakcijuRashod.Size = new System.Drawing.Size(348, 66);
+            this.btnSpremiTransakcijuRashod.Size = new System.Drawing.Size(261, 54);
             this.btnSpremiTransakcijuRashod.TabIndex = 8;
             this.btnSpremiTransakcijuRashod.Text = "Spremi transakciju";
             this.btnSpremiTransakcijuRashod.UseVisualStyleBackColor = true;
@@ -194,28 +208,31 @@
             this.dtpVrijemeTransakcijeRashod.CalendarFont = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpVrijemeTransakcijeRashod.Font = new System.Drawing.Font("Segoe UI", 19.8F);
             this.dtpVrijemeTransakcijeRashod.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpVrijemeTransakcijeRashod.Location = new System.Drawing.Point(650, 373);
+            this.dtpVrijemeTransakcijeRashod.Location = new System.Drawing.Point(488, 303);
+            this.dtpVrijemeTransakcijeRashod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtpVrijemeTransakcijeRashod.Name = "dtpVrijemeTransakcijeRashod";
             this.dtpVrijemeTransakcijeRashod.ShowUpDown = true;
-            this.dtpVrijemeTransakcijeRashod.Size = new System.Drawing.Size(155, 51);
+            this.dtpVrijemeTransakcijeRashod.Size = new System.Drawing.Size(117, 43);
             this.dtpVrijemeTransakcijeRashod.TabIndex = 9;
             // 
             // lblKategorije
             // 
             this.lblKategorije.AutoSize = true;
             this.lblKategorije.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblKategorije.Location = new System.Drawing.Point(1015, 126);
+            this.lblKategorije.Location = new System.Drawing.Point(761, 102);
+            this.lblKategorije.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKategorije.Name = "lblKategorije";
-            this.lblKategorije.Size = new System.Drawing.Size(292, 45);
+            this.lblKategorije.Size = new System.Drawing.Size(242, 37);
             this.lblKategorije.TabIndex = 10;
             this.lblKategorije.Text = "Kategorije rashoda:";
             // 
             // btnDodajKategoriju
             // 
             this.btnDodajKategoriju.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajKategoriju.Location = new System.Drawing.Point(1013, 614);
+            this.btnDodajKategoriju.Location = new System.Drawing.Point(760, 499);
+            this.btnDodajKategoriju.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDodajKategoriju.Name = "btnDodajKategoriju";
-            this.btnDodajKategoriju.Size = new System.Drawing.Size(298, 39);
+            this.btnDodajKategoriju.Size = new System.Drawing.Size(224, 32);
             this.btnDodajKategoriju.TabIndex = 12;
             this.btnDodajKategoriju.Text = "Dodaj kategoriju";
             this.btnDodajKategoriju.UseVisualStyleBackColor = true;
@@ -224,9 +241,10 @@
             // btnIzbrisiKategoriju
             // 
             this.btnIzbrisiKategoriju.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnIzbrisiKategoriju.Location = new System.Drawing.Point(1013, 659);
+            this.btnIzbrisiKategoriju.Location = new System.Drawing.Point(760, 571);
+            this.btnIzbrisiKategoriju.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnIzbrisiKategoriju.Name = "btnIzbrisiKategoriju";
-            this.btnIzbrisiKategoriju.Size = new System.Drawing.Size(298, 39);
+            this.btnIzbrisiKategoriju.Size = new System.Drawing.Size(224, 32);
             this.btnIzbrisiKategoriju.TabIndex = 14;
             this.btnIzbrisiKategoriju.Text = "Izbriši kategoriju";
             this.btnIzbrisiKategoriju.UseVisualStyleBackColor = true;
@@ -236,9 +254,10 @@
             // 
             this.chkKategorije.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.chkKategorije.FormattingEnabled = true;
-            this.chkKategorije.Location = new System.Drawing.Point(1013, 175);
+            this.chkKategorije.Location = new System.Drawing.Point(760, 142);
+            this.chkKategorije.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkKategorije.Name = "chkKategorije";
-            this.chkKategorije.Size = new System.Drawing.Size(298, 433);
+            this.chkKategorije.Size = new System.Drawing.Size(224, 328);
             this.chkKategorije.TabIndex = 15;
             this.chkKategorije.MouseUp += new System.Windows.Forms.MouseEventHandler(this.chkKategorije_MouseUp);
             // 
@@ -247,17 +266,31 @@
             this.lblNeispravanIznos.AutoSize = true;
             this.lblNeispravanIznos.Font = new System.Drawing.Font("Segoe UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNeispravanIznos.ForeColor = System.Drawing.Color.Red;
-            this.lblNeispravanIznos.Location = new System.Drawing.Point(317, 303);
+            this.lblNeispravanIznos.Location = new System.Drawing.Point(238, 246);
+            this.lblNeispravanIznos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNeispravanIznos.Name = "lblNeispravanIznos";
-            this.lblNeispravanIznos.Size = new System.Drawing.Size(320, 38);
+            this.lblNeispravanIznos.Size = new System.Drawing.Size(254, 30);
             this.lblNeispravanIznos.TabIndex = 16;
             this.lblNeispravanIznos.Text = "Neispravno unesen iznos!";
             // 
+            // btnUrediKategoriju
+            // 
+            this.btnUrediKategoriju.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnUrediKategoriju.Location = new System.Drawing.Point(760, 535);
+            this.btnUrediKategoriju.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUrediKategoriju.Name = "btnUrediKategoriju";
+            this.btnUrediKategoriju.Size = new System.Drawing.Size(224, 32);
+            this.btnUrediKategoriju.TabIndex = 17;
+            this.btnUrediKategoriju.Text = "Uredi kategoriju";
+            this.btnUrediKategoriju.UseVisualStyleBackColor = true;
+            this.btnUrediKategoriju.Click += new System.EventHandler(this.btnUrediKategoriju_Click);
+            // 
             // FrmUnosTransakcijaRashod
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1323, 883);
+            this.ClientSize = new System.Drawing.Size(992, 717);
+            this.Controls.Add(this.btnUrediKategoriju);
             this.Controls.Add(this.lblNeispravanIznos);
             this.Controls.Add(this.chkKategorije);
             this.Controls.Add(this.btnIzbrisiKategoriju);
@@ -278,6 +311,7 @@
             this.Controls.Add(this.lblBankovniRacun);
             this.Controls.Add(this.lblNoviRashod);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmUnosTransakcijaRashod";
             this.Text = "FrmUnosTransakcijaTrosak";
             this.Load += new System.EventHandler(this.FrmUnosTransakcijaTrosak_Load);
@@ -309,5 +343,6 @@
         private System.Windows.Forms.Button btnIzbrisiKategoriju;
         private System.Windows.Forms.CheckedListBox chkKategorije;
         private System.Windows.Forms.Label lblNeispravanIznos;
+        private System.Windows.Forms.Button btnUrediKategoriju;
     }
 }

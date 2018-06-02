@@ -13,20 +13,23 @@ namespace PocetniZaslon.Dialog_forme
     public partial class FrmKategorijeTransakcijaDodaj : Form
     {
         Korisnik trenutniKorisnik = null;
+        int vrsta_id;
         Kategorije_transakcije odabranaKategorija = null;
-        public FrmKategorijeTransakcijaDodaj(Korisnik korisnik , string naziv)
+        public FrmKategorijeTransakcijaDodaj(Korisnik korisnik, int vrsta_id, Kategorije_transakcije kategorija)
         {
+            odabranaKategorija = kategorija;
             trenutniKorisnik = korisnik;
-            if (naziv != null)
-            {
-                using (WalletEntities db = new WalletEntities())
-                {
-                    odabranaKategorija = (from t in db.Kategorije_transakcije
-                                          where t.naziv_kategorije == naziv && t.id_vrsta_transakcije == 2
-                                          select t).First();
-                }
-            }
+            this.vrsta_id = vrsta_id;
+
             InitializeComponent();
+
+            if (odabranaKategorija != null)
+            {
+                this.Text = "Wall@ | Uredi kategoriju";
+                lblNazivKategorije.Text = "Novi naziv kategorije:";
+                txtNazivKategorije.Text = odabranaKategorija.naziv_kategorije;
+                txtNazivKategorije.SelectAll();
+            }
         }
 
         private void FrmKategorijeTransakcijaDodaj_Load(object sender, EventArgs e)
@@ -36,20 +39,33 @@ namespace PocetniZaslon.Dialog_forme
 
         private void btnDodajKategoriju_Click(object sender, EventArgs e)
         {
+
+            bool postojeciNaziv = false;
+
             using (WalletEntities db = new WalletEntities())
             {
                 Kategorije_transakcije novaKategorija = null;
 
                 if (odabranaKategorija == null)
                 {
-                    novaKategorija = new Kategorije_transakcije
+                    foreach (var item in db.Kategorije_transakcije)
                     {
-                        naziv_kategorije = txtNazivKategorije.Text,
-                        id_korisnik = trenutniKorisnik.id_korisnik,
-                        id_vrsta_transakcije = 2
-                    };
-                    db.Kategorije_transakcije.Add(novaKategorija);
+                        if (item.naziv_kategorije.ToUpper() == txtNazivKategorije.Text.ToUpper()) postojeciNaziv = true;
+                    }
+
+                    if (!postojeciNaziv)
+                    {
+                        novaKategorija = new Kategorije_transakcije
+                        {
+                            naziv_kategorije = txtNazivKategorije.Text,
+                            id_korisnik = trenutniKorisnik.id_korisnik,
+                            id_vrsta_transakcije = vrsta_id
+                        };
+                        db.Kategorije_transakcije.Add(novaKategorija);
+                    }
+                    else MessageBox.Show("Postoji kategorija sa navedenim nazivom!");
                 }
+
                 else
                 {
                     db.Kategorije_transakcije.Attach(odabranaKategorija);
