@@ -254,14 +254,8 @@ namespace PocetniZaslon.MDI_Forme
 
 		private void btnObrisiInvesticiju_Click(object sender, EventArgs e)
 		{
-			ObrisiInvesticiju();
-		}
-		/// <summary>
-		/// metoda koja sluzi za brisanje investicije
-		/// </summary>
-		private void ObrisiInvesticiju()
-		{
-
+			DialogForme.FrmInvesticijskiPortfolioObrišiInvesticiju frmInvesticijskiPortfolioObrišiInvesticiju = new DialogForme.FrmInvesticijskiPortfolioObrišiInvesticiju(trenutniKorisnik);
+			frmInvesticijskiPortfolioObrišiInvesticiju.ShowDialog();
 		}
 	}
 }

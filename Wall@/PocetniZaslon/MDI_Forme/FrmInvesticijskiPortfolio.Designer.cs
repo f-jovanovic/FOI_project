@@ -29,12 +29,12 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.lblInvesticijskiPortfolio = new System.Windows.Forms.Label();
 			this.gBoxTransakcija = new System.Windows.Forms.GroupBox();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -64,10 +64,10 @@
 			this.btnDodajInvesticiju = new System.Windows.Forms.Button();
 			this.gBoxInvesticije = new System.Windows.Forms.GroupBox();
 			this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
+			this.lblKretanjeVrijednosti1 = new System.Windows.Forms.Label();
+			this.lblKolicina1 = new System.Windows.Forms.Label();
+			this.lblUkupnaVrijednost1 = new System.Windows.Forms.Label();
+			this.lblVrijednost1 = new System.Windows.Forms.Label();
 			this.gBoxInvesticije2 = new System.Windows.Forms.GroupBox();
 			this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.lblKretanjeVrijednosti2 = new System.Windows.Forms.Label();
@@ -75,6 +75,10 @@
 			this.lblUkupnaVrijednost2 = new System.Windows.Forms.Label();
 			this.lblVrijednostInvest2 = new System.Windows.Forms.Label();
 			this.bankovniracunBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.lblPrikazKol = new System.Windows.Forms.Label();
+			this.lblPrikazVrj1 = new System.Windows.Forms.Label();
+			this.lblPrikazUkVrj1 = new System.Windows.Forms.Label();
+			this.lblPrikazKretVrj1 = new System.Windows.Forms.Label();
 			this.gBoxTransakcija.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
@@ -354,11 +358,15 @@
 			// 
 			// gBoxInvesticije
 			// 
+			this.gBoxInvesticije.Controls.Add(this.lblPrikazKretVrj1);
+			this.gBoxInvesticije.Controls.Add(this.lblPrikazUkVrj1);
+			this.gBoxInvesticije.Controls.Add(this.lblPrikazVrj1);
+			this.gBoxInvesticije.Controls.Add(this.lblPrikazKol);
 			this.gBoxInvesticije.Controls.Add(this.chart1);
-			this.gBoxInvesticije.Controls.Add(this.label1);
-			this.gBoxInvesticije.Controls.Add(this.label2);
-			this.gBoxInvesticije.Controls.Add(this.label3);
-			this.gBoxInvesticije.Controls.Add(this.label4);
+			this.gBoxInvesticije.Controls.Add(this.lblKretanjeVrijednosti1);
+			this.gBoxInvesticije.Controls.Add(this.lblKolicina1);
+			this.gBoxInvesticije.Controls.Add(this.lblUkupnaVrijednost1);
+			this.gBoxInvesticije.Controls.Add(this.lblVrijednost1);
 			this.gBoxInvesticije.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
 			this.gBoxInvesticije.Location = new System.Drawing.Point(11, 133);
 			this.gBoxInvesticije.Name = "gBoxInvesticije";
@@ -369,59 +377,59 @@
 			// 
 			// chart1
 			// 
-			chartArea3.Name = "ChartArea1";
-			this.chart1.ChartAreas.Add(chartArea3);
-			legend3.Name = "Legend1";
-			this.chart1.Legends.Add(legend3);
+			chartArea1.Name = "ChartArea1";
+			this.chart1.ChartAreas.Add(chartArea1);
+			legend1.Name = "Legend1";
+			this.chart1.Legends.Add(legend1);
 			this.chart1.Location = new System.Drawing.Point(6, 43);
 			this.chart1.Name = "chart1";
-			series3.ChartArea = "ChartArea1";
-			series3.Legend = "Legend1";
-			series3.Name = "Series1";
-			this.chart1.Series.Add(series3);
+			series1.ChartArea = "ChartArea1";
+			series1.Legend = "Legend1";
+			series1.Name = "Series1";
+			this.chart1.Series.Add(series1);
 			this.chart1.Size = new System.Drawing.Size(468, 300);
 			this.chart1.TabIndex = 1;
 			this.chart1.Text = "chart1";
 			// 
-			// label1
+			// lblKretanjeVrijednosti1
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.label1.Location = new System.Drawing.Point(25, 487);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(204, 28);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Kretanje vrijednosti:";
+			this.lblKretanjeVrijednosti1.AutoSize = true;
+			this.lblKretanjeVrijednosti1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.lblKretanjeVrijednosti1.Location = new System.Drawing.Point(25, 487);
+			this.lblKretanjeVrijednosti1.Name = "lblKretanjeVrijednosti1";
+			this.lblKretanjeVrijednosti1.Size = new System.Drawing.Size(204, 28);
+			this.lblKretanjeVrijednosti1.TabIndex = 0;
+			this.lblKretanjeVrijednosti1.Text = "Kretanje vrijednosti:";
 			// 
-			// label2
+			// lblKolicina1
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.label2.Location = new System.Drawing.Point(136, 361);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(93, 28);
-			this.label2.TabIndex = 0;
-			this.label2.Text = "Količina:";
+			this.lblKolicina1.AutoSize = true;
+			this.lblKolicina1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.lblKolicina1.Location = new System.Drawing.Point(136, 361);
+			this.lblKolicina1.Name = "lblKolicina1";
+			this.lblKolicina1.Size = new System.Drawing.Size(93, 28);
+			this.lblKolicina1.TabIndex = 0;
+			this.lblKolicina1.Text = "Količina:";
 			// 
-			// label3
+			// lblUkupnaVrijednost1
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.label3.Location = new System.Drawing.Point(39, 446);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(190, 28);
-			this.label3.TabIndex = 0;
-			this.label3.Text = "Ukupna vrijednost:";
+			this.lblUkupnaVrijednost1.AutoSize = true;
+			this.lblUkupnaVrijednost1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.lblUkupnaVrijednost1.Location = new System.Drawing.Point(39, 446);
+			this.lblUkupnaVrijednost1.Name = "lblUkupnaVrijednost1";
+			this.lblUkupnaVrijednost1.Size = new System.Drawing.Size(190, 28);
+			this.lblUkupnaVrijednost1.TabIndex = 0;
+			this.lblUkupnaVrijednost1.Text = "Ukupna vrijednost:";
 			// 
-			// label4
+			// lblVrijednost1
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.label4.Location = new System.Drawing.Point(116, 402);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(113, 28);
-			this.label4.TabIndex = 0;
-			this.label4.Text = "Vrijednost:";
+			this.lblVrijednost1.AutoSize = true;
+			this.lblVrijednost1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.lblVrijednost1.Location = new System.Drawing.Point(116, 402);
+			this.lblVrijednost1.Name = "lblVrijednost1";
+			this.lblVrijednost1.Size = new System.Drawing.Size(113, 28);
+			this.lblVrijednost1.TabIndex = 0;
+			this.lblVrijednost1.Text = "Vrijednost:";
 			// 
 			// gBoxInvesticije2
 			// 
@@ -440,16 +448,16 @@
 			// 
 			// chart2
 			// 
-			chartArea4.Name = "ChartArea1";
-			this.chart2.ChartAreas.Add(chartArea4);
-			legend4.Name = "Legend1";
-			this.chart2.Legends.Add(legend4);
+			chartArea2.Name = "ChartArea1";
+			this.chart2.ChartAreas.Add(chartArea2);
+			legend2.Name = "Legend1";
+			this.chart2.Legends.Add(legend2);
 			this.chart2.Location = new System.Drawing.Point(6, 43);
 			this.chart2.Name = "chart2";
-			series4.ChartArea = "ChartArea1";
-			series4.Legend = "Legend1";
-			series4.Name = "Series1";
-			this.chart2.Series.Add(series4);
+			series2.ChartArea = "ChartArea1";
+			series2.Legend = "Legend1";
+			series2.Name = "Series1";
+			this.chart2.Series.Add(series2);
 			this.chart2.Size = new System.Drawing.Size(468, 300);
 			this.chart2.TabIndex = 1;
 			this.chart2.Text = "chart1";
@@ -497,6 +505,46 @@
 			// bankovniracunBindingSource1
 			// 
 			this.bankovniracunBindingSource1.DataSource = typeof(PocetniZaslon.Bankovni_racun);
+			// 
+			// lblPrikazKol
+			// 
+			this.lblPrikazKol.AutoSize = true;
+			this.lblPrikazKol.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblPrikazKol.Location = new System.Drawing.Point(235, 361);
+			this.lblPrikazKol.Name = "lblPrikazKol";
+			this.lblPrikazKol.Size = new System.Drawing.Size(63, 28);
+			this.lblPrikazKol.TabIndex = 2;
+			this.lblPrikazKol.Text = "label1";
+			// 
+			// lblPrikazVrj1
+			// 
+			this.lblPrikazVrj1.AutoSize = true;
+			this.lblPrikazVrj1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblPrikazVrj1.Location = new System.Drawing.Point(235, 402);
+			this.lblPrikazVrj1.Name = "lblPrikazVrj1";
+			this.lblPrikazVrj1.Size = new System.Drawing.Size(63, 28);
+			this.lblPrikazVrj1.TabIndex = 2;
+			this.lblPrikazVrj1.Text = "label1";
+			// 
+			// lblPrikazUkVrj1
+			// 
+			this.lblPrikazUkVrj1.AutoSize = true;
+			this.lblPrikazUkVrj1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblPrikazUkVrj1.Location = new System.Drawing.Point(235, 446);
+			this.lblPrikazUkVrj1.Name = "lblPrikazUkVrj1";
+			this.lblPrikazUkVrj1.Size = new System.Drawing.Size(63, 28);
+			this.lblPrikazUkVrj1.TabIndex = 2;
+			this.lblPrikazUkVrj1.Text = "label1";
+			// 
+			// lblPrikazKretVrj1
+			// 
+			this.lblPrikazKretVrj1.AutoSize = true;
+			this.lblPrikazKretVrj1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblPrikazKretVrj1.Location = new System.Drawing.Point(235, 487);
+			this.lblPrikazKretVrj1.Name = "lblPrikazKretVrj1";
+			this.lblPrikazKretVrj1.Size = new System.Drawing.Size(63, 28);
+			this.lblPrikazKretVrj1.TabIndex = 2;
+			this.lblPrikazKretVrj1.Text = "label1";
 			// 
 			// FrmInvesticijskiPortfolio
 			// 
@@ -562,14 +610,18 @@
 		private System.Windows.Forms.BindingSource vrstainvesticijeBindingSource;
 		private System.Windows.Forms.GroupBox gBoxInvesticije;
 		private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label lblKretanjeVrijednosti1;
+		private System.Windows.Forms.Label lblKolicina1;
+		private System.Windows.Forms.Label lblUkupnaVrijednost1;
+		private System.Windows.Forms.Label lblVrijednost1;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.BindingSource investicijaBindingSource;
 		private System.Windows.Forms.TextBox txtBoxIznosTransInv;
 		private System.Windows.Forms.BindingSource transakcijainvesticijeBindingSource;
 		private System.Windows.Forms.Button btnObrisiInvesticiju;
+		private System.Windows.Forms.Label lblPrikazKretVrj1;
+		private System.Windows.Forms.Label lblPrikazUkVrj1;
+		private System.Windows.Forms.Label lblPrikazVrj1;
+		private System.Windows.Forms.Label lblPrikazKol;
 	}
 }
