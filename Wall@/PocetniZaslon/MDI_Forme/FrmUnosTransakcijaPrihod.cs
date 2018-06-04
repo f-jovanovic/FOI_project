@@ -13,6 +13,7 @@ namespace PocetniZaslon.MDI_Forme
     public partial class FrmUnosTransakcijaPrihod : Form
     {
         Korisnik trenutniKorisnik = null;
+        UpravljanjeTransakcijom dodavanjeTransakcije = new UpravljanjeTransakcijom();
 
         public FrmUnosTransakcijaPrihod(Korisnik korisnik)
         {
@@ -25,10 +26,10 @@ namespace PocetniZaslon.MDI_Forme
             lblNeispravanIznos.Hide();
             btnSpremiTransakcijuPrihod.Enabled = false;
             btnIzbrisiKategorijuPrihod.Enabled = false;
-            RefreshPodaci();
+            DohvatiPodatke();
         }
 
-        private void RefreshPodaci()
+        private void DohvatiPodatke()
         {
             chkKategorijePrihod.Items.Clear();
 
@@ -50,47 +51,15 @@ namespace PocetniZaslon.MDI_Forme
 
         private void btnSpremiTransakcijuPrihod_Click(object sender, EventArgs e)
         {
-            using (WalletEntities db = new WalletEntities())
+            List<string> listKategorijePrihod = new List<string>();
+
+            foreach (var item in chkKategorijePrihod.CheckedItems)
             {
-                db.Bankovni_racun.Attach(bankovniracunBindingSource.Current as Bankovni_racun);
-
-                Transakcija noviPrihod = new Transakcija
-                {
-                    Bankovni_racun = bankovniracunBindingSource.Current as Bankovni_racun,
-                    iznos_transakcije = decimal.Parse(txtIznosPrihod.Text.ToString()),
-                    vrijeme_transakcije = dtpDatumTransakcijePrihod.Value.Date + dtpVrijemeTransakcijePrihod.Value.TimeOfDay,
-                    opis_transakcije = txtOpisPrihod.Text.ToString()
-                };
-
-                //Dodavanje ključeva na kolekcije unutar kategorija i transakcije
-                foreach (var item in chkKategorijePrihod.CheckedItems)
-                {
-                    Kategorije_transakcije dodajKategoriju = (from t in db.Kategorije_transakcije
-                                                              where t.naziv_kategorije == item.ToString() && t.id_vrsta_transakcije == 1
-                                                              select t).First();
-
-                    noviPrihod.Kategorije_transakcije.Add(dodajKategoriju);
-                }
-
-                foreach (var item in chkKategorijePrihod.CheckedItems)
-                {
-                    foreach (var kategorija in db.Kategorije_transakcije.ToList())
-                    {
-                        if (kategorija.naziv_kategorije.ToString() == item.ToString()) kategorija.Transakcija.Add(noviPrihod);
-                    }
-                }
-
-                foreach (Bankovni_racun racun in db.Bankovni_racun)
-                {
-                    if (racun == bankovniracunBindingSource.Current) racun.stanje_racuna += noviPrihod.iznos_transakcije;
-                }
-
-                db.Transakcija.Add(noviPrihod);
-                db.SaveChanges();
+                listKategorijePrihod.Add(item.ToString());
             }
 
-            RefreshPodaci();
-
+            dodavanjeTransakcije.DodajTransakciju(1, bankovniracunBindingSource, txtIznosPrihod.Text, dtpDatumTransakcijePrihod.Value.Date + dtpVrijemeTransakcijePrihod.Value.TimeOfDay, txtOpisPrihod.Text, listKategorijePrihod);
+                        
             MessageBox.Show("Transakcija uspješno unesena!");
 
             // Prolazi se kroz sve kontrole glavne forme, i izvršava se click na gumb UnosTransakcije.
@@ -105,7 +74,7 @@ namespace PocetniZaslon.MDI_Forme
         {
             Dialog_forme.FrmKategorijeTransakcijaDodaj frmDodajKategorijuPrihod = new Dialog_forme.FrmKategorijeTransakcijaDodaj(trenutniKorisnik, 1, null);
             frmDodajKategorijuPrihod.ShowDialog();
-            RefreshPodaci();
+            DohvatiPodatke();
         }
 
         private void btnUrediKategorijuPrihod_Click(object sender, EventArgs e)
@@ -171,7 +140,7 @@ namespace PocetniZaslon.MDI_Forme
                     db.SaveChanges();
                 }
             }
-            RefreshPodaci();
+            DohvatiPodatke();
         }
 
         private void chkKategorijePrihod_MouseUp(object sender, MouseEventArgs e)

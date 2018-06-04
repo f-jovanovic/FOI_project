@@ -57,14 +57,12 @@ namespace PocetniZaslon.MDI_Forme
 
         private void btnInterniPrijenos_Click(object sender, EventArgs e)
         {
-            /*
-            FrmUnosTransakcijaPrihod frmUnosTransakcijaInterni = new FrmUnosTransakcijaPrihod(trenutniKorisnik);
+            FrmUnosTransakcijaInterni frmUnosTransakcijaInterni = new FrmUnosTransakcijaInterni(trenutniKorisnik);
             frmUnosTransakcijaInterni.MdiParent = this.MdiParent;
             frmUnosTransakcijaInterni.Dock = DockStyle.Fill;
             ZatvoriForme(frmUnosTransakcijaInterni);
             frmUnosTransakcijaInterni.Show();
             frmGlavni.PrilagodiElementeChild(frmUnosTransakcijaInterni);
-            */
         }
         #endregion
     }

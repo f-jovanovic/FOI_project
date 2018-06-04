@@ -13,6 +13,7 @@ namespace PocetniZaslon.MDI_Forme
     public partial class FrmUnosTransakcijaRashod : Form
     {
         Korisnik trenutniKorisnik = null;
+        UpravljanjeTransakcijom dodavanjeTransakcije = new UpravljanjeTransakcijom();
 
         public FrmUnosTransakcijaRashod(Korisnik korisnik)
         {
@@ -56,53 +57,16 @@ namespace PocetniZaslon.MDI_Forme
             bankovniracunBindingSource.DataSource = listBankovniRacuni;
         }
 
-        /// <summary>
-        /// Klikom na gumb Spremi transakcija se unosi, i vežu se svi potrebni ključevi na nju.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnSpremiTransakcijuRashod_Click(object sender, EventArgs e)
         {
-            using (WalletEntities db = new WalletEntities())
+            List<string> listKategorijeRashod = new List<string>();
+
+            foreach (var item in chkKategorijeRashod.CheckedItems)
             {
-                db.Bankovni_racun.Attach(bankovniracunBindingSource.Current as Bankovni_racun);
-
-                Transakcija noviRashod = new Transakcija
-                {
-                    Bankovni_racun = bankovniracunBindingSource.Current as Bankovni_racun,
-                    iznos_transakcije = decimal.Parse(txtIznosRashod.Text.ToString()),
-                    vrijeme_transakcije = dtpDatumTransakcijeRashod.Value.Date + dtpVrijemeTransakcijeRashod.Value.TimeOfDay,
-                    opis_transakcije = txtOpisRashod.Text.ToString()
-                };
-
-                //Dodavanje ključeva na kolekcije unutar kategorija i transakcije
-                foreach (var item in chkKategorijeRashod.CheckedItems)
-                {
-                    Kategorije_transakcije dodajKategoriju = (from t in db.Kategorije_transakcije
-                                                              where t.naziv_kategorije == item.ToString() && t.id_vrsta_transakcije == 2
-                                                              select t).First();
-
-                    noviRashod.Kategorije_transakcije.Add(dodajKategoriju);
-                }
-
-                foreach (var item in chkKategorijeRashod.CheckedItems)
-                {
-                    foreach (var kategorija in db.Kategorije_transakcije.ToList())
-                    {
-                        if (kategorija.naziv_kategorije.ToString() == item.ToString()) kategorija.Transakcija.Add(noviRashod);
-                    }
-                }
-
-                foreach (Bankovni_racun racun in db.Bankovni_racun)
-                {
-                    if (racun == bankovniracunBindingSource.Current) racun.stanje_racuna -= noviRashod.iznos_transakcije;
-                }
-
-                db.Transakcija.Add(noviRashod);
-                db.SaveChanges();
+                listKategorijeRashod.Add(item.ToString());
             }
 
-            RefreshPodaci();
+            dodavanjeTransakcije.DodajTransakciju(2, bankovniracunBindingSource, txtIznosRashod.Text, dtpDatumTransakcijeRashod.Value.Date + dtpVrijemeTransakcijeRashod.Value.TimeOfDay, txtOpisRashod.Text, listKategorijeRashod);
 
             MessageBox.Show("Transakcija uspješno unesena!");
 

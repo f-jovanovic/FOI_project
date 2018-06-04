@@ -111,6 +111,12 @@
     <Compile Include="MDI_Forme\FrmUnosTransakcija.Designer.cs">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
     </Compile>
+    <Compile Include="MDI_Forme\FrmUnosTransakcijaInterni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Forme\FrmUnosTransakcijaInterni.Designer.cs">
+      <DependentUpon>FrmUnosTransakcijaInterni.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDI_Forme\FrmUnosTransakcijaPrihod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,7 @@
     <Compile Include="Transakcija_investicije.cs">
       <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UpravljanjeTransakcijom.cs" />
     <Compile Include="Vrsta_investicije.cs">
       <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
@@ -178,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcija.resx">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcijaInterni.resx">
+      <DependentUpon>FrmUnosTransakcijaInterni.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcijaPrihod.resx">
       <DependentUpon>FrmUnosTransakcijaPrihod.cs</DependentUpon>
