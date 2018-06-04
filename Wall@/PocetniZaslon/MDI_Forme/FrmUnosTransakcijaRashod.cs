@@ -27,9 +27,9 @@ namespace PocetniZaslon.MDI_Forme
         /// <param name="e"></param>
         private void FrmUnosTransakcijaTrosak_Load(object sender, EventArgs e)
         {
-            lblNeispravanIznos.Hide();
+            lblNeispravanIznosRashod.Hide();
             btnSpremiTransakcijuRashod.Enabled = false;
-            btnIzbrisiKategoriju.Enabled = false;
+            btnIzbrisiKategorijuRashod.Enabled = false;
             RefreshPodaci();
         }
 
@@ -38,7 +38,7 @@ namespace PocetniZaslon.MDI_Forme
         /// </summary>
         private void RefreshPodaci()
         {
-            chkKategorije.Items.Clear();
+            chkKategorijeRashod.Items.Clear();
 
             BindingList<Bankovni_racun> listBankovniRacuni = null;
 
@@ -49,7 +49,7 @@ namespace PocetniZaslon.MDI_Forme
 
                 foreach (var item in db.Kategorije_transakcije.ToList())
                 {
-                    if (item.id_vrsta_transakcije == 2 && (item.id_korisnik == trenutniKorisnik.id_korisnik || item.Korisnik == null)) chkKategorije.Items.Add(item.naziv_kategorije);
+                    if (item.id_vrsta_transakcije == 2 && (item.id_korisnik == trenutniKorisnik.id_korisnik || item.Korisnik == null)) chkKategorijeRashod.Items.Add(item.naziv_kategorije);
                 }
             }
 
@@ -70,13 +70,13 @@ namespace PocetniZaslon.MDI_Forme
                 Transakcija noviRashod = new Transakcija
                 {
                     Bankovni_racun = bankovniracunBindingSource.Current as Bankovni_racun,
-                    iznos_transakcije = decimal.Parse(txtIznos.Text.ToString()),
+                    iznos_transakcije = decimal.Parse(txtIznosRashod.Text.ToString()),
                     vrijeme_transakcije = dtpDatumTransakcijeRashod.Value.Date + dtpVrijemeTransakcijeRashod.Value.TimeOfDay,
-                    opis_transakcije = txtOpis.Text.ToString()
+                    opis_transakcije = txtOpisRashod.Text.ToString()
                 };
 
                 //Dodavanje ključeva na kolekcije unutar kategorija i transakcije
-                foreach (var item in chkKategorije.CheckedItems)
+                foreach (var item in chkKategorijeRashod.CheckedItems)
                 {
                     Kategorije_transakcije dodajKategoriju = (from t in db.Kategorije_transakcije
                                                               where t.naziv_kategorije == item.ToString() && t.id_vrsta_transakcije == 2
@@ -85,7 +85,7 @@ namespace PocetniZaslon.MDI_Forme
                     noviRashod.Kategorije_transakcije.Add(dodajKategoriju);
                 }
 
-                foreach (var item in chkKategorije.CheckedItems)
+                foreach (var item in chkKategorijeRashod.CheckedItems)
                 {
                     foreach (var kategorija in db.Kategorije_transakcije.ToList())
                     {
@@ -115,22 +115,22 @@ namespace PocetniZaslon.MDI_Forme
         }
 
         #region Upravljanje kategorijama
-        private void btnDodajKategoriju_Click(object sender, EventArgs e)
+        private void btnDodajKategorijuRashod_Click(object sender, EventArgs e)
         {
-            Dialog_forme.FrmKategorijeTransakcijaDodaj frmDodajKategoriju = new Dialog_forme.FrmKategorijeTransakcijaDodaj(trenutniKorisnik, 2, null);
-            frmDodajKategoriju.ShowDialog();
+            Dialog_forme.FrmKategorijeTransakcijaDodaj frmDodajKategorijuPrihod = new Dialog_forme.FrmKategorijeTransakcijaDodaj(trenutniKorisnik, 2, null);
+            frmDodajKategorijuPrihod.ShowDialog();
             RefreshPodaci();
         }
 
-        private void btnUrediKategoriju_Click(object sender, EventArgs e)
+        private void btnUrediKategorijuRashod_Click(object sender, EventArgs e)
         {
-            if (chkKategorije.CheckedItems.Count != 1) MessageBox.Show("Potrebno je označiti točno jednu kategoriju za uređivanje!");
+            if (chkKategorijeRashod.CheckedItems.Count != 1) MessageBox.Show("Potrebno je označiti točno jednu kategoriju za uređivanje!");
             else
             {
                 Kategorije_transakcije kategorija = null;
                 using (WalletEntities db = new WalletEntities())
                 {
-                    foreach (var item in chkKategorije.CheckedItems)
+                    foreach (var item in chkKategorijeRashod.CheckedItems)
                     {
                         kategorija = (from t in db.Kategorije_transakcije
                                       where t.naziv_kategorije == item.ToString() && t.id_vrsta_transakcije == 2
@@ -142,26 +142,26 @@ namespace PocetniZaslon.MDI_Forme
                 frmUrediKategoriju.ShowDialog();
 
                 // iz nekog razloga podaci se updateaju jedino kad je ovo ovdje pozvano... bilo gdje izvan, identičan kod, kad ga se pozove ne prikaže novi naziv :(
-                chkKategorije.Items.Clear();
+                chkKategorijeRashod.Items.Clear();
                 using (var db = new WalletEntities())
                 {
                     foreach (var item in db.Kategorije_transakcije.ToList())
                     {
-                        if (item.id_vrsta_transakcije == 2 && (item.id_korisnik == trenutniKorisnik.id_korisnik || item.Korisnik == null)) chkKategorije.Items.Add(item.naziv_kategorije);
+                        if (item.id_vrsta_transakcije == 2 && (item.id_korisnik == trenutniKorisnik.id_korisnik || item.Korisnik == null)) chkKategorijeRashod.Items.Add(item.naziv_kategorije);
                     }
                 }
             }
         }
 
-        private void btnIzbrisiKategoriju_Click(object sender, EventArgs e)
+        private void btnIzbrisiKategorijuRashod_Click(object sender, EventArgs e)
         {
-            if (chkKategorije.CheckedItems.Count != 0)
+            if (chkKategorijeRashod.CheckedItems.Count != 0)
             {
                 using (WalletEntities db = new WalletEntities())
                 {
                     foreach (Kategorije_transakcije kategorija in db.Kategorije_transakcije)
                     {
-                        foreach (var odabranaKategorija in chkKategorije.CheckedItems)
+                        foreach (var odabranaKategorija in chkKategorijeRashod.CheckedItems)
                         {
                             if (kategorija.naziv_kategorije == odabranaKategorija.ToString() && kategorija.id_vrsta_transakcije == 2 && kategorija.id_korisnik == trenutniKorisnik.id_korisnik)
                             {
@@ -188,13 +188,13 @@ namespace PocetniZaslon.MDI_Forme
             RefreshPodaci();
         }
 
-        private void chkKategorije_MouseUp(object sender, MouseEventArgs e)
+        private void chkKategorijeRashod_MouseUp(object sender, MouseEventArgs e)
         {
-            if (chkKategorije.CheckedItems.Count > 0) btnIzbrisiKategoriju.Enabled = true;
-            else btnIzbrisiKategoriju.Enabled = false;
+            if (chkKategorijeRashod.CheckedItems.Count > 0) btnIzbrisiKategorijuRashod.Enabled = true;
+            else btnIzbrisiKategorijuRashod.Enabled = false;
 
-            if (chkKategorije.CheckedItems.Count != 1) btnUrediKategoriju.Enabled = false;
-            else btnUrediKategoriju.Enabled = true;
+            if (chkKategorijeRashod.CheckedItems.Count != 1) btnUrediKategorijuRashod.Enabled = false;
+            else btnUrediKategorijuRashod.Enabled = true;
         }
         #endregion
 
@@ -203,19 +203,19 @@ namespace PocetniZaslon.MDI_Forme
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtIznos_TextChanged(object sender, EventArgs e)
+        private void txtIznosRashod_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtIznos.ToString()))
+            if (!string.IsNullOrWhiteSpace(txtIznosRashod.ToString()))
             {
                 decimal iznosProvjera;
-                if (decimal.TryParse(txtIznos.Text, out iznosProvjera) && iznosProvjera != 0)
+                if (decimal.TryParse(txtIznosRashod.Text, out iznosProvjera) && iznosProvjera != 0)
                 {
-                    lblNeispravanIznos.Hide();
+                    lblNeispravanIznosRashod.Hide();
                     btnSpremiTransakcijuRashod.Enabled = true;
                 }
                 else
                 {
-                    lblNeispravanIznos.Show();
+                    lblNeispravanIznosRashod.Show();
                     btnSpremiTransakcijuRashod.Enabled = false;
                 }
             }

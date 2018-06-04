@@ -111,11 +111,11 @@
     <Compile Include="MDI_Forme\FrmUnosTransakcija.Designer.cs">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
     </Compile>
-    <Compile Include="MDI_Forme\FrmUnosTransakcijaPrihod_Interni.cs">
+    <Compile Include="MDI_Forme\FrmUnosTransakcijaPrihod.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MDI_Forme\FrmUnosTransakcijaPrihod_Interni.Designer.cs">
-      <DependentUpon>FrmUnosTransakcijaPrihod_Interni.cs</DependentUpon>
+    <Compile Include="MDI_Forme\FrmUnosTransakcijaPrihod.Designer.cs">
+      <DependentUpon>FrmUnosTransakcijaPrihod.cs</DependentUpon>
     </Compile>
     <Compile Include="MDI_Forme\FrmUnosTransakcijaRashod.cs">
       <SubType>Form</SubType>
@@ -179,8 +179,8 @@
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcija.resx">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcijaPrihod_Interni.resx">
-      <DependentUpon>FrmUnosTransakcijaPrihod_Interni.cs</DependentUpon>
+    <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcijaPrihod.resx">
+      <DependentUpon>FrmUnosTransakcijaPrihod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcijaRashod.resx">
       <DependentUpon>FrmUnosTransakcijaRashod.cs</DependentUpon>
