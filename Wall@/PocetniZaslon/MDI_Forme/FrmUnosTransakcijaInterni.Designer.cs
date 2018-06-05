@@ -44,7 +44,10 @@
             this.lblNoviInterni = new System.Windows.Forms.Label();
             this.lblBankovniRacunPrimatelj = new System.Windows.Forms.Label();
             this.cboBankovniRacunPrimateljInterni = new System.Windows.Forms.ComboBox();
+            this.bankovniracunBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.lblBankovniError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNeispravanIznos
@@ -52,7 +55,7 @@
             this.lblNeispravanIznos.AutoSize = true;
             this.lblNeispravanIznos.Font = new System.Drawing.Font("Segoe UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNeispravanIznos.ForeColor = System.Drawing.Color.Red;
-            this.lblNeispravanIznos.Location = new System.Drawing.Point(316, 334);
+            this.lblNeispravanIznos.Location = new System.Drawing.Point(316, 352);
             this.lblNeispravanIznos.Name = "lblNeispravanIznos";
             this.lblNeispravanIznos.Size = new System.Drawing.Size(320, 38);
             this.lblNeispravanIznos.TabIndex = 53;
@@ -81,6 +84,7 @@
             this.btnSpremiTransakcijuInterni.TabIndex = 47;
             this.btnSpremiTransakcijuInterni.Text = "Spremi transakciju";
             this.btnSpremiTransakcijuInterni.UseVisualStyleBackColor = true;
+            this.btnSpremiTransakcijuInterni.Click += new System.EventHandler(this.btnSpremiTransakcijuInterni_Click);
             // 
             // bankovniracunBindingSource
             // 
@@ -108,6 +112,7 @@
             this.cboBankovniRacunPosiljateljInterni.Size = new System.Drawing.Size(424, 53);
             this.cboBankovniRacunPosiljateljInterni.TabIndex = 39;
             this.cboBankovniRacunPosiljateljInterni.ValueMember = "iban";
+            this.cboBankovniRacunPosiljateljInterni.SelectedIndexChanged += new System.EventHandler(this.cboBankovniRacunPosiljateljInterni_SelectedIndexChanged);
             // 
             // txtOpisInterni
             // 
@@ -122,11 +127,12 @@
             // txtIznosInterni
             // 
             this.txtIznosInterni.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtIznosInterni.Location = new System.Drawing.Point(309, 275);
+            this.txtIznosInterni.Location = new System.Drawing.Point(309, 299);
             this.txtIznosInterni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIznosInterni.Name = "txtIznosInterni";
             this.txtIznosInterni.Size = new System.Drawing.Size(665, 51);
             this.txtIznosInterni.TabIndex = 41;
+            this.txtIznosInterni.TextChanged += new System.EventHandler(this.txtIznosInterni_TextChanged);
             // 
             // lblOpisInterni
             // 
@@ -152,7 +158,7 @@
             // 
             this.lblIznosInterni.AutoSize = true;
             this.lblIznosInterni.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblIznosInterni.Location = new System.Drawing.Point(32, 278);
+            this.lblIznosInterni.Location = new System.Drawing.Point(32, 302);
             this.lblIznosInterni.Name = "lblIznosInterni";
             this.lblIznosInterni.Size = new System.Drawing.Size(256, 45);
             this.lblIznosInterni.TabIndex = 42;
@@ -182,7 +188,7 @@
             // 
             this.lblBankovniRacunPrimatelj.AutoSize = true;
             this.lblBankovniRacunPrimatelj.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblBankovniRacunPrimatelj.Location = new System.Drawing.Point(87, 201);
+            this.lblBankovniRacunPrimatelj.Location = new System.Drawing.Point(87, 181);
             this.lblBankovniRacunPrimatelj.Name = "lblBankovniRacunPrimatelj";
             this.lblBankovniRacunPrimatelj.Size = new System.Drawing.Size(200, 45);
             this.lblBankovniRacunPrimatelj.TabIndex = 54;
@@ -190,22 +196,39 @@
             // 
             // cboBankovniRacunPrimateljInterni
             // 
-            this.cboBankovniRacunPrimateljInterni.DataSource = this.bankovniracunBindingSource;
+            this.cboBankovniRacunPrimateljInterni.DataSource = this.bankovniracunBindingSource1;
             this.cboBankovniRacunPrimateljInterni.DisplayMember = "naziv_racuna";
             this.cboBankovniRacunPrimateljInterni.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cboBankovniRacunPrimateljInterni.FormattingEnabled = true;
-            this.cboBankovniRacunPrimateljInterni.Location = new System.Drawing.Point(309, 198);
+            this.cboBankovniRacunPrimateljInterni.Location = new System.Drawing.Point(309, 178);
             this.cboBankovniRacunPrimateljInterni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboBankovniRacunPrimateljInterni.Name = "cboBankovniRacunPrimateljInterni";
             this.cboBankovniRacunPrimateljInterni.Size = new System.Drawing.Size(424, 53);
             this.cboBankovniRacunPrimateljInterni.TabIndex = 55;
             this.cboBankovniRacunPrimateljInterni.ValueMember = "iban";
+            this.cboBankovniRacunPrimateljInterni.SelectedIndexChanged += new System.EventHandler(this.cboBankovniRacunPrimateljInterni_SelectedIndexChanged);
+            // 
+            // bankovniracunBindingSource1
+            // 
+            this.bankovniracunBindingSource1.DataSource = typeof(PocetniZaslon.Bankovni_racun);
+            // 
+            // lblBankovniError
+            // 
+            this.lblBankovniError.AutoSize = true;
+            this.lblBankovniError.Font = new System.Drawing.Font("Segoe UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblBankovniError.ForeColor = System.Drawing.Color.Red;
+            this.lblBankovniError.Location = new System.Drawing.Point(316, 233);
+            this.lblBankovniError.Name = "lblBankovniError";
+            this.lblBankovniError.Size = new System.Drawing.Size(462, 38);
+            this.lblBankovniError.TabIndex = 56;
+            this.lblBankovniError.Text = "Bankovni računi se moraju razlikovati!";
             // 
             // FrmUnosTransakcijaInterni
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1323, 882);
+            this.Controls.Add(this.lblBankovniError);
             this.Controls.Add(this.cboBankovniRacunPrimateljInterni);
             this.Controls.Add(this.lblBankovniRacunPrimatelj);
             this.Controls.Add(this.lblNeispravanIznos);
@@ -223,7 +246,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmUnosTransakcijaInterni";
             this.Text = "FrmUnosTransakcijaInterni";
+            this.Load += new System.EventHandler(this.FrmUnosTransakcijaInterni_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,5 +271,7 @@
         private System.Windows.Forms.Label lblNoviInterni;
         private System.Windows.Forms.Label lblBankovniRacunPrimatelj;
         private System.Windows.Forms.ComboBox cboBankovniRacunPrimateljInterni;
+        private System.Windows.Forms.BindingSource bankovniracunBindingSource1;
+        private System.Windows.Forms.Label lblBankovniError;
     }
 }

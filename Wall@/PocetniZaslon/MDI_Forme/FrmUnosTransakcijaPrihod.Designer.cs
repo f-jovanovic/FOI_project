@@ -67,7 +67,7 @@
             this.lblNeispravanIznos.AutoSize = true;
             this.lblNeispravanIznos.Font = new System.Drawing.Font("Segoe UI Semilight", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNeispravanIznos.ForeColor = System.Drawing.Color.Red;
-            this.lblNeispravanIznos.Location = new System.Drawing.Point(304, 334);
+            this.lblNeispravanIznos.Location = new System.Drawing.Point(304, 315);
             this.lblNeispravanIznos.Name = "lblNeispravanIznos";
             this.lblNeispravanIznos.Size = new System.Drawing.Size(320, 38);
             this.lblNeispravanIznos.TabIndex = 36;
@@ -183,7 +183,7 @@
             // txtIznosPrihod
             // 
             this.txtIznosPrihod.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txtIznosPrihod.Location = new System.Drawing.Point(297, 279);
+            this.txtIznosPrihod.Location = new System.Drawing.Point(297, 260);
             this.txtIznosPrihod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIznosPrihod.Name = "txtIznosPrihod";
             this.txtIznosPrihod.Size = new System.Drawing.Size(665, 51);
@@ -214,7 +214,7 @@
             // 
             this.lblIznos.AutoSize = true;
             this.lblIznos.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblIznos.Location = new System.Drawing.Point(21, 279);
+            this.lblIznos.Location = new System.Drawing.Point(26, 263);
             this.lblIznos.Name = "lblIznos";
             this.lblIznos.Size = new System.Drawing.Size(256, 45);
             this.lblIznos.TabIndex = 22;

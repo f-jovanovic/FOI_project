@@ -12,6 +12,7 @@ namespace PocetniZaslon
         /// <summary>
         /// Metoda koja dodaje transakciju u bazu, te sukladno vrsti transakcije mijenja iznos na računu.
         /// Potrebno joj je proslijediti vrijednosti sa kontrola na formi, listu kategorija i ID vrste transakcije (1 - prihod, 2 - rashod).
+        /// Vraća istu tu transakciju koja se dodala.
         /// </summary>
         /// <param name="idVrstaTransakcije"></param>
         /// <param name="bankovniRacun"></param>
@@ -19,14 +20,15 @@ namespace PocetniZaslon
         /// <param name="vrijemeTransakcije"></param>
         /// <param name="opisTransakcije"></param>
         /// <param name="kategorijeTransakcije"></param>
-        public void DodajTransakciju(int idVrstaTransakcije, BindingSource bankovniRacun, string iznosTransakcije, DateTime vrijemeTransakcije, string opisTransakcije, List<string> kategorijeTransakcije)
+        public Transakcija DodajTransakciju(int idVrstaTransakcije, BindingSource bankovniRacun, string iznosTransakcije, DateTime vrijemeTransakcije, string opisTransakcije, List<string> kategorijeTransakcije)
         {
+            Transakcija novaTransakcija = null;
             using (WalletEntities db = new WalletEntities())
             {
-                // Dohvati bankovne račune preko proslijeđenog binding sourcea.
+                // Dohvati bankovni račun preko proslijeđenog binding sourcea.
                 db.Bankovni_racun.Attach(bankovniRacun.Current as Bankovni_racun);
 
-                Transakcija novaTransakcija = new Transakcija
+                novaTransakcija = new Transakcija
                 {
                     Bankovni_racun = bankovniRacun.Current as Bankovni_racun,
                     iznos_transakcije = decimal.Parse(iznosTransakcije),
@@ -70,9 +72,9 @@ namespace PocetniZaslon
                 }
 
                 db.Transakcija.Add(novaTransakcija);
-
                 db.SaveChanges();
             }
+            return novaTransakcija;
         }
     }
 }

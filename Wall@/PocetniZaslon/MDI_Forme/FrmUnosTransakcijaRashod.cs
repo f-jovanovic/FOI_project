@@ -57,13 +57,25 @@ namespace PocetniZaslon.MDI_Forme
             bankovniracunBindingSource.DataSource = listBankovniRacuni;
         }
 
+        /// <summary>
+        /// Poziva se metoda za unos transakcije, i daje joj se idVrstaTransakcije 2(rashod), te se označene kategorije spremaju u listu i također proslijeđuju.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSpremiTransakcijuRashod_Click(object sender, EventArgs e)
         {
             List<string> listKategorijeRashod = new List<string>();
 
-            foreach (var item in chkKategorijeRashod.CheckedItems)
+            if (chkKategorijeRashod.CheckedItems.Count == 0)
             {
-                listKategorijeRashod.Add(item.ToString());
+                listKategorijeRashod.Add("Ostali rashodi");
+            }
+            else
+            {
+                foreach (var item in chkKategorijeRashod.CheckedItems)
+                {
+                    listKategorijeRashod.Add(item.ToString());
+                }
             }
 
             dodavanjeTransakcije.DodajTransakciju(2, bankovniracunBindingSource, txtIznosRashod.Text, dtpDatumTransakcijeRashod.Value.Date + dtpVrijemeTransakcijeRashod.Value.TimeOfDay, txtOpisRashod.Text, listKategorijeRashod);
@@ -117,6 +129,11 @@ namespace PocetniZaslon.MDI_Forme
             }
         }
 
+        /// <summary>
+        /// Brišu se sve odabrane kategorije, osim one koja je default (Ostali rashodi), te se miču i iz povezanih transakcija.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnIzbrisiKategorijuRashod_Click(object sender, EventArgs e)
         {
             if (chkKategorijeRashod.CheckedItems.Count != 0)

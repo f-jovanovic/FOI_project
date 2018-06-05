@@ -21,6 +21,11 @@ namespace PocetniZaslon.MDI_Forme
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Kod pokretanja forme UnosTransakcija učitaj bankovne račune trenutnog korisnika.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmUnosTransakcijaPrihod_Load(object sender, EventArgs e)
         {
             lblNeispravanIznos.Hide();
@@ -29,6 +34,9 @@ namespace PocetniZaslon.MDI_Forme
             DohvatiPodatke();
         }
 
+        /// <summary>
+        /// Dohvati podatke o bankovnim računima i kategorijama na formu.
+        /// </summary>
         private void DohvatiPodatke()
         {
             chkKategorijePrihod.Items.Clear();
@@ -49,13 +57,25 @@ namespace PocetniZaslon.MDI_Forme
             bankovniracunBindingSource.DataSource = listBankovniRacuni;
         }
 
+        /// <summary>
+        /// Poziva se metoda za unos transakcije, i daje joj se idVrstaTransakcije 1(prihod), te se označene kategorije spremaju u listu i također proslijeđuju.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSpremiTransakcijuPrihod_Click(object sender, EventArgs e)
         {
             List<string> listKategorijePrihod = new List<string>();
 
-            foreach (var item in chkKategorijePrihod.CheckedItems)
+            if (chkKategorijePrihod.CheckedItems.Count == 0)
             {
-                listKategorijePrihod.Add(item.ToString());
+                listKategorijePrihod.Add("Ostali prihodi");
+            }
+            else
+            {
+                foreach (var item in chkKategorijePrihod.CheckedItems)
+                {
+                    listKategorijePrihod.Add(item.ToString());
+                }
             }
 
             dodavanjeTransakcije.DodajTransakciju(1, bankovniracunBindingSource, txtIznosPrihod.Text, dtpDatumTransakcijePrihod.Value.Date + dtpVrijemeTransakcijePrihod.Value.TimeOfDay, txtOpisPrihod.Text, listKategorijePrihod);
@@ -70,6 +90,7 @@ namespace PocetniZaslon.MDI_Forme
 
         }
 
+        #region Upravljanje kategorijama
         private void btnDodajKategorijuPrihod_Click(object sender, EventArgs e)
         {
             Dialog_forme.FrmKategorijeTransakcijaDodaj frmDodajKategorijuPrihod = new Dialog_forme.FrmKategorijeTransakcijaDodaj(trenutniKorisnik, 1, null);
@@ -108,6 +129,11 @@ namespace PocetniZaslon.MDI_Forme
             }
         }
 
+        /// <summary>
+        /// Brišu se sve odabrane kategorije, osim one koja je default (Ostali prihodi), te se miču i iz povezanih transakcija.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnIzbrisiKategorijuPrihod_Click(object sender, EventArgs e)
         {
             if (chkKategorijePrihod.CheckedItems.Count != 0)
@@ -151,7 +177,13 @@ namespace PocetniZaslon.MDI_Forme
             if (chkKategorijePrihod.CheckedItems.Count != 1) btnUrediKategorijuPrihod.Enabled = false;
             else btnUrediKategorijuPrihod.Enabled = true;
         }
+        #endregion
 
+        /// <summary>
+        /// Provjera ispravnosti unesenog iznosa.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtIznosPrihod_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtIznosPrihod.ToString()))
