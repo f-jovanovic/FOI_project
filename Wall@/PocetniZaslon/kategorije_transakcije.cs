@@ -23,9 +23,11 @@ namespace PocetniZaslon
         public int id_kategorije_transakcije { get; set; }
         public int id_vrsta_transakcije { get; set; }
         public string naziv_kategorije { get; set; }
+        public Nullable<int> id_korisnik { get; set; }
     
         public virtual Vrsta_transakcije Vrsta_transakcije { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transakcija> Transakcija { get; set; }
+        public virtual Korisnik Korisnik { get; set; }
     }
 }
