@@ -105,6 +105,12 @@
     <Compile Include="MDI_Forme\FrmBankovniRacuni.Designer.cs">
       <DependentUpon>FrmBankovniRacuni.cs</DependentUpon>
     </Compile>
+    <Compile Include="MDI_Forme\FrmPregledTransakcija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Forme\FrmPregledTransakcija.Designer.cs">
+      <DependentUpon>FrmPregledTransakcija.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDI_Forme\FrmUnosTransakcija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,7 @@
     <Compile Include="Transakcija_investicije.cs">
       <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="UpravljanjeBankovnimRacunima.cs" />
     <Compile Include="UpravljanjeTransakcijom.cs" />
     <Compile Include="Vrsta_investicije.cs">
       <DependentUpon>WalletDatabseModel.tt</DependentUpon>
@@ -227,7 +234,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Wall%40_logo.png" />

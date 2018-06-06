@@ -76,5 +76,34 @@ namespace PocetniZaslon
             }
             return novaTransakcija;
         }
-    }
+		
+		/// <summary>
+		/// Metoda koja briše odabranu transakciju. 
+		/// Također se brišu i sve veze transakcija s kategorijama transakcija koje su spremljene u tablici Transakcija_ima_kategorije.
+		/// </summary>
+		/// <param name="odabranaTransakcija"></param>
+		public void ObrisiTransakciju(Transakcija odabranaTransakcija)
+		{
+			if (odabranaTransakcija != null)
+			{
+				using (var db = new WalletEntities())
+				{
+					db.Transakcija.Attach(odabranaTransakcija);
+					Transakcija vlastitaTransakcija = odabranaTransakcija.Transakcija2;
+					//Ako se radi o računu na koji smo izvršili prijenos novca
+					if (vlastitaTransakcija != null)
+					{
+						db.Transakcija.Attach(vlastitaTransakcija);
+						vlastitaTransakcija.Transakcija2 = null;
+					}
+					db.Database.ExecuteSqlCommand("DELETE from Transakcija_ima_kategorije WHERE id_transakcije = " + odabranaTransakcija.id_transakcije);
+					db.SaveChanges();
+					db.Transakcija.Attach(odabranaTransakcija);
+					db.Transakcija.Remove(odabranaTransakcija);
+					db.SaveChanges();
+				}
+			}
+			else MessageBox.Show("Transakcija nije odabrana. Brisanje nije moguće.");
+		}
+	}
 }
