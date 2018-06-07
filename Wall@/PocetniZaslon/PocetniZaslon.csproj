@@ -219,6 +219,7 @@
     <None Include="Properties\DataSources\Bankovni_racun.datasource" />
     <None Include="Properties\DataSources\Kategorije_transakcije.datasource" />
     <None Include="Properties\DataSources\Vrsta_racuna.datasource" />
+    <None Include="Properties\DataSources\Vrsta_transakcije.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

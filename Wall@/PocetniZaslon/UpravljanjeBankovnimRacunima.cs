@@ -13,7 +13,7 @@ namespace PocetniZaslon
 		UpravljanjeTransakcijom upravljanjeTransakcijom = new UpravljanjeTransakcijom();
 		
 		/// <summary>
-		/// Metoda koja vraća binding listu svih bankovnih računa odabranog korisnika
+		/// Metoda koja vraća binding listu svih bankovnih računa odabranog korisnika.
 		/// </summary>
 		public BindingList<Bankovni_racun> PrikaziBankovneRacunePremaKorisniku(Korisnik trenutniKorisnik)
 		{
@@ -23,6 +23,7 @@ namespace PocetniZaslon
 				db.Korisnik.Attach(trenutniKorisnik);
 				listaRacuna = new BindingList<Bankovni_racun>(trenutniKorisnik.Bankovni_racun.ToList<Bankovni_racun>());
 			}
+			listaRacuna.OrderBy(x => x.naziv_racuna);
 			return listaRacuna;
 		}
 

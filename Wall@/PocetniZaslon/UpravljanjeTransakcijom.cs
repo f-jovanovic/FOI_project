@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,6 +114,73 @@ namespace PocetniZaslon
 				}
 			}
 			else MessageBox.Show("Transakcija nije odabrana. Brisanje nije moguće.");
+		}
+
+		/// <summary>
+		/// Metoda koja vraća binding listu svih bankovnih računa prema listi bankovnih računa
+		/// </summary>
+		public BindingList<Transakcija> DohvatiSveTransakcije(BindingList<Bankovni_racun> listaBankovnihRacuna)
+		{
+			BindingList<Transakcija> listaTransakcija = null;
+			using (var db = new WalletEntities())
+			{
+				foreach (Bankovni_racun racun in listaBankovnihRacuna)
+				{
+					db.Bankovni_racun.Attach(racun);
+					foreach (Transakcija transakcija in racun.Transakcija)	listaTransakcija.Add(transakcija);
+					db.Entry(racun).State = System.Data.Entity.EntityState.Detached;
+				}
+				
+			}
+			listaBankovnihRacuna.OrderBy(x => x.naziv_racuna);
+			return listaTransakcija;
+		}
+
+		/// <summary>
+		/// Metoda koja vraća binding listu kategorija odabranog korisnika. Parametar idVrstaTransakcije određuje dohvaćanje: 
+		/// 0 - svih kategorija, 1 - prihodi, 2 - rashodi.
+		/// </summary>
+		public BindingList<Kategorije_transakcije> PrikaziKategorijeKorisnika(Korisnik trenutniKorisnik, int idVrsteTransakcije)
+		{
+			BindingList<Kategorije_transakcije> listaKategorijaKorisnika = null;
+			using (var db = new WalletEntities())
+			{
+				db.Korisnik.Attach(trenutniKorisnik);
+				//Ispituje se je li uzimanje svih kategorija korisnika ili samo prihoda/rashoda
+				if (idVrsteTransakcije == 0) listaKategorijaKorisnika = new BindingList<Kategorije_transakcije>(trenutniKorisnik.Kategorije_transakcije.ToList());
+				else
+				{
+					listaKategorijaKorisnika = new BindingList<Kategorije_transakcije>();
+					foreach (Kategorije_transakcije kategorija in trenutniKorisnik.Kategorije_transakcije.ToList())
+					{
+						db.Kategorije_transakcije.Attach(kategorija);
+						if (idVrsteTransakcije == kategorija.id_vrsta_transakcije) listaKategorijaKorisnika.Add(kategorija);
+						db.Entry(kategorija).State = System.Data.Entity.EntityState.Detached;
+					}
+				}
+				listaKategorijaKorisnika.OrderBy(x => x.naziv_kategorije);
+				foreach (Kategorije_transakcije kategorija in db.Kategorije_transakcije.ToList())
+				{
+					db.Kategorije_transakcije.Attach(kategorija);
+					if (idVrsteTransakcije == 0) { if (kategorija.id_kategorije_transakcije == 1 || kategorija.id_kategorije_transakcije == 2) listaKategorijaKorisnika.Add(kategorija); }
+					else if (kategorija.id_kategorije_transakcije == idVrsteTransakcije) listaKategorijaKorisnika.Add(kategorija);
+					db.Entry(kategorija).State = System.Data.Entity.EntityState.Detached;
+				}
+			}
+			return listaKategorijaKorisnika;
+		}
+
+		/// <summary>
+		/// Metoda koja vraća binding listu svih vrsta transakcija.
+		/// </summary>
+		public BindingList<Vrsta_transakcije> PrikaziVrsteTransakcija()
+		{
+			BindingList<Vrsta_transakcije> listaVrstaTransakcija = null;
+			using (var db = new WalletEntities())
+			{
+				listaVrstaTransakcija = new BindingList<Vrsta_transakcije>(db.Vrsta_transakcije.ToList());
+			}
+			return listaVrstaTransakcija;
 		}
 	}
 }
