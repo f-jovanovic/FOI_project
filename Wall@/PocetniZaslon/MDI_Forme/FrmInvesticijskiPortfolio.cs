@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace PocetniZaslon.MDI_Forme
 {
 	public partial class FrmInvesticijskiPortfolio : Form
@@ -17,6 +18,30 @@ namespace PocetniZaslon.MDI_Forme
 		public FrmInvesticijskiPortfolio(Korisnik korisnik)
 		{
 			trenutniKorisnik = korisnik;
+			bool portfolioPostoji = true;
+			using (var db = new WalletEntities())
+			{
+				foreach (var portfolio in db.Investicijski_portfolio)
+				{
+					if (portfolio.id_korisnik != korisnik.id_korisnik)
+					{
+						portfolioPostoji = false;
+					}
+					else
+					{
+						portfolioPostoji = true;
+					}
+				}
+
+				if (!portfolioPostoji)
+				{
+					Investicijski_portfolio noviPortfolio = new Investicijski_portfolio {
+					id_korisnik  = trenutniKorisnik.id_korisnik};
+					db.Investicijski_portfolio.Add(noviPortfolio);
+					db.SaveChanges();
+				}
+			}
+
 			InitializeComponent();
 			lblInvesticijskiPortfolio.Location = new Point(this.Width / 2 - lblInvesticijskiPortfolio.Width / 2, lblInvesticijskiPortfolio.Location.Y);
 			PrikaziBankovneRacunePremaKorisniku();
@@ -104,21 +129,30 @@ namespace PocetniZaslon.MDI_Forme
 						idVrsteTrans = 2;
 					}
 				}
-				Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
+				try
 				{
-					vrijeme_transakcije_investicije = dateDatum.Value,
-					kolicina_investicije = decimal.Parse(txtBoxKolicina.Text),
-					iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text),
-					Bankovni_racun = bankovni_Racun,
-					Investicija = investicija,
-					id_portfolia = idPort,
-					id_vrsta_transakcije = idVrsteTrans,
-				};
-				decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
-				bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna - ukupniIznos;
-				db.Transakcija_investicije.Add(transakcija_Investicije);
-				db.SaveChanges();
-				db.Entry(investicija).State = System.Data.Entity.EntityState.Deleted;
+					Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
+					{
+						Investicija = investicija,
+						//usporedit ako ta investicija postoji ili ne postoji
+						//ako postoji baci se na dalja ako ne postoji baci je u dgw
+						vrijeme_transakcije_investicije = dateDatum.Value,
+						kolicina_investicije = decimal.Parse(txtBoxKolicina.Text),
+						iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text),
+						Bankovni_racun = bankovni_Racun,
+						id_portfolia = idPort,
+						id_vrsta_transakcije = idVrsteTrans,
+					};
+					decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
+					bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna - ukupniIznos;
+					db.Transakcija_investicije.Add(transakcija_Investicije);
+					db.SaveChanges();
+
+				}
+				catch (Exception)
+				{
+					MessageBox.Show("Unijeli ste krivi tip podataka");
+				}
 				txtBoxKolicina.Clear();
 				txtBoxIznosTransInv.Clear();
 			}
@@ -158,21 +192,29 @@ namespace PocetniZaslon.MDI_Forme
 						idVrsteTrans = 1;
 					}
 				}
-				Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
+				try
 				{
-					vrijeme_transakcije_investicije = dateDatum.Value,
-					kolicina_investicije = decimal.Parse(txtBoxKolicina.Text),
-					iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text),
-					Bankovni_racun = bankovni_Racun,
-					Investicija = investicija,
-					id_portfolia = idPort,
-					id_vrsta_transakcije = idVrsteTrans,
-				};
-				decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
-				bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna + ukupniIznos;
-				db.Transakcija_investicije.Add(transakcija_Investicije);
-				db.SaveChanges();
-				db.Entry(investicija).State = System.Data.Entity.EntityState.Deleted;
+					Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
+					{
+						vrijeme_transakcije_investicije = dateDatum.Value,
+						kolicina_investicije = decimal.Parse(txtBoxKolicina.Text),
+						iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text),
+						Bankovni_racun = bankovni_Racun,
+						Investicija = investicija,
+						id_portfolia = idPort,
+						id_vrsta_transakcije = idVrsteTrans,
+					};
+					decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
+					bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna + ukupniIznos;
+					db.Transakcija_investicije.Add(transakcija_Investicije);
+					db.SaveChanges();
+					db.Entry(investicija).State = System.Data.Entity.EntityState.Deleted;
+
+				}
+				catch (Exception)
+				{
+					MessageBox.Show("Unijeli ste krivi tip podataka");
+				}
 				txtBoxKolicina.Clear();
 				txtBoxIznosTransInv.Clear();
 			}
@@ -182,6 +224,7 @@ namespace PocetniZaslon.MDI_Forme
 		private void btnDodajInvesticiju_Click(object sender, EventArgs e)
 		{
 			DodajInvesticiju();
+			PrikaziImenaInvesticija();
 		}
 		
 		/// <summary>
@@ -212,8 +255,8 @@ namespace PocetniZaslon.MDI_Forme
 					db.Investicija.Add(novaInvesticija);
 					db.SaveChanges();
 					db.Entry(vrsta).State = System.Data.Entity.EntityState.Deleted;
-					gBoxInvesticije.Text = txtBoxNazivInvesticije.Text.ToString();
-					gBoxInvesticije.Refresh();
+					//gBoxInvesticije.Text = txtBoxNazivInvesticije.Text.ToString();
+					//gBoxInvesticije.Refresh();
 				}
 			}
 			txtBoxNazivInvesticije.Clear();
@@ -254,9 +297,27 @@ namespace PocetniZaslon.MDI_Forme
 
 		private void btnObrisiInvesticiju_Click(object sender, EventArgs e)
 		{
-			DialogForme.FrmInvesticijskiPortfolioObrišiInvesticiju frmInvesticijskiPortfolioObrišiInvesticiju = new DialogForme.FrmInvesticijskiPortfolioObrišiInvesticiju(trenutniKorisnik);
+			Dialog_forme.FrmInvesticijskiPortfolioObrišiInvesticiju frmInvesticijskiPortfolioObrišiInvesticiju = new Dialog_forme.FrmInvesticijskiPortfolioObrišiInvesticiju(trenutniKorisnik);
 			frmInvesticijskiPortfolioObrišiInvesticiju.ShowDialog();
 			PrikaziImenaInvesticija();
+		}
+
+		/// <summary>
+		/// metoda koja sluzi da se dohvate svi podaci potrebni za prikaz investicije (stanje naziv itd)
+		/// </summary>
+		private void DohvacanjePodatakaZaStanjeInvesticije()
+		{
+			
+		}
+
+		private void FrmInvesticijskiPortfolio_Load(object sender, EventArgs e)
+		{
+			using (var db = new WalletEntities())
+			{
+				
+				dgwVlastiteInvesticije.Refresh();
+			
+			}//skuzi kako dohvatiti
 		}
 	}
 }

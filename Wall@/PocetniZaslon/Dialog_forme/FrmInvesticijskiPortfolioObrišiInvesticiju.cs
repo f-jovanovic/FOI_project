@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PocetniZaslon.DialogForme
+namespace PocetniZaslon.Dialog_forme
 {
 	public partial class FrmInvesticijskiPortfolioObrišiInvesticiju : Form
 	{
@@ -55,11 +55,14 @@ namespace PocetniZaslon.DialogForme
 			DohvatiInvesticije();
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void btnObrisiInvesticiju_Click(object sender, EventArgs e)
 		{
 			BrisanjeInvesticije();
 		}
-
+		/// <summary>
+		/// metoda koja brise sve transakcije vezane uz tu investiciju
+		/// </summary>
+		/// <param name="odabranaInvesticija"></param>
 		private void ObrišiSveVezanoNaOdabranuInvesticiju(Investicija odabranaInvesticija)
 		{
 			List<Transakcija_investicije> listaTransakcijaInvesticija = new List<Transakcija_investicije>();

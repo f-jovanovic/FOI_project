@@ -29,12 +29,6 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.lblInvesticijskiPortfolio = new System.Windows.Forms.Label();
 			this.gBoxTransakcija = new System.Windows.Forms.GroupBox();
 			this.cBoxNazivInvesticije = new System.Windows.Forms.ComboBox();
@@ -54,7 +48,6 @@
 			this.lblNaziv = new System.Windows.Forms.Label();
 			this.transakcijainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			this.gBoxMojeInvesticije = new System.Windows.Forms.GroupBox();
 			this.btnObrisiInvesticiju = new System.Windows.Forms.Button();
 			this.cBoxVrstaInvesticije = new System.Windows.Forms.ComboBox();
 			this.vrstainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -62,34 +55,25 @@
 			this.lblVrstaInvesticije = new System.Windows.Forms.Label();
 			this.lblNazivInvesticije = new System.Windows.Forms.Label();
 			this.btnDodajInvesticiju = new System.Windows.Forms.Button();
-			this.gBoxInvesticije = new System.Windows.Forms.GroupBox();
-			this.lblPrikazKretVrj1 = new System.Windows.Forms.Label();
-			this.lblPrikazUkVrj1 = new System.Windows.Forms.Label();
-			this.lblPrikazVrj1 = new System.Windows.Forms.Label();
-			this.lblPrikazKol = new System.Windows.Forms.Label();
-			this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-			this.lblKretanjeVrijednosti1 = new System.Windows.Forms.Label();
-			this.lblKolicina1 = new System.Windows.Forms.Label();
-			this.lblUkupnaVrijednost1 = new System.Windows.Forms.Label();
-			this.lblVrijednost1 = new System.Windows.Forms.Label();
-			this.gBoxInvesticije2 = new System.Windows.Forms.GroupBox();
-			this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-			this.lblKretanjeVrijednosti2 = new System.Windows.Forms.Label();
-			this.lblKolicinaInvest2 = new System.Windows.Forms.Label();
-			this.lblUkupnaVrijednost2 = new System.Windows.Forms.Label();
-			this.lblVrijednostInvest2 = new System.Windows.Forms.Label();
 			this.bankovniracunBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.vrstainvesticijeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.label1 = new System.Windows.Forms.Label();
+			this.dgwVlastiteInvesticije = new System.Windows.Forms.DataGridView();
+			this.stanjeinvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.idstanjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.idinvesticijeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.vrijednostinvesticijeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.vrijemestanjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.investicijaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.gBoxTransakcija.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.transakcijainvesticijeBindingSource)).BeginInit();
-			this.gBoxMojeInvesticije.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource)).BeginInit();
-			this.gBoxInvesticije.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-			this.gBoxInvesticije2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgwVlastiteInvesticije)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.stanjeinvesticijeBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lblInvesticijskiPortfolio
@@ -272,28 +256,10 @@
 			// 
 			this.transakcijainvesticijeBindingSource.DataSource = typeof(PocetniZaslon.Transakcija_investicije);
 			// 
-			// gBoxMojeInvesticije
-			// 
-			this.gBoxMojeInvesticije.Controls.Add(this.btnObrisiInvesticiju);
-			this.gBoxMojeInvesticije.Controls.Add(this.cBoxVrstaInvesticije);
-			this.gBoxMojeInvesticije.Controls.Add(this.txtBoxNazivInvesticije);
-			this.gBoxMojeInvesticije.Controls.Add(this.lblVrstaInvesticije);
-			this.gBoxMojeInvesticije.Controls.Add(this.lblNazivInvesticije);
-			this.gBoxMojeInvesticije.Controls.Add(this.btnDodajInvesticiju);
-			this.gBoxMojeInvesticije.Controls.Add(this.gBoxInvesticije);
-			this.gBoxMojeInvesticije.Controls.Add(this.gBoxInvesticije2);
-			this.gBoxMojeInvesticije.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-			this.gBoxMojeInvesticije.Location = new System.Drawing.Point(1, 119);
-			this.gBoxMojeInvesticije.Name = "gBoxMojeInvesticije";
-			this.gBoxMojeInvesticije.Size = new System.Drawing.Size(990, 817);
-			this.gBoxMojeInvesticije.TabIndex = 2;
-			this.gBoxMojeInvesticije.TabStop = false;
-			this.gBoxMojeInvesticije.Text = "Moje investicije";
-			// 
 			// btnObrisiInvesticiju
 			// 
 			this.btnObrisiInvesticiju.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnObrisiInvesticiju.Location = new System.Drawing.Point(805, 695);
+			this.btnObrisiInvesticiju.Location = new System.Drawing.Point(706, 817);
 			this.btnObrisiInvesticiju.Name = "btnObrisiInvesticiju";
 			this.btnObrisiInvesticiju.Size = new System.Drawing.Size(144, 70);
 			this.btnObrisiInvesticiju.TabIndex = 8;
@@ -307,9 +273,9 @@
 			this.cBoxVrstaInvesticije.DisplayMember = "naziv_vrste_investicije";
 			this.cBoxVrstaInvesticije.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
 			this.cBoxVrstaInvesticije.FormattingEnabled = true;
-			this.cBoxVrstaInvesticije.Location = new System.Drawing.Point(334, 729);
+			this.cBoxVrstaInvesticije.Location = new System.Drawing.Point(336, 835);
 			this.cBoxVrstaInvesticije.Name = "cBoxVrstaInvesticije";
-			this.cBoxVrstaInvesticije.Size = new System.Drawing.Size(198, 36);
+			this.cBoxVrstaInvesticije.Size = new System.Drawing.Size(225, 36);
 			this.cBoxVrstaInvesticije.TabIndex = 7;
 			this.cBoxVrstaInvesticije.ValueMember = "id_vrsta_investicije";
 			// 
@@ -320,7 +286,7 @@
 			// txtBoxNazivInvesticije
 			// 
 			this.txtBoxNazivInvesticije.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.txtBoxNazivInvesticije.Location = new System.Drawing.Point(22, 729);
+			this.txtBoxNazivInvesticije.Location = new System.Drawing.Point(336, 732);
 			this.txtBoxNazivInvesticije.Name = "txtBoxNazivInvesticije";
 			this.txtBoxNazivInvesticije.Size = new System.Drawing.Size(225, 34);
 			this.txtBoxNazivInvesticije.TabIndex = 6;
@@ -329,7 +295,7 @@
 			// 
 			this.lblVrstaInvesticije.AutoSize = true;
 			this.lblVrstaInvesticije.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblVrstaInvesticije.Location = new System.Drawing.Point(329, 693);
+			this.lblVrstaInvesticije.Location = new System.Drawing.Point(102, 838);
 			this.lblVrstaInvesticije.Name = "lblVrstaInvesticije";
 			this.lblVrstaInvesticije.Size = new System.Drawing.Size(167, 28);
 			this.lblVrstaInvesticije.TabIndex = 5;
@@ -339,7 +305,7 @@
 			// 
 			this.lblNazivInvesticije.AutoSize = true;
 			this.lblNazivInvesticije.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblNazivInvesticije.Location = new System.Drawing.Point(28, 691);
+			this.lblNazivInvesticije.Location = new System.Drawing.Point(102, 732);
 			this.lblNazivInvesticije.Name = "lblNazivInvesticije";
 			this.lblNazivInvesticije.Size = new System.Drawing.Size(173, 28);
 			this.lblNazivInvesticije.TabIndex = 5;
@@ -348,7 +314,7 @@
 			// btnDodajInvesticiju
 			// 
 			this.btnDodajInvesticiju.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDodajInvesticiju.Location = new System.Drawing.Point(629, 695);
+			this.btnDodajInvesticiju.Location = new System.Drawing.Point(706, 714);
 			this.btnDodajInvesticiju.Name = "btnDodajInvesticiju";
 			this.btnDodajInvesticiju.Size = new System.Drawing.Size(144, 70);
 			this.btnDodajInvesticiju.TabIndex = 4;
@@ -356,222 +322,104 @@
 			this.btnDodajInvesticiju.UseVisualStyleBackColor = true;
 			this.btnDodajInvesticiju.Click += new System.EventHandler(this.btnDodajInvesticiju_Click);
 			// 
-			// gBoxInvesticije
-			// 
-			this.gBoxInvesticije.Controls.Add(this.lblPrikazKretVrj1);
-			this.gBoxInvesticije.Controls.Add(this.lblPrikazUkVrj1);
-			this.gBoxInvesticije.Controls.Add(this.lblPrikazVrj1);
-			this.gBoxInvesticije.Controls.Add(this.lblPrikazKol);
-			this.gBoxInvesticije.Controls.Add(this.chart1);
-			this.gBoxInvesticije.Controls.Add(this.lblKretanjeVrijednosti1);
-			this.gBoxInvesticije.Controls.Add(this.lblKolicina1);
-			this.gBoxInvesticije.Controls.Add(this.lblUkupnaVrijednost1);
-			this.gBoxInvesticije.Controls.Add(this.lblVrijednost1);
-			this.gBoxInvesticije.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-			this.gBoxInvesticije.Location = new System.Drawing.Point(11, 133);
-			this.gBoxInvesticije.Name = "gBoxInvesticije";
-			this.gBoxInvesticije.Size = new System.Drawing.Size(468, 537);
-			this.gBoxInvesticije.TabIndex = 3;
-			this.gBoxInvesticije.TabStop = false;
-			this.gBoxInvesticije.Text = "groupBox";
-			// 
-			// lblPrikazKretVrj1
-			// 
-			this.lblPrikazKretVrj1.AutoSize = true;
-			this.lblPrikazKretVrj1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblPrikazKretVrj1.Location = new System.Drawing.Point(235, 487);
-			this.lblPrikazKretVrj1.Name = "lblPrikazKretVrj1";
-			this.lblPrikazKretVrj1.Size = new System.Drawing.Size(63, 28);
-			this.lblPrikazKretVrj1.TabIndex = 2;
-			this.lblPrikazKretVrj1.Text = "label1";
-			// 
-			// lblPrikazUkVrj1
-			// 
-			this.lblPrikazUkVrj1.AutoSize = true;
-			this.lblPrikazUkVrj1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblPrikazUkVrj1.Location = new System.Drawing.Point(235, 446);
-			this.lblPrikazUkVrj1.Name = "lblPrikazUkVrj1";
-			this.lblPrikazUkVrj1.Size = new System.Drawing.Size(63, 28);
-			this.lblPrikazUkVrj1.TabIndex = 2;
-			this.lblPrikazUkVrj1.Text = "label1";
-			// 
-			// lblPrikazVrj1
-			// 
-			this.lblPrikazVrj1.AutoSize = true;
-			this.lblPrikazVrj1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblPrikazVrj1.Location = new System.Drawing.Point(235, 402);
-			this.lblPrikazVrj1.Name = "lblPrikazVrj1";
-			this.lblPrikazVrj1.Size = new System.Drawing.Size(63, 28);
-			this.lblPrikazVrj1.TabIndex = 2;
-			this.lblPrikazVrj1.Text = "label1";
-			// 
-			// lblPrikazKol
-			// 
-			this.lblPrikazKol.AutoSize = true;
-			this.lblPrikazKol.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblPrikazKol.Location = new System.Drawing.Point(235, 361);
-			this.lblPrikazKol.Name = "lblPrikazKol";
-			this.lblPrikazKol.Size = new System.Drawing.Size(63, 28);
-			this.lblPrikazKol.TabIndex = 2;
-			this.lblPrikazKol.Text = "label1";
-			// 
-			// chart1
-			// 
-			chartArea3.Name = "ChartArea1";
-			this.chart1.ChartAreas.Add(chartArea3);
-			legend3.Name = "Legend1";
-			this.chart1.Legends.Add(legend3);
-			this.chart1.Location = new System.Drawing.Point(6, 43);
-			this.chart1.Name = "chart1";
-			series3.ChartArea = "ChartArea1";
-			series3.Legend = "Legend1";
-			series3.Name = "Series1";
-			this.chart1.Series.Add(series3);
-			this.chart1.Size = new System.Drawing.Size(468, 300);
-			this.chart1.TabIndex = 1;
-			this.chart1.Text = "chart1";
-			// 
-			// lblKretanjeVrijednosti1
-			// 
-			this.lblKretanjeVrijednosti1.AutoSize = true;
-			this.lblKretanjeVrijednosti1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblKretanjeVrijednosti1.Location = new System.Drawing.Point(25, 487);
-			this.lblKretanjeVrijednosti1.Name = "lblKretanjeVrijednosti1";
-			this.lblKretanjeVrijednosti1.Size = new System.Drawing.Size(204, 28);
-			this.lblKretanjeVrijednosti1.TabIndex = 0;
-			this.lblKretanjeVrijednosti1.Text = "Kretanje vrijednosti:";
-			// 
-			// lblKolicina1
-			// 
-			this.lblKolicina1.AutoSize = true;
-			this.lblKolicina1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblKolicina1.Location = new System.Drawing.Point(136, 361);
-			this.lblKolicina1.Name = "lblKolicina1";
-			this.lblKolicina1.Size = new System.Drawing.Size(93, 28);
-			this.lblKolicina1.TabIndex = 0;
-			this.lblKolicina1.Text = "Količina:";
-			// 
-			// lblUkupnaVrijednost1
-			// 
-			this.lblUkupnaVrijednost1.AutoSize = true;
-			this.lblUkupnaVrijednost1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblUkupnaVrijednost1.Location = new System.Drawing.Point(39, 446);
-			this.lblUkupnaVrijednost1.Name = "lblUkupnaVrijednost1";
-			this.lblUkupnaVrijednost1.Size = new System.Drawing.Size(190, 28);
-			this.lblUkupnaVrijednost1.TabIndex = 0;
-			this.lblUkupnaVrijednost1.Text = "Ukupna vrijednost:";
-			// 
-			// lblVrijednost1
-			// 
-			this.lblVrijednost1.AutoSize = true;
-			this.lblVrijednost1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblVrijednost1.Location = new System.Drawing.Point(116, 402);
-			this.lblVrijednost1.Name = "lblVrijednost1";
-			this.lblVrijednost1.Size = new System.Drawing.Size(113, 28);
-			this.lblVrijednost1.TabIndex = 0;
-			this.lblVrijednost1.Text = "Vrijednost:";
-			// 
-			// gBoxInvesticije2
-			// 
-			this.gBoxInvesticije2.Controls.Add(this.chart2);
-			this.gBoxInvesticije2.Controls.Add(this.lblKretanjeVrijednosti2);
-			this.gBoxInvesticije2.Controls.Add(this.lblKolicinaInvest2);
-			this.gBoxInvesticije2.Controls.Add(this.lblUkupnaVrijednost2);
-			this.gBoxInvesticije2.Controls.Add(this.lblVrijednostInvest2);
-			this.gBoxInvesticije2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-			this.gBoxInvesticije2.Location = new System.Drawing.Point(508, 133);
-			this.gBoxInvesticije2.Name = "gBoxInvesticije2";
-			this.gBoxInvesticije2.Size = new System.Drawing.Size(468, 537);
-			this.gBoxInvesticije2.TabIndex = 3;
-			this.gBoxInvesticije2.TabStop = false;
-			this.gBoxInvesticije2.Text = "groupBox1";
-			// 
-			// chart2
-			// 
-			chartArea4.Name = "ChartArea1";
-			this.chart2.ChartAreas.Add(chartArea4);
-			legend4.Name = "Legend1";
-			this.chart2.Legends.Add(legend4);
-			this.chart2.Location = new System.Drawing.Point(6, 43);
-			this.chart2.Name = "chart2";
-			series4.ChartArea = "ChartArea1";
-			series4.Legend = "Legend1";
-			series4.Name = "Series1";
-			this.chart2.Series.Add(series4);
-			this.chart2.Size = new System.Drawing.Size(468, 300);
-			this.chart2.TabIndex = 1;
-			this.chart2.Text = "chart1";
-			// 
-			// lblKretanjeVrijednosti2
-			// 
-			this.lblKretanjeVrijednosti2.AutoSize = true;
-			this.lblKretanjeVrijednosti2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblKretanjeVrijednosti2.Location = new System.Drawing.Point(25, 487);
-			this.lblKretanjeVrijednosti2.Name = "lblKretanjeVrijednosti2";
-			this.lblKretanjeVrijednosti2.Size = new System.Drawing.Size(204, 28);
-			this.lblKretanjeVrijednosti2.TabIndex = 0;
-			this.lblKretanjeVrijednosti2.Text = "Kretanje vrijednosti:";
-			// 
-			// lblKolicinaInvest2
-			// 
-			this.lblKolicinaInvest2.AutoSize = true;
-			this.lblKolicinaInvest2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblKolicinaInvest2.Location = new System.Drawing.Point(136, 361);
-			this.lblKolicinaInvest2.Name = "lblKolicinaInvest2";
-			this.lblKolicinaInvest2.Size = new System.Drawing.Size(93, 28);
-			this.lblKolicinaInvest2.TabIndex = 0;
-			this.lblKolicinaInvest2.Text = "Količina:";
-			// 
-			// lblUkupnaVrijednost2
-			// 
-			this.lblUkupnaVrijednost2.AutoSize = true;
-			this.lblUkupnaVrijednost2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblUkupnaVrijednost2.Location = new System.Drawing.Point(39, 446);
-			this.lblUkupnaVrijednost2.Name = "lblUkupnaVrijednost2";
-			this.lblUkupnaVrijednost2.Size = new System.Drawing.Size(190, 28);
-			this.lblUkupnaVrijednost2.TabIndex = 0;
-			this.lblUkupnaVrijednost2.Text = "Ukupna vrijednost:";
-			// 
-			// lblVrijednostInvest2
-			// 
-			this.lblVrijednostInvest2.AutoSize = true;
-			this.lblVrijednostInvest2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblVrijednostInvest2.Location = new System.Drawing.Point(116, 402);
-			this.lblVrijednostInvest2.Name = "lblVrijednostInvest2";
-			this.lblVrijednostInvest2.Size = new System.Drawing.Size(113, 28);
-			this.lblVrijednostInvest2.TabIndex = 0;
-			this.lblVrijednostInvest2.Text = "Vrijednost:";
-			// 
 			// bankovniracunBindingSource1
 			// 
 			this.bankovniracunBindingSource1.DataSource = typeof(PocetniZaslon.Bankovni_racun);
+			// 
+			// vrstainvesticijeBindingSource1
+			// 
+			this.vrstainvesticijeBindingSource1.DataSource = typeof(PocetniZaslon.Vrsta_investicije);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+			this.label1.Location = new System.Drawing.Point(28, 119);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(247, 41);
+			this.label1.TabIndex = 9;
+			this.label1.Text = "Moje investicije:";
+			// 
+			// dgwVlastiteInvesticije
+			// 
+			this.dgwVlastiteInvesticije.AutoGenerateColumns = false;
+			this.dgwVlastiteInvesticije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgwVlastiteInvesticije.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idstanjaDataGridViewTextBoxColumn,
+            this.idinvesticijeDataGridViewTextBoxColumn,
+            this.vrijednostinvesticijeDataGridViewTextBoxColumn,
+            this.vrijemestanjaDataGridViewTextBoxColumn,
+            this.investicijaDataGridViewTextBoxColumn});
+			this.dgwVlastiteInvesticije.DataSource = this.stanjeinvesticijeBindingSource;
+			this.dgwVlastiteInvesticije.Location = new System.Drawing.Point(29, 197);
+			this.dgwVlastiteInvesticije.Name = "dgwVlastiteInvesticije";
+			this.dgwVlastiteInvesticije.RowTemplate.Height = 24;
+			this.dgwVlastiteInvesticije.Size = new System.Drawing.Size(979, 509);
+			this.dgwVlastiteInvesticije.TabIndex = 10;
+			// 
+			// stanjeinvesticijeBindingSource
+			// 
+			this.stanjeinvesticijeBindingSource.DataSource = typeof(PocetniZaslon.Stanje_investicije);
+			// 
+			// idstanjaDataGridViewTextBoxColumn
+			// 
+			this.idstanjaDataGridViewTextBoxColumn.DataPropertyName = "id_stanja";
+			this.idstanjaDataGridViewTextBoxColumn.HeaderText = "id_stanja";
+			this.idstanjaDataGridViewTextBoxColumn.Name = "idstanjaDataGridViewTextBoxColumn";
+			// 
+			// idinvesticijeDataGridViewTextBoxColumn
+			// 
+			this.idinvesticijeDataGridViewTextBoxColumn.DataPropertyName = "id_investicije";
+			this.idinvesticijeDataGridViewTextBoxColumn.HeaderText = "id_investicije";
+			this.idinvesticijeDataGridViewTextBoxColumn.Name = "idinvesticijeDataGridViewTextBoxColumn";
+			// 
+			// vrijednostinvesticijeDataGridViewTextBoxColumn
+			// 
+			this.vrijednostinvesticijeDataGridViewTextBoxColumn.DataPropertyName = "vrijednost_investicije";
+			this.vrijednostinvesticijeDataGridViewTextBoxColumn.HeaderText = "vrijednost_investicije";
+			this.vrijednostinvesticijeDataGridViewTextBoxColumn.Name = "vrijednostinvesticijeDataGridViewTextBoxColumn";
+			// 
+			// vrijemestanjaDataGridViewTextBoxColumn
+			// 
+			this.vrijemestanjaDataGridViewTextBoxColumn.DataPropertyName = "vrijeme_stanja";
+			this.vrijemestanjaDataGridViewTextBoxColumn.HeaderText = "vrijeme_stanja";
+			this.vrijemestanjaDataGridViewTextBoxColumn.Name = "vrijemestanjaDataGridViewTextBoxColumn";
+			// 
+			// investicijaDataGridViewTextBoxColumn
+			// 
+			this.investicijaDataGridViewTextBoxColumn.DataPropertyName = "Investicija";
+			this.investicijaDataGridViewTextBoxColumn.HeaderText = "Investicija";
+			this.investicijaDataGridViewTextBoxColumn.Name = "investicijaDataGridViewTextBoxColumn";
 			// 
 			// FrmInvesticijskiPortfolio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1640, 948);
-			this.Controls.Add(this.gBoxMojeInvesticije);
+			this.Controls.Add(this.dgwVlastiteInvesticije);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.btnObrisiInvesticiju);
+			this.Controls.Add(this.cBoxVrstaInvesticije);
 			this.Controls.Add(this.gBoxTransakcija);
+			this.Controls.Add(this.txtBoxNazivInvesticije);
 			this.Controls.Add(this.lblInvesticijskiPortfolio);
+			this.Controls.Add(this.lblVrstaInvesticije);
+			this.Controls.Add(this.btnDodajInvesticiju);
+			this.Controls.Add(this.lblNazivInvesticije);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "FrmInvesticijskiPortfolio";
 			this.Text = "FrmInvesticijskiPortfolio";
+			this.Load += new System.EventHandler(this.FrmInvesticijskiPortfolio_Load);
 			this.gBoxTransakcija.ResumeLayout(false);
 			this.gBoxTransakcija.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.transakcijainvesticijeBindingSource)).EndInit();
-			this.gBoxMojeInvesticije.ResumeLayout(false);
-			this.gBoxMojeInvesticije.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource)).EndInit();
-			this.gBoxInvesticije.ResumeLayout(false);
-			this.gBoxInvesticije.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-			this.gBoxInvesticije2.ResumeLayout(false);
-			this.gBoxInvesticije2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgwVlastiteInvesticije)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.stanjeinvesticijeBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -582,7 +430,6 @@
 		private System.Windows.Forms.Label lblInvesticijskiPortfolio;
 		private System.Windows.Forms.GroupBox gBoxTransakcija;
 		private System.ComponentModel.BackgroundWorker backgroundWorker1;
-		private System.Windows.Forms.GroupBox gBoxMojeInvesticije;
 		private System.Windows.Forms.RadioButton rBtnProdaj;
 		private System.Windows.Forms.RadioButton rBtnKupi;
 		private System.Windows.Forms.Label lblIznos;
@@ -594,12 +441,6 @@
 		private System.Windows.Forms.DateTimePicker dateDatum;
 		private System.Windows.Forms.TextBox txtBoxKolicina;
 		private System.Windows.Forms.Button btnIzvrsiTransakciju;
-		private System.Windows.Forms.GroupBox gBoxInvesticije2;
-		private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-		private System.Windows.Forms.Label lblKretanjeVrijednosti2;
-		private System.Windows.Forms.Label lblKolicinaInvest2;
-		private System.Windows.Forms.Label lblUkupnaVrijednost2;
-		private System.Windows.Forms.Label lblVrijednostInvest2;
 		private System.Windows.Forms.BindingSource bankovniracunBindingSource;
 		private System.Windows.Forms.BindingSource bankovniracunBindingSource1;
 		private System.Windows.Forms.Label lblNazivInvesticije;
@@ -608,20 +449,19 @@
 		private System.Windows.Forms.Label lblVrstaInvesticije;
 		private System.Windows.Forms.ComboBox cBoxVrstaInvesticije;
 		private System.Windows.Forms.BindingSource vrstainvesticijeBindingSource;
-		private System.Windows.Forms.GroupBox gBoxInvesticije;
-		private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-		private System.Windows.Forms.Label lblKretanjeVrijednosti1;
-		private System.Windows.Forms.Label lblKolicina1;
-		private System.Windows.Forms.Label lblUkupnaVrijednost1;
-		private System.Windows.Forms.Label lblVrijednost1;
 		private System.Windows.Forms.ComboBox cBoxNazivInvesticije;
 		private System.Windows.Forms.BindingSource investicijaBindingSource;
 		private System.Windows.Forms.TextBox txtBoxIznosTransInv;
 		private System.Windows.Forms.BindingSource transakcijainvesticijeBindingSource;
 		private System.Windows.Forms.Button btnObrisiInvesticiju;
-		private System.Windows.Forms.Label lblPrikazKretVrj1;
-		private System.Windows.Forms.Label lblPrikazUkVrj1;
-		private System.Windows.Forms.Label lblPrikazVrj1;
-		private System.Windows.Forms.Label lblPrikazKol;
+		private System.Windows.Forms.BindingSource vrstainvesticijeBindingSource1;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.DataGridView dgwVlastiteInvesticije;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idstanjaDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idinvesticijeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn vrijednostinvesticijeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn vrijemestanjaDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn investicijaDataGridViewTextBoxColumn;
+		private System.Windows.Forms.BindingSource stanjeinvesticijeBindingSource;
 	}
 }

@@ -1,4 +1,4 @@
-﻿namespace PocetniZaslon.DialogForme
+﻿namespace PocetniZaslon.Dialog_forme
 {
 	partial class FrmInvesticijskiPortfolioObrišiInvesticiju
 	{
@@ -45,7 +45,7 @@
 			this.btnObrisiInvesticiju.TabIndex = 0;
 			this.btnObrisiInvesticiju.Text = "Obriši investiciju";
 			this.btnObrisiInvesticiju.UseVisualStyleBackColor = true;
-			this.btnObrisiInvesticiju.Click += new System.EventHandler(this.button1_Click);
+			this.btnObrisiInvesticiju.Click += new System.EventHandler(this.btnObrisiInvesticiju_Click);
 			// 
 			// label1
 			// 

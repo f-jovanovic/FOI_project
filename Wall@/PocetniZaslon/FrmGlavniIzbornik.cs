@@ -66,6 +66,7 @@ namespace PocetniZaslon
 			formaInvesticijskiPortfolio.Dock = DockStyle.Fill;
 			formaInvesticijskiPortfolio.Show();
 			PrilagodiElementeChild(formaInvesticijskiPortfolio);
+
 		}
 
 		private void btnStatistika_Click(object sender, EventArgs e)
