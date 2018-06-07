@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 
 namespace PocetniZaslon.MDI_Forme
@@ -87,11 +89,6 @@ namespace PocetniZaslon.MDI_Forme
 				listaVrstaInvesticija = new BindingList<Vrsta_investicije>(db.Vrsta_investicije.ToList());
 			}
 			vrstainvesticijeBindingSource.DataSource = listaVrstaInvesticija;
-		}
-
-		private void rBtnKupi_CheckedChanged(object sender, EventArgs e)
-		{
-			
 		}
 
 		/// <summary>
@@ -307,17 +304,37 @@ namespace PocetniZaslon.MDI_Forme
 		/// </summary>
 		private void DohvacanjePodatakaZaStanjeInvesticije()
 		{
-			
+			using (var db = new WalletEntities())
+			{
+				BindingSource bindingSource = new BindingSource();
+
+				bindingSource.DataSource = (from i in db.Investicija
+											join s in db.Stanje_investicije on i.id_investicije equals s.id_investicije
+											join v in db.Vrsta_investicije on i.id_vrsta_investicije equals v.id_vrsta_investicije
+											join t in db.Transakcija_investicije on i.id_investicije equals t.id_investicije
+											select new
+											{
+												i.naziv_investicije,
+												s.vrijeme_stanja,
+												s.vrijednost_investicije,
+												v.naziv_vrste_investicije,
+												t.kolicina_investicije
+											}).ToList();
+				//bindingSource.DataSource = db.Database.ExecuteSqlCommand("select  distinct naziv_investicije, vrijeme_stanja, naziv_vrste_investicije, sum(kolicina_investicije)as kolicina, vrijednost_investicije from(((Investicija inner join Stanje_investicije S2 on Investicija.id_investicije = S2.id_investicije) inner join Vrsta_investicije Vi on Investicija.id_vrsta_investicije = Vi.id_vrsta_investicije) inner join Transakcija_investicije T on Investicija.id_investicije = T.id_investicije) where vrijeme_stanja in (SELECT max(vrijeme_stanja) from Stanje_investicije group by Stanje_investicije.id_investicije) group by  naziv_investicije, naziv_vrste_investicije, vrijednost_investicije, vrijeme_stanja");
+				dgwVlastiteInvesticije.DataSource = bindingSource;
+				
+				
+			}
 		}
 
 		private void FrmInvesticijskiPortfolio_Load(object sender, EventArgs e)
 		{
-			using (var db = new WalletEntities())
-			{
-				
-				dgwVlastiteInvesticije.Refresh();
-			
-			}//skuzi kako dohvatiti
+			DohvacanjePodatakaZaStanjeInvesticije();
+		}
+
+		private void dgwVlastiteInvesticije_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+
 		}
 	}
 }

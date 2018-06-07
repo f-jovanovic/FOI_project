@@ -32,9 +32,7 @@
 			this.lblInvesticijskiPortfolio = new System.Windows.Forms.Label();
 			this.gBoxTransakcija = new System.Windows.Forms.GroupBox();
 			this.cBoxNazivInvesticije = new System.Windows.Forms.ComboBox();
-			this.investicijaBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.comboBoxBankovniRačun = new System.Windows.Forms.ComboBox();
-			this.bankovniracunBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dateDatum = new System.Windows.Forms.DateTimePicker();
 			this.txtBoxIznosTransInv = new System.Windows.Forms.TextBox();
 			this.txtBoxKolicina = new System.Windows.Forms.TextBox();
@@ -46,34 +44,31 @@
 			this.lblDatum = new System.Windows.Forms.Label();
 			this.lblKolicina = new System.Windows.Forms.Label();
 			this.lblNaziv = new System.Windows.Forms.Label();
-			this.transakcijainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.btnObrisiInvesticiju = new System.Windows.Forms.Button();
 			this.cBoxVrstaInvesticije = new System.Windows.Forms.ComboBox();
-			this.vrstainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.txtBoxNazivInvesticije = new System.Windows.Forms.TextBox();
 			this.lblVrstaInvesticije = new System.Windows.Forms.Label();
 			this.lblNazivInvesticije = new System.Windows.Forms.Label();
 			this.btnDodajInvesticiju = new System.Windows.Forms.Button();
-			this.bankovniracunBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-			this.vrstainvesticijeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgwVlastiteInvesticije = new System.Windows.Forms.DataGridView();
 			this.stanjeinvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.idstanjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.idinvesticijeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.vrijednostinvesticijeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.vrijemestanjaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.investicijaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.vrstainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.investicijaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.bankovniracunBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.transakcijainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.bankovniracunBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.vrstainvesticijeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.gBoxTransakcija.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgwVlastiteInvesticije)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.stanjeinvesticijeBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.transakcijainvesticijeBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgwVlastiteInvesticije)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.stanjeinvesticijeBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lblInvesticijskiPortfolio
@@ -121,10 +116,6 @@
 			this.cBoxNazivInvesticije.TabIndex = 9;
 			this.cBoxNazivInvesticije.ValueMember = "id_investicije";
 			// 
-			// investicijaBindingSource
-			// 
-			this.investicijaBindingSource.DataSource = typeof(PocetniZaslon.Investicija);
-			// 
 			// comboBoxBankovniRačun
 			// 
 			this.comboBoxBankovniRačun.DataSource = this.bankovniracunBindingSource;
@@ -136,10 +127,6 @@
 			this.comboBoxBankovniRačun.Size = new System.Drawing.Size(274, 36);
 			this.comboBoxBankovniRačun.TabIndex = 8;
 			this.comboBoxBankovniRačun.ValueMember = "iban";
-			// 
-			// bankovniracunBindingSource
-			// 
-			this.bankovniracunBindingSource.DataSource = typeof(PocetniZaslon.Bankovni_racun);
 			// 
 			// dateDatum
 			// 
@@ -200,7 +187,7 @@
 			this.rBtnKupi.TabStop = true;
 			this.rBtnKupi.Text = "Kupi";
 			this.rBtnKupi.UseVisualStyleBackColor = true;
-			this.rBtnKupi.CheckedChanged += new System.EventHandler(this.rBtnKupi_CheckedChanged);
+			this.rBtnKupi.CheckedChanged += new System.EventHandler(this.btnObrisiInvesticiju_Click);
 			// 
 			// lblIznos
 			// 
@@ -252,10 +239,6 @@
 			this.lblNaziv.TabIndex = 3;
 			this.lblNaziv.Text = "Naziv:";
 			// 
-			// transakcijainvesticijeBindingSource
-			// 
-			this.transakcijainvesticijeBindingSource.DataSource = typeof(PocetniZaslon.Transakcija_investicije);
-			// 
 			// btnObrisiInvesticiju
 			// 
 			this.btnObrisiInvesticiju.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -278,10 +261,6 @@
 			this.cBoxVrstaInvesticije.Size = new System.Drawing.Size(225, 36);
 			this.cBoxVrstaInvesticije.TabIndex = 7;
 			this.cBoxVrstaInvesticije.ValueMember = "id_vrsta_investicije";
-			// 
-			// vrstainvesticijeBindingSource
-			// 
-			this.vrstainvesticijeBindingSource.DataSource = typeof(PocetniZaslon.Vrsta_investicije);
 			// 
 			// txtBoxNazivInvesticije
 			// 
@@ -322,14 +301,6 @@
 			this.btnDodajInvesticiju.UseVisualStyleBackColor = true;
 			this.btnDodajInvesticiju.Click += new System.EventHandler(this.btnDodajInvesticiju_Click);
 			// 
-			// bankovniracunBindingSource1
-			// 
-			this.bankovniracunBindingSource1.DataSource = typeof(PocetniZaslon.Bankovni_racun);
-			// 
-			// vrstainvesticijeBindingSource1
-			// 
-			this.vrstainvesticijeBindingSource1.DataSource = typeof(PocetniZaslon.Vrsta_investicije);
-			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
@@ -342,54 +313,41 @@
 			// 
 			// dgwVlastiteInvesticije
 			// 
-			this.dgwVlastiteInvesticije.AutoGenerateColumns = false;
 			this.dgwVlastiteInvesticije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgwVlastiteInvesticije.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idstanjaDataGridViewTextBoxColumn,
-            this.idinvesticijeDataGridViewTextBoxColumn,
-            this.vrijednostinvesticijeDataGridViewTextBoxColumn,
-            this.vrijemestanjaDataGridViewTextBoxColumn,
-            this.investicijaDataGridViewTextBoxColumn});
-			this.dgwVlastiteInvesticije.DataSource = this.stanjeinvesticijeBindingSource;
 			this.dgwVlastiteInvesticije.Location = new System.Drawing.Point(29, 197);
 			this.dgwVlastiteInvesticije.Name = "dgwVlastiteInvesticije";
 			this.dgwVlastiteInvesticije.RowTemplate.Height = 24;
 			this.dgwVlastiteInvesticije.Size = new System.Drawing.Size(979, 509);
 			this.dgwVlastiteInvesticije.TabIndex = 10;
+			this.dgwVlastiteInvesticije.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwVlastiteInvesticije_CellContentClick);
 			// 
 			// stanjeinvesticijeBindingSource
 			// 
 			this.stanjeinvesticijeBindingSource.DataSource = typeof(PocetniZaslon.Stanje_investicije);
 			// 
-			// idstanjaDataGridViewTextBoxColumn
+			// vrstainvesticijeBindingSource
 			// 
-			this.idstanjaDataGridViewTextBoxColumn.DataPropertyName = "id_stanja";
-			this.idstanjaDataGridViewTextBoxColumn.HeaderText = "id_stanja";
-			this.idstanjaDataGridViewTextBoxColumn.Name = "idstanjaDataGridViewTextBoxColumn";
+			this.vrstainvesticijeBindingSource.DataSource = typeof(PocetniZaslon.Vrsta_investicije);
 			// 
-			// idinvesticijeDataGridViewTextBoxColumn
+			// investicijaBindingSource
 			// 
-			this.idinvesticijeDataGridViewTextBoxColumn.DataPropertyName = "id_investicije";
-			this.idinvesticijeDataGridViewTextBoxColumn.HeaderText = "id_investicije";
-			this.idinvesticijeDataGridViewTextBoxColumn.Name = "idinvesticijeDataGridViewTextBoxColumn";
+			this.investicijaBindingSource.DataSource = typeof(PocetniZaslon.Investicija);
 			// 
-			// vrijednostinvesticijeDataGridViewTextBoxColumn
+			// bankovniracunBindingSource
 			// 
-			this.vrijednostinvesticijeDataGridViewTextBoxColumn.DataPropertyName = "vrijednost_investicije";
-			this.vrijednostinvesticijeDataGridViewTextBoxColumn.HeaderText = "vrijednost_investicije";
-			this.vrijednostinvesticijeDataGridViewTextBoxColumn.Name = "vrijednostinvesticijeDataGridViewTextBoxColumn";
+			this.bankovniracunBindingSource.DataSource = typeof(PocetniZaslon.Bankovni_racun);
 			// 
-			// vrijemestanjaDataGridViewTextBoxColumn
+			// transakcijainvesticijeBindingSource
 			// 
-			this.vrijemestanjaDataGridViewTextBoxColumn.DataPropertyName = "vrijeme_stanja";
-			this.vrijemestanjaDataGridViewTextBoxColumn.HeaderText = "vrijeme_stanja";
-			this.vrijemestanjaDataGridViewTextBoxColumn.Name = "vrijemestanjaDataGridViewTextBoxColumn";
+			this.transakcijainvesticijeBindingSource.DataSource = typeof(PocetniZaslon.Transakcija_investicije);
 			// 
-			// investicijaDataGridViewTextBoxColumn
+			// bankovniracunBindingSource1
 			// 
-			this.investicijaDataGridViewTextBoxColumn.DataPropertyName = "Investicija";
-			this.investicijaDataGridViewTextBoxColumn.HeaderText = "Investicija";
-			this.investicijaDataGridViewTextBoxColumn.Name = "investicijaDataGridViewTextBoxColumn";
+			this.bankovniracunBindingSource1.DataSource = typeof(PocetniZaslon.Bankovni_racun);
+			// 
+			// vrstainvesticijeBindingSource1
+			// 
+			this.vrstainvesticijeBindingSource1.DataSource = typeof(PocetniZaslon.Vrsta_investicije);
 			// 
 			// FrmInvesticijskiPortfolio
 			// 
@@ -412,14 +370,14 @@
 			this.Load += new System.EventHandler(this.FrmInvesticijskiPortfolio_Load);
 			this.gBoxTransakcija.ResumeLayout(false);
 			this.gBoxTransakcija.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgwVlastiteInvesticije)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.stanjeinvesticijeBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.transakcijainvesticijeBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgwVlastiteInvesticije)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.stanjeinvesticijeBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -457,11 +415,6 @@
 		private System.Windows.Forms.BindingSource vrstainvesticijeBindingSource1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DataGridView dgwVlastiteInvesticije;
-		private System.Windows.Forms.DataGridViewTextBoxColumn idstanjaDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn idinvesticijeDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn vrijednostinvesticijeDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn vrijemestanjaDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn investicijaDataGridViewTextBoxColumn;
 		private System.Windows.Forms.BindingSource stanjeinvesticijeBindingSource;
 	}
 }
