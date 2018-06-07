@@ -190,6 +190,9 @@
     <EmbeddedResource Include="MDI_Forme\FrmBankovniRacuni.resx">
       <DependentUpon>FrmBankovniRacuni.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Forme\FrmPregledTransakcija.resx">
+      <DependentUpon>FrmPregledTransakcija.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcija.resx">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
     </EmbeddedResource>
