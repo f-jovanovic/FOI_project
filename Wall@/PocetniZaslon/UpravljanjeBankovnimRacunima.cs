@@ -27,6 +27,19 @@ namespace PocetniZaslon
 		}
 
 		/// <summary>
+		/// Metoda koja vraća binding listu svih vrsta bankovnih računa.
+		/// </summary>
+		public BindingList<Vrsta_racuna> PrikaziVrsteBankovnihRacuna()
+		{
+			BindingList<Vrsta_racuna> listaVrstaRacuna = null;
+			using (var db = new WalletEntities())
+			{
+				listaVrstaRacuna = new BindingList<Vrsta_racuna>(db.Vrsta_racuna.ToList());
+			}
+			return listaVrstaRacuna;
+		}
+
+		/// <summary>
 		/// Metoda koja briše odabrani račun.
 		/// Također brišemo i sve transakcije povezane na bankovni račun 
 		/// kao i sve veze istih transakcija s kategorijama transakcija koje su spremljene u tablici Transakcija_ima_kategorije.
@@ -80,6 +93,5 @@ namespace PocetniZaslon
 				}
 			}
 		}
-		
 	}
 }

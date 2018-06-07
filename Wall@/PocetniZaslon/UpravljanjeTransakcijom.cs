@@ -80,6 +80,7 @@ namespace PocetniZaslon
 		/// <summary>
 		/// Metoda koja briše odabranu transakciju. 
 		/// Također se brišu i sve veze transakcija s kategorijama transakcija koje su spremljene u tablici Transakcija_ima_kategorije.
+		/// Također briše vanjski ključ id_
 		/// </summary>
 		/// <param name="odabranaTransakcija"></param>
 		public void ObrisiTransakciju(Transakcija odabranaTransakcija)
@@ -93,11 +94,19 @@ namespace PocetniZaslon
 					//Ako se radi o računu na koji smo izvršili prijenos novca
 					if (vlastitaTransakcija != null)
 					{
+						odabranaTransakcija.Transakcija2 = null;
 						db.Transakcija.Attach(vlastitaTransakcija);
 						vlastitaTransakcija.Transakcija2 = null;
+						
 					}
+					db.SaveChanges();
+
+					db.Entry(odabranaTransakcija).State = System.Data.Entity.EntityState.Detached;
+					if (vlastitaTransakcija != null) db.Entry(vlastitaTransakcija).State = System.Data.Entity.EntityState.Detached;
+
 					db.Database.ExecuteSqlCommand("DELETE from Transakcija_ima_kategorije WHERE id_transakcije = " + odabranaTransakcija.id_transakcije);
 					db.SaveChanges();
+
 					db.Transakcija.Attach(odabranaTransakcija);
 					db.Transakcija.Remove(odabranaTransakcija);
 					db.SaveChanges();
