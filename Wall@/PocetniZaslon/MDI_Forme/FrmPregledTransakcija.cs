@@ -30,6 +30,9 @@ namespace PocetniZaslon.MDI_Forme
 		{
 			PrilagodiIzgledForme();
 
+			dtpVrijemeOd.Value = DateTime.Now;
+			dtpVrijemeDo.Value = DateTime.Now.AddMonths(1);
+
 			//Dohvaćanje i prikazivanje svih korisnikovih bankovnih računa (uključujući vrstu računa).
 			listaBankovnihRacuna = radnjaNadBankovnimRacunom.PrikaziBankovneRacunePremaKorisniku(trenutniKorisnik);
 			listaVrstaRacuna = radnjaNadBankovnimRacunom.PrikaziVrsteBankovnihRacuna();
@@ -41,12 +44,13 @@ namespace PocetniZaslon.MDI_Forme
 			listaVrstaTransakcije = radnjaNadTransakcijom.PrikaziVrsteTransakcija();
 			bindingSourceVrstaTransakcije.DataSource = listaVrstaTransakcije;
 
+			OsvjeziKategorije();
 			OsvjeziPrikazTransakcija();
 		}
 
 		private void OsvjeziPrikazTransakcija()
 		{
-			OsvjeziKategorije();
+
 		}
 
 		private void OsvjeziKategorije()
@@ -56,6 +60,64 @@ namespace PocetniZaslon.MDI_Forme
 			if (chkPrihodi.Checked == false && chkRashodi.Checked == true) bindingSourceKategorije.DataSource = radnjaNadTransakcijom.PrikaziKategorijeKorisnika(trenutniKorisnik, 2);
 			if (chkPrihodi.Checked == false && chkRashodi.Checked == false) bindingSourceKategorije.Clear();
 		}
+
+		
+
+		
+
+		#region CheckBoxevi funkcionalnosti
+
+		//Obicne transakcije check box.
+		private void chkObicneTransakcije_CheckedChanged(object sender, EventArgs e)
+		{
+			PrilagodiIzgledForme();
+			OsvjeziPrikazTransakcija();
+		}
+
+		//Transakcije investicija check box.
+		private void chkTransakcijeInvesticija_CheckedChanged(object sender, EventArgs e)
+		{
+			OsvjeziPrikazTransakcija();
+		}
+
+		//Prihodi check box.
+		private void chkPrihodi_CheckedChanged(object sender, EventArgs e)
+		{
+			OsvjeziKategorije();
+			OsvjeziPrikazTransakcija();
+		}
+
+		//Rashodi check box.
+		private void chkRashodi_CheckedChanged(object sender, EventArgs e)
+		{
+			OsvjeziKategorije();
+			OsvjeziPrikazTransakcija();
+		}
+
+		//Svo vrijeme check box.
+		private void chkVrijeme_CheckedChanged(object sender, EventArgs e)
+		{
+			dtpVrijemeOd.Enabled = !(chkVrijeme.Checked);
+			dtpVrijemeDo.Enabled = !(chkVrijeme.Checked);
+			OsvjeziPrikazTransakcija();
+		}
+
+		//Svi računi check box.
+		private void chkSviBankovniRacuni_CheckedChanged(object sender, EventArgs e)
+		{
+			OznacitiSveCheckBoxeve(dgvBankovniRacuni, chkSviBankovniRacuni);
+			OsvjeziPrikazTransakcija();
+		}
+
+		//Sve kategorije check box.
+		private void chkSveKategorije_CheckedChanged(object sender, EventArgs e)
+		{
+			OznacitiSveCheckBoxeve(dgvKategorije, chkSveKategorije);
+		}
+
+		#endregion
+
+
 		private void PrilagodiIzgledForme()
 		{
 			lblPregledTransakcija.Location = new Point(this.Width / 2 - lblPregledTransakcija.Width / 2, lblPregledTransakcija.Location.Y);
@@ -63,46 +125,47 @@ namespace PocetniZaslon.MDI_Forme
 			{
 				lblKategorije.Visible = false;
 				dgvKategorije.Visible = false;
+				chkSveKategorije.Visible = false;
 				dgvBankovniRacuni.Height = dgvKategorije.Location.Y + dgvKategorije.Height - dgvBankovniRacuni.Location.Y;
 			}
 			else
 			{
 				lblKategorije.Visible = true;
 				dgvKategorije.Visible = true;
+				chkSveKategorije.Visible = true;
 				dgvBankovniRacuni.Height = lblKategorije.Location.Y - dgvBankovniRacuni.Location.Y - 20;
 			}
 		}
-		
-		#region CheckBoxevi funkcionalnosti
 
-		private void chkObicneTransakcije_CheckedChanged(object sender, EventArgs e)
+		private void OznacitiSveCheckBoxeve(DataGridView dataGrid, CheckBox oznaka)
 		{
-			PrilagodiIzgledForme();
-			OsvjeziPrikazTransakcija();
+			foreach (DataGridViewRow red in dataGrid.Rows)
+			{
+				DataGridViewCheckBoxCell checkBox = (DataGridViewCheckBoxCell)red.Cells[1];
+				checkBox.Value = oznaka.Checked;
+			}
 		}
 
-		private void chkTransakcijeInvesticija_CheckedChanged(object sender, EventArgs e)
+
+
+		private void dgvBankovniRacuni_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
 		{
-			OsvjeziPrikazTransakcija();
+			OznacitiSveCheckBoxeve(dgvBankovniRacuni, chkSviBankovniRacuni);
+		}
+		private void dgvBankovniRacuni_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+		{
+			OznacitiSveCheckBoxeve(dgvBankovniRacuni, chkSviBankovniRacuni);
 		}
 
-		private void chkPrihodi_CheckedChanged(object sender, EventArgs e)
+		private void dgvKategorije_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
 		{
-			OsvjeziPrikazTransakcija();
+			OznacitiSveCheckBoxeve(dgvKategorije, chkSveKategorije);
+		}
+		private void dgvKategorije_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+		{
+			OznacitiSveCheckBoxeve(dgvKategorije, chkSveKategorije);
 		}
 
-		private void chkRashodi_CheckedChanged(object sender, EventArgs e)
-		{
-			OsvjeziPrikazTransakcija();
-		}
 
-		private void chkVrijeme_CheckedChanged(object sender, EventArgs e)
-		{
-			OsvjeziPrikazTransakcija();
-		}
-
-		#endregion
-
-		
 	}
 }

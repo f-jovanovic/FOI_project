@@ -35,21 +35,9 @@
 			this.chkObicneTransakcije = new System.Windows.Forms.CheckBox();
 			this.chkTransakcijeInvesticija = new System.Windows.Forms.CheckBox();
 			this.dgvBankovniRacuni = new System.Windows.Forms.DataGridView();
-			this.ibanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.idkorisnikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nazivracunaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.idvrstaracunaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-			this.BindingSourceVrstaRacuna = new System.Windows.Forms.BindingSource(this.components);
-			this.stanjeracunaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.korisnikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.vrstaracunaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.transakcijaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.transakcijainvesticijeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.bindingSourceBankovniRacuni = new System.Windows.Forms.BindingSource(this.components);
 			this.chkRashodi = new System.Windows.Forms.CheckBox();
 			this.chkPrihodi = new System.Windows.Forms.CheckBox();
 			this.dgvKategorije = new System.Windows.Forms.DataGridView();
-			this.bindingSourceKategorije = new System.Windows.Forms.BindingSource(this.components);
 			this.chkVrijeme = new System.Windows.Forms.CheckBox();
 			this.dtpVrijemeOd = new System.Windows.Forms.DateTimePicker();
 			this.dtpVrijemeDo = new System.Windows.Forms.DateTimePicker();
@@ -57,8 +45,24 @@
 			this.lblVrijeme = new System.Windows.Forms.Label();
 			this.lblBankovniRacuni = new System.Windows.Forms.Label();
 			this.lblKategorije = new System.Windows.Forms.Label();
+			this.chkSviBankovniRacuni = new System.Windows.Forms.CheckBox();
+			this.chkSveKategorije = new System.Windows.Forms.CheckBox();
 			this.bindingSourceVrstaTransakcije = new System.Windows.Forms.BindingSource(this.components);
+			this.bindingSourceKategorije = new System.Windows.Forms.BindingSource(this.components);
+			this.BindingSourceVrstaRacuna = new System.Windows.Forms.BindingSource(this.components);
+			this.bindingSourceBankovniRacuni = new System.Windows.Forms.BindingSource(this.components);
+			this.ibanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.CheckBoxes = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.idkorisnikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nazivracunaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.idvrstaracunaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+			this.stanjeracunaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.korisnikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.vrstaracunaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.transakcijaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.transakcijainvesticijeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.idkategorijetransakcijeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.checkBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.nazivkategorijeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.idvrstatransakcijeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
 			this.idkorisnikDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,11 +72,11 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvPregledTransakcija)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourcePregledTransakcija)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBankovniRacuni)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvKategorije)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSourceVrstaTransakcije)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSourceKategorije)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BindingSourceVrstaRacuna)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourceBankovniRacuni)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgvKategorije)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bindingSourceKategorije)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.bindingSourceVrstaTransakcije)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dgvPregledTransakcija
@@ -125,10 +129,14 @@
 			// 
 			// dgvBankovniRacuni
 			// 
+			this.dgvBankovniRacuni.AllowUserToAddRows = false;
+			this.dgvBankovniRacuni.AllowUserToDeleteRows = false;
+			this.dgvBankovniRacuni.AllowUserToResizeRows = false;
 			this.dgvBankovniRacuni.AutoGenerateColumns = false;
 			this.dgvBankovniRacuni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvBankovniRacuni.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ibanDataGridViewTextBoxColumn,
+            this.CheckBoxes,
             this.idkorisnikDataGridViewTextBoxColumn,
             this.nazivracunaDataGridViewTextBoxColumn,
             this.idvrstaracunaDataGridViewTextBoxColumn,
@@ -142,80 +150,8 @@
 			this.dgvBankovniRacuni.Name = "dgvBankovniRacuni";
 			this.dgvBankovniRacuni.Size = new System.Drawing.Size(379, 119);
 			this.dgvBankovniRacuni.TabIndex = 4;
-			// 
-			// ibanDataGridViewTextBoxColumn
-			// 
-			this.ibanDataGridViewTextBoxColumn.DataPropertyName = "iban";
-			this.ibanDataGridViewTextBoxColumn.HeaderText = "iban";
-			this.ibanDataGridViewTextBoxColumn.Name = "ibanDataGridViewTextBoxColumn";
-			this.ibanDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// idkorisnikDataGridViewTextBoxColumn
-			// 
-			this.idkorisnikDataGridViewTextBoxColumn.DataPropertyName = "id_korisnik";
-			this.idkorisnikDataGridViewTextBoxColumn.HeaderText = "id_korisnik";
-			this.idkorisnikDataGridViewTextBoxColumn.Name = "idkorisnikDataGridViewTextBoxColumn";
-			this.idkorisnikDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// nazivracunaDataGridViewTextBoxColumn
-			// 
-			this.nazivracunaDataGridViewTextBoxColumn.DataPropertyName = "naziv_racuna";
-			this.nazivracunaDataGridViewTextBoxColumn.HeaderText = "naziv_racuna";
-			this.nazivracunaDataGridViewTextBoxColumn.Name = "nazivracunaDataGridViewTextBoxColumn";
-			// 
-			// idvrstaracunaDataGridViewTextBoxColumn
-			// 
-			this.idvrstaracunaDataGridViewTextBoxColumn.DataPropertyName = "id_vrsta_racuna";
-			this.idvrstaracunaDataGridViewTextBoxColumn.DataSource = this.BindingSourceVrstaRacuna;
-			this.idvrstaracunaDataGridViewTextBoxColumn.DisplayMember = "naziv_vrste_racuna";
-			this.idvrstaracunaDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-			this.idvrstaracunaDataGridViewTextBoxColumn.HeaderText = "Vrsta računa";
-			this.idvrstaracunaDataGridViewTextBoxColumn.Name = "idvrstaracunaDataGridViewTextBoxColumn";
-			this.idvrstaracunaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-			this.idvrstaracunaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-			this.idvrstaracunaDataGridViewTextBoxColumn.ValueMember = "id_vrsta_racuna";
-			// 
-			// BindingSourceVrstaRacuna
-			// 
-			this.BindingSourceVrstaRacuna.DataSource = typeof(PocetniZaslon.Vrsta_racuna);
-			// 
-			// stanjeracunaDataGridViewTextBoxColumn
-			// 
-			this.stanjeracunaDataGridViewTextBoxColumn.DataPropertyName = "stanje_racuna";
-			this.stanjeracunaDataGridViewTextBoxColumn.HeaderText = "stanje_racuna";
-			this.stanjeracunaDataGridViewTextBoxColumn.Name = "stanjeracunaDataGridViewTextBoxColumn";
-			// 
-			// korisnikDataGridViewTextBoxColumn
-			// 
-			this.korisnikDataGridViewTextBoxColumn.DataPropertyName = "Korisnik";
-			this.korisnikDataGridViewTextBoxColumn.HeaderText = "Korisnik";
-			this.korisnikDataGridViewTextBoxColumn.Name = "korisnikDataGridViewTextBoxColumn";
-			this.korisnikDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// vrstaracunaDataGridViewTextBoxColumn
-			// 
-			this.vrstaracunaDataGridViewTextBoxColumn.DataPropertyName = "Vrsta_racuna";
-			this.vrstaracunaDataGridViewTextBoxColumn.HeaderText = "Vrsta_racuna";
-			this.vrstaracunaDataGridViewTextBoxColumn.Name = "vrstaracunaDataGridViewTextBoxColumn";
-			this.vrstaracunaDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// transakcijaDataGridViewTextBoxColumn
-			// 
-			this.transakcijaDataGridViewTextBoxColumn.DataPropertyName = "Transakcija";
-			this.transakcijaDataGridViewTextBoxColumn.HeaderText = "Transakcija";
-			this.transakcijaDataGridViewTextBoxColumn.Name = "transakcijaDataGridViewTextBoxColumn";
-			this.transakcijaDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// transakcijainvesticijeDataGridViewTextBoxColumn
-			// 
-			this.transakcijainvesticijeDataGridViewTextBoxColumn.DataPropertyName = "Transakcija_investicije";
-			this.transakcijainvesticijeDataGridViewTextBoxColumn.HeaderText = "Transakcija_investicije";
-			this.transakcijainvesticijeDataGridViewTextBoxColumn.Name = "transakcijainvesticijeDataGridViewTextBoxColumn";
-			this.transakcijainvesticijeDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// bindingSourceBankovniRacuni
-			// 
-			this.bindingSourceBankovniRacuni.DataSource = typeof(PocetniZaslon.Bankovni_racun);
+			this.dgvBankovniRacuni.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvBankovniRacuni_RowsAdded);
+			this.dgvBankovniRacuni.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvBankovniRacuni_RowsRemoved);
 			// 
 			// chkRashodi
 			// 
@@ -247,10 +183,13 @@
 			// 
 			// dgvKategorije
 			// 
+			this.dgvKategorije.AllowUserToAddRows = false;
+			this.dgvKategorije.AllowUserToDeleteRows = false;
 			this.dgvKategorije.AutoGenerateColumns = false;
 			this.dgvKategorije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvKategorije.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idkategorijetransakcijeDataGridViewTextBoxColumn,
+            this.checkBox,
             this.nazivkategorijeDataGridViewTextBoxColumn,
             this.idvrstatransakcijeDataGridViewTextBoxColumn,
             this.idkorisnikDataGridViewTextBoxColumn1,
@@ -262,10 +201,8 @@
 			this.dgvKategorije.Name = "dgvKategorije";
 			this.dgvKategorije.Size = new System.Drawing.Size(379, 147);
 			this.dgvKategorije.TabIndex = 7;
-			// 
-			// bindingSourceKategorije
-			// 
-			this.bindingSourceKategorije.DataSource = typeof(PocetniZaslon.Kategorije_transakcije);
+			this.dgvKategorije.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvKategorije_RowsAdded);
+			this.dgvKategorije.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvKategorije_RowsRemoved);
 			// 
 			// chkVrijeme
 			// 
@@ -339,9 +276,130 @@
 			this.lblKategorije.TabIndex = 15;
 			this.lblKategorije.Text = "Kategorije:";
 			// 
+			// chkSviBankovniRacuni
+			// 
+			this.chkSviBankovniRacuni.AutoSize = true;
+			this.chkSviBankovniRacuni.Checked = true;
+			this.chkSviBankovniRacuni.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.chkSviBankovniRacuni.Location = new System.Drawing.Point(1151, 433);
+			this.chkSviBankovniRacuni.Name = "chkSviBankovniRacuni";
+			this.chkSviBankovniRacuni.Size = new System.Drawing.Size(15, 14);
+			this.chkSviBankovniRacuni.TabIndex = 16;
+			this.chkSviBankovniRacuni.UseVisualStyleBackColor = true;
+			this.chkSviBankovniRacuni.CheckedChanged += new System.EventHandler(this.chkSviBankovniRacuni_CheckedChanged);
+			// 
+			// chkSveKategorije
+			// 
+			this.chkSveKategorije.AutoSize = true;
+			this.chkSveKategorije.Checked = true;
+			this.chkSveKategorije.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.chkSveKategorije.Location = new System.Drawing.Point(1148, 596);
+			this.chkSveKategorije.Name = "chkSveKategorije";
+			this.chkSveKategorije.Size = new System.Drawing.Size(15, 14);
+			this.chkSveKategorije.TabIndex = 17;
+			this.chkSveKategorije.UseVisualStyleBackColor = true;
+			this.chkSveKategorije.CheckedChanged += new System.EventHandler(this.chkSveKategorije_CheckedChanged);
+			// 
 			// bindingSourceVrstaTransakcije
 			// 
 			this.bindingSourceVrstaTransakcije.DataSource = typeof(PocetniZaslon.Vrsta_transakcije);
+			// 
+			// bindingSourceKategorije
+			// 
+			this.bindingSourceKategorije.DataSource = typeof(PocetniZaslon.Kategorije_transakcije);
+			// 
+			// BindingSourceVrstaRacuna
+			// 
+			this.BindingSourceVrstaRacuna.DataSource = typeof(PocetniZaslon.Vrsta_racuna);
+			// 
+			// bindingSourceBankovniRacuni
+			// 
+			this.bindingSourceBankovniRacuni.DataSource = typeof(PocetniZaslon.Bankovni_racun);
+			// 
+			// ibanDataGridViewTextBoxColumn
+			// 
+			this.ibanDataGridViewTextBoxColumn.DataPropertyName = "iban";
+			this.ibanDataGridViewTextBoxColumn.HeaderText = "iban";
+			this.ibanDataGridViewTextBoxColumn.Name = "ibanDataGridViewTextBoxColumn";
+			this.ibanDataGridViewTextBoxColumn.Visible = false;
+			this.ibanDataGridViewTextBoxColumn.Width = 52;
+			// 
+			// CheckBoxes
+			// 
+			this.CheckBoxes.FalseValue = "0";
+			this.CheckBoxes.FillWeight = 10F;
+			this.CheckBoxes.HeaderText = "X";
+			this.CheckBoxes.Name = "CheckBoxes";
+			this.CheckBoxes.TrueValue = "1";
+			this.CheckBoxes.Width = 30;
+			// 
+			// idkorisnikDataGridViewTextBoxColumn
+			// 
+			this.idkorisnikDataGridViewTextBoxColumn.DataPropertyName = "id_korisnik";
+			this.idkorisnikDataGridViewTextBoxColumn.HeaderText = "id_korisnik";
+			this.idkorisnikDataGridViewTextBoxColumn.Name = "idkorisnikDataGridViewTextBoxColumn";
+			this.idkorisnikDataGridViewTextBoxColumn.Visible = false;
+			this.idkorisnikDataGridViewTextBoxColumn.Width = 82;
+			// 
+			// nazivracunaDataGridViewTextBoxColumn
+			// 
+			this.nazivracunaDataGridViewTextBoxColumn.DataPropertyName = "naziv_racuna";
+			this.nazivracunaDataGridViewTextBoxColumn.HeaderText = "naziv_racuna";
+			this.nazivracunaDataGridViewTextBoxColumn.Name = "nazivracunaDataGridViewTextBoxColumn";
+			this.nazivracunaDataGridViewTextBoxColumn.Width = 96;
+			// 
+			// idvrstaracunaDataGridViewTextBoxColumn
+			// 
+			this.idvrstaracunaDataGridViewTextBoxColumn.DataPropertyName = "id_vrsta_racuna";
+			this.idvrstaracunaDataGridViewTextBoxColumn.DataSource = this.BindingSourceVrstaRacuna;
+			this.idvrstaracunaDataGridViewTextBoxColumn.DisplayMember = "naziv_vrste_racuna";
+			this.idvrstaracunaDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+			this.idvrstaracunaDataGridViewTextBoxColumn.HeaderText = "Vrsta računa";
+			this.idvrstaracunaDataGridViewTextBoxColumn.Name = "idvrstaracunaDataGridViewTextBoxColumn";
+			this.idvrstaracunaDataGridViewTextBoxColumn.ReadOnly = true;
+			this.idvrstaracunaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.idvrstaracunaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.idvrstaracunaDataGridViewTextBoxColumn.ValueMember = "id_vrsta_racuna";
+			this.idvrstaracunaDataGridViewTextBoxColumn.Width = 92;
+			// 
+			// stanjeracunaDataGridViewTextBoxColumn
+			// 
+			this.stanjeracunaDataGridViewTextBoxColumn.DataPropertyName = "stanje_racuna";
+			this.stanjeracunaDataGridViewTextBoxColumn.HeaderText = "stanje_racuna";
+			this.stanjeracunaDataGridViewTextBoxColumn.Name = "stanjeracunaDataGridViewTextBoxColumn";
+			this.stanjeracunaDataGridViewTextBoxColumn.Width = 99;
+			// 
+			// korisnikDataGridViewTextBoxColumn
+			// 
+			this.korisnikDataGridViewTextBoxColumn.DataPropertyName = "Korisnik";
+			this.korisnikDataGridViewTextBoxColumn.HeaderText = "Korisnik";
+			this.korisnikDataGridViewTextBoxColumn.Name = "korisnikDataGridViewTextBoxColumn";
+			this.korisnikDataGridViewTextBoxColumn.Visible = false;
+			this.korisnikDataGridViewTextBoxColumn.Width = 69;
+			// 
+			// vrstaracunaDataGridViewTextBoxColumn
+			// 
+			this.vrstaracunaDataGridViewTextBoxColumn.DataPropertyName = "Vrsta_racuna";
+			this.vrstaracunaDataGridViewTextBoxColumn.HeaderText = "Vrsta_racuna";
+			this.vrstaracunaDataGridViewTextBoxColumn.Name = "vrstaracunaDataGridViewTextBoxColumn";
+			this.vrstaracunaDataGridViewTextBoxColumn.Visible = false;
+			this.vrstaracunaDataGridViewTextBoxColumn.Width = 95;
+			// 
+			// transakcijaDataGridViewTextBoxColumn
+			// 
+			this.transakcijaDataGridViewTextBoxColumn.DataPropertyName = "Transakcija";
+			this.transakcijaDataGridViewTextBoxColumn.HeaderText = "Transakcija";
+			this.transakcijaDataGridViewTextBoxColumn.Name = "transakcijaDataGridViewTextBoxColumn";
+			this.transakcijaDataGridViewTextBoxColumn.Visible = false;
+			this.transakcijaDataGridViewTextBoxColumn.Width = 87;
+			// 
+			// transakcijainvesticijeDataGridViewTextBoxColumn
+			// 
+			this.transakcijainvesticijeDataGridViewTextBoxColumn.DataPropertyName = "Transakcija_investicije";
+			this.transakcijainvesticijeDataGridViewTextBoxColumn.HeaderText = "Transakcija_investicije";
+			this.transakcijainvesticijeDataGridViewTextBoxColumn.Name = "transakcijainvesticijeDataGridViewTextBoxColumn";
+			this.transakcijainvesticijeDataGridViewTextBoxColumn.Visible = false;
+			this.transakcijainvesticijeDataGridViewTextBoxColumn.Width = 139;
 			// 
 			// idkategorijetransakcijeDataGridViewTextBoxColumn
 			// 
@@ -350,6 +408,17 @@
 			this.idkategorijetransakcijeDataGridViewTextBoxColumn.Name = "idkategorijetransakcijeDataGridViewTextBoxColumn";
 			this.idkategorijetransakcijeDataGridViewTextBoxColumn.Visible = false;
 			this.idkategorijetransakcijeDataGridViewTextBoxColumn.Width = 150;
+			// 
+			// checkBox
+			// 
+			this.checkBox.FalseValue = "0";
+			this.checkBox.FillWeight = 10F;
+			this.checkBox.HeaderText = "X";
+			this.checkBox.Name = "checkBox";
+			this.checkBox.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.checkBox.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+			this.checkBox.TrueValue = "1";
+			this.checkBox.Width = 25;
 			// 
 			// nazivkategorijeDataGridViewTextBoxColumn
 			// 
@@ -366,6 +435,7 @@
 			this.idvrstatransakcijeDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
 			this.idvrstatransakcijeDataGridViewTextBoxColumn.HeaderText = "Vrsta transakcije";
 			this.idvrstatransakcijeDataGridViewTextBoxColumn.Name = "idvrstatransakcijeDataGridViewTextBoxColumn";
+			this.idvrstatransakcijeDataGridViewTextBoxColumn.ReadOnly = true;
 			this.idvrstatransakcijeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
 			this.idvrstatransakcijeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
 			this.idvrstatransakcijeDataGridViewTextBoxColumn.ValueMember = "id_vrsta_transakcije";
@@ -405,6 +475,8 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1482, 771);
+			this.Controls.Add(this.chkSveKategorije);
+			this.Controls.Add(this.chkSviBankovniRacuni);
 			this.Controls.Add(this.lblKategorije);
 			this.Controls.Add(this.lblBankovniRacuni);
 			this.Controls.Add(this.lblVrijeme);
@@ -427,11 +499,11 @@
 			((System.ComponentModel.ISupportInitialize)(this.dgvPregledTransakcija)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourcePregledTransakcija)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBankovniRacuni)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvKategorije)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSourceVrstaTransakcije)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSourceKategorije)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.BindingSourceVrstaRacuna)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourceBankovniRacuni)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgvKategorije)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.bindingSourceKategorije)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.bindingSourceVrstaTransakcije)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -458,7 +530,11 @@
 		private System.Windows.Forms.BindingSource bindingSourceBankovniRacuni;
 		private System.Windows.Forms.BindingSource bindingSourceKategorije;
 		private System.Windows.Forms.BindingSource BindingSourceVrstaRacuna;
+		private System.Windows.Forms.BindingSource bindingSourceVrstaTransakcije;
+		private System.Windows.Forms.CheckBox chkSviBankovniRacuni;
+		private System.Windows.Forms.CheckBox chkSveKategorije;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ibanDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn CheckBoxes;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idkorisnikDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn nazivracunaDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewComboBoxColumn idvrstaracunaDataGridViewTextBoxColumn;
@@ -467,8 +543,8 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn vrstaracunaDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn transakcijaDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn transakcijainvesticijeDataGridViewTextBoxColumn;
-		private System.Windows.Forms.BindingSource bindingSourceVrstaTransakcije;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idkategorijetransakcijeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn checkBox;
 		private System.Windows.Forms.DataGridViewTextBoxColumn nazivkategorijeDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewComboBoxColumn idvrstatransakcijeDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idkorisnikDataGridViewTextBoxColumn1;
