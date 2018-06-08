@@ -60,9 +60,6 @@ namespace PocetniZaslon.MDI_Forme
 			if (chkPrihodi.Checked == false && chkRashodi.Checked == true) bindingSourceKategorije.DataSource = radnjaNadTransakcijom.PrikaziKategorijeKorisnika(trenutniKorisnik, 2);
 			if (chkPrihodi.Checked == false && chkRashodi.Checked == false) bindingSourceKategorije.Clear();
 		}
-
-		
-
 		
 
 		#region CheckBoxevi funkcionalnosti
@@ -113,6 +110,48 @@ namespace PocetniZaslon.MDI_Forme
 		private void chkSveKategorije_CheckedChanged(object sender, EventArgs e)
 		{
 			OznacitiSveCheckBoxeve(dgvKategorije, chkSveKategorije);
+			OsvjeziPrikazTransakcija();
+		}
+
+		//Promjena sadržaja dgvBankovniRacuni oznacuje sve bankovne racune.
+		private void dgvBankovniRacuni_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+		{
+			chkSviBankovniRacuni.Checked = true;
+			OznacitiSveCheckBoxeve(dgvBankovniRacuni, chkSviBankovniRacuni);
+			OsvjeziPrikazTransakcija();
+		}
+		private void dgvBankovniRacuni_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+		{
+			chkSviBankovniRacuni.Checked = true;
+			OznacitiSveCheckBoxeve(dgvBankovniRacuni, chkSviBankovniRacuni);
+			OsvjeziPrikazTransakcija();
+		}
+
+		//Promjena sadržaja dgvKategorije oznacuje sve kategorije transakcija.
+		private void dgvKategorije_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+		{
+			chkSveKategorije.Checked = true;
+			OznacitiSveCheckBoxeve(dgvKategorije, chkSveKategorije);
+			OsvjeziPrikazTransakcija();
+		}
+		private void dgvKategorije_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+		{
+			chkSveKategorije.Checked = true;
+			OznacitiSveCheckBoxeve(dgvKategorije, chkSveKategorije);
+			OsvjeziPrikazTransakcija();
+		}
+
+		/// <summary>
+		/// Označuju se ili odznačuju se svi checkboxevi unutar DataGridView-a ovisno o nekoj drugoj checkBox oznaci.
+		/// Unutar DataGridViewa stupac s checkboxevima mora biti na prvom mjestu.
+		/// </summary>l
+		private void OznacitiSveCheckBoxeve(DataGridView dataGrid, CheckBox oznaka)
+		{
+			foreach (DataGridViewRow red in dataGrid.Rows)
+			{
+				DataGridViewCheckBoxCell checkBox = (DataGridViewCheckBoxCell)red.Cells[1];
+				checkBox.Value = oznaka.Checked;
+			}
 		}
 
 		#endregion
@@ -136,36 +175,6 @@ namespace PocetniZaslon.MDI_Forme
 				dgvBankovniRacuni.Height = lblKategorije.Location.Y - dgvBankovniRacuni.Location.Y - 20;
 			}
 		}
-
-		private void OznacitiSveCheckBoxeve(DataGridView dataGrid, CheckBox oznaka)
-		{
-			foreach (DataGridViewRow red in dataGrid.Rows)
-			{
-				DataGridViewCheckBoxCell checkBox = (DataGridViewCheckBoxCell)red.Cells[1];
-				checkBox.Value = oznaka.Checked;
-			}
-		}
-
-
-
-		private void dgvBankovniRacuni_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-		{
-			OznacitiSveCheckBoxeve(dgvBankovniRacuni, chkSviBankovniRacuni);
-		}
-		private void dgvBankovniRacuni_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-		{
-			OznacitiSveCheckBoxeve(dgvBankovniRacuni, chkSviBankovniRacuni);
-		}
-
-		private void dgvKategorije_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-		{
-			OznacitiSveCheckBoxeve(dgvKategorije, chkSveKategorije);
-		}
-		private void dgvKategorije_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-		{
-			OznacitiSveCheckBoxeve(dgvKategorije, chkSveKategorije);
-		}
-
 
 	}
 }
