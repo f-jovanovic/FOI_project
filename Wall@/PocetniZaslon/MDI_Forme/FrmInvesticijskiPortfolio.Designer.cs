@@ -180,6 +180,7 @@
 			this.txtBoxIznosTransInv.Name = "txtBoxIznosTransInv";
 			this.txtBoxIznosTransInv.Size = new System.Drawing.Size(274, 34);
 			this.txtBoxIznosTransInv.TabIndex = 6;
+			this.txtBoxIznosTransInv.TextChanged += new System.EventHandler(this.txtBoxIznosTransInv_TextChanged);
 			// 
 			// txtBoxKolicina
 			// 
@@ -188,6 +189,7 @@
 			this.txtBoxKolicina.Name = "txtBoxKolicina";
 			this.txtBoxKolicina.Size = new System.Drawing.Size(274, 34);
 			this.txtBoxKolicina.TabIndex = 6;
+			this.txtBoxKolicina.TextChanged += new System.EventHandler(this.txtBoxKolicina_TextChanged);
 			// 
 			// btnIzvrsiTransakciju
 			// 

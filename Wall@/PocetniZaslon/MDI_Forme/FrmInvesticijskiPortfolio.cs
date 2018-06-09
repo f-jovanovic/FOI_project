@@ -17,6 +17,7 @@ namespace PocetniZaslon.MDI_Forme
 	{
 		Korisnik trenutniKorisnik = null;
 
+
 		public FrmInvesticijskiPortfolio(Korisnik korisnik)
 		{
 			trenutniKorisnik = korisnik;
@@ -126,30 +127,32 @@ namespace PocetniZaslon.MDI_Forme
 						idVrsteTrans = 2;
 					}
 				}
-				try
+				lblKriviTipPodatakaIznos.Hide();
+				lblKriviTipPodatakaKolicina.Hide();
+
+
+				//decimal iznos_transakcije_investicije = 0;
+				//iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text);
+
+				Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
 				{
-					Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
-					{
-						Investicija = investicija,
-						//usporedit ako ta investicija postoji ili ne postoji
-						//ako postoji baci se na dalja ako ne postoji baci je u dgw
-						vrijeme_transakcije_investicije = dateDatum.Value,
-						kolicina_investicije = decimal.Parse(txtBoxKolicina.Text),
-						iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text),
-						Bankovni_racun = bankovni_Racun,
-						id_portfolia = idPort,
-						id_vrsta_transakcije = idVrsteTrans,
+					Investicija = investicija,
+					//usporedit ako ta investicija postoji ili ne postoji
+					//ako postoji baci se na dalja ako ne postoji baci je u dgw
+					vrijeme_transakcije_investicije = dateDatum.Value,
+					kolicina_investicije = decimal.Parse(txtBoxKolicina.Text),
+					iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text),
+					Bankovni_racun = bankovni_Racun,
+					id_portfolia = idPort,
+					id_vrsta_transakcije = idVrsteTrans,
 					};
+
 					lblKriviTipPodatakaKolicina.Visible = false;
 					decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
 					bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna - ukupniIznos;
 					db.Transakcija_investicije.Add(transakcija_Investicije);
 					db.SaveChanges();
-				}
-				catch (Exception)
-				{
-					MessageBox.Show("Unijeli ste krivi tip podataka");
-				}
+				
 				txtBoxKolicina.Clear();
 				txtBoxIznosTransInv.Clear();
 			}
@@ -189,8 +192,6 @@ namespace PocetniZaslon.MDI_Forme
 						idVrsteTrans = 1;
 					}
 				}
-				try
-				{
 					Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
 					{
 						vrijeme_transakcije_investicije = dateDatum.Value,
@@ -206,11 +207,6 @@ namespace PocetniZaslon.MDI_Forme
 					db.Transakcija_investicije.Add(transakcija_Investicije);
 					db.SaveChanges();
 					db.Entry(investicija).State = System.Data.Entity.EntityState.Deleted;
-				}
-				catch (Exception)
-				{
-					MessageBox.Show("Unijeli ste krivi tip podataka");
-				}
 				txtBoxKolicina.Clear();
 				txtBoxIznosTransInv.Clear();
 			}
@@ -347,6 +343,45 @@ namespace PocetniZaslon.MDI_Forme
 
 
 			
+		}
+		/// <summary>
+		/// provjera tipa unosa kolicine prilikom transakcije investicije
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void txtBoxKolicina_TextChanged(object sender, EventArgs e)
+		{
+			decimal kolicina_investicije = 0;
+			if (decimal.TryParse(txtBoxKolicina.Text, out kolicina_investicije) && kolicina_investicije!=0)
+			{
+				lblKriviTipPodatakaKolicina.Hide();
+				btnIzvrsiTransakciju.Enabled = true;
+
+			}
+			else
+			{
+				lblKriviTipPodatakaKolicina.Show();
+				btnIzvrsiTransakciju.Enabled = false;
+			}
+		}
+		/// <summary>
+		/// provjera unosa iznosa investicije prilikom transakcije 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void txtBoxIznosTransInv_TextChanged(object sender, EventArgs e)
+		{
+			decimal iznos_transakcije = 0;
+			if (decimal.TryParse(txtBoxIznosTransInv.Text, out iznos_transakcije) && iznos_transakcije != 0)
+			{
+				lblKriviTipPodatakaKolicina.Hide();
+				btnIzvrsiTransakciju.Enabled = true;
+			}
+			else
+			{
+				lblKriviTipPodatakaKolicina.Show();
+				btnIzvrsiTransakciju.Enabled = false;
+			}
 		}
 	}
 }
