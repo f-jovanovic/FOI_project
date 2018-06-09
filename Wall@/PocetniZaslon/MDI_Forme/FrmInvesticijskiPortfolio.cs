@@ -16,7 +16,7 @@ namespace PocetniZaslon.MDI_Forme
 	public partial class FrmInvesticijskiPortfolio : Form
 	{
 		Korisnik trenutniKorisnik = null;
-		
+
 		public FrmInvesticijskiPortfolio(Korisnik korisnik)
 		{
 			trenutniKorisnik = korisnik;
@@ -140,11 +140,11 @@ namespace PocetniZaslon.MDI_Forme
 						id_portfolia = idPort,
 						id_vrsta_transakcije = idVrsteTrans,
 					};
+					lblKriviTipPodatakaKolicina.Visible = false;
 					decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
 					bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna - ukupniIznos;
 					db.Transakcija_investicije.Add(transakcija_Investicije);
 					db.SaveChanges();
-
 				}
 				catch (Exception)
 				{
@@ -206,7 +206,6 @@ namespace PocetniZaslon.MDI_Forme
 					db.Transakcija_investicije.Add(transakcija_Investicije);
 					db.SaveChanges();
 					db.Entry(investicija).State = System.Data.Entity.EntityState.Deleted;
-
 				}
 				catch (Exception)
 				{
@@ -216,8 +215,6 @@ namespace PocetniZaslon.MDI_Forme
 				txtBoxIznosTransInv.Clear();
 			}
 		}
-
-
 		private void btnDodajInvesticiju_Click(object sender, EventArgs e)
 		{
 			DodajInvesticiju();
@@ -302,39 +299,54 @@ namespace PocetniZaslon.MDI_Forme
 		/// <summary>
 		/// metoda koja sluzi da se dohvate svi podaci potrebni za prikaz investicije (stanje naziv itd)
 		/// </summary>
-		private void DohvacanjePodatakaZaStanjeInvesticije()
+		private void DohvacanjePodatakaZaDGW()
 		{
 			using (var db = new WalletEntities())
 			{
-				BindingSource bindingSource = new BindingSource();
 
-				bindingSource.DataSource = (from i in db.Investicija
-											join s in db.Stanje_investicije on i.id_investicije equals s.id_investicije
-											join v in db.Vrsta_investicije on i.id_vrsta_investicije equals v.id_vrsta_investicije
-											join t in db.Transakcija_investicije on i.id_investicije equals t.id_investicije
-											select new
-											{
-												i.naziv_investicije,
-												s.vrijeme_stanja,
-												s.vrijednost_investicije,
-												v.naziv_vrste_investicije,
-												t.kolicina_investicije
-											}).ToList();
-				//bindingSource.DataSource = db.Database.ExecuteSqlCommand("select  distinct naziv_investicije, vrijeme_stanja, naziv_vrste_investicije, sum(kolicina_investicije)as kolicina, vrijednost_investicije from(((Investicija inner join Stanje_investicije S2 on Investicija.id_investicije = S2.id_investicije) inner join Vrsta_investicije Vi on Investicija.id_vrsta_investicije = Vi.id_vrsta_investicije) inner join Transakcija_investicije T on Investicija.id_investicije = T.id_investicije) where vrijeme_stanja in (SELECT max(vrijeme_stanja) from Stanje_investicije group by Stanje_investicije.id_investicije) group by  naziv_investicije, naziv_vrste_investicije, vrijednost_investicije, vrijeme_stanja");
-				dgwVlastiteInvesticije.DataSource = bindingSource;
-				
-				
+				var listaInvesticija = (from i in db.Investicija
+										join s in db.Stanje_investicije on i.id_investicije equals s.id_investicije
+										join v in db.Vrsta_investicije on i.id_vrsta_investicije equals v.id_vrsta_investicije
+										join t in db.Transakcija_investicije on i.id_investicije equals t.id_investicije
+										where t.id_investicije == t.id_investicije
+										select new
+										{
+											i.naziv_investicije,
+											s.vrijeme_stanja,
+											s.vrijednost_investicije,
+											v.naziv_vrste_investicije,
+											t.kolicina_investicije
+										}).ToList();	
+				dgwVlastiteInvesticije.DataSource = listaInvesticija;
 			}
 		}
 
 		private void FrmInvesticijskiPortfolio_Load(object sender, EventArgs e)
 		{
-			DohvacanjePodatakaZaStanjeInvesticije();
+			DohvacanjePodatakaZaDGW();
 		}
 
 		private void dgwVlastiteInvesticije_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
+			/*string naziv = dgwVlastiteInvesticije.SelectedCells[0].FormattedValue.ToString();
 
+			using (var db = new WalletEntities())
+			{
+				decimal kolicina = (from t in db.Transakcija_investicije
+									where 
+									select t.kolicina_investicije).Sum();
+
+
+				MessageBox.Show("Ukupna količina i vrijednost za odabranu investiciju je:" + kolicina);
+			}
+			*/
+		}
+
+		private void dgwVlastiteInvesticije_SelectionChanged(object sender, EventArgs e)
+		{
+
+
+			
 		}
 	}
 }

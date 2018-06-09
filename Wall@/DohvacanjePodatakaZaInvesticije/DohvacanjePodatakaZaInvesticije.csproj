@@ -75,6 +75,13 @@
     <Compile Include="ATR\Const_ATR.cs" />
     <Compile Include="ATR\Impl_ATR.cs" />
     <Compile Include="ATR\Int_ATR.cs" />
+    <Compile Include="Avapi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Avapi.Designer.cs">
+      <DependentUpon>Avapi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Avapicon.cs" />
     <Compile Include="AvapiConnection.cs" />
     <Compile Include="BATCH_STOCK_QUOTES\Const_BATCH_STOCK_QUOTES.cs" />
     <Compile Include="BATCH_STOCK_QUOTES\Impl_BATCH_STOCK_QUOTES.cs" />
@@ -115,12 +122,6 @@
     <Compile Include="EMA\Const_EMA.cs" />
     <Compile Include="EMA\Impl_EMA.cs" />
     <Compile Include="EMA\Int_EMA.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="HT_DCPERIOD\Const_HT_DCPERIOD.cs" />
     <Compile Include="HT_DCPERIOD\Impl_HT_DCPERIOD.cs" />
     <Compile Include="HT_DCPERIOD\Int_HT_DCPERIOD.cs" />
@@ -259,6 +260,9 @@
     <Compile Include="WMA\Const_WMA.cs" />
     <Compile Include="WMA\Impl_WMA.cs" />
     <Compile Include="WMA\Int_WMA.cs" />
+    <EmbeddedResource Include="Avapi.resx">
+      <DependentUpon>Avapi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -281,6 +285,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PocetniZaslon\PocetniZaslon.csproj">
+      <Project>{4019ac7e-bf0b-44ae-90d2-c88a85beca40}</Project>
+      <Name>PocetniZaslon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
