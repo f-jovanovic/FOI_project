@@ -223,5 +223,11 @@
       <LastGenOutput>WalletDatabseModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DohvacanjePodatakaZaInvesticije\DohvacanjePodatakaZaInvesticije.csproj">
+      <Project>{87025d4a-a46d-48a4-993e-1867469fcd68}</Project>
+      <Name>DohvacanjePodatakaZaInvesticije</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,7 +16,7 @@ namespace DohvacanjePodatakaZaInvesticije
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Avapi());
+			Application.Run(new FrmAvapi());
 		}
 	}
 }

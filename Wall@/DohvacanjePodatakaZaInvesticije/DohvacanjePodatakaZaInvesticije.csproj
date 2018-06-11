@@ -75,13 +75,12 @@
     <Compile Include="ATR\Const_ATR.cs" />
     <Compile Include="ATR\Impl_ATR.cs" />
     <Compile Include="ATR\Int_ATR.cs" />
-    <Compile Include="Avapi.cs">
+    <Compile Include="FrmAvapi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Avapi.Designer.cs">
-      <DependentUpon>Avapi.cs</DependentUpon>
+    <Compile Include="FrmAvapi.Designer.cs">
+      <DependentUpon>FrmAvapi.cs</DependentUpon>
     </Compile>
-    <Compile Include="Avapicon.cs" />
     <Compile Include="AvapiConnection.cs" />
     <Compile Include="BATCH_STOCK_QUOTES\Const_BATCH_STOCK_QUOTES.cs" />
     <Compile Include="BATCH_STOCK_QUOTES\Impl_BATCH_STOCK_QUOTES.cs" />
@@ -141,6 +140,7 @@
     <Compile Include="HT_TRENDMODE\Impl_HT_TRENDMODE.cs" />
     <Compile Include="HT_TRENDMODE\Int_HT_TRENDMODE.cs" />
     <Compile Include="IAvapiConnection.cs" />
+    <Compile Include="Invest.cs" />
     <Compile Include="KAMA\Const_KAMA.cs" />
     <Compile Include="KAMA\Impl_KAMA.cs" />
     <Compile Include="KAMA\Int_KAMA.cs" />
@@ -260,8 +260,8 @@
     <Compile Include="WMA\Const_WMA.cs" />
     <Compile Include="WMA\Impl_WMA.cs" />
     <Compile Include="WMA\Int_WMA.cs" />
-    <EmbeddedResource Include="Avapi.resx">
-      <DependentUpon>Avapi.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAvapi.resx">
+      <DependentUpon>FrmAvapi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -285,12 +285,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PocetniZaslon\PocetniZaslon.csproj">
-      <Project>{4019ac7e-bf0b-44ae-90d2-c88a85beca40}</Project>
-      <Name>PocetniZaslon</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

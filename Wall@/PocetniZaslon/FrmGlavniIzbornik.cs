@@ -131,9 +131,13 @@ namespace PocetniZaslon
 				}
 			}
 		}
-
 		#endregion
 
+		private void FrmGlavniIzbornik_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			DohvacanjePodatakaZaInvesticije.FrmAvapi avapi = new DohvacanjePodatakaZaInvesticije.FrmAvapi();
+			avapi.Close();
+		}
 	}
 }
 

@@ -1,6 +1,6 @@
 ﻿namespace DohvacanjePodatakaZaInvesticije
 {
-	partial class Avapi
+	partial class FrmAvapi
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -60,6 +60,8 @@
 			this.label14 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// txtSimbol
@@ -192,28 +194,28 @@
 			// 
 			// txtSymbolCrypto
 			// 
-			this.txtSymbolCrypto.Location = new System.Drawing.Point(693, 59);
+			this.txtSymbolCrypto.Location = new System.Drawing.Point(755, 61);
 			this.txtSymbolCrypto.Name = "txtSymbolCrypto";
 			this.txtSymbolCrypto.Size = new System.Drawing.Size(190, 22);
 			this.txtSymbolCrypto.TabIndex = 0;
 			// 
 			// txtDiTCrypto
 			// 
-			this.txtDiTCrypto.Location = new System.Drawing.Point(693, 105);
+			this.txtDiTCrypto.Location = new System.Drawing.Point(755, 107);
 			this.txtDiTCrypto.Name = "txtDiTCrypto";
 			this.txtDiTCrypto.Size = new System.Drawing.Size(190, 22);
 			this.txtDiTCrypto.TabIndex = 0;
 			// 
 			// txtInfoCrypto
 			// 
-			this.txtInfoCrypto.Location = new System.Drawing.Point(693, 154);
+			this.txtInfoCrypto.Location = new System.Drawing.Point(755, 156);
 			this.txtInfoCrypto.Name = "txtInfoCrypto";
 			this.txtInfoCrypto.Size = new System.Drawing.Size(190, 22);
 			this.txtInfoCrypto.TabIndex = 0;
 			// 
 			// txtOpenCrypto
 			// 
-			this.txtOpenCrypto.Location = new System.Drawing.Point(693, 204);
+			this.txtOpenCrypto.Location = new System.Drawing.Point(755, 206);
 			this.txtOpenCrypto.Name = "txtOpenCrypto";
 			this.txtOpenCrypto.Size = new System.Drawing.Size(190, 22);
 			this.txtOpenCrypto.TabIndex = 0;
@@ -221,7 +223,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(606, 62);
+			this.label5.Location = new System.Drawing.Point(668, 64);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(54, 17);
 			this.label5.TabIndex = 1;
@@ -230,7 +232,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(606, 108);
+			this.label6.Location = new System.Drawing.Point(668, 110);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(78, 17);
 			this.label6.TabIndex = 1;
@@ -239,7 +241,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(606, 157);
+			this.label7.Location = new System.Drawing.Point(668, 159);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(35, 17);
 			this.label7.TabIndex = 1;
@@ -248,7 +250,7 @@
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(572, 207);
+			this.label8.Location = new System.Drawing.Point(634, 209);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(112, 17);
 			this.label8.TabIndex = 1;
@@ -256,28 +258,28 @@
 			// 
 			// txtSimbolCrypto2
 			// 
-			this.txtSimbolCrypto2.Location = new System.Drawing.Point(693, 273);
+			this.txtSimbolCrypto2.Location = new System.Drawing.Point(755, 275);
 			this.txtSimbolCrypto2.Name = "txtSimbolCrypto2";
 			this.txtSimbolCrypto2.Size = new System.Drawing.Size(190, 22);
 			this.txtSimbolCrypto2.TabIndex = 0;
 			// 
 			// txtDiTCrypto2
 			// 
-			this.txtDiTCrypto2.Location = new System.Drawing.Point(693, 319);
+			this.txtDiTCrypto2.Location = new System.Drawing.Point(755, 321);
 			this.txtDiTCrypto2.Name = "txtDiTCrypto2";
 			this.txtDiTCrypto2.Size = new System.Drawing.Size(190, 22);
 			this.txtDiTCrypto2.TabIndex = 0;
 			// 
 			// txtInfoCrypto2
 			// 
-			this.txtInfoCrypto2.Location = new System.Drawing.Point(693, 368);
+			this.txtInfoCrypto2.Location = new System.Drawing.Point(755, 370);
 			this.txtInfoCrypto2.Name = "txtInfoCrypto2";
 			this.txtInfoCrypto2.Size = new System.Drawing.Size(190, 22);
 			this.txtInfoCrypto2.TabIndex = 0;
 			// 
 			// txtOpenCrypto2
 			// 
-			this.txtOpenCrypto2.Location = new System.Drawing.Point(693, 418);
+			this.txtOpenCrypto2.Location = new System.Drawing.Point(755, 420);
 			this.txtOpenCrypto2.Name = "txtOpenCrypto2";
 			this.txtOpenCrypto2.Size = new System.Drawing.Size(190, 22);
 			this.txtOpenCrypto2.TabIndex = 0;
@@ -285,7 +287,7 @@
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(606, 276);
+			this.label13.Location = new System.Drawing.Point(668, 278);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(54, 17);
 			this.label13.TabIndex = 1;
@@ -294,7 +296,7 @@
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(606, 322);
+			this.label14.Location = new System.Drawing.Point(668, 324);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(78, 17);
 			this.label14.TabIndex = 1;
@@ -303,7 +305,7 @@
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(606, 371);
+			this.label15.Location = new System.Drawing.Point(668, 373);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(35, 17);
 			this.label15.TabIndex = 1;
@@ -312,17 +314,27 @@
 			// label16
 			// 
 			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(572, 421);
+			this.label16.Location = new System.Drawing.Point(634, 423);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(112, 17);
 			this.label16.TabIndex = 1;
 			this.label16.Text = "Open vrijednost:";
 			// 
-			// Avapi
+			// dataGridView1
+			// 
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Location = new System.Drawing.Point(366, 72);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.RowTemplate.Height = 24;
+			this.dataGridView1.Size = new System.Drawing.Size(258, 206);
+			this.dataGridView1.TabIndex = 2;
+			// 
+			// FrmAvapi
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1010, 480);
+			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.label16);
 			this.Controls.Add(this.label12);
@@ -355,9 +367,9 @@
 			this.Controls.Add(this.txtDiT);
 			this.Controls.Add(this.txtSimbol2);
 			this.Controls.Add(this.txtSimbol);
-			this.Name = "Avapi";
+			this.Name = "FrmAvapi";
 			this.Text = "Avapi";
-			this.Load += new System.EventHandler(this.Avapi_Load);
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -397,5 +409,6 @@
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.DataGridView dataGridView1;
 	}
 }

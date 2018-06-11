@@ -10,15 +10,16 @@ using System.Windows.Forms;
 using System.IO;
 using Avapi;
 using Avapi.AvapiTIME_SERIES_DAILY;
-using PocetniZaslon;
 using Avapi.AvapiDIGITAL_CURRENCY_DAILY;
 
 
 namespace DohvacanjePodatakaZaInvesticije
 {
-	public partial class Avapi : Form
+	public partial class FrmAvapi : Form
 	{
-		public Avapi()
+		List<Invest> listaInvesticija = new List<Invest>();
+		string openVrijednost = null;
+		public FrmAvapi()
 		{
 			InitializeComponent();
 			MSFT();
@@ -27,6 +28,10 @@ namespace DohvacanjePodatakaZaInvesticije
 			ETH();
 		}
 
+		/// <summary>
+		/// metoda koja postavlja konekciju potrebnu za rad api-a
+		/// </summary>
+		/// <returns></returns>
 		public IAvapiConnection Konekcija()
 		{
 			IAvapiConnection connection = AvapiConnection.Instance;
@@ -34,14 +39,18 @@ namespace DohvacanjePodatakaZaInvesticije
 
 			return connection;
 		}
+		/// <summary>
+		/// metoda koja dohvaća vrijednost dionica Microsofta jednom u danu
+		/// </summary>
 		public void MSFT()
 		{
 			IAvapiConnection connection = Konekcija();
-			
+
 			Int_TIME_SERIES_DAILY tIME_SERIES_DAILY = connection.GetQueryObject_TIME_SERIES_DAILY();
 			IAvapiResponse_TIME_SERIES_DAILY avapiResponse = tIME_SERIES_DAILY.Query("MSFT", Const_TIME_SERIES_DAILY.TIME_SERIES_DAILY_outputsize.compact);
 
 			var data = avapiResponse.Data;
+
 			if (data.Error)
 			{
 				MessageBox.Show("Došlo je do problema s dohvaćanjem podataka");
@@ -53,13 +62,21 @@ namespace DohvacanjePodatakaZaInvesticije
 				txtInfo.Text = data.MetaData.Information;
 				foreach (var timeseries in data.TimeSeries)
 				{
-					txtOpen.Text = timeseries.open;
+					openVrijednost = timeseries.open;
 				}
 			};
-			
+			Invest investicija = new Invest(
+				openVrijednost, 
+				data.MetaData.Symbol, 
+				DateTime.Now.Date.ToString()
+				);
 
+			listaInvesticija.Add(investicija);
 
 		}
+		/// <summary>
+		/// metoda koja dohvaća vrijednosti dionica Applea jednom u danu
+		/// </summary>
 		public void AAPL()
 		{
 			Konekcija();
@@ -80,13 +97,22 @@ namespace DohvacanjePodatakaZaInvesticije
 				txtInfo2.Text = data.MetaData.Information;
 				foreach (var timeseries in data.TimeSeries)
 				{
-					txtOpen2.Text = timeseries.open;
+					openVrijednost = timeseries.open;
 				}
+
+				Invest investicija = new Invest(
+							openVrijednost,
+							data.MetaData.Symbol,
+							DateTime.Now.Date.ToString()
+				);
+				listaInvesticija.Add(investicija);
 
 
 			}
 		}
-
+		/// <summary>
+		/// metoda koja dohvaća Bitcoin jednom u danu
+		/// </summary>
 		public void BTC()
 		{
 			IAvapiConnection connection = Konekcija();
@@ -107,12 +133,21 @@ namespace DohvacanjePodatakaZaInvesticije
 				txtInfoCrypto.Text = data.MetaData.Information;
 				foreach (var timeseries in data.TimeSeries)
 				{
-					txtOpenCrypto.Text = timeseries.OpenUSD;
+					openVrijednost = timeseries.OpenUSD;
 				}
+				Invest investicija = new Invest(
+					openVrijednost,
+					data.MetaData.DigitalCurrencyCode,
+					DateTime.Now.Date.ToString()
+				);
+
+				listaInvesticija.Add(investicija);
 
 			}
 		}
-
+		/// <summary>
+		/// metoda koja dohvaća Etherium jednom u danu, najcese uzima vrijednost dana prije, jer se biljeze na kraju dana
+		/// </summary>
 		public void ETH()
 		{
 			IAvapiConnection connection = Konekcija();
@@ -128,19 +163,32 @@ namespace DohvacanjePodatakaZaInvesticije
 			}
 			else
 			{
+
 				txtSimbolCrypto2.Text = data.MetaData.DigitalCurrencyCode;
 				txtDiTCrypto2.Text = data.MetaData.LastRefreshed;
 				txtInfoCrypto2.Text = data.MetaData.Information;
 				foreach (var timeseries in data.TimeSeries)
 				{
-					txtOpenCrypto2.Text = timeseries.OpenUSD;
+				  openVrijednost= timeseries.OpenUSD;
 				}
 			}
+			Invest investicija = new Invest(
+				openVrijednost,
+				data.MetaData.DigitalCurrencyCode,
+				DateTime.Now.Date.ToString()
+			);
+
+			listaInvesticija.Add(investicija);
+
 
 		}
-		private void Avapi_Load(object sender, EventArgs e)
+		public List<Invest> lista()
 		{
-
+			return listaInvesticija;
 		}
+		/*	public void Kill()
+			{
+				Application.Exit();
+			}*/
 	}
 }
