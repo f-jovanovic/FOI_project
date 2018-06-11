@@ -11,6 +11,7 @@ using System.IO;
 using Avapi;
 using Avapi.AvapiTIME_SERIES_DAILY;
 using PocetniZaslon;
+using Avapi.AvapiDIGITAL_CURRENCY_DAILY;
 
 
 namespace DohvacanjePodatakaZaInvesticije
@@ -22,6 +23,8 @@ namespace DohvacanjePodatakaZaInvesticije
 			InitializeComponent();
 			MSFT();
 			AAPL();
+			BTC();
+			ETH();
 		}
 
 		public IAvapiConnection Konekcija()
@@ -83,7 +86,59 @@ namespace DohvacanjePodatakaZaInvesticije
 
 			}
 		}
-			private void Avapi_Load(object sender, EventArgs e)
+
+		public void BTC()
+		{
+			IAvapiConnection connection = Konekcija();
+
+			Int_DIGITAL_CURRENCY_DAILY dIGITAL_CURRENCY_DAILY = connection.GetQueryObject_DIGITAL_CURRENCY_DAILY();
+
+			IAvapiResponse_DIGITAL_CURRENCY_DAILY avapiResponse_DIGITAL = dIGITAL_CURRENCY_DAILY.QueryPrimitive("BTC", "CNY");
+
+			var data = avapiResponse_DIGITAL.Data;
+			if (data.Error)
+			{
+				MessageBox.Show("Došlo je do problema s dohvaćanjem podataka");
+			}
+			else
+			{
+				txtSymbolCrypto.Text = data.MetaData.DigitalCurrencyCode;
+				txtDiTCrypto.Text = data.MetaData.LastRefreshed;
+				txtInfoCrypto.Text = data.MetaData.Information;
+				foreach (var timeseries in data.TimeSeries)
+				{
+					txtOpenCrypto.Text = timeseries.OpenUSD;
+				}
+
+			}
+		}
+
+		public void ETH()
+		{
+			IAvapiConnection connection = Konekcija();
+
+			Int_DIGITAL_CURRENCY_DAILY dIGITAL_CURRENCY_DAILY = connection.GetQueryObject_DIGITAL_CURRENCY_DAILY();
+
+			IAvapiResponse_DIGITAL_CURRENCY_DAILY avapiResponse_DIGITAL = dIGITAL_CURRENCY_DAILY.QueryPrimitive("ETH", "USD");
+
+			var data = avapiResponse_DIGITAL.Data;
+			if (data.Error)
+			{
+				MessageBox.Show("Došlo je do problema s dohvaćanjem podataka");
+			}
+			else
+			{
+				txtSimbolCrypto2.Text = data.MetaData.DigitalCurrencyCode;
+				txtDiTCrypto2.Text = data.MetaData.LastRefreshed;
+				txtInfoCrypto2.Text = data.MetaData.Information;
+				foreach (var timeseries in data.TimeSeries)
+				{
+					txtOpenCrypto2.Text = timeseries.OpenUSD;
+				}
+			}
+
+		}
+		private void Avapi_Load(object sender, EventArgs e)
 		{
 
 		}
