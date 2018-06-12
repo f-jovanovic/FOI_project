@@ -60,10 +60,7 @@ namespace DohvacanjePodatakaZaInvesticije
 				txtSimbol.Text = data.MetaData.Symbol;
 				txtDiT.Text = data.MetaData.TimeZone;
 				txtInfo.Text = data.MetaData.Information;
-				foreach (var timeseries in data.TimeSeries)
-				{
-					openVrijednost = timeseries.open;
-				}
+				openVrijednost = data.TimeSeries.First().open;
 			};
 			Invest investicija = new Invest(
 				openVrijednost, 
@@ -93,12 +90,11 @@ namespace DohvacanjePodatakaZaInvesticije
 			else
 			{
 				txtSimbol2.Text = data.MetaData.Symbol;
-				txtDiT2.Text = data.MetaData.TimeZone;
+				txtDiT2.Text = data.MetaData.LastRefreshed;
 				txtInfo2.Text = data.MetaData.Information;
-				foreach (var timeseries in data.TimeSeries)
-				{
-					openVrijednost = timeseries.open;
-				}
+				txtOpen2.Text = data.TimeSeries.First().open;
+				openVrijednost = data.TimeSeries.First().open;
+				
 
 				Invest investicija = new Invest(
 							openVrijednost,
@@ -131,10 +127,7 @@ namespace DohvacanjePodatakaZaInvesticije
 				txtSymbolCrypto.Text = data.MetaData.DigitalCurrencyCode;
 				txtDiTCrypto.Text = data.MetaData.LastRefreshed;
 				txtInfoCrypto.Text = data.MetaData.Information;
-				foreach (var timeseries in data.TimeSeries)
-				{
-					openVrijednost = timeseries.OpenUSD;
-				}
+				openVrijednost = data.TimeSeries.First().OpenUSD;
 				Invest investicija = new Invest(
 					openVrijednost,
 					data.MetaData.DigitalCurrencyCode,
@@ -167,10 +160,7 @@ namespace DohvacanjePodatakaZaInvesticije
 				txtSimbolCrypto2.Text = data.MetaData.DigitalCurrencyCode;
 				txtDiTCrypto2.Text = data.MetaData.LastRefreshed;
 				txtInfoCrypto2.Text = data.MetaData.Information;
-				foreach (var timeseries in data.TimeSeries)
-				{
-				  openVrijednost= timeseries.OpenUSD;
-				}
+				openVrijednost = data.TimeSeries.First().OpenUSD;
 			}
 			Invest investicija = new Invest(
 				openVrijednost,

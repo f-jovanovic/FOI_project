@@ -393,7 +393,7 @@ namespace PocetniZaslon.MDI_Forme
 			{
 				foreach (var item in dohvacanjePodataka.lista())
 				{
-					//if (item.Datum == DateTime.Today.ToLongDateString())
+					//if (item.Datum != DateTime.Today.ToLongDateString())
 					//{
 					foreach (var it in db.Investicija)
 					{
@@ -415,6 +415,21 @@ namespace PocetniZaslon.MDI_Forme
 					//}
 				}
 				db.SaveChanges();
+			}
+		}
+
+		private void cBoxNazivInvesticije_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			using (var db = new WalletEntities())
+			{
+				foreach (var item in db.Stanje_investicije)
+				{
+					if (item.id_investicije == (cBoxNazivInvesticije.SelectedItem as Investicija).id_investicije && item.vrijeme_stanja.Date==DateTime.Now.Date)
+					{
+						txtBoxIznosTransInv.Text = item.vrijednost_investicije.ToString();
+						break;
+					}
+				}
 			}
 		}
 	}
