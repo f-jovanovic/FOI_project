@@ -44,8 +44,9 @@ namespace PocetniZaslon.MDI_Forme
 		{
 			PrilagodiIzgledForme();
 
-			dtpVrijemeOd.Value = DateTime.Now;
-			dtpVrijemeDo.Value = DateTime.Now.AddMonths(1);
+			dtpVrijemeOd.Value = DateTime.Now.Date;
+			MessageBox.Show(DateTime.Now.Date.ToString() + "\n"+ dtpVrijemeOd.Value.ToString());
+			dtpVrijemeDo.Value = DateTime.Now.AddMonths(1).AddMinutes(-1);
 
 			DohvatiSveKorisnikoveZapise();
 		}
@@ -69,10 +70,10 @@ namespace PocetniZaslon.MDI_Forme
 			listaVrstaTransakcije = radnjaNadTransakcijom.DohvatiVrsteTransakcija();
 
 			//Dohvaćanje Transakcija i transakcija investicija.
-			listaTransakcija = new BindingList<Transakcija>();
-			listaTransakcija = radnjaNadTransakcijom.DohvatiSveTransakcije(listaBankovnihRacuna);
 			listaTransakcijaInvesticije = new BindingList<Transakcija_investicije>();
 			listaTransakcijaInvesticije = radnjaNadTransakcijom.DohvatiSveTransakcijeInvesticija(listaBankovnihRacuna);
+			listaTransakcija = new BindingList<Transakcija>();
+			listaTransakcija = radnjaNadTransakcijom.DohvatiSveTransakcije(listaBankovnihRacuna);
 
 			//Dohvaćanje svih korisnikovih kategorije
 			OsvjeziKategorije();
@@ -96,11 +97,7 @@ namespace PocetniZaslon.MDI_Forme
 
 						BindingList<Kategorije_transakcije> listakategorijaTransakcije = new BindingList<Kategorije_transakcije>(transakcija.Kategorije_transakcije.ToList());
 						Kategorije_transakcije kategorija = null;
-						foreach (Kategorije_transakcije kategorijaTransakcije in listakategorijaTransakcije)
-						{
-							kategorija = kategorijaTransakcije;
-						}
-
+						kategorija = listakategorijaTransakcije[0];
 						db.Kategorije_transakcije.Attach(kategorija);
 
 						PrikazTransakcije noviPrikazTransakcije = new PrikazTransakcije(
@@ -148,7 +145,6 @@ namespace PocetniZaslon.MDI_Forme
 			bindingSourceVrstaTransakcije.DataSource = listaVrstaTransakcije;
 		}
 
-		
 		/// <summary>
 		/// Filtriranje svih korisnikovih transakcija prema označenim check boxevima i odabranom vremenskom razdoblju.
 		/// </summary>
@@ -164,10 +160,14 @@ namespace PocetniZaslon.MDI_Forme
 			}
 
 			//Dohvaćanje vrste transakcije: prihod(1) ili rashod(2) ili i prihodi i rashodi(0)
-			if (chkObicneTransakcije.Checked == true && chkTransakcijeInvesticija.Checked == true) vrstaTransakcije = 0;
-			else if (chkObicneTransakcije.Checked == true && chkTransakcijeInvesticija.Checked == false) vrstaTransakcije = 1;
-			else if (chkObicneTransakcije.Checked == false && chkTransakcijeInvesticija.Checked == true) vrstaTransakcije = 2;
-			else MessageBox.Show("Nisu označeni ni prihodi ni rashodi");
+			if (chkPrihodi.Checked == true && chkRashodi.Checked == true) vrstaTransakcije = 0;
+			else if (chkPrihodi.Checked == true && chkRashodi.Checked == false) vrstaTransakcije = 1;
+			else if (chkPrihodi.Checked == false && chkRashodi.Checked == true) vrstaTransakcije = 2;
+			else
+			{
+				MessageBox.Show("Moraju biti označene barem 'Obične transakcije' ili 'Transakcije investicija'");
+				return;
+			}
 
 			//Dohvaćamo označene bankovne račune iz dataGridView-a bankovnih računa.
 			listaOznacenihBankovnihRacuna = new BindingList<Bankovni_racun>();
@@ -201,12 +201,17 @@ namespace PocetniZaslon.MDI_Forme
 				if (vrijemeOd != null) if (vrijemeOd > prikazTransakcije.Datum || prikazTransakcije.Datum > vrijemeDo) continue;
 
 				//Provjera prihoda(1) ili rashoda(2) ili i prihodi i rashodi(0)
+				if (vrstaTransakcije != 0) if (prikazTransakcije.VrstaTransakcije != vrstaTransakcije) continue;
 
+				//Provjera Obična transakcija ili Transakcija investicije
+				if (chkObicneTransakcije.Checked != true || chkTransakcijeInvesticija.Checked != true)
+				{
+					if (chkObicneTransakcije.Checked == true && prikazTransakcije.KategorijeTransakcije == null) continue;
+					if (chkTransakcijeInvesticija.Checked == true && prikazTransakcije.KategorijeTransakcije != null) continue;
+				}
 
 				//provjera bankovnih računa
 				uvjet = false;
-				if (listaOznacenihBankovnihRacuna == null) MessageBox.Show("Prazna lista racuna!");
-
 				using (var db = new WalletEntities())
 				{
 					foreach (Bankovni_racun racun in listaOznacenihBankovnihRacuna)
@@ -256,12 +261,9 @@ namespace PocetniZaslon.MDI_Forme
 				listaFiltriranihPrikazaTransakcije.Add(prikazTransakcije);
 			}
 
-			listaFiltriranihPrikazaTransakcije.OrderByDescending(x => x.Datum);
 			bindingSourcePregledTransakcija.Clear();
-			bindingSourcePregledTransakcija.DataSource = listaFiltriranihPrikazaTransakcije;
+			bindingSourcePregledTransakcija.DataSource = listaFiltriranihPrikazaTransakcije.OrderByDescending(x => x.Datum.Date);
 		}
-		
-
 
 		#region CheckBoxevi funkcionalnosti
 
@@ -347,7 +349,6 @@ namespace PocetniZaslon.MDI_Forme
 
 		#endregion
 
-
 		private void OsvjeziKategorije()
 		{
 			if (chkPrihodi.Checked == true && chkRashodi.Checked == true) listaKategorijaTransakcija = radnjaNadTransakcijom.DohvatiKategorijeKorisnika(trenutniKorisnik, 0);
@@ -380,7 +381,5 @@ namespace PocetniZaslon.MDI_Forme
 		{
 			OsvjeziPrikazTransakcija();
 		}
-
-
 	}
 }

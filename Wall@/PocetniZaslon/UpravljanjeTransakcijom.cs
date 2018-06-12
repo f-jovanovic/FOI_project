@@ -131,8 +131,8 @@ namespace PocetniZaslon
 					foreach (Transakcija transakcija in racun.Transakcija)	listaTransakcija.Add(transakcija);
 					db.Entry(racun).State = System.Data.Entity.EntityState.Detached;
 				}
-				
 			}
+			
 			listaTransakcija.OrderBy(x => x.vrijeme_transakcije);
 			return listaTransakcija;
 		}
