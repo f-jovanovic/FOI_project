@@ -58,19 +58,17 @@
     <Compile Include="Bankovni_racun.cs">
       <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="Dialog_forme\FrmInvesticijskiPortfolioObrišiInvesticiju.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialog_forme\FrmInvesticijskiPortfolioObrišiInvesticiju.Designer.cs">
       <DependentUpon>FrmInvesticijskiPortfolioObrišiInvesticiju.cs</DependentUpon>
-=======
+	</Compile>
     <Compile Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.Designer.cs">
       <DependentUpon>FrmKategorijeTransakcijaDodaj.cs</DependentUpon>
->>>>>>> origin/master
     </Compile>
     <Compile Include="FrmGlavniIzbornik.cs">
       <SubType>Form</SubType>
@@ -114,13 +112,12 @@
     <Compile Include="MDI_Forme\FrmBankovniRacuni.Designer.cs">
       <DependentUpon>FrmBankovniRacuni.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="MDI_Forme\FrmInvesticijskiPortfolio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MDI_Forme\FrmInvesticijskiPortfolio.Designer.cs">
       <DependentUpon>FrmInvesticijskiPortfolio.cs</DependentUpon>
-=======
+	</Compile>
     <Compile Include="MDI_Forme\FrmUnosTransakcija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,7 +141,6 @@
     </Compile>
     <Compile Include="MDI_Forme\FrmUnosTransakcijaRashod.Designer.cs">
       <DependentUpon>FrmUnosTransakcijaRashod.cs</DependentUpon>
->>>>>>> origin/master
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -182,13 +178,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WalletDatabseModel.edmx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <EmbeddedResource Include="Dialog_forme\FrmInvesticijskiPortfolioObrišiInvesticiju.resx">
       <DependentUpon>FrmInvesticijskiPortfolioObrišiInvesticiju.cs</DependentUpon>
-=======
+	</EmbeddedResource>
     <EmbeddedResource Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.resx">
       <DependentUpon>FrmKategorijeTransakcijaDodaj.cs</DependentUpon>
->>>>>>> origin/master
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGlavniIzbornik.resx">
       <DependentUpon>FrmGlavniIzbornik.cs</DependentUpon>
@@ -205,10 +199,9 @@
     <EmbeddedResource Include="MDI_Forme\FrmBankovniRacuni.resx">
       <DependentUpon>FrmBankovniRacuni.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="MDI_Forme\FrmInvesticijskiPortfolio.resx">
       <DependentUpon>FrmInvesticijskiPortfolio.cs</DependentUpon>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcija.resx">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,7 +213,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcijaRashod.resx">
       <DependentUpon>FrmUnosTransakcijaRashod.cs</DependentUpon>
->>>>>>> origin/master
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -234,14 +226,11 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Bankovni_racun.datasource" />
-<<<<<<< HEAD
     <None Include="Properties\DataSources\Investicija.datasource" />
     <None Include="Properties\DataSources\Stanje_investicije.datasource" />
     <None Include="Properties\DataSources\Transakcija_investicije.datasource" />
     <None Include="Properties\DataSources\Vrsta_investicije.datasource" />
-=======
     <None Include="Properties\DataSources\Kategorije_transakcije.datasource" />
->>>>>>> origin/master
     <None Include="Properties\DataSources\Vrsta_racuna.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -34,6 +34,7 @@ namespace PocetniZaslon.MDI_Forme
 					else
 					{
 						portfolioPostoji = true;
+						break;
 					}
 				}
 
