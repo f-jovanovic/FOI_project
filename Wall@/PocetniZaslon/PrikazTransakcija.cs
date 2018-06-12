@@ -24,13 +24,6 @@ namespace PocetniZaslon
 		/// <summary>
 		/// Konstruktor za spremanje obične transakcije.
 		/// </summary>
-		/// <param name="datum"></param>
-		/// <param name="bankovniRacun"></param>
-		/// <param name="IBAN"></param>
-		/// <param name="iznos"></param>
-		/// <param name="kategorijeTransakcije"></param>
-		/// <param name="opis"></param>
-		/// <param name="vrstaTransakcije"></param>
 		public PrikazTransakcije(Transakcija obicnaTransakcija, DateTime datum, Bankovni_racun bankovniRacun, string IBAN, decimal iznos, BindingList<Kategorije_transakcije> kategorijeTransakcije, string opis, int vrstaTransakcije)
 		{
 			ObicnaTransakcija = obicnaTransakcija;
@@ -44,16 +37,10 @@ namespace PocetniZaslon
 			VrstaTransakcije = vrstaTransakcije;
 			DatumTransakcije = Vrijeme.ToString("dd/MM/yyyy");
 		}
+		
 		/// <summary>
 		/// Konstruktor za spremanje transakcije investicija.
 		/// </summary>
-		/// <param name="datum"></param>
-		/// <param name="bankovniRacun"></param>
-		/// <param name="IBAN"></param>
-		/// <param name="iznos"></param>
-		/// <param name="kolicina"></param>
-		/// <param name="investicija"></param>
-		/// <param name="vrstaTransakcije"></param>
 		public PrikazTransakcije(Transakcija_investicije transakcijaInvesticije,DateTime datum, Bankovni_racun bankovniRacun, string IBAN, decimal iznos, decimal kolicina, string investicija, int vrstaTransakcije)
 		{
 			TransakcijaInvesticije = transakcijaInvesticije;

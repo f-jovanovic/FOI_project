@@ -203,7 +203,5 @@ namespace PocetniZaslon
 			}
 			return listaVrstaTransakcija;
 		}
-
-
 	}
 }

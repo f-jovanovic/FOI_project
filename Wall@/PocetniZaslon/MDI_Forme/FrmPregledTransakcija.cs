@@ -26,7 +26,6 @@ namespace PocetniZaslon.MDI_Forme
 		BindingList<Bankovni_racun> listaOznacenihBankovnihRacuna = null;
 		BindingList<Kategorije_transakcije> listaOznacenihKategorija = null;
 
-
 		DateTime? vrijemeOd = null;
 		DateTime? vrijemeDo = null;
 		int vrstaTransakcije = 0;
@@ -365,7 +364,6 @@ namespace PocetniZaslon.MDI_Forme
 
 		private void PrilagodiIzgledForme()
 		{
-			lblPregledTransakcija.Location = new Point(this.Width / 2 - lblPregledTransakcija.Width / 2, lblPregledTransakcija.Location.Y);
 			if (chkObicneTransakcije.Checked == false)
 			{
 				lblKategorije.Visible = false;
@@ -394,6 +392,26 @@ namespace PocetniZaslon.MDI_Forme
 				dgvPregledTransakcija.Columns[1].ValueType = typeof(DateTime);
 				dgvPregledTransakcija.Sort(dgvPregledTransakcija.Columns["Datum"], ListSortDirection.Descending);
 			}
+		}
+
+		private void btnObrisi_Click(object sender, EventArgs e)
+		{
+			//Uvjet za brisanje je da ne smije biti prazan dgvPregledTransakcija i da mora biti označen barem jedan red.
+			if (dgvPregledTransakcija.RowCount == 0 || dgvPregledTransakcija.SelectedRows.Count != 1) return;
+			PrikazTransakcije prikazTransakcijeZaBrisanje = dgvPregledTransakcija.CurrentRow.DataBoundItem as PrikazTransakcije;
+
+			if (prikazTransakcijeZaBrisanje.ObicnaTransakcija != null) radnjaNadTransakcijom.ObrisiTransakciju(prikazTransakcijeZaBrisanje.ObicnaTransakcija);
+			if (prikazTransakcijeZaBrisanje.TransakcijaInvesticije != null)
+			{
+				using (WalletEntities db = new WalletEntities())
+				{
+					db.Transakcija_investicije.Attach(prikazTransakcijeZaBrisanje.TransakcijaInvesticije);
+					db.Transakcija_investicije.Remove(prikazTransakcijeZaBrisanje.TransakcijaInvesticije);
+					db.SaveChanges();
+				}
+			}
+			listaPrikazaTransakcija.Clear();
+			DohvatiSveKorisnikoveZapise();
 		}
 	}
 }

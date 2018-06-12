@@ -94,6 +94,7 @@
 			// 
 			// dgvPregledTransakcija
 			// 
+			this.dgvPregledTransakcija.AllowUserToAddRows = false;
 			this.dgvPregledTransakcija.AllowUserToDeleteRows = false;
 			this.dgvPregledTransakcija.AutoGenerateColumns = false;
 			this.dgvPregledTransakcija.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -123,7 +124,7 @@
 			// 
 			this.lblPregledTransakcija.AutoSize = true;
 			this.lblPregledTransakcija.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblPregledTransakcija.Location = new System.Drawing.Point(215, 9);
+			this.lblPregledTransakcija.Location = new System.Drawing.Point(355, -3);
 			this.lblPregledTransakcija.Name = "lblPregledTransakcija";
 			this.lblPregledTransakcija.Size = new System.Drawing.Size(458, 65);
 			this.lblPregledTransakcija.TabIndex = 1;
@@ -374,6 +375,7 @@
 			this.btnObrisi.TabIndex = 19;
 			this.btnObrisi.Text = "Obrisi transakciju.";
 			this.btnObrisi.UseVisualStyleBackColor = true;
+			this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
 			// 
 			// idkategorijetransakcijeDataGridViewTextBoxColumn
 			// 
