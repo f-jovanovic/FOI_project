@@ -150,6 +150,11 @@ namespace PocetniZaslon.MDI_Forme
 		/// </summary>
 		private void OsvjeziPrikazTransakcija()
 		{
+			if (chkTransakcijeInvesticija.Checked == false && chkObicneTransakcije.Checked == false)
+			{
+				MessageBox.Show("Moraju biti označene barem 'Obične transakcije' ili 'Transakcije investicija'");
+				return;
+			}
 			//Dohvaćanje vremena sa forme.
 			vrijemeOd = null;
 			vrijemeDo = null;
@@ -163,11 +168,6 @@ namespace PocetniZaslon.MDI_Forme
 			if (chkPrihodi.Checked == true && chkRashodi.Checked == true) vrstaTransakcije = 0;
 			else if (chkPrihodi.Checked == true && chkRashodi.Checked == false) vrstaTransakcije = 1;
 			else if (chkPrihodi.Checked == false && chkRashodi.Checked == true) vrstaTransakcije = 2;
-			else
-			{
-				MessageBox.Show("Moraju biti označene barem 'Obične transakcije' ili 'Transakcije investicija'");
-				return;
-			}
 
 			//Dohvaćamo označene bankovne račune iz dataGridView-a bankovnih računa.
 			listaOznacenihBankovnihRacuna = new BindingList<Bankovni_racun>();
@@ -209,6 +209,7 @@ namespace PocetniZaslon.MDI_Forme
 					if (chkObicneTransakcije.Checked == true && prikazTransakcije.KategorijeTransakcije == null) continue;
 					if (chkTransakcijeInvesticija.Checked == true && prikazTransakcije.KategorijeTransakcije != null) continue;
 				}
+
 
 				//provjera bankovnih računa
 				uvjet = false;
