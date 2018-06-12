@@ -108,6 +108,7 @@ namespace PocetniZaslon.MDI_Forme
 
 			using (var db = new WalletEntities())
 			{
+				db.Korisnik.Attach(trenutniKorisnik);
 				db.Investicija.Attach(investicija);
 				db.Bankovni_racun.Attach(bankovni_Racun);
 				int idPort = 0;
@@ -118,7 +119,7 @@ namespace PocetniZaslon.MDI_Forme
 					Investicijski_portfolio investicijski = (from t in db.Investicijski_portfolio
 															 where t.id_korisnik == trenutniKorisnik.id_korisnik
 															 select t).First();
-					idPort = item.id_portfolia;
+					idPort = investicijski.id_portfolia;
 				}
 				//dobavlja vanjski kljuc  za kupi transakciju, vrstu transakcije
 				if (rBtnKupi.Checked == true)
@@ -167,6 +168,7 @@ namespace PocetniZaslon.MDI_Forme
 
 			using (var db = new WalletEntities())
 			{
+				db.Korisnik.Attach(trenutniKorisnik);
 				db.Investicija.Attach(investicija);
 				db.Bankovni_racun.Attach(bankovni_Racun);
 				int idPort = 0;
@@ -177,7 +179,7 @@ namespace PocetniZaslon.MDI_Forme
 					Investicijski_portfolio investicijski = (from t in db.Investicijski_portfolio
 															 where t.id_korisnik == trenutniKorisnik.id_korisnik
 															 select t).First();
-					idPort = item.id_portfolia;
+					idPort = investicijski.id_portfolia;
 				}
 				//dobavlja vanjski kljuc  za kupi transakciju, vrstu transakcije
 				if (rBtnProdaj.Checked == true)
@@ -275,17 +277,18 @@ namespace PocetniZaslon.MDI_Forme
 			if (rBtnKupi.Checked == true)
 			{
 				KupiInvesticiju();
+				DohvacanjePodatakaZaDGW();
 			}
 			else
 			{
 				ProdajInvesticiju();
+				DohvacanjePodatakaZaDGW();
 			}
-
 		}
 
 		private void btnObrisiInvesticiju_Click(object sender, EventArgs e)
 		{
-			Dialog_forme.FrmInvesticijskiPortfolioObrišiInvesticiju frmInvesticijskiPortfolioObrišiInvesticiju = new Dialog_forme.FrmInvesticijskiPortfolioObrišiInvesticiju(trenutniKorisnik);
+			Dialog_forme.FrmInvesticijskiPortfolioObrisiInvesticiju frmInvesticijskiPortfolioObrišiInvesticiju = new Dialog_forme.FrmInvesticijskiPortfolioObrisiInvesticiju(trenutniKorisnik);
 			frmInvesticijskiPortfolioObrišiInvesticiju.ShowDialog();
 			PrikaziImenaInvesticija();
 			DohvacanjePodatakaZaDGW();
@@ -298,12 +301,13 @@ namespace PocetniZaslon.MDI_Forme
 		{
 			using (var db = new WalletEntities())
 			{
-
+				
 				var listaInvesticija = (from i in db.Investicija
 										join s in db.Stanje_investicije on i.id_investicije equals s.id_investicije
 										join v in db.Vrsta_investicije on i.id_vrsta_investicije equals v.id_vrsta_investicije
 										join t in db.Transakcija_investicije on i.id_investicije equals t.id_investicije
-										where t.id_investicije == t.id_investicije
+										join p in db.Investicijski_portfolio on t.id_portfolia equals p.id_portfolia
+										where t.id_investicije == t.id_investicije && p.id_korisnik == trenutniKorisnik.id_korisnik
 										select new
 										{
 											i.naziv_investicije,
@@ -320,29 +324,6 @@ namespace PocetniZaslon.MDI_Forme
 		{
 			DohvacanjePodatakaZaDGW();
 			DohvacanjeStanjaInvesticija();
-		}
-		//metoda ispod se treba izbrisat
-		private void dgwVlastiteInvesticije_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-			/*string naziv = dgwVlastiteInvesticije.SelectedCells[0].FormattedValue.ToString();
-
-			using (var db = new WalletEntities())
-			{
-				decimal kolicina = (from t in db.Transakcija_investicije
-									where 
-									select t.kolicina_investicije).Sum();
-
-
-				MessageBox.Show("Ukupna količina i vrijednost za odabranu investiciju je:" + kolicina);
-			}
-			*/
-		}
-		//ova metoda ispod je prazna obrisi je 
-		private void dgwVlastiteInvesticije_SelectionChanged(object sender, EventArgs e)
-		{
-
-
-
 		}
 		/// <summary>
 		/// provjera tipa unosa kolicine prilikom transakcije investicije
@@ -363,6 +344,7 @@ namespace PocetniZaslon.MDI_Forme
 				lblKriviTipPodatakaKolicina.Show();
 				btnIzvrsiTransakciju.Enabled = false;
 			}
+
 		}
 		/// <summary>
 		/// provjera unosa iznosa investicije prilikom transakcije 
@@ -388,12 +370,18 @@ namespace PocetniZaslon.MDI_Forme
 		/// </summary>
 		public void DohvacanjeStanjaInvesticija()
 		{
+			DohvacanjeAPI.GetData getData = new DohvacanjeAPI.GetData();
+			foreach (var item in getData.lista())
+			{
+				MessageBox.Show(item.Simbol);
+			}
 			int idInv = 0;
 			//doovdi
 			using (var db = new WalletEntities())
 			{
-				/*foreach (var item in dohvacanjePodataka.lista())
+				foreach (var item in getData.lista())
 				{
+					
 					//if (item.Datum != DateTime.Today.ToLongDateString())
 					//{
 					foreach (var it in db.Investicija)
@@ -415,7 +403,7 @@ namespace PocetniZaslon.MDI_Forme
 					}
 					//}
 				}
-				db.SaveChanges();*/
+				db.SaveChanges();
 			}
 		}
 
@@ -425,11 +413,12 @@ namespace PocetniZaslon.MDI_Forme
 			{
 				foreach (var item in db.Stanje_investicije)
 				{
-					if (item.id_investicije == (cBoxNazivInvesticije.SelectedItem as Investicija).id_investicije && item.vrijeme_stanja.Date==DateTime.Now.Date)
+					if (item.id_investicije == (cBoxNazivInvesticije.SelectedItem as Investicija).id_investicije && item.vrijeme_stanja.Date == DateTime.Now.Date)
 					{
 						txtBoxIznosTransInv.Text = item.vrijednost_investicije.ToString();
 						break;
 					}
+
 				}
 			}
 		}*/

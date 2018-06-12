@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace PocetniZaslon.Dialog_forme
 {
-	public partial class FrmInvesticijskiPortfolioObrišiInvesticiju : Form
+	public partial class FrmInvesticijskiPortfolioObrisiInvesticiju : Form
 	{
 		private Korisnik trenutniKorisnik = null;
 
-		public FrmInvesticijskiPortfolioObrišiInvesticiju(Korisnik korisnik)
+		public FrmInvesticijskiPortfolioObrisiInvesticiju(Korisnik korisnik)
 		{
 			trenutniKorisnik = korisnik;
 			InitializeComponent();

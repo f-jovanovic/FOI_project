@@ -1,6 +1,6 @@
 ﻿namespace PocetniZaslon.Dialog_forme
 {
-	partial class FrmInvesticijskiPortfolioObrišiInvesticiju
+	partial class FrmInvesticijskiPortfolioObrisiInvesticiju
 	{
 		/// <summary>
 		/// Required designer variable.

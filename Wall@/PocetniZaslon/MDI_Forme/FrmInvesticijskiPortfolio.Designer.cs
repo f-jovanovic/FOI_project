@@ -143,7 +143,6 @@
 			this.cBoxNazivInvesticije.Size = new System.Drawing.Size(273, 36);
 			this.cBoxNazivInvesticije.TabIndex = 9;
 			this.cBoxNazivInvesticije.ValueMember = "id_investicije";
-			//this.cBoxNazivInvesticije.SelectedIndexChanged += new System.EventHandler(this.cBoxNazivInvesticije_SelectedIndexChanged);
 			// 
 			// investicijaBindingSource
 			// 
@@ -359,14 +358,12 @@
 			this.dgwVlastiteInvesticije.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
 			this.dgwVlastiteInvesticije.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.dgwVlastiteInvesticije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgwVlastiteInvesticije.Location = new System.Drawing.Point(29, 197);
+			this.dgwVlastiteInvesticije.Location = new System.Drawing.Point(29, 180);
 			this.dgwVlastiteInvesticije.Name = "dgwVlastiteInvesticije";
 			this.dgwVlastiteInvesticije.RowTemplate.Height = 24;
 			this.dgwVlastiteInvesticije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgwVlastiteInvesticije.Size = new System.Drawing.Size(979, 509);
+			this.dgwVlastiteInvesticije.Size = new System.Drawing.Size(979, 526);
 			this.dgwVlastiteInvesticije.TabIndex = 10;
-			this.dgwVlastiteInvesticije.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwVlastiteInvesticije_CellContentClick);
-			this.dgwVlastiteInvesticije.SelectionChanged += new System.EventHandler(this.dgwVlastiteInvesticije_SelectionChanged);
 			// 
 			// stanjeinvesticijeBindingSource
 			// 

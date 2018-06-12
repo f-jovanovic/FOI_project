@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DohvacanjeAPI">
+      <HintPath>DLL folder\DohvacanjeAPI.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -58,12 +61,12 @@
     <Compile Include="Bankovni_racun.cs">
       <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dialog_forme\FrmInvesticijskiPortfolioObrišiInvesticiju.cs">
+    <Compile Include="Dialog_forme\FrmInvesticijskiPortfolioObrisiInvesticiju.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialog_forme\FrmInvesticijskiPortfolioObrišiInvesticiju.Designer.cs">
-      <DependentUpon>FrmInvesticijskiPortfolioObrišiInvesticiju.cs</DependentUpon>
-	</Compile>
+    <Compile Include="Dialog_forme\FrmInvesticijskiPortfolioObrisiInvesticiju.Designer.cs">
+      <DependentUpon>FrmInvesticijskiPortfolioObrisiInvesticiju.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,7 +120,7 @@
     </Compile>
     <Compile Include="MDI_Forme\FrmInvesticijskiPortfolio.Designer.cs">
       <DependentUpon>FrmInvesticijskiPortfolio.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="MDI_Forme\FrmUnosTransakcija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,9 +181,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>WalletDatabseModel.edmx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Dialog_forme\FrmInvesticijskiPortfolioObrišiInvesticiju.resx">
-      <DependentUpon>FrmInvesticijskiPortfolioObrišiInvesticiju.cs</DependentUpon>
-	</EmbeddedResource>
+    <EmbeddedResource Include="Dialog_forme\FrmInvesticijskiPortfolioObrisiInvesticiju.resx">
+      <DependentUpon>FrmInvesticijskiPortfolioObrisiInvesticiju.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.resx">
       <DependentUpon>FrmKategorijeTransakcijaDodaj.cs</DependentUpon>
     </EmbeddedResource>
