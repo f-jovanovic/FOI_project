@@ -63,6 +63,7 @@
     </Compile>
     <Compile Include="Dialog_forme\FrmInvesticijskiPortfolioObrišiInvesticiju.Designer.cs">
       <DependentUpon>FrmInvesticijskiPortfolioObrišiInvesticiju.cs</DependentUpon>
+	</Compile>
     <Compile Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +117,7 @@
     </Compile>
     <Compile Include="MDI_Forme\FrmInvesticijskiPortfolio.Designer.cs">
       <DependentUpon>FrmInvesticijskiPortfolio.cs</DependentUpon>
+	</Compile>
     <Compile Include="MDI_Forme\FrmUnosTransakcija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +180,7 @@
     </Compile>
     <EmbeddedResource Include="Dialog_forme\FrmInvesticijskiPortfolioObrišiInvesticiju.resx">
       <DependentUpon>FrmInvesticijskiPortfolioObrišiInvesticiju.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.resx">
       <DependentUpon>FrmKategorijeTransakcijaDodaj.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +201,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmInvesticijskiPortfolio.resx">
       <DependentUpon>FrmInvesticijskiPortfolio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcija.resx">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
     </EmbeddedResource>
