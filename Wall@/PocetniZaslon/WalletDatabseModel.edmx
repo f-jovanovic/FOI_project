@@ -37,6 +37,7 @@
           <Property Name="id_kategorije_transakcije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_vrsta_transakcije" Type="int" Nullable="false" />
           <Property Name="naziv_kategorije" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="id_korisnik" Type="int" />
         </EntityType>
         <EntityType Name="Korisnik">
           <Key>
@@ -220,6 +221,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Kategorije_transakcije_Korisnik_id_korisnik_fk">
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
+          <End Role="Kategorije_transakcije" Type="Self.Kategorije_transakcije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="id_korisnik" />
+            </Principal>
+            <Dependent Role="Kategorije_transakcije">
+              <PropertyRef Name="id_korisnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Kategorije_transakcije_Vrsta_transakcije_id_vrsta_transakcije_fk">
           <End Role="Vrsta_transakcije" Type="Self.Vrsta_transakcije" Multiplicity="1" />
           <End Role="Kategorije_transakcije" Type="Self.Kategorije_transakcije" Multiplicity="*" />
@@ -329,6 +342,10 @@
             <End Role="Korisnik" EntitySet="Korisnik" />
             <End Role="Investicijski_portfolio" EntitySet="Investicijski_portfolio" />
           </AssociationSet>
+          <AssociationSet Name="Kategorije_transakcije_Korisnik_id_korisnik_fk" Association="Self.Kategorije_transakcije_Korisnik_id_korisnik_fk">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Kategorije_transakcije" EntitySet="Kategorije_transakcije" />
+          </AssociationSet>
           <AssociationSet Name="Kategorije_transakcije_Vrsta_transakcije_id_vrsta_transakcije_fk" Association="Self.Kategorije_transakcije_Vrsta_transakcije_id_vrsta_transakcije_fk">
             <End Role="Vrsta_transakcije" EntitySet="Vrsta_transakcije" />
             <End Role="Kategorije_transakcije" EntitySet="Kategorije_transakcije" />
@@ -397,6 +414,8 @@
           <Property Name="naziv_kategorije" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Vrsta_transakcije" Relationship="Self.Kategorije_transakcije_Vrsta_transakcije_id_vrsta_transakcije_fk" FromRole="Kategorije_transakcije" ToRole="Vrsta_transakcije" />
           <NavigationProperty Name="Transakcija" Relationship="Self.Transakcija_ima_kategorije" FromRole="Kategorije_transakcije" ToRole="Transakcija" />
+          <Property Name="id_korisnik" Type="Int32" />
+          <NavigationProperty Name="Korisnik" Relationship="DBModel.Kategorije_transakcije_Korisnik_id_korisnik_fk" FromRole="Kategorije_transakcije" ToRole="Korisnik" />
         </EntityType>
         <EntityType Name="Korisnik">
           <Key>
@@ -410,6 +429,7 @@
           <Property Name="datum_registracije" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Bankovni_racun" Relationship="Self.fk_bankovni_racun_korisnik" FromRole="Korisnik" ToRole="Bankovni_racun" />
           <NavigationProperty Name="Investicijski_portfolio" Relationship="Self.Investicijski_portfolio_Korisnik_id_korisnik_fk" FromRole="Korisnik" ToRole="Investicijski_portfolio" />
+          <NavigationProperty Name="Kategorije_transakcije" Relationship="DBModel.Kategorije_transakcije_Korisnik_id_korisnik_fk" FromRole="Korisnik" ToRole="Kategorije_transakcije" />
         </EntityType>
         <EntityType Name="Stanje_investicije">
           <Key>
@@ -691,7 +711,23 @@
             <End Role="Kategorije_transakcije" EntitySet="Kategorije_transakcije" />
             <End Role="Transakcija" EntitySet="Transakcija" />
           </AssociationSet>
+          <AssociationSet Name="Kategorije_transakcije_Korisnik_id_korisnik_fk" Association="DBModel.Kategorije_transakcije_Korisnik_id_korisnik_fk">
+            <End Role="Korisnik" EntitySet="Korisnik" />
+            <End Role="Kategorije_transakcije" EntitySet="Kategorije_transakcije" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="Kategorije_transakcije_Korisnik_id_korisnik_fk">
+          <End Type="DBModel.Korisnik" Role="Korisnik" Multiplicity="0..1" />
+          <End Type="DBModel.Kategorije_transakcije" Role="Kategorije_transakcije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnik">
+              <PropertyRef Name="id_korisnik" />
+            </Principal>
+            <Dependent Role="Kategorije_transakcije">
+              <PropertyRef Name="id_korisnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -729,6 +765,7 @@
           <EntitySetMapping Name="Kategorije_transakcije">
             <EntityTypeMapping TypeName="DBModel.Kategorije_transakcije">
               <MappingFragment StoreEntitySet="Kategorije_transakcije">
+                <ScalarProperty Name="id_korisnik" ColumnName="id_korisnik" />
                 <ScalarProperty Name="id_kategorije_transakcije" ColumnName="id_kategorije_transakcije" />
                 <ScalarProperty Name="id_vrsta_transakcije" ColumnName="id_vrsta_transakcije" />
                 <ScalarProperty Name="naziv_kategorije" ColumnName="naziv_kategorije" />
