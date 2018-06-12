@@ -51,6 +51,11 @@ namespace PocetniZaslon
 		private void btnUnosTransakcije_Click(object sender, EventArgs e)
 		{
 			UgasiSveOtvoreneProzore();
+            MDI_Forme.FrmUnosTransakcija frmUnosTransakcija = new MDI_Forme.FrmUnosTransakcija(trenutniKorisnik);
+            frmUnosTransakcija.MdiParent = this;
+            frmUnosTransakcija.Dock = DockStyle.Fill;
+            frmUnosTransakcija.Show();
+            PrilagodiElementeChild(frmUnosTransakcija);
 		}
 
 		private void btnPregled_Click(object sender, EventArgs e)
