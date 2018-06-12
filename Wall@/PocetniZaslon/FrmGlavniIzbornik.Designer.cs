@@ -210,7 +210,6 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Wall@";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-			this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmGlavniIzbornik_FormClosed);
 			this.SizeChanged += new System.EventHandler(this.FrmGlavniIzbornik_SizeChanged);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
 			this.ResumeLayout(false);

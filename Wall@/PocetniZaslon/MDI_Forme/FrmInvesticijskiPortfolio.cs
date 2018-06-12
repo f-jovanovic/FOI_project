@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DohvacanjePodatakaZaInvesticije;
+
 
 
 
@@ -17,7 +17,6 @@ namespace PocetniZaslon.MDI_Forme
 	public partial class FrmInvesticijskiPortfolio : Form
 	{
 		Korisnik trenutniKorisnik = null;
-		DohvacanjePodatakaZaInvesticije.FrmAvapi dohvacanjePodataka = new DohvacanjePodatakaZaInvesticije.FrmAvapi();
 
 
 		public FrmInvesticijskiPortfolio(Korisnik korisnik)
@@ -288,6 +287,7 @@ namespace PocetniZaslon.MDI_Forme
 			Dialog_forme.FrmInvesticijskiPortfolioObrišiInvesticiju frmInvesticijskiPortfolioObrišiInvesticiju = new Dialog_forme.FrmInvesticijskiPortfolioObrišiInvesticiju(trenutniKorisnik);
 			frmInvesticijskiPortfolioObrišiInvesticiju.ShowDialog();
 			PrikaziImenaInvesticija();
+			DohvacanjePodatakaZaDGW();
 		}
 
 		/// <summary>
@@ -391,7 +391,7 @@ namespace PocetniZaslon.MDI_Forme
 			//doovdi
 			using (var db = new WalletEntities())
 			{
-				foreach (var item in dohvacanjePodataka.lista())
+				/*foreach (var item in dohvacanjePodataka.lista())
 				{
 					//if (item.Datum != DateTime.Today.ToLongDateString())
 					//{
@@ -414,7 +414,7 @@ namespace PocetniZaslon.MDI_Forme
 					}
 					//}
 				}
-				db.SaveChanges();
+				db.SaveChanges();*/
 			}
 		}
 

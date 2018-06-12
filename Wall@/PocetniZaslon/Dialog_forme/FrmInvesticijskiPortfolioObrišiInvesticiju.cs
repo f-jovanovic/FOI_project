@@ -68,19 +68,23 @@ namespace PocetniZaslon.Dialog_forme
 			List<Transakcija_investicije> listaTransakcijaInvesticija = new List<Transakcija_investicije>();
 			using (var db = new WalletEntities())
 			{
+
 				db.Investicija.Attach(odabranaInvesticija);
 				listaTransakcijaInvesticija = odabranaInvesticija.Transakcija_investicije.ToList();
 			}
 
-			foreach (var item in listaTransakcijaInvesticija)
+			using (var db = new WalletEntities())
 			{
-				using (var db = new WalletEntities())
+				foreach (var it in db.Investicijski_portfolio)
 				{
-					if (item.id_investicije == odabranaInvesticija.id_investicije)
+					foreach (var item in listaTransakcijaInvesticija)
 					{
-						db.Transakcija_investicije.Attach(item);
-						db.Transakcija_investicije.Remove(item);
-						db.SaveChanges();
+						if (it.id_portfolia == item.id_portfolia && item.id_investicije== odabranaInvesticija.id_investicije)
+						{
+							db.Transakcija_investicije.Attach(item);
+							db.Transakcija_investicije.Remove(item);
+							db.SaveChanges();
+						}
 					}
 				}
 			}
