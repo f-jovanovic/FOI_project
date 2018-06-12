@@ -418,7 +418,7 @@ namespace PocetniZaslon.MDI_Forme
 			}
 		}
 
-		private void cBoxNazivInvesticije_SelectedIndexChanged(object sender, EventArgs e)
+		/*private void cBoxNazivInvesticije_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			using (var db = new WalletEntities())
 			{
@@ -431,6 +431,6 @@ namespace PocetniZaslon.MDI_Forme
 					}
 				}
 			}
-		}
+		}*/
 	}
 }

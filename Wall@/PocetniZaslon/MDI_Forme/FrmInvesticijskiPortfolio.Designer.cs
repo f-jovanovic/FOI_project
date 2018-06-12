@@ -143,7 +143,7 @@
 			this.cBoxNazivInvesticije.Size = new System.Drawing.Size(273, 36);
 			this.cBoxNazivInvesticije.TabIndex = 9;
 			this.cBoxNazivInvesticije.ValueMember = "id_investicije";
-			this.cBoxNazivInvesticije.SelectedIndexChanged += new System.EventHandler(this.cBoxNazivInvesticije_SelectedIndexChanged);
+			//this.cBoxNazivInvesticije.SelectedIndexChanged += new System.EventHandler(this.cBoxNazivInvesticije_SelectedIndexChanged);
 			// 
 			// investicijaBindingSource
 			// 
