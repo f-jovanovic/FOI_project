@@ -45,13 +45,10 @@ namespace PocetniZaslon.MDI_Forme
 			PrilagodiIzgledForme();
 
 			dtpVrijemeOd.Value = DateTime.Now.Date;
-			MessageBox.Show(DateTime.Now.Date.ToString() + "\n"+ dtpVrijemeOd.Value.ToString());
-			dtpVrijemeDo.Value = DateTime.Now.AddMonths(1).AddMinutes(-1);
+			dtpVrijemeDo.Value = DateTime.Now.AddMonths(1).AddDays(1).AddMinutes(-1);
 
 			DohvatiSveKorisnikoveZapise();
 		}
-
-
 
 		/// <summary>
 		/// Dohvaćanje svih korisnikovih bankovnih računa, transakcija, kategorija i transakcija investicije.
@@ -78,13 +75,19 @@ namespace PocetniZaslon.MDI_Forme
 			//Dohvaćanje svih korisnikovih kategorije
 			OsvjeziKategorije();
 
-
+			//Poruka greške.
 			if (listaBankovnihRacuna == null)
 			{
 				MessageBox.Show("Ne postoje bankovni računi!");
 				return;
 			}
 			else btnOsvjeziTransakcije.Enabled = true;
+
+
+			//Vezemo sve bankovne racune, vrste racuna, vrste transakcija na binding source-ove
+			bindingSourceBankovniRacuni.DataSource = listaBankovnihRacuna;
+			BindingSourceVrstaRacuna.DataSource = listaVrstaRacuna;
+			bindingSourceVrstaTransakcije.DataSource = listaVrstaTransakcije;
 
 			using (var db = new WalletEntities())
 			{
@@ -138,11 +141,7 @@ namespace PocetniZaslon.MDI_Forme
 					}
 				}
 			}
-
-			//Vezemo sve bankovne racune, vrste racuna, vrste transakcija na binding source-ove
-			bindingSourceBankovniRacuni.DataSource = listaBankovnihRacuna;
-			BindingSourceVrstaRacuna.DataSource = listaVrstaRacuna;
-			bindingSourceVrstaTransakcije.DataSource = listaVrstaTransakcije;
+			OsvjeziPrikazTransakcija();
 		}
 
 		/// <summary>
@@ -262,7 +261,8 @@ namespace PocetniZaslon.MDI_Forme
 			}
 
 			bindingSourcePregledTransakcija.Clear();
-			bindingSourcePregledTransakcija.DataSource = listaFiltriranihPrikazaTransakcije.OrderByDescending(x => x.Datum.Date);
+			bindingSourcePregledTransakcija.DataSource = listaFiltriranihPrikazaTransakcije.OrderByDescending(x => x.Datum);
+			
 		}
 
 		#region CheckBoxevi funkcionalnosti
@@ -380,6 +380,15 @@ namespace PocetniZaslon.MDI_Forme
 		private void btnOsvjeziTransakcije_Click(object sender, EventArgs e)
 		{
 			OsvjeziPrikazTransakcija();
+		}
+
+		private void dgvPregledTransakcija_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+		{
+			if (dgvPregledTransakcija.ColumnCount > 0 && dgvPregledTransakcija.Columns["Datum"] != null)
+			{
+				dgvPregledTransakcija.Columns[1].ValueType = typeof(DateTime);
+				dgvPregledTransakcija.Sort(dgvPregledTransakcija.Columns["Datum"], ListSortDirection.Descending);
+			}
 		}
 	}
 }
