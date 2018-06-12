@@ -25,7 +25,6 @@ namespace PocetniZaslon.MDI_Forme
 
 		BindingList<Bankovni_racun> listaOznacenihBankovnihRacuna = null;
 		BindingList<Kategorije_transakcije> listaOznacenihKategorija = null;
-
 		DateTime? vrijemeOd = null;
 		DateTime? vrijemeDo = null;
 		int vrstaTransakcije = 0;
@@ -60,7 +59,7 @@ namespace PocetniZaslon.MDI_Forme
 			listaBankovnihRacuna = radnjaNadBankovnimRacunom.PrikaziBankovneRacunePremaKorisniku(trenutniKorisnik);
 			listaVrstaRacuna = new BindingList<Vrsta_racuna>();
 			listaVrstaRacuna = radnjaNadBankovnimRacunom.PrikaziVrsteBankovnihRacuna();
-
+			
 			//Dohvaćanje vrsta transakcija.
 			listaVrstaTransakcije = new BindingList<Vrsta_transakcije>();
 			listaVrstaTransakcije = radnjaNadTransakcijom.DohvatiVrsteTransakcija();
@@ -279,11 +278,7 @@ namespace PocetniZaslon.MDI_Forme
 			PrilagodiIzgledForme();
 		}
 
-		//Transakcije investicija check box.
-		private void chkTransakcijeInvesticija_CheckedChanged(object sender, EventArgs e)
-		{
-
-		}
+		
 
 		//Prihodi check box.
 		private void chkPrihodi_CheckedChanged(object sender, EventArgs e)
@@ -322,11 +317,7 @@ namespace PocetniZaslon.MDI_Forme
 			chkSviBankovniRacuni.Checked = true;
 			OznacitiSveCheckBoxeve(dgvBankovniRacuni, chkSviBankovniRacuni);
 		}
-		private void dgvBankovniRacuni_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-		{
-			chkSviBankovniRacuni.Checked = true;
-			OznacitiSveCheckBoxeve(dgvBankovniRacuni, chkSviBankovniRacuni);
-		}
+		
 
 		//Promjena sadržaja dgvKategorije oznacuje sve kategorije transakcija.
 		private void dgvKategorije_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -334,11 +325,7 @@ namespace PocetniZaslon.MDI_Forme
 			chkSveKategorije.Checked = true;
 			OznacitiSveCheckBoxeve(dgvKategorije, chkSveKategorije);
 		}
-		private void dgvKategorije_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-		{
-			chkSveKategorije.Checked = true;
-			OznacitiSveCheckBoxeve(dgvKategorije, chkSveKategorije);
-		}
+		
 
 		/// <summary>
 		/// Označuju se ili odznačuju se svi checkboxevi unutar DataGridView-a ovisno o nekoj drugoj checkBox oznaci.
