@@ -232,7 +232,11 @@ namespace PocetniZaslon.MDI_Forme
 
 				//Provjera kategorija
 				uvjet = false;
-				if (prikazTransakcije.KategorijeTransakcije != null)
+				if (prikazTransakcije.TransakcijaInvesticije != null)
+				{
+					uvjet = true;
+				}
+				else
 				{
 					using (var db = new WalletEntities())
 					{
