@@ -135,6 +135,7 @@
     <Compile Include="MDI_Forme\FrmUnosTransakcijaRashod.Designer.cs">
       <DependentUpon>FrmUnosTransakcijaRashod.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrikazTransakcija.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stanje_investicije.cs">
@@ -218,6 +219,8 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Bankovni_racun.datasource" />
     <None Include="Properties\DataSources\Kategorije_transakcije.datasource" />
+    <None Include="Properties\DataSources\PrikazTransakcija.datasource" />
+    <None Include="Properties\DataSources\PrikazTransakcije.datasource" />
     <None Include="Properties\DataSources\Vrsta_racuna.datasource" />
     <None Include="Properties\DataSources\Vrsta_transakcije.datasource" />
     <None Include="Properties\Settings.settings">

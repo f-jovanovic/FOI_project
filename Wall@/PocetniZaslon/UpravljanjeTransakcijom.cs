@@ -117,11 +117,12 @@ namespace PocetniZaslon
 		}
 
 		/// <summary>
-		/// Metoda koja vraća binding listu svih bankovnih računa prema listi bankovnih računa
+		/// Metoda koja vraća binding listu svih transakcija prema listi bankovnih računa i prema kategorijama transakcije.
+		/// Za dohvaćanje bez obzira na kategorije, metodu pozivamo s listomKategorijaTransakcije s null vrijenošću.
 		/// </summary>
 		public BindingList<Transakcija> DohvatiSveTransakcije(BindingList<Bankovni_racun> listaBankovnihRacuna)
 		{
-			BindingList<Transakcija> listaTransakcija = null;
+			BindingList<Transakcija> listaTransakcija = new BindingList<Transakcija>();
 			using (var db = new WalletEntities())
 			{
 				foreach (Bankovni_racun racun in listaBankovnihRacuna)
@@ -132,7 +133,27 @@ namespace PocetniZaslon
 				}
 				
 			}
-			listaBankovnihRacuna.OrderBy(x => x.naziv_racuna);
+			listaTransakcija.OrderBy(x => x.vrijeme_transakcije);
+			return listaTransakcija;
+		}
+
+		/// <summary>
+		/// Metoda koja vraća binding listu svih transakcija investicija prema listi bankovnih računa.
+		/// </summary>
+		public BindingList<Transakcija_investicije> DohvatiSveTransakcijeInvesticija(BindingList<Bankovni_racun> listaBankovnihRacuna)
+		{
+			BindingList<Transakcija_investicije> listaTransakcija = new BindingList<Transakcija_investicije>();
+			using (var db = new WalletEntities())
+			{
+				foreach (Bankovni_racun racun in listaBankovnihRacuna)
+				{
+					db.Bankovni_racun.Attach(racun);
+					foreach (Transakcija_investicije transakcija in racun.Transakcija_investicije) listaTransakcija.Add(transakcija);
+					db.Entry(racun).State = System.Data.Entity.EntityState.Detached;
+				}
+
+			}
+			listaTransakcija.OrderBy(x => x.vrijeme_transakcije_investicije);
 			return listaTransakcija;
 		}
 
@@ -140,9 +161,9 @@ namespace PocetniZaslon
 		/// Metoda koja vraća binding listu kategorija odabranog korisnika. Parametar idVrstaTransakcije određuje dohvaćanje: 
 		/// 0 - svih kategorija, 1 - prihodi, 2 - rashodi.
 		/// </summary>
-		public BindingList<Kategorije_transakcije> PrikaziKategorijeKorisnika(Korisnik trenutniKorisnik, int idVrsteTransakcije)
+		public BindingList<Kategorije_transakcije> DohvatiKategorijeKorisnika(Korisnik trenutniKorisnik, int idVrsteTransakcije)
 		{
-			BindingList<Kategorije_transakcije> listaKategorijaKorisnika = null;
+			BindingList<Kategorije_transakcije> listaKategorijaKorisnika = new BindingList<Kategorije_transakcije>();
 			using (var db = new WalletEntities())
 			{
 				db.Korisnik.Attach(trenutniKorisnik);
@@ -173,14 +194,16 @@ namespace PocetniZaslon
 		/// <summary>
 		/// Metoda koja vraća binding listu svih vrsta transakcija.
 		/// </summary>
-		public BindingList<Vrsta_transakcije> PrikaziVrsteTransakcija()
+		public BindingList<Vrsta_transakcije> DohvatiVrsteTransakcija()
 		{
-			BindingList<Vrsta_transakcije> listaVrstaTransakcija = null;
+			BindingList<Vrsta_transakcije> listaVrstaTransakcija = new BindingList<Vrsta_transakcije>();
 			using (var db = new WalletEntities())
 			{
 				listaVrstaTransakcija = new BindingList<Vrsta_transakcije>(db.Vrsta_transakcije.ToList());
 			}
 			return listaVrstaTransakcija;
 		}
+
+
 	}
 }
