@@ -98,17 +98,18 @@ namespace PocetniZaslon.MDI_Forme
 					{
 						db.Transakcija.Attach(transakcija);
 
-						BindingList<Kategorije_transakcije> listakategorijaTransakcije = new BindingList<Kategorije_transakcije>(transakcija.Kategorije_transakcije.ToList());
+						BindingList<Kategorije_transakcije> listaKategorijaTransakcijeListeTransakcija = new BindingList<Kategorije_transakcije>(transakcija.Kategorije_transakcije.ToList());
 						Kategorije_transakcije kategorija = null;
-						kategorija = listakategorijaTransakcije[0];
+						kategorija = listaKategorijaTransakcijeListeTransakcija[0];
 						db.Kategorije_transakcije.Attach(kategorija);
 
 						PrikazTransakcije noviPrikazTransakcije = new PrikazTransakcije(
+							transakcija,
 							transakcija.vrijeme_transakcije.Value,
 							transakcija.Bankovni_racun,
 							transakcija.iban,
 							transakcija.iznos_transakcije,
-							listakategorijaTransakcije,
+							listaKategorijaTransakcijeListeTransakcija,
 							transakcija.opis_transakcije,
 							kategorija.id_vrsta_transakcije
 							);
@@ -128,6 +129,7 @@ namespace PocetniZaslon.MDI_Forme
 						db.Investicija.Attach(investicija);
 
 						PrikazTransakcije noviPrikazTransakcije = new PrikazTransakcije(
+							transakcija,
 							transakcija.vrijeme_transakcije_investicije.Value,
 							transakcija.Bankovni_racun,
 							transakcija.iban,
@@ -197,7 +199,7 @@ namespace PocetniZaslon.MDI_Forme
 			foreach (PrikazTransakcije prikazTransakcije in listaPrikazaTransakcija)
 			{
 				//Provjera vremena
-				if (vrijemeOd != null) if (vrijemeOd > prikazTransakcije.Datum || prikazTransakcije.Datum > vrijemeDo) continue;
+				if (vrijemeOd != null) if (vrijemeOd > prikazTransakcije.Vrijeme || prikazTransakcije.Vrijeme > vrijemeDo) continue;
 
 				//Provjera prihoda(1) ili rashoda(2) ili i prihodi i rashodi(0)
 				if (vrstaTransakcije != 0) if (prikazTransakcije.VrstaTransakcije != vrstaTransakcije) continue;
@@ -261,7 +263,7 @@ namespace PocetniZaslon.MDI_Forme
 			}
 
 			bindingSourcePregledTransakcija.Clear();
-			bindingSourcePregledTransakcija.DataSource = listaFiltriranihPrikazaTransakcije.OrderByDescending(x => x.Datum);
+			bindingSourcePregledTransakcija.DataSource = listaFiltriranihPrikazaTransakcije.OrderByDescending(x => x.Vrijeme);
 			
 		}
 
@@ -349,6 +351,9 @@ namespace PocetniZaslon.MDI_Forme
 
 		#endregion
 
+		/// <summary>
+		/// Dohvaća sve kategorije na temelju označenih prihoda ili rashoda te ih stavlja u dgvKategorije.
+		/// </summary>
 		private void OsvjeziKategorije()
 		{
 			if (chkPrihodi.Checked == true && chkRashodi.Checked == true) listaKategorijaTransakcija = radnjaNadTransakcijom.DohvatiKategorijeKorisnika(trenutniKorisnik, 0);
