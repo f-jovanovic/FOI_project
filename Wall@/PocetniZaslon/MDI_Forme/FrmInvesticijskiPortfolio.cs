@@ -277,13 +277,12 @@ namespace PocetniZaslon.MDI_Forme
 			if (rBtnKupi.Checked == true)
 			{
 				KupiInvesticiju();
-				DohvacanjePodatakaZaDGW();
 			}
 			else
 			{
 				ProdajInvesticiju();
-				DohvacanjePodatakaZaDGW();
 			}
+			DohvacanjePodatakaZaDGW();
 		}
 
 		private void btnObrisiInvesticiju_Click(object sender, EventArgs e)
@@ -308,10 +307,11 @@ namespace PocetniZaslon.MDI_Forme
 										join t in db.Transakcija_investicije on i.id_investicije equals t.id_investicije
 										join p in db.Investicijski_portfolio on t.id_portfolia equals p.id_portfolia
 										where t.id_investicije == t.id_investicije && p.id_korisnik == trenutniKorisnik.id_korisnik
+										orderby t.vrijeme_transakcije_investicije descending
 										select new
 										{
 											i.naziv_investicije,
-											s.vrijeme_stanja,
+											t.vrijeme_transakcije_investicije,
 											s.vrijednost_investicije,
 											v.naziv_vrste_investicije,
 											t.kolicina_investicije
@@ -324,6 +324,7 @@ namespace PocetniZaslon.MDI_Forme
 		{
 			DohvacanjePodatakaZaDGW();
 			DohvacanjeStanjaInvesticija();
+			btnIzvrsiTransakciju.Enabled = false;
 		}
 		/// <summary>
 		/// provjera tipa unosa kolicine prilikom transakcije investicije
@@ -371,17 +372,12 @@ namespace PocetniZaslon.MDI_Forme
 		public void DohvacanjeStanjaInvesticija()
 		{
 			DohvacanjeAPI.GetData getData = new DohvacanjeAPI.GetData();
-			foreach (var item in getData.lista())
-			{
-				MessageBox.Show(item.Simbol);
-			}
 			int idInv = 0;
 			//doovdi
 			using (var db = new WalletEntities())
 			{
 				foreach (var item in getData.lista())
 				{
-					
 					//if (item.Datum != DateTime.Today.ToLongDateString())
 					//{
 					foreach (var it in db.Investicija)
@@ -405,6 +401,15 @@ namespace PocetniZaslon.MDI_Forme
 				}
 				db.SaveChanges();
 			}
+		}
+
+		private void btnTest_Click(object sender, EventArgs e)
+		{
+			DohvacanjeAPI.GetData data = new DohvacanjeAPI.GetData();
+
+			dgwTest.DataSource = data.lista();
+			MessageBox.Show(data.lista().Count.ToString());
+
 		}
 
 		/*private void cBoxNazivInvesticije_SelectedIndexChanged(object sender, EventArgs e)

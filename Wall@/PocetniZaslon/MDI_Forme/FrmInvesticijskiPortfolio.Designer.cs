@@ -62,6 +62,8 @@
 			this.transakcijainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.bankovniracunBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.vrstainvesticijeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.btnTest = new System.Windows.Forms.Button();
+			this.dgwTest = new System.Windows.Forms.DataGridView();
 			this.gBoxTransakcija.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
@@ -71,6 +73,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.transakcijainvesticijeBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgwTest)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// lblInvesticijskiPortfolio
@@ -362,7 +365,7 @@
 			this.dgwVlastiteInvesticije.Name = "dgwVlastiteInvesticije";
 			this.dgwVlastiteInvesticije.RowTemplate.Height = 24;
 			this.dgwVlastiteInvesticije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgwVlastiteInvesticije.Size = new System.Drawing.Size(979, 526);
+			this.dgwVlastiteInvesticije.Size = new System.Drawing.Size(979, 285);
 			this.dgwVlastiteInvesticije.TabIndex = 10;
 			// 
 			// stanjeinvesticijeBindingSource
@@ -381,11 +384,32 @@
 			// 
 			this.vrstainvesticijeBindingSource1.DataSource = typeof(PocetniZaslon.Vrsta_investicije);
 			// 
+			// btnTest
+			// 
+			this.btnTest.Location = new System.Drawing.Point(900, 787);
+			this.btnTest.Name = "btnTest";
+			this.btnTest.Size = new System.Drawing.Size(76, 57);
+			this.btnTest.TabIndex = 11;
+			this.btnTest.Text = "Test dohvacanja";
+			this.btnTest.UseVisualStyleBackColor = true;
+			this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+			// 
+			// dgwTest
+			// 
+			this.dgwTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgwTest.Location = new System.Drawing.Point(35, 503);
+			this.dgwTest.Name = "dgwTest";
+			this.dgwTest.RowTemplate.Height = 24;
+			this.dgwTest.Size = new System.Drawing.Size(973, 156);
+			this.dgwTest.TabIndex = 12;
+			// 
 			// FrmInvesticijskiPortfolio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1640, 948);
+			this.Controls.Add(this.dgwTest);
+			this.Controls.Add(this.btnTest);
 			this.Controls.Add(this.dgwVlastiteInvesticije);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btnObrisiInvesticiju);
@@ -410,6 +434,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.transakcijainvesticijeBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgwTest)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -450,5 +475,7 @@
 		private System.Windows.Forms.BindingSource stanjeinvesticijeBindingSource;
 		private System.Windows.Forms.Label lblKriviTipPodatakaKolicina;
 		private System.Windows.Forms.Label lblKriviTipPodatakaIznos;
+		private System.Windows.Forms.Button btnTest;
+		private System.Windows.Forms.DataGridView dgwTest;
 	}
 }
