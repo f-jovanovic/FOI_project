@@ -288,15 +288,18 @@
 			// 
 			// dgwVlastiteInvesticije
 			// 
+			this.dgwVlastiteInvesticije.AllowUserToAddRows = false;
+			this.dgwVlastiteInvesticije.AllowUserToDeleteRows = false;
 			this.dgwVlastiteInvesticije.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgwVlastiteInvesticije.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
 			this.dgwVlastiteInvesticije.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.dgwVlastiteInvesticije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgwVlastiteInvesticije.Location = new System.Drawing.Point(35, 252);
 			this.dgwVlastiteInvesticije.Name = "dgwVlastiteInvesticije";
+			this.dgwVlastiteInvesticije.ReadOnly = true;
 			this.dgwVlastiteInvesticije.RowTemplate.Height = 24;
 			this.dgwVlastiteInvesticije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgwVlastiteInvesticije.Size = new System.Drawing.Size(979, 438);
+			this.dgwVlastiteInvesticije.Size = new System.Drawing.Size(979, 647);
 			this.dgwVlastiteInvesticije.TabIndex = 10;
 			// 
 			// stanjeinvesticijeBindingSource
