@@ -12,6 +12,7 @@ namespace PocetniZaslon.MDI_Forme
 {
 	public partial class FrmBankovniRacunDodaj : Form
 	{
+		UpravljanjeBankovnimRacunima radnjaNadBankovnimRacunom = new UpravljanjeBankovnimRacunima();
 		private Korisnik trenutniKorisnik = null;
 		private Bankovni_racun odabraniRacun = null;
 
@@ -20,10 +21,10 @@ namespace PocetniZaslon.MDI_Forme
 		{
 			trenutniKorisnik = korisnik;
 			InitializeComponent();
-			PrikaziVrsteBankovnihRacuna();
+			vrstaracunaBindingSource.DataSource = radnjaNadBankovnimRacunom.PrikaziVrsteBankovnihRacuna();
 		}
 
-		//konstruktor za uređivanje postojećeg bankovnog računa
+		//konstruktor za uređivanje postojećeg bankovnog računa koji također mijenja izgled forme namjenjen za uređivanje bankovnog računa
 		public FrmBankovniRacunDodaj(Korisnik korisnik, Bankovni_racun racun)
 		{
 			odabraniRacun = racun;
@@ -49,83 +50,73 @@ namespace PocetniZaslon.MDI_Forme
 				cboVrstaRacuna.Text = vrsta.naziv_vrste_racuna;
 			}
 		}
-
-
-		private void PrikaziVrsteBankovnihRacuna()
-		{
-			BindingList<Vrsta_racuna> listaVrstaRacuna = null;
-			using (var db = new WalletEntities())
-			{
-				listaVrstaRacuna = new BindingList<Vrsta_racuna>(db.Vrsta_racuna.ToList());
-			}
-			vrstaracunaBindingSource.DataSource = listaVrstaRacuna;
-		}
-
+		
 		/// <summary>
-		/// Metoda koja provjerava postoji li IBAN upisan u text boxu txtIban u bazi podataka.
-		/// Vraća true ako postoji ili false ako ne postoji
+		/// Metoda koja provjerava postoji li IBAN upisan u text boxu txtIban u bazi podataka. Vraća true ako postoji ili false ako ne postoji
 		/// </summary>
-		private bool ProvjeraJedinstvenostiIbana(bool postojiRacunSIstimIbanom)
+		private bool ProvjeraJedinstvenostiIbana(string nazivRacuna)
 		{
+			bool postojiRacunSIstimIbanom = false;
 			using (var db = new WalletEntities())
 			{
-				postojiRacunSIstimIbanom = false;
 				List<Bankovni_racun> listaBankovnihRacuna = new List<Bankovni_racun>(db.Bankovni_racun.ToList());
-
 				//Prolazimo kroz listu svih računa i provjeravamo postoji li račun s istim IBAN-om
-				foreach (var bankovniRacun in listaBankovnihRacuna) if (bankovniRacun.iban == txtIban.Text) postojiRacunSIstimIbanom = true;
+				foreach (var bankovniRacun in listaBankovnihRacuna) if (bankovniRacun.iban.ToUpper() == nazivRacuna) postojiRacunSIstimIbanom = true;
 			}
 			return postojiRacunSIstimIbanom;
 		}
 
-		//dodavanje novog korisnika
-		private void btnDodajNoviRacun_Click(object sender, EventArgs e)
+		/// <summary>
+		/// Metoda koja dodaje novi bankovni račun
+		/// </summary>
+		private void dodajNoviRacun(string iban, string nazivRacuna, decimal stanjeRacuna, Korisnik korisnik, Vrsta_racuna odabranaVrstaRacuna)
 		{
-			Vrsta_racuna odabranaVrstaRacuna = null;
-			odabranaVrstaRacuna = vrstaracunaBindingSource.Current as Vrsta_racuna;
-			bool postojiRacunSIstimIbanom = false;
-
-			if (odabraniRacun == null) // provjeravamo radi li se o novom unosu ili uređivanju
-			{
-				postojiRacunSIstimIbanom = ProvjeraJedinstvenostiIbana(postojiRacunSIstimIbanom);
-				
-				if (postojiRacunSIstimIbanom == true) MessageBox.Show("Uneseni IBAN već postoji u bazi podataka.");
-				else //ovo je UNOS NOVOG RAČUNA
-				{
-					using (var db = new WalletEntities())
-					{
-						db.Korisnik.Attach(trenutniKorisnik);
-						db.Vrsta_racuna.Attach(odabranaVrstaRacuna);
-
-						Bankovni_racun noviBankovniRacun = new Bankovni_racun
-						{
-							iban = txtIban.Text,
-							naziv_racuna = txtNazivRacuna.Text,
-							stanje_racuna = decimal.Parse(txtStanjeRacuna.Text),
-							Korisnik = trenutniKorisnik,
-							Vrsta_racuna = odabranaVrstaRacuna
-						};
-						db.Bankovni_racun.Add(noviBankovniRacun);
-						db.SaveChanges();
-						db.Entry(trenutniKorisnik).State = System.Data.Entity.EntityState.Detached;
-						db.Entry(odabranaVrstaRacuna).State = System.Data.Entity.EntityState.Detached;
-					}
-				}
-			}
-			else // ovo je UREĐIVANJE POSTOJEĆEG RAČUNA
+			if (ProvjeraJedinstvenostiIbana(iban)) MessageBox.Show("Uneseni IBAN već postoji u bazi podataka.");
+			else
 			{
 				using (var db = new WalletEntities())
 				{
-					db.Bankovni_racun.Attach(odabraniRacun);
-					odabraniRacun.naziv_racuna = txtNazivRacuna.Text;
-					db.SaveChanges();
-				}
-			}
+					db.Korisnik.Attach(korisnik);
+					db.Vrsta_racuna.Attach(odabranaVrstaRacuna);
 
-			//Provjeravamo uvjete zatvaranja forme klikom na gumb btnDodajNoviRacun: račun mora biti ili uspješno dodan ili promijenjen
-			if ((odabraniRacun != null) || (odabraniRacun == null && postojiRacunSIstimIbanom == false)) this.Close();
+					Bankovni_racun noviBankovniRacun = new Bankovni_racun
+					{
+						iban = iban,
+						naziv_racuna = nazivRacuna,
+						stanje_racuna = stanjeRacuna,
+						Korisnik = korisnik,
+						Vrsta_racuna = odabranaVrstaRacuna
+					};
+					db.Bankovni_racun.Add(noviBankovniRacun);
+					db.SaveChanges();
+					db.Entry(korisnik).State = System.Data.Entity.EntityState.Detached;
+					db.Entry(odabranaVrstaRacuna).State = System.Data.Entity.EntityState.Detached;
+				}
+				this.Close();
+			}
 		}
 
+		/// <summary>
+		/// Metoda koja uređuje odabrani bankovni račun
+		/// </summary>
+		private void urediRacun(Bankovni_racun bankovniRacun, string nazivRacuna ,Vrsta_racuna odabranaVrstaRacuna)
+		{
+			using (var db = new WalletEntities())
+			{
+				db.Bankovni_racun.Attach(bankovniRacun);
+				odabraniRacun.naziv_racuna = nazivRacuna;
+				db.SaveChanges();
+			}
+			this.Close();
+		}
+
+		private void btnDodajNoviRacun_Click(object sender, EventArgs e)
+		{
+			Vrsta_racuna odabranaVrstaRacuna = vrstaracunaBindingSource.Current as Vrsta_racuna;
+			//Određuje se radi li se o unosu novog računa ili uređivanju postojećeg
+			if (odabraniRacun == null) dodajNoviRacun(txtIban.Text.ToUpper(), txtNazivRacuna.Text, decimal.Parse(txtStanjeRacuna.Text), trenutniKorisnik, odabranaVrstaRacuna);
+			else urediRacun(odabraniRacun, txtNazivRacuna.Text, odabranaVrstaRacuna);
+		}
 
 		#region Unošenje teksta, prikazivanje ograničenja i aktivacija gumba
 
