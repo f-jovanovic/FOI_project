@@ -117,6 +117,7 @@
     </Compile>
     <Compile Include="MDI_Forme\FrmInvesticijskiPortfolio.Designer.cs">
       <DependentUpon>FrmInvesticijskiPortfolio.cs</DependentUpon>
+	</Compile>
     <Compile Include="MDI_Forme\FrmPregledTransakcija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,13 +204,11 @@
     <EmbeddedResource Include="MDI_Forme\FrmBankovniRacuni.resx">
       <DependentUpon>FrmBankovniRacuni.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="MDI_Forme\FrmInvesticijskiPortfolio.resx">
       <DependentUpon>FrmInvesticijskiPortfolio.cs</DependentUpon>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmPregledTransakcija.resx">
       <DependentUpon>FrmPregledTransakcija.cs</DependentUpon>
->>>>>>> master
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcija.resx">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
