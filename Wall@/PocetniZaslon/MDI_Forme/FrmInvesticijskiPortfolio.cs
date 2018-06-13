@@ -52,7 +52,7 @@ namespace PocetniZaslon.MDI_Forme
 			InitializeComponent();
 			lblInvesticijskiPortfolio.Location = new Point(this.Width / 2 - lblInvesticijskiPortfolio.Width / 2, lblInvesticijskiPortfolio.Location.Y);
 			PrikaziBankovneRacunePremaKorisniku();
-			PrikaziVrsteInvesticije();
+
 			PrikaziImenaInvesticija();
 		}
 		/// <summary>
@@ -81,19 +81,6 @@ namespace PocetniZaslon.MDI_Forme
 				listaRacuna = new BindingList<Bankovni_racun>(trenutniKorisnik.Bankovni_racun.ToList<Bankovni_racun>());
 			}
 			bankovniracunBindingSource.DataSource = listaRacuna;
-		}
-		/// <summary>
-		/// metoda koja popunjava combo box s vrstama investicije
-		/// </summary>
-		private void PrikaziVrsteInvesticije()
-		{
-			BindingList<Vrsta_investicije> listaVrstaInvesticija = null;
-
-			using (var db = new WalletEntities())
-			{
-				listaVrstaInvesticija = new BindingList<Vrsta_investicije>(db.Vrsta_investicije.ToList());
-			}
-			vrstainvesticijeBindingSource.DataSource = listaVrstaInvesticija;
 		}
 
 		/// <summary>
@@ -213,65 +200,9 @@ namespace PocetniZaslon.MDI_Forme
 		}
 		private void btnDodajInvesticiju_Click(object sender, EventArgs e)
 		{
-			DodajInvesticiju();
 			PrikaziImenaInvesticija();
 		}
 
-		/// <summary>
-		/// metoda za dodavanje investicije koju korisnik zeli kupiti
-		/// </summary>
-		private void DodajInvesticiju()
-		{
-			Vrsta_investicije vrsta = null;
-			vrsta = vrstainvesticijeBindingSource.Current as Vrsta_investicije;
-			bool postojiNaziv = false;
-			postojiNaziv = ProvjeraNazivaInvesticije(postojiNaziv);
-
-			if (postojiNaziv == true)
-			{
-				MessageBox.Show("Investicija s unešenim nazivom već postoji");
-			}
-			else
-			{
-				using (var db = new WalletEntities())
-				{
-					db.Vrsta_investicije.Attach(vrsta);
-					Investicija novaInvesticija = new Investicija
-					{
-						naziv_investicije = txtBoxNazivInvesticije.Text,
-						Vrsta_investicije = vrsta
-
-					};
-					db.Investicija.Add(novaInvesticija);
-					db.SaveChanges();
-					db.Entry(vrsta).State = System.Data.Entity.EntityState.Deleted;
-					//gBoxInvesticije.Text = txtBoxNazivInvesticije.Text.ToString();
-					//gBoxInvesticije.Refresh();
-				}
-			}
-			txtBoxNazivInvesticije.Clear();
-		}
-		/// <summary>
-		/// provjerava postoji li uneseni naziv investicije u bazi
-		/// </summary>
-		/// <param name="postojiNaziv"></param>
-		/// <returns></returns>
-		private bool ProvjeraNazivaInvesticije(bool postojiNaziv)
-		{
-			using (var db = new WalletEntities())
-			{
-				postojiNaziv = false;
-				List<Investicija> listaInvesticija = new List<Investicija>(db.Investicija.ToList());
-
-				foreach (var investicija in listaInvesticija) if (investicija.naziv_investicije.ToLower() == txtBoxNazivInvesticije.Text.ToLower()) postojiNaziv = true;
-			}
-			return postojiNaziv;
-		}
-		/// <summary>
-		/// ovisno o tome koji je radio btn oznacen izvršava se kupi ili prodaj
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
 		private void btnIzvrsiTransakciju_Click(object sender, EventArgs e)
 		{
 			if (rBtnKupi.Checked == true)
@@ -282,14 +213,6 @@ namespace PocetniZaslon.MDI_Forme
 			{
 				ProdajInvesticiju();
 			}
-			DohvacanjePodatakaZaDGW();
-		}
-
-		private void btnObrisiInvesticiju_Click(object sender, EventArgs e)
-		{
-			Dialog_forme.FrmInvesticijskiPortfolioObrisiInvesticiju frmInvesticijskiPortfolioObrišiInvesticiju = new Dialog_forme.FrmInvesticijskiPortfolioObrisiInvesticiju(trenutniKorisnik);
-			frmInvesticijskiPortfolioObrišiInvesticiju.ShowDialog();
-			PrikaziImenaInvesticija();
 			DohvacanjePodatakaZaDGW();
 		}
 
@@ -323,7 +246,6 @@ namespace PocetniZaslon.MDI_Forme
 		private void FrmInvesticijskiPortfolio_Load(object sender, EventArgs e)
 		{
 			DohvacanjePodatakaZaDGW();
-			DohvacanjeStanjaInvesticija();
 			btnIzvrsiTransakciju.Enabled = false;
 		}
 		/// <summary>
@@ -355,7 +277,7 @@ namespace PocetniZaslon.MDI_Forme
 		private void txtBoxIznosTransInv_TextChanged(object sender, EventArgs e)
 		{
 			decimal iznos_transakcije = 0;
-			if (decimal.TryParse(txtBoxIznosTransInv.Text, out iznos_transakcije) && iznos_transakcije != 0)
+			if (decimal.TryParse(txtBoxIznosTransInv.Text, out iznos_transakcije))
 			{
 				lblKriviTipPodatakaKolicina.Hide();
 				btnIzvrsiTransakciju.Enabled = true;
@@ -372,14 +294,14 @@ namespace PocetniZaslon.MDI_Forme
 		public void DohvacanjeStanjaInvesticija()
 		{
 			DohvacanjeAPI.GetData getData = new DohvacanjeAPI.GetData();
+			getData.Dohvacanje();
 			int idInv = 0;
-			//doovdi
 			using (var db = new WalletEntities())
 			{
 				foreach (var item in getData.lista())
 				{
-					//if (item.Datum != DateTime.Today.ToLongDateString())
-					//{
+					if (item.Datum != DateTime.Today.ToLongDateString())
+					{
 					foreach (var it in db.Investicija)
 					{
 						if (item.Simbol == it.naziv_investicije)
@@ -392,40 +314,49 @@ namespace PocetniZaslon.MDI_Forme
 							{
 								id_investicije = idInv,
 								vrijednost_investicije = decimal.Parse(item.Vrijednost),
-								vrijeme_stanja = DateTime.Parse(item.Datum)
+								vrijeme_stanja = DateTime.Parse( item.Datum)
 							};
 							db.Stanje_investicije.Add(stanje_Investicije);
 						}
 					}
-					//}
+					}
+					else
+					{
+						MessageBox.Show("Stanje investicija na današnji datum je već dohvaćeno");
+					}
 				}
 				db.SaveChanges();
 			}
 		}
 
-		private void btnTest_Click(object sender, EventArgs e)
-		{
-			DohvacanjeAPI.GetData data = new DohvacanjeAPI.GetData();
-
-			dgwTest.DataSource = data.lista();
-			MessageBox.Show(data.lista().Count.ToString());
-
-		}
-
-		/*private void cBoxNazivInvesticije_SelectedIndexChanged(object sender, EventArgs e)
+		private void cBoxNazivInvesticije_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			using (var db = new WalletEntities())
 			{
 				foreach (var item in db.Stanje_investicije)
 				{
-					if (item.id_investicije == (cBoxNazivInvesticije.SelectedItem as Investicija).id_investicije && item.vrijeme_stanja.Date == DateTime.Now.Date)
+					if (item.id_investicije == (cBoxNazivInvesticije.SelectedItem as Investicija).id_investicije)
 					{
 						txtBoxIznosTransInv.Text = item.vrijednost_investicije.ToString();
 						break;
 					}
-
+					else
+					{
+						txtBoxIznosTransInv.Text = null;
+					}
 				}
 			}
-		}*/
+
+		}
+
+		private void FrmInvesticijskiPortfolio_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			cBoxNazivInvesticije.Dispose();
+		}
+
+		private void btnDohvati_Click(object sender, EventArgs e)
+		{
+			DohvacanjeStanjaInvesticija();
+		}
 	}
 }
