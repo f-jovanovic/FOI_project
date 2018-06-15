@@ -101,6 +101,9 @@ namespace PocetniZaslon.MDI_Forme
         private void btnUrediKategorijuRashod_Click(object sender, EventArgs e)
         {
             if (chkKategorijeRashod.CheckedItems.Count != 1) MessageBox.Show("Potrebno je označiti točno jednu kategoriju za uređivanje!");
+
+            else if (chkKategorijeRashod.CheckedItems.Count == 1 && chkKategorijeRashod.CheckedItems[0].ToString() == "Ostali rashodi") MessageBox.Show("Odabranu kategoriju nije moguće uređivati!");
+
             else
             {
                 Kategorije_transakcije kategorija = null;
