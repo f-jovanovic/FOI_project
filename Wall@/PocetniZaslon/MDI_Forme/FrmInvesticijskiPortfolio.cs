@@ -126,21 +126,21 @@ namespace PocetniZaslon.MDI_Forme
 				Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
 				{
 					Investicija = investicija,
-					vrijeme_transakcije_investicije = dateDatum.Value,
-					kolicina_investicije = decimal.Parse(txtBoxKolicina.Text),
-					iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text),
+					vrijeme_transakcije_investicije = dtpDatum.Value,
+					kolicina_investicije = decimal.Parse(txtKolicina.Text),
+					iznos_transakcije_investicije = decimal.Parse(txtIznosTransInv.Text),
 					Bankovni_racun = bankovni_Racun,
 					id_portfolia = idPort,
 					id_vrsta_transakcije = idVrsteTrans,
 				};
 
 				//lblKriviTipPodatakaKolicina.Visible = false;
-				decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
+				decimal ukupniIznos = decimal.Parse(txtKolicina.Text) * decimal.Parse(txtIznosTransInv.Text);
 				bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna - ukupniIznos;
 				db.Transakcija_investicije.Add(transakcija_Investicije);
 				db.SaveChanges();
-				txtBoxKolicina.Clear();
-				txtBoxIznosTransInv.Clear();
+				txtKolicina.Clear();
+				txtIznosTransInv.Clear();
 			}
 		}
 		/// <summary>
@@ -181,20 +181,20 @@ namespace PocetniZaslon.MDI_Forme
 				}
 				Transakcija_investicije transakcija_Investicije = new Transakcija_investicije
 				{
-					vrijeme_transakcije_investicije = dateDatum.Value,
-					kolicina_investicije = decimal.Parse(txtBoxKolicina.Text),
-					iznos_transakcije_investicije = decimal.Parse(txtBoxIznosTransInv.Text),
+					vrijeme_transakcije_investicije = dtpDatum.Value,
+					kolicina_investicije = decimal.Parse(txtKolicina.Text),
+					iznos_transakcije_investicije = decimal.Parse(txtIznosTransInv.Text),
 					Bankovni_racun = bankovni_Racun,
 					Investicija = investicija,
 					id_portfolia = idPort,
 					id_vrsta_transakcije = idVrsteTrans,
 				};
-				decimal ukupniIznos = decimal.Parse(txtBoxKolicina.Text) * decimal.Parse(txtBoxIznosTransInv.Text);
+				decimal ukupniIznos = decimal.Parse(txtKolicina.Text) * decimal.Parse(txtIznosTransInv.Text);
 				bankovni_Racun.stanje_racuna = bankovni_Racun.stanje_racuna + ukupniIznos;
 				db.Transakcija_investicije.Add(transakcija_Investicije);
 				db.SaveChanges();
-				txtBoxKolicina.Clear();
-				txtBoxIznosTransInv.Clear();
+				txtKolicina.Clear();
+				txtIznosTransInv.Clear();
 			}
 		}
 		private void btnDodajInvesticiju_Click(object sender, EventArgs e)
@@ -282,6 +282,7 @@ namespace PocetniZaslon.MDI_Forme
 
 		private void FrmInvesticijskiPortfolio_Load(object sender, EventArgs e)
 		{
+			lblTekst.Visible = false;
 			DohvacanjePodatakaZaDGW();
 			btnIzvrsiTransakciju.Enabled = false;
 			//provjerava ako je stanje već uzeto da korisnik na taj dan ne moze uzimati ponovno stanje
@@ -295,6 +296,14 @@ namespace PocetniZaslon.MDI_Forme
 					}
 				}
 			}
+			if (btnDohvati.Enabled == false)
+			{
+				lblTekst.Visible = true;
+			}
+			else
+			{
+				lblTekst.Visible = false;
+			}
 		}
 		/// <summary>
 		/// provjera tipa unosa kolicine prilikom transakcije investicije
@@ -304,7 +313,7 @@ namespace PocetniZaslon.MDI_Forme
 		private void txtBoxKolicina_TextChanged(object sender, EventArgs e)
 		{
 			decimal kolicina_investicije = 0;
-			if (decimal.TryParse(txtBoxKolicina.Text, out kolicina_investicije) && kolicina_investicije != 0)
+			if (decimal.TryParse(txtKolicina.Text, out kolicina_investicije) && kolicina_investicije != 0)
 			{
 				lblKriviTipPodatakaKolicina.Hide();
 				btnIzvrsiTransakciju.Enabled = true;
@@ -325,7 +334,7 @@ namespace PocetniZaslon.MDI_Forme
 		private void txtBoxIznosTransInv_TextChanged(object sender, EventArgs e)
 		{
 			decimal iznos_transakcije = 0;
-			if (decimal.TryParse(txtBoxIznosTransInv.Text, out iznos_transakcije))
+			if (decimal.TryParse(txtIznosTransInv.Text, out iznos_transakcije))
 			{
 				lblKriviTipPodatakaKolicina.Hide();
 				btnIzvrsiTransakciju.Enabled = true;
@@ -381,7 +390,7 @@ namespace PocetniZaslon.MDI_Forme
 				{
 					if (item.id_investicije == (cBoxNazivInvesticije.SelectedItem as Investicija).id_investicije)
 					{
-						txtBoxIznosTransInv.Text = item.vrijednost_investicije.ToString();
+						txtIznosTransInv.Text = item.vrijednost_investicije.ToString();
 					}
 				}
 			}
@@ -398,6 +407,7 @@ namespace PocetniZaslon.MDI_Forme
 			DohvacanjeStanjaInvesticija();
 
 			btnDohvati.Enabled = false;
+
 		}
 	}
 }

@@ -35,11 +35,11 @@
 			this.lblKriviTipPodatakaKolicina = new System.Windows.Forms.Label();
 			this.cBoxNazivInvesticije = new System.Windows.Forms.ComboBox();
 			this.investicijaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.comboBoxBankovniRačun = new System.Windows.Forms.ComboBox();
+			this.cBoxBankovniRačun = new System.Windows.Forms.ComboBox();
 			this.bankovniracunBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.dateDatum = new System.Windows.Forms.DateTimePicker();
-			this.txtBoxIznosTransInv = new System.Windows.Forms.TextBox();
-			this.txtBoxKolicina = new System.Windows.Forms.TextBox();
+			this.dtpDatum = new System.Windows.Forms.DateTimePicker();
+			this.txtIznosTransInv = new System.Windows.Forms.TextBox();
+			this.txtKolicina = new System.Windows.Forms.TextBox();
 			this.btnIzvrsiTransakciju = new System.Windows.Forms.Button();
 			this.rBtnProdaj = new System.Windows.Forms.RadioButton();
 			this.rBtnKupi = new System.Windows.Forms.RadioButton();
@@ -57,6 +57,7 @@
 			this.bankovniracunBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.vrstainvesticijeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.btnDohvati = new System.Windows.Forms.Button();
+			this.lblTekst = new System.Windows.Forms.Label();
 			this.gBoxTransakcija.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
@@ -83,10 +84,10 @@
 			this.gBoxTransakcija.Controls.Add(this.lblKriviTipPodatakaIznos);
 			this.gBoxTransakcija.Controls.Add(this.lblKriviTipPodatakaKolicina);
 			this.gBoxTransakcija.Controls.Add(this.cBoxNazivInvesticije);
-			this.gBoxTransakcija.Controls.Add(this.comboBoxBankovniRačun);
-			this.gBoxTransakcija.Controls.Add(this.dateDatum);
-			this.gBoxTransakcija.Controls.Add(this.txtBoxIznosTransInv);
-			this.gBoxTransakcija.Controls.Add(this.txtBoxKolicina);
+			this.gBoxTransakcija.Controls.Add(this.cBoxBankovniRačun);
+			this.gBoxTransakcija.Controls.Add(this.dtpDatum);
+			this.gBoxTransakcija.Controls.Add(this.txtIznosTransInv);
+			this.gBoxTransakcija.Controls.Add(this.txtKolicina);
 			this.gBoxTransakcija.Controls.Add(this.btnIzvrsiTransakciju);
 			this.gBoxTransakcija.Controls.Add(this.rBtnProdaj);
 			this.gBoxTransakcija.Controls.Add(this.rBtnKupi);
@@ -136,7 +137,7 @@
 			this.cBoxNazivInvesticije.Location = new System.Drawing.Point(267, 239);
 			this.cBoxNazivInvesticije.Name = "cBoxNazivInvesticije";
 			this.cBoxNazivInvesticije.Size = new System.Drawing.Size(273, 36);
-			this.cBoxNazivInvesticije.TabIndex = 9;
+			this.cBoxNazivInvesticije.TabIndex = 2;
 			this.cBoxNazivInvesticije.ValueMember = "id_investicije";
 			this.cBoxNazivInvesticije.SelectedIndexChanged += new System.EventHandler(this.cBoxNazivInvesticije_SelectedIndexChanged);
 			// 
@@ -144,48 +145,48 @@
 			// 
 			this.investicijaBindingSource.DataSource = typeof(PocetniZaslon.Investicija);
 			// 
-			// comboBoxBankovniRačun
+			// cBoxBankovniRačun
 			// 
-			this.comboBoxBankovniRačun.DataSource = this.bankovniracunBindingSource;
-			this.comboBoxBankovniRačun.DisplayMember = "naziv_racuna";
-			this.comboBoxBankovniRačun.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.comboBoxBankovniRačun.FormattingEnabled = true;
-			this.comboBoxBankovniRačun.Location = new System.Drawing.Point(267, 449);
-			this.comboBoxBankovniRačun.Name = "comboBoxBankovniRačun";
-			this.comboBoxBankovniRačun.Size = new System.Drawing.Size(274, 36);
-			this.comboBoxBankovniRačun.TabIndex = 8;
-			this.comboBoxBankovniRačun.ValueMember = "iban";
+			this.cBoxBankovniRačun.DataSource = this.bankovniracunBindingSource;
+			this.cBoxBankovniRačun.DisplayMember = "naziv_racuna";
+			this.cBoxBankovniRačun.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.cBoxBankovniRačun.FormattingEnabled = true;
+			this.cBoxBankovniRačun.Location = new System.Drawing.Point(267, 449);
+			this.cBoxBankovniRačun.Name = "cBoxBankovniRačun";
+			this.cBoxBankovniRačun.Size = new System.Drawing.Size(274, 36);
+			this.cBoxBankovniRačun.TabIndex = 4;
+			this.cBoxBankovniRačun.ValueMember = "iban";
 			// 
 			// bankovniracunBindingSource
 			// 
 			this.bankovniracunBindingSource.DataSource = typeof(PocetniZaslon.Bankovni_racun);
 			// 
-			// dateDatum
+			// dtpDatum
 			// 
-			this.dateDatum.CalendarFont = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateDatum.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateDatum.Location = new System.Drawing.Point(267, 335);
-			this.dateDatum.Name = "dateDatum";
-			this.dateDatum.Size = new System.Drawing.Size(274, 34);
-			this.dateDatum.TabIndex = 7;
+			this.dtpDatum.CalendarFont = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtpDatum.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dtpDatum.Location = new System.Drawing.Point(267, 335);
+			this.dtpDatum.Name = "dtpDatum";
+			this.dtpDatum.Size = new System.Drawing.Size(274, 34);
+			this.dtpDatum.TabIndex = 3;
 			// 
-			// txtBoxIznosTransInv
+			// txtIznosTransInv
 			// 
-			this.txtBoxIznosTransInv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtBoxIznosTransInv.Location = new System.Drawing.Point(266, 654);
-			this.txtBoxIznosTransInv.Name = "txtBoxIznosTransInv";
-			this.txtBoxIznosTransInv.Size = new System.Drawing.Size(274, 34);
-			this.txtBoxIznosTransInv.TabIndex = 6;
-			this.txtBoxIznosTransInv.TextChanged += new System.EventHandler(this.txtBoxIznosTransInv_TextChanged);
+			this.txtIznosTransInv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtIznosTransInv.Location = new System.Drawing.Point(266, 654);
+			this.txtIznosTransInv.Name = "txtIznosTransInv";
+			this.txtIznosTransInv.Size = new System.Drawing.Size(274, 34);
+			this.txtIznosTransInv.TabIndex = 6;
+			this.txtIznosTransInv.TextChanged += new System.EventHandler(this.txtBoxIznosTransInv_TextChanged);
 			// 
-			// txtBoxKolicina
+			// txtKolicina
 			// 
-			this.txtBoxKolicina.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.txtBoxKolicina.Location = new System.Drawing.Point(267, 556);
-			this.txtBoxKolicina.Name = "txtBoxKolicina";
-			this.txtBoxKolicina.Size = new System.Drawing.Size(274, 34);
-			this.txtBoxKolicina.TabIndex = 6;
-			this.txtBoxKolicina.TextChanged += new System.EventHandler(this.txtBoxKolicina_TextChanged);
+			this.txtKolicina.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.txtKolicina.Location = new System.Drawing.Point(267, 556);
+			this.txtKolicina.Name = "txtKolicina";
+			this.txtKolicina.Size = new System.Drawing.Size(274, 34);
+			this.txtKolicina.TabIndex = 5;
+			this.txtKolicina.TextChanged += new System.EventHandler(this.txtBoxKolicina_TextChanged);
 			// 
 			// btnIzvrsiTransakciju
 			// 
@@ -193,7 +194,7 @@
 			this.btnIzvrsiTransakciju.Location = new System.Drawing.Point(128, 747);
 			this.btnIzvrsiTransakciju.Name = "btnIzvrsiTransakciju";
 			this.btnIzvrsiTransakciju.Size = new System.Drawing.Size(402, 50);
-			this.btnIzvrsiTransakciju.TabIndex = 5;
+			this.btnIzvrsiTransakciju.TabIndex = 7;
 			this.btnIzvrsiTransakciju.Text = "Izvrši transakciju";
 			this.btnIzvrsiTransakciju.UseVisualStyleBackColor = true;
 			this.btnIzvrsiTransakciju.Click += new System.EventHandler(this.btnIzvrsiTransakciju_Click);
@@ -205,7 +206,7 @@
 			this.rBtnProdaj.Location = new System.Drawing.Point(354, 93);
 			this.rBtnProdaj.Name = "rBtnProdaj";
 			this.rBtnProdaj.Size = new System.Drawing.Size(123, 41);
-			this.rBtnProdaj.TabIndex = 4;
+			this.rBtnProdaj.TabIndex = 1;
 			this.rBtnProdaj.TabStop = true;
 			this.rBtnProdaj.Text = "Prodaj";
 			this.rBtnProdaj.UseVisualStyleBackColor = true;
@@ -217,7 +218,7 @@
 			this.rBtnKupi.Location = new System.Drawing.Point(116, 93);
 			this.rBtnKupi.Name = "rBtnKupi";
 			this.rBtnKupi.Size = new System.Drawing.Size(97, 41);
-			this.rBtnKupi.TabIndex = 4;
+			this.rBtnKupi.TabIndex = 0;
 			this.rBtnKupi.TabStop = true;
 			this.rBtnKupi.Text = "Kupi";
 			this.rBtnKupi.UseVisualStyleBackColor = true;
@@ -321,7 +322,7 @@
 			// btnDohvati
 			// 
 			this.btnDohvati.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnDohvati.Location = new System.Drawing.Point(843, 149);
+			this.btnDohvati.Location = new System.Drawing.Point(847, 135);
 			this.btnDohvati.Name = "btnDohvati";
 			this.btnDohvati.Size = new System.Drawing.Size(171, 76);
 			this.btnDohvati.TabIndex = 11;
@@ -329,11 +330,22 @@
 			this.btnDohvati.UseVisualStyleBackColor = true;
 			this.btnDohvati.Click += new System.EventHandler(this.btnDohvati_Click);
 			// 
+			// lblTekst
+			// 
+			this.lblTekst.AutoSize = true;
+			this.lblTekst.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold);
+			this.lblTekst.Location = new System.Drawing.Point(702, 224);
+			this.lblTekst.Name = "lblTekst";
+			this.lblTekst.Size = new System.Drawing.Size(316, 19);
+			this.lblTekst.TabIndex = 12;
+			this.lblTekst.Text = "Vrijednosti dionica za današnji dan su dohvaćene";
+			// 
 			// FrmInvesticijskiPortfolio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1640, 948);
+			this.Controls.Add(this.lblTekst);
 			this.Controls.Add(this.btnDohvati);
 			this.Controls.Add(this.dgwVlastiteInvesticije);
 			this.Controls.Add(this.label1);
@@ -341,7 +353,7 @@
 			this.Controls.Add(this.lblInvesticijskiPortfolio);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "FrmInvesticijskiPortfolio";
-			this.Text = "FrmInvesticijskiPortfolio";
+			this.Text = "2";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmInvesticijskiPortfolio_FormClosing);
 			this.Load += new System.EventHandler(this.FrmInvesticijskiPortfolio_Load);
 			this.gBoxTransakcija.ResumeLayout(false);
@@ -371,16 +383,16 @@
 		private System.Windows.Forms.Label lblDatum;
 		private System.Windows.Forms.Label lblKolicina;
 		private System.Windows.Forms.Label lblNaziv;
-		private System.Windows.Forms.ComboBox comboBoxBankovniRačun;
-		private System.Windows.Forms.DateTimePicker dateDatum;
-		private System.Windows.Forms.TextBox txtBoxKolicina;
+		private System.Windows.Forms.ComboBox cBoxBankovniRačun;
+		private System.Windows.Forms.DateTimePicker dtpDatum;
+		private System.Windows.Forms.TextBox txtKolicina;
 		private System.Windows.Forms.Button btnIzvrsiTransakciju;
 		private System.Windows.Forms.BindingSource bankovniracunBindingSource;
 		private System.Windows.Forms.BindingSource bankovniracunBindingSource1;
 		private System.Windows.Forms.BindingSource vrstainvesticijeBindingSource;
 		private System.Windows.Forms.ComboBox cBoxNazivInvesticije;
 		private System.Windows.Forms.BindingSource investicijaBindingSource;
-		private System.Windows.Forms.TextBox txtBoxIznosTransInv;
+		private System.Windows.Forms.TextBox txtIznosTransInv;
 		private System.Windows.Forms.BindingSource transakcijainvesticijeBindingSource;
 		private System.Windows.Forms.BindingSource vrstainvesticijeBindingSource1;
 		private System.Windows.Forms.Label label1;
@@ -389,5 +401,6 @@
 		private System.Windows.Forms.Label lblKriviTipPodatakaKolicina;
 		private System.Windows.Forms.Label lblKriviTipPodatakaIznos;
 		private System.Windows.Forms.Button btnDohvati;
+		private System.Windows.Forms.Label lblTekst;
 	}
 }
