@@ -78,7 +78,7 @@ namespace PocetniZaslon.MDI_Forme
                 }
             }
 
-            dodavanjeTransakcije.DodajTransakciju(1, bankovniracunBindingSource, txtIznosPrihod.Text, dtpDatumTransakcijePrihod.Value.Date + dtpVrijemeTransakcijePrihod.Value.TimeOfDay, txtOpisPrihod.Text, listKategorijePrihod);
+            dodavanjeTransakcije.DodajTransakciju(1, bankovniracunBindingSource, txtIznosPrihod.Text, dtpDatumTransakcijePrihod.Value.Date + dtpVrijemeTransakcijePrihod.Value.TimeOfDay, txtOpisPrihod.Text, listKategorijePrihod, null);
                         
             MessageBox.Show("Transakcija uspješno unesena!");
 

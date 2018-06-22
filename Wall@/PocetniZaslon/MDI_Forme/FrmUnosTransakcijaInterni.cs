@@ -53,7 +53,7 @@ namespace PocetniZaslon.MDI_Forme
             List<string> kategorijeRashod = new List<string>();
             kategorijeRashod.Add("Ostali rashodi");
 
-            return dodavanjeTransakcije.DodajTransakciju(2, bankovniracunBindingSource, txtIznosInterni.Text, dtpDatumTransakcijeInterni.Value.Date + dtpVrijemeTransakcijeInterni.Value.TimeOfDay, txtOpisInterni.Text, kategorijeRashod);
+            return dodavanjeTransakcije.DodajTransakciju(2, bankovniracunBindingSource, txtIznosInterni.Text, dtpDatumTransakcijeInterni.Value.Date + dtpVrijemeTransakcijeInterni.Value.TimeOfDay, txtOpisInterni.Text, kategorijeRashod, null);
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace PocetniZaslon.MDI_Forme
             List<string> kategorijePrihod = new List<string>();
             kategorijePrihod.Add("Ostali prihodi");
 
-            return dodavanjeTransakcije.DodajTransakciju(1, bankovniracunBindingSource1, txtIznosInterni.Text, dtpDatumTransakcijeInterni.Value.Date + dtpVrijemeTransakcijeInterni.Value.TimeOfDay, txtOpisInterni.Text, kategorijePrihod);
+            return dodavanjeTransakcije.DodajTransakciju(1, bankovniracunBindingSource1, txtIznosInterni.Text, dtpDatumTransakcijeInterni.Value.Date + dtpVrijemeTransakcijeInterni.Value.TimeOfDay, txtOpisInterni.Text, kategorijePrihod, null);
         }
 
         /// <summary>

@@ -15,6 +15,8 @@ namespace PocetniZaslon.MDI_Forme
         Korisnik trenutniKorisnik = null;
         UpravljanjeTransakcijom dodavanjeTransakcije = new UpravljanjeTransakcijom();
 
+        string lokacijaSlike = null;
+
         public FrmUnosTransakcijaRashod(Korisnik korisnik)
         {
             trenutniKorisnik = korisnik;
@@ -78,7 +80,7 @@ namespace PocetniZaslon.MDI_Forme
                 }
             }
 
-            dodavanjeTransakcije.DodajTransakciju(2, bankovniracunBindingSource, txtIznosRashod.Text, dtpDatumTransakcijeRashod.Value.Date + dtpVrijemeTransakcijeRashod.Value.TimeOfDay, txtOpisRashod.Text, listKategorijeRashod);
+            dodavanjeTransakcije.DodajTransakciju(2, bankovniracunBindingSource, txtIznosRashod.Text, dtpDatumTransakcijeRashod.Value.Date + dtpVrijemeTransakcijeRashod.Value.TimeOfDay, txtOpisRashod.Text, listKategorijeRashod, lokacijaSlike);
 
             MessageBox.Show("Transakcija uspješno unesena!");
 
@@ -204,6 +206,25 @@ namespace PocetniZaslon.MDI_Forme
                 }
             }
             else btnSpremiTransakcijuRashod.Enabled = false;
+        }
+
+        /// <summary>
+        /// Event koji sprema string sa lokacijom slike u program kako bi dodali sliku u bazu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDodajSlikuRashod_Click(object sender, EventArgs e)
+        {
+            if (ofdSlikaRacuna.ShowDialog() == DialogResult.OK)
+            {
+                lokacijaSlike = ofdSlikaRacuna.FileName.ToString();
+                txtLokacijaSlikeRacuna.Text = lokacijaSlike;
+            }
+        }
+
+        private void btnSkenirajBarkodRashod_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
