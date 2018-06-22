@@ -33,6 +33,7 @@ namespace PocetniZaslon.MDI_Forme
             lblNeispravanIznosRashod.Hide();
             btnSpremiTransakcijuRashod.Enabled = false;
             btnIzbrisiKategorijuRashod.Enabled = false;
+            btnSkenirajBarkodRashod.Enabled = false;
             RefreshPodaci();
         }
 
@@ -184,6 +185,49 @@ namespace PocetniZaslon.MDI_Forme
         }
         #endregion
 
+        #region Rad sa slikom računa
+        /// <summary>
+        /// Event koji sprema string sa lokacijom slike u program kako bi dodali sliku u bazu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDodajSlikuRashod_Click(object sender, EventArgs e)
+        {
+            if (ofdSlikaRacuna.ShowDialog() == DialogResult.OK)
+            {
+                lokacijaSlike = ofdSlikaRacuna.FileName.ToString();
+                txtLokacijaSlikeRacuna.Text = lokacijaSlike;
+            }
+        }
+
+        /// <summary>
+        /// Klikom na gumb instancira se klasa za skeniranje, te se pokreće scan sa lokacije koja je unaprijed odabrana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSkenirajBarkodRashod_Click(object sender, EventArgs e)
+        {
+            BarcodeScanner scanner = new BarcodeScanner();
+            scanner.lokacijaSlikeRacuna = lokacijaSlike;
+
+            scanner.SkenirajRacun();
+
+            txtIznosRashod.Text = scanner.skeniraniIznos.ToString("F");
+            txtOpisRashod.Text = scanner.skeniraniOpis;
+        }
+
+        /// <summary>
+        /// Kontroliranje gumba za skeniranje ovisno o tome je li slika dodana ili ne.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtLokacijaSlikeRacuna_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtLokacijaSlikeRacuna.Text)) btnSkenirajBarkodRashod.Enabled = true;
+            else btnSkenirajBarkodRashod.Enabled = false;
+        }
+        #endregion
+
         /// <summary>
         /// Provjera ispravnosti unesenog iznosa.
         /// </summary>
@@ -206,25 +250,6 @@ namespace PocetniZaslon.MDI_Forme
                 }
             }
             else btnSpremiTransakcijuRashod.Enabled = false;
-        }
-
-        /// <summary>
-        /// Event koji sprema string sa lokacijom slike u program kako bi dodali sliku u bazu.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnDodajSlikuRashod_Click(object sender, EventArgs e)
-        {
-            if (ofdSlikaRacuna.ShowDialog() == DialogResult.OK)
-            {
-                lokacijaSlike = ofdSlikaRacuna.FileName.ToString();
-                txtLokacijaSlikeRacuna.Text = lokacijaSlike;
-            }
-        }
-
-        private void btnSkenirajBarkodRashod_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

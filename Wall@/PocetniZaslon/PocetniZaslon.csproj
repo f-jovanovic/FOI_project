@@ -70,6 +70,7 @@
     <Compile Include="Bankovni_racun.cs">
       <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BarcodeScanner.cs" />
     <Compile Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.cs">
       <SubType>Form</SubType>
     </Compile>

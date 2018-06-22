@@ -38,7 +38,6 @@
             this.txtIznosRashod = new System.Windows.Forms.TextBox();
             this.txtOpisRashod = new System.Windows.Forms.TextBox();
             this.cboBankovniRacunRashod = new System.Windows.Forms.ComboBox();
-            this.bankovniracunBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtpDatumTransakcijeRashod = new System.Windows.Forms.DateTimePicker();
             this.btnSkenirajBarkodRashod = new System.Windows.Forms.Button();
             this.btnDodajSlikuRashod = new System.Windows.Forms.Button();
@@ -52,6 +51,7 @@
             this.btnUrediKategorijuRashod = new System.Windows.Forms.Button();
             this.ofdSlikaRacuna = new System.Windows.Forms.OpenFileDialog();
             this.txtLokacijaSlikeRacuna = new System.Windows.Forms.TextBox();
+            this.bankovniracunBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,10 +147,6 @@
             this.cboBankovniRacunRashod.Size = new System.Drawing.Size(424, 53);
             this.cboBankovniRacunRashod.TabIndex = 1;
             this.cboBankovniRacunRashod.ValueMember = "iban";
-            // 
-            // bankovniracunBindingSource
-            // 
-            this.bankovniracunBindingSource.DataSource = typeof(PocetniZaslon.Bankovni_racun);
             // 
             // dtpDatumTransakcijeRashod
             // 
@@ -249,6 +245,7 @@
             // 
             // chkKategorijeRashod
             // 
+            this.chkKategorijeRashod.CheckOnClick = true;
             this.chkKategorijeRashod.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.chkKategorijeRashod.FormattingEnabled = true;
             this.chkKategorijeRashod.Location = new System.Drawing.Point(1013, 175);
@@ -297,6 +294,11 @@
             this.txtLokacijaSlikeRacuna.Size = new System.Drawing.Size(665, 40);
             this.txtLokacijaSlikeRacuna.TabIndex = 19;
             this.txtLokacijaSlikeRacuna.TabStop = false;
+            this.txtLokacijaSlikeRacuna.TextChanged += new System.EventHandler(this.txtLokacijaSlikeRacuna_TextChanged);
+            // 
+            // bankovniracunBindingSource
+            // 
+            this.bankovniracunBindingSource.DataSource = typeof(PocetniZaslon.Bankovni_racun);
             // 
             // FrmUnosTransakcijaRashod
             // 
