@@ -245,6 +245,7 @@
     <None Include="Properties\DataSources\Bankovni_racun.datasource" />
     <None Include="Properties\DataSources\Investicija.datasource" />
     <None Include="Properties\DataSources\Stanje_investicije.datasource" />
+    <None Include="Properties\DataSources\Transakcija.datasource" />
     <None Include="Properties\DataSources\Transakcija_investicije.datasource" />
     <None Include="Properties\DataSources\Vrsta_investicije.datasource" />
     <None Include="Properties\DataSources\Kategorije_transakcije.datasource" />

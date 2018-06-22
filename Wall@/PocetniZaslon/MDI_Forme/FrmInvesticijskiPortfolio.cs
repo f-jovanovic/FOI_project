@@ -361,8 +361,8 @@ namespace PocetniZaslon.MDI_Forme
 						{
 							if (item.Simbol == it.naziv_investicije)
 							{
-									double USD = 6.3;
-									decimal vrijednostUKunama = decimal.Multiply(decimal.Parse(item.Vrijednost), (decimal)USD);
+									decimal USD = 6.3m;
+									decimal vrijednostUKunama = decimal.Multiply(decimal.Parse(item.Vrijednost), USD);
 									Investicija investicija = it;
 									db.Investicija.Attach(investicija);
 									idInv = investicija.id_investicije;
