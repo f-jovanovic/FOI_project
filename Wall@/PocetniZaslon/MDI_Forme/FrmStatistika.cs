@@ -12,9 +12,17 @@ namespace PocetniZaslon.MDI_Forme
 {
 	public partial class FrmStatistika : Form
 	{
-		public FrmStatistika()
+		Korisnik trenutniKorisnik = null;
+		public FrmStatistika(Korisnik korisnik)
 		{
+			trenutniKorisnik = korisnik;
 			InitializeComponent();
+			lblStatistikaNaslov.Location = new Point(this.Width / 2 - lblStatistikaNaslov.Width / 2, lblStatistikaNaslov.Location.Y);
+		}
+
+		private void FrmStatistika_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
