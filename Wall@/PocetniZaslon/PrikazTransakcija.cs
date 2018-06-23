@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace PocetniZaslon
 {
-	class PrikazTransakcije
+	public class PrikazTransakcije
 	{
 		public string DatumTransakcije { get; set; }
 		public DateTime Vrijeme { get; set; }
