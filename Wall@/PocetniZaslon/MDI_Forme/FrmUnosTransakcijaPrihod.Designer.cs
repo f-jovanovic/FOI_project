@@ -75,6 +75,7 @@
             // 
             // chkKategorijePrihod
             // 
+            this.chkKategorijePrihod.CheckOnClick = true;
             this.chkKategorijePrihod.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.chkKategorijePrihod.FormattingEnabled = true;
             this.chkKategorijePrihod.Location = new System.Drawing.Point(1000, 174);

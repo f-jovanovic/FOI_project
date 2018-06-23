@@ -21,7 +21,7 @@ namespace PocetniZaslon
         /// <param name="vrijemeTransakcije"></param>
         /// <param name="opisTransakcije"></param>
         /// <param name="kategorijeTransakcije"></param>
-        public Transakcija DodajTransakciju(int idVrstaTransakcije, BindingSource bankovniRacun, string iznosTransakcije, DateTime vrijemeTransakcije, string opisTransakcije, List<string> kategorijeTransakcije)
+        public Transakcija DodajTransakciju(int idVrstaTransakcije, BindingSource bankovniRacun, string iznosTransakcije, DateTime vrijemeTransakcije, string opisTransakcije, List<string> kategorijeTransakcije, string lokacijaSlike)
         {
             Transakcija novaTransakcija = null;
             using (WalletEntities db = new WalletEntities())
@@ -36,6 +36,8 @@ namespace PocetniZaslon
                     vrijeme_transakcije = vrijemeTransakcije,
                     opis_transakcije = opisTransakcije
                 };
+
+                if (lokacijaSlike != null) novaTransakcija.lokacija_slike_racuna = lokacijaSlike;
 
                 // Spoji odabrane kategorije na transakciju.
                 foreach (var item in kategorijeTransakcije)
