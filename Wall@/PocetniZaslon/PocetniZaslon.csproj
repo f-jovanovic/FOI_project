@@ -125,6 +125,12 @@
     <Compile Include="MDI_Forme\FrmInvesticijskiPortfolio.Designer.cs">
       <DependentUpon>FrmInvesticijskiPortfolio.cs</DependentUpon>
     </Compile>
+    <Compile Include="MDI_Forme\FrmPostavke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Forme\FrmPostavke.Designer.cs">
+      <DependentUpon>FrmPostavke.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDI_Forme\FrmPregledTransakcija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmInvesticijskiPortfolio.resx">
       <DependentUpon>FrmInvesticijskiPortfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Forme\FrmPostavke.resx">
+      <DependentUpon>FrmPostavke.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmPregledTransakcija.resx">
       <DependentUpon>FrmPregledTransakcija.cs</DependentUpon>

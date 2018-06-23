@@ -87,6 +87,11 @@ namespace PocetniZaslon
 		private void btnPostavke_Click(object sender, EventArgs e)
 		{
 			UgasiSveOtvoreneProzore();
+            MDI_Forme.FrmPostavke frmPostavke = new MDI_Forme.FrmPostavke(trenutniKorisnik);
+            frmPostavke.MdiParent = this;
+            frmPostavke.Dock = DockStyle.Fill;
+            frmPostavke.Show();
+            PrilagodiElementeChild(frmPostavke);
 		}
 
 		private void btnOdjava_Click(object sender, EventArgs e)
