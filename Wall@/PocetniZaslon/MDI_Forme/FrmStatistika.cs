@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Xml;
 
 namespace PocetniZaslon.MDI_Forme
 {
@@ -32,7 +34,7 @@ namespace PocetniZaslon.MDI_Forme
 
 		private void FrmStatistika_Load(object sender, EventArgs e)
 		{
-			
+			DohvatiSveZapise();
 		}
 		/// <summary>
 		/// metoda koja sluzi da se izračunaju ukupni iznosi rashoda za svaki dan
@@ -42,6 +44,8 @@ namespace PocetniZaslon.MDI_Forme
 			//trebam:
 			//vrstu transakcije, rashod
 			//listu transakcija rashoda i podijelit po datumu
+			
+
 			listaBankovnihRacuna = new BindingList<Bankovni_racun>();
 			listaBankovnihRacuna = radnjaNadBankovnimRacunima.PrikaziBankovneRacunePremaKorisniku(trenutniKorisnik);
 
@@ -53,7 +57,7 @@ namespace PocetniZaslon.MDI_Forme
 			listaTransakcijaInvesticija = radnjaNadTransakcijom.DohvatiSveTransakcijeInvesticija(listaBankovnihRacuna);
 			listaTransakcija = new BindingList<Transakcija>();
 			listaTransakcija = radnjaNadTransakcijom.DohvatiSveTransakcije(listaBankovnihRacuna);
-
+			//dodaje sve transakcije i sve transakcije investicija u listu prikaza transakcija
 			using (var db = new WalletEntities())
 			{
 				foreach (Transakcija transakcija in listaTransakcija)
@@ -103,7 +107,41 @@ namespace PocetniZaslon.MDI_Forme
 						listaPrikazaTransacija.Add(noviPrikazTransakcije);
 					}
 				}
+				//lista svih investicija
 			}
+			BindingList<PrikazTransakcije> listaPrihoda = new BindingList<PrikazTransakcije>();
+			BindingList<PrikazTransakcije> listaRashoda = new BindingList<PrikazTransakcije>();
+			//djeli listu prikaza transakcije u listu rashoda i listu prihoda
+			decimal ukupniIznosRashoda = 0;
+			decimal ukupniIznosPrihoda = 0;
+			foreach (var item in listaPrikazaTransacija)
+			{
+				if (item.VrstaTransakcije == 2)
+				{
+					listaRashoda.Add(item);
+					foreach (var i in listaRashoda)
+					{
+						ukupniIznosRashoda = ukupniIznosRashoda + i.Iznos;
+					}
+					//ukupniIznosRashoda = -1 * ukupniIznosRashoda;
+				}
+				if(item.VrstaTransakcije == 1)
+				{
+					listaPrihoda.Add(item);
+					foreach (var i in listaPrihoda)
+					{
+						ukupniIznosPrihoda = ukupniIznosPrihoda + i.Iznos;
+					}
+					label2.Text = ukupniIznosPrihoda.ToString();
+				}
+			}
+			label1.Text = ukupniIznosRashoda.ToString();
+			decimal ukupniIznosSvihTransackija = ukupniIznosPrihoda + ukupniIznosRashoda;
+
+			chartPrihodivRashodi.Series["PChart"].Points.AddXY("Rashodi", ukupniIznosRashoda/ukupniIznosSvihTransackija);
+			chartPrihodivRashodi.Series["PChart"].Points.AddXY("Prihodi", ukupniIznosPrihoda/ukupniIznosSvihTransackija);
+
 		}
+
 	}
 }
