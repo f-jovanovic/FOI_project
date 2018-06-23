@@ -82,6 +82,11 @@ namespace PocetniZaslon
 		private void btnStatistika_Click(object sender, EventArgs e)
 		{
 			UgasiSveOtvoreneProzore();
+			MDI_Forme.FrmStatistika formaStatistika = new MDI_Forme.FrmStatistika(trenutniKorisnik);
+			formaStatistika.MdiParent = this;
+			formaStatistika.Dock = DockStyle.Fill;
+			formaStatistika.Show();
+			PrilagodiElementeChild(formaStatistika);
 		}
 
 		private void btnPostavke_Click(object sender, EventArgs e)
