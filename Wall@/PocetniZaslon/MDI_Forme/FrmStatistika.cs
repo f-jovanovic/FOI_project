@@ -35,6 +35,7 @@ namespace PocetniZaslon.MDI_Forme
 		private void FrmStatistika_Load(object sender, EventArgs e)
 		{
 			DohvatiSveZapise();
+
 		}
 		/// <summary>
 		/// metoda koja sluzi da se izračunaju ukupni iznosi rashoda za svaki dan
@@ -123,7 +124,7 @@ namespace PocetniZaslon.MDI_Forme
 					{
 						ukupniIznosRashoda = ukupniIznosRashoda + i.Iznos;
 
-						chartLinearRashodi.Series["LinChart"].Points.AddXY(i.Vrijeme.Date,-(i.Iznos));
+						chartLinearRashodi.Series["Rashodi"].Points.AddXY(i.Vrijeme.Date,-(i.Iznos));
 
 					}
 				}
@@ -141,7 +142,9 @@ namespace PocetniZaslon.MDI_Forme
 			chartPrihodivRashodi.Series["PChart"].Points.AddXY("Rashodi", ukupniIznosRashoda/ukupniIznosSvihTransackija);
 			chartPrihodivRashodi.Series["PChart"].Points.AddXY("Prihodi", ukupniIznosPrihoda/ukupniIznosSvihTransackija);
 
-
+			lblRashodi.Text = ukupniIznosRashoda.ToString();
+			lblPrihodi.Text = ukupniIznosPrihoda.ToString();
+			lblRazlika.Text = (ukupniIznosPrihoda + ukupniIznosRashoda).ToString();
 		}
 
 	}
