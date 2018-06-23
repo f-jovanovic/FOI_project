@@ -38,7 +38,6 @@
             this.txtIznosRashod = new System.Windows.Forms.TextBox();
             this.txtOpisRashod = new System.Windows.Forms.TextBox();
             this.cboBankovniRacunRashod = new System.Windows.Forms.ComboBox();
-            this.bankovniracunBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dtpDatumTransakcijeRashod = new System.Windows.Forms.DateTimePicker();
             this.btnSkenirajBarkodRashod = new System.Windows.Forms.Button();
             this.btnDodajSlikuRashod = new System.Windows.Forms.Button();
@@ -50,6 +49,9 @@
             this.chkKategorijeRashod = new System.Windows.Forms.CheckedListBox();
             this.lblNeispravanIznosRashod = new System.Windows.Forms.Label();
             this.btnUrediKategorijuRashod = new System.Windows.Forms.Button();
+            this.ofdSlikaRacuna = new System.Windows.Forms.OpenFileDialog();
+            this.txtLokacijaSlikeRacuna = new System.Windows.Forms.TextBox();
+            this.bankovniracunBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +109,7 @@
             // 
             this.lblSlika.AutoSize = true;
             this.lblSlika.Font = new System.Drawing.Font("Segoe UI Semilight", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSlika.Location = new System.Drawing.Point(99, 721);
+            this.lblSlika.Location = new System.Drawing.Point(95, 673);
             this.lblSlika.Name = "lblSlika";
             this.lblSlika.Size = new System.Drawing.Size(196, 45);
             this.lblSlika.TabIndex = 7;
@@ -146,10 +148,6 @@
             this.cboBankovniRacunRashod.TabIndex = 1;
             this.cboBankovniRacunRashod.ValueMember = "iban";
             // 
-            // bankovniracunBindingSource
-            // 
-            this.bankovniracunBindingSource.DataSource = typeof(PocetniZaslon.Bankovni_racun);
-            // 
             // dtpDatumTransakcijeRashod
             // 
             this.dtpDatumTransakcijeRashod.CalendarFont = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -164,25 +162,27 @@
             // 
             this.btnSkenirajBarkodRashod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSkenirajBarkodRashod.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSkenirajBarkodRashod.Location = new System.Drawing.Point(645, 721);
+            this.btnSkenirajBarkodRashod.Location = new System.Drawing.Point(651, 730);
             this.btnSkenirajBarkodRashod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSkenirajBarkodRashod.Name = "btnSkenirajBarkodRashod";
-            this.btnSkenirajBarkodRashod.Size = new System.Drawing.Size(331, 53);
+            this.btnSkenirajBarkodRashod.Size = new System.Drawing.Size(325, 53);
             this.btnSkenirajBarkodRashod.TabIndex = 7;
             this.btnSkenirajBarkodRashod.Text = "Skeniraj barkod računa";
             this.btnSkenirajBarkodRashod.UseVisualStyleBackColor = true;
+            this.btnSkenirajBarkodRashod.Click += new System.EventHandler(this.btnSkenirajBarkodRashod_Click);
             // 
             // btnDodajSlikuRashod
             // 
             this.btnDodajSlikuRashod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDodajSlikuRashod.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDodajSlikuRashod.Location = new System.Drawing.Point(311, 721);
+            this.btnDodajSlikuRashod.Location = new System.Drawing.Point(311, 730);
             this.btnDodajSlikuRashod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDodajSlikuRashod.Name = "btnDodajSlikuRashod";
-            this.btnDodajSlikuRashod.Size = new System.Drawing.Size(309, 53);
+            this.btnDodajSlikuRashod.Size = new System.Drawing.Size(325, 53);
             this.btnDodajSlikuRashod.TabIndex = 6;
             this.btnDodajSlikuRashod.Text = "Dodaj sliku računa";
             this.btnDodajSlikuRashod.UseVisualStyleBackColor = true;
+            this.btnDodajSlikuRashod.Click += new System.EventHandler(this.btnDodajSlikuRashod_Click);
             // 
             // btnSpremiTransakcijuRashod
             // 
@@ -245,6 +245,7 @@
             // 
             // chkKategorijeRashod
             // 
+            this.chkKategorijeRashod.CheckOnClick = true;
             this.chkKategorijeRashod.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.chkKategorijeRashod.FormattingEnabled = true;
             this.chkKategorijeRashod.Location = new System.Drawing.Point(1013, 175);
@@ -277,11 +278,34 @@
             this.btnUrediKategorijuRashod.UseVisualStyleBackColor = true;
             this.btnUrediKategorijuRashod.Click += new System.EventHandler(this.btnUrediKategorijuRashod_Click);
             // 
+            // ofdSlikaRacuna
+            // 
+            this.ofdSlikaRacuna.Filter = "JPG Image File(*.JPG)|*.JPG";
+            this.ofdSlikaRacuna.Title = "Odabir slike računa";
+            // 
+            // txtLokacijaSlikeRacuna
+            // 
+            this.txtLokacijaSlikeRacuna.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLokacijaSlikeRacuna.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtLokacijaSlikeRacuna.Location = new System.Drawing.Point(311, 676);
+            this.txtLokacijaSlikeRacuna.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLokacijaSlikeRacuna.Name = "txtLokacijaSlikeRacuna";
+            this.txtLokacijaSlikeRacuna.ReadOnly = true;
+            this.txtLokacijaSlikeRacuna.Size = new System.Drawing.Size(665, 40);
+            this.txtLokacijaSlikeRacuna.TabIndex = 19;
+            this.txtLokacijaSlikeRacuna.TabStop = false;
+            this.txtLokacijaSlikeRacuna.TextChanged += new System.EventHandler(this.txtLokacijaSlikeRacuna_TextChanged);
+            // 
+            // bankovniracunBindingSource
+            // 
+            this.bankovniracunBindingSource.DataSource = typeof(PocetniZaslon.Bankovni_racun);
+            // 
             // FrmUnosTransakcijaRashod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1323, 882);
+            this.Controls.Add(this.txtLokacijaSlikeRacuna);
             this.Controls.Add(this.btnUrediKategorijuRashod);
             this.Controls.Add(this.lblNeispravanIznosRashod);
             this.Controls.Add(this.chkKategorijeRashod);
@@ -336,5 +360,7 @@
         private System.Windows.Forms.CheckedListBox chkKategorijeRashod;
         private System.Windows.Forms.Label lblNeispravanIznosRashod;
         private System.Windows.Forms.Button btnUrediKategorijuRashod;
+        protected System.Windows.Forms.OpenFileDialog ofdSlikaRacuna;
+        private System.Windows.Forms.TextBox txtLokacijaSlikeRacuna;
     }
 }

@@ -15,6 +15,8 @@ namespace PocetniZaslon.MDI_Forme
         Korisnik trenutniKorisnik = null;
         UpravljanjeTransakcijom dodavanjeTransakcije = new UpravljanjeTransakcijom();
 
+        string lokacijaSlike = null;
+
         public FrmUnosTransakcijaRashod(Korisnik korisnik)
         {
             trenutniKorisnik = korisnik;
@@ -31,6 +33,7 @@ namespace PocetniZaslon.MDI_Forme
             lblNeispravanIznosRashod.Hide();
             btnSpremiTransakcijuRashod.Enabled = false;
             btnIzbrisiKategorijuRashod.Enabled = false;
+            btnSkenirajBarkodRashod.Enabled = false;
             RefreshPodaci();
         }
 
@@ -78,7 +81,7 @@ namespace PocetniZaslon.MDI_Forme
                 }
             }
 
-            dodavanjeTransakcije.DodajTransakciju(2, bankovniracunBindingSource, txtIznosRashod.Text, dtpDatumTransakcijeRashod.Value.Date + dtpVrijemeTransakcijeRashod.Value.TimeOfDay, txtOpisRashod.Text, listKategorijeRashod);
+            dodavanjeTransakcije.DodajTransakciju(2, bankovniracunBindingSource, txtIznosRashod.Text, dtpDatumTransakcijeRashod.Value.Date + dtpVrijemeTransakcijeRashod.Value.TimeOfDay, txtOpisRashod.Text, listKategorijeRashod, lokacijaSlike);
 
             MessageBox.Show("Transakcija uspješno unesena!");
 
@@ -101,6 +104,9 @@ namespace PocetniZaslon.MDI_Forme
         private void btnUrediKategorijuRashod_Click(object sender, EventArgs e)
         {
             if (chkKategorijeRashod.CheckedItems.Count != 1) MessageBox.Show("Potrebno je označiti točno jednu kategoriju za uređivanje!");
+
+            else if (chkKategorijeRashod.CheckedItems.Count == 1 && chkKategorijeRashod.CheckedItems[0].ToString() == "Ostali rashodi") MessageBox.Show("Odabranu kategoriju nije moguće uređivati!");
+
             else
             {
                 Kategorije_transakcije kategorija = null;
@@ -176,6 +182,49 @@ namespace PocetniZaslon.MDI_Forme
 
             if (chkKategorijeRashod.CheckedItems.Count != 1) btnUrediKategorijuRashod.Enabled = false;
             else btnUrediKategorijuRashod.Enabled = true;
+        }
+        #endregion
+
+        #region Rad sa slikom računa
+        /// <summary>
+        /// Event koji sprema string sa lokacijom slike u program kako bi dodali sliku u bazu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDodajSlikuRashod_Click(object sender, EventArgs e)
+        {
+            if (ofdSlikaRacuna.ShowDialog() == DialogResult.OK)
+            {
+                lokacijaSlike = ofdSlikaRacuna.FileName.ToString();
+                txtLokacijaSlikeRacuna.Text = lokacijaSlike;
+            }
+        }
+
+        /// <summary>
+        /// Klikom na gumb instancira se klasa za skeniranje, te se pokreće scan sa lokacije koja je unaprijed odabrana.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSkenirajBarkodRashod_Click(object sender, EventArgs e)
+        {
+            BarcodeScanner scanner = new BarcodeScanner();
+            scanner.lokacijaSlikeRacuna = lokacijaSlike;
+
+            scanner.SkenirajRacun();
+
+            txtIznosRashod.Text = scanner.skeniraniIznos.ToString("F");
+            txtOpisRashod.Text = scanner.skeniraniOpis;
+        }
+
+        /// <summary>
+        /// Kontroliranje gumba za skeniranje ovisno o tome je li slika dodana ili ne.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtLokacijaSlikeRacuna_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtLokacijaSlikeRacuna.Text)) btnSkenirajBarkodRashod.Enabled = true;
+            else btnSkenirajBarkodRashod.Enabled = false;
         }
         #endregion
 
