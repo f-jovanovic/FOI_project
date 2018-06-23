@@ -6,16 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.07292in</Width>
+              <Width>0.92448in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.92708in</Width>
+              <Width>1.21615in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.42708in</Width>
+              <Width>1.00781in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.57292in</Width>
+              <Width>3.07031in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -32,7 +32,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Datum</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -46,6 +49,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -64,7 +68,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>iban</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -78,6 +85,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -96,7 +104,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Iznos</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -110,6 +121,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -128,7 +140,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Opis</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -142,6 +157,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -165,7 +181,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!DatumTransakcije.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -195,7 +213,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!iban.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -225,11 +245,15 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Iznos.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                              </Style>
                             </TextRun>
                             <TextRun>
                               <Value> HRK</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -261,7 +285,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Opis.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -273,7 +299,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingLeft>5pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
@@ -295,8 +321,13 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>= "Od" + System.Environment.NewLine + First(Fields!DatumTransakcije.Value) 
++ System.Environment.NewLine + "do \n" + System.Environment.NewLine 
++ Last(Fields!DatumTransakcije.Value)</Value>
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -314,6 +345,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -326,7 +358,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>TOTAL</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -356,11 +391,17 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=SUM(Fields!Iznos.Value)</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                             <TextRun>
                               <Value> HRK</Value>
-                              <Style />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -391,16 +432,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Unutar razdoblja </Value>
-                              <Style />
-                            </TextRun>
-                            <TextRun>
-                              <Value>=First(Fields!DatumTransakcije.Value) + " - " + Last(Fields!DatumTransakcije.Value)</Value>
-                              <Style />
-                            </TextRun>
-                            <TextRun>
-                              <Value>.</Value>
-                              <Style />
+                              <Value />
+                              <Style>
+                                <FontFamily>segoe ui</FontFamily>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -447,7 +482,7 @@
         </TablixRowHierarchy>
         <DataSetName>TemporaryDataset</DataSetName>
         <Height>0.75in</Height>
-        <Width>8in</Width>
+        <Width>6.21875in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -458,12 +493,47 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>8in</Width>
+  <Width>6.23958in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox15">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Izvještaj transakcija</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>26pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox15</rd:DefaultName>
+          <Top>0.29042in</Top>
+          <Left>1.55083in</Left>
+          <Height>0.57292in</Height>
+          <Width>3.5in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
