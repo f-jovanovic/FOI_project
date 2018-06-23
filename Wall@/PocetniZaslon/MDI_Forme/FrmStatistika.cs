@@ -122,8 +122,10 @@ namespace PocetniZaslon.MDI_Forme
 					foreach (var i in listaRashoda)
 					{
 						ukupniIznosRashoda = ukupniIznosRashoda + i.Iznos;
+
+						chartLinearRashodi.Series["LinChart"].Points.AddXY(i.Vrijeme.Date,-(i.Iznos));
+
 					}
-					//ukupniIznosRashoda = -1 * ukupniIznosRashoda;
 				}
 				if(item.VrstaTransakcije == 1)
 				{
@@ -132,14 +134,13 @@ namespace PocetniZaslon.MDI_Forme
 					{
 						ukupniIznosPrihoda = ukupniIznosPrihoda + i.Iznos;
 					}
-					label2.Text = ukupniIznosPrihoda.ToString();
 				}
 			}
-			label1.Text = ukupniIznosRashoda.ToString();
 			decimal ukupniIznosSvihTransackija = ukupniIznosPrihoda + ukupniIznosRashoda;
-
+			//punjenje pie charta
 			chartPrihodivRashodi.Series["PChart"].Points.AddXY("Rashodi", ukupniIznosRashoda/ukupniIznosSvihTransackija);
 			chartPrihodivRashodi.Series["PChart"].Points.AddXY("Prihodi", ukupniIznosPrihoda/ukupniIznosSvihTransackija);
+
 
 		}
 
