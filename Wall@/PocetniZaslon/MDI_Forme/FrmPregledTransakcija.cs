@@ -30,6 +30,7 @@ namespace PocetniZaslon.MDI_Forme
 		int vrstaTransakcije = 0;
 
 		BindingList<PrikazTransakcije> listaPrikazaTransakcija = new BindingList<PrikazTransakcije>();
+		BindingList<PrikazTransakcije> listaFiltriranihPrikazaTransakcije = null;
 
 		//Konstruktor.
 		public FrmPregledTransakcija(Korisnik korisnik)
@@ -189,7 +190,7 @@ namespace PocetniZaslon.MDI_Forme
 			}
 
 			//Stvaranje liste prikaza transakcija koji će se prikazivati u datagridviewu
-			BindingList<PrikazTransakcije> listaFiltriranihPrikazaTransakcije = new BindingList<PrikazTransakcije>();
+			listaFiltriranihPrikazaTransakcije = new BindingList<PrikazTransakcije>();
 
 
 			//Filtriramo popis Prikaza Transakcija prema uvjetima forme
@@ -405,5 +406,13 @@ namespace PocetniZaslon.MDI_Forme
 			listaPrikazaTransakcija.Clear();
 			DohvatiSveKorisnikoveZapise();
 		}
+
+		private void btnReport_Click(object sender, EventArgs e)
+		{
+			Dialog_forme.FrmReportTransakcija frmReportTransakcija = new Dialog_forme.FrmReportTransakcija(listaFiltriranihPrikazaTransakcije);
+			frmReportTransakcija.ShowDialog();
+		}
+
+
 	}
 }
