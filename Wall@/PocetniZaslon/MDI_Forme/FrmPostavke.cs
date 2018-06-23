@@ -26,34 +26,6 @@ namespace PocetniZaslon.MDI_Forme
             btnPromjeniLozinku.Enabled = false;
         }
 
-        bool ProvjeriDuljinu()
-        {
-            bool dobraDuljina = false;
-
-            if (txtNovaLozinka.Text.Length >= 8)
-            {
-                dobraDuljina = true;
-                lblMinimalnaDuljina.Hide();
-            }
-            else lblMinimalnaDuljina.Show();
-
-            return dobraDuljina;
-        }
-
-        bool ProvjeriIspravnostLozinki()
-        {
-            bool isteLozinke = false;
-
-            if (txtNovaLozinka.Text == txtNovaPonovno.Text)
-            {
-                isteLozinke = true;
-                lblRazliciteLozinke.Hide();
-            }
-            else lblRazliciteLozinke.Show();
-
-            return isteLozinke;
-        }
-
         private void btnSpremiPromjene_Click(object sender, EventArgs e)
         {
             bool emailZauzet = false;
@@ -69,7 +41,8 @@ namespace PocetniZaslon.MDI_Forme
                 }
             }
 
-            if (emailZauzet)
+            // Ako je email ostao isti onda se upis omogućava.
+            if (emailZauzet && txtEmail.Text != trenutniKorisnik.email)
             {
                 MessageBox.Show("Email adresa je već zauzeta!");
             }
@@ -85,6 +58,7 @@ namespace PocetniZaslon.MDI_Forme
 
                     db.SaveChanges();
                 }
+                MessageBox.Show("Promjene spremljene!");
             }
         }
 
@@ -102,7 +76,45 @@ namespace PocetniZaslon.MDI_Forme
 
                     db.SaveChanges();
                 }
+                MessageBox.Show("Lozinka uspješno promijenjena!");
             }
+        }
+
+        #region Provjera ispravnosti nove lozinke
+        /// <summary>
+        /// Metoda za provjeru duljine lozinke. (Minimalna duljina - 8)
+        /// </summary>
+        /// <returns></returns>
+        bool ProvjeriDuljinu()
+        {
+            bool dobraDuljina = false;
+
+            if (txtNovaLozinka.Text.Length >= 8)
+            {
+                dobraDuljina = true;
+                lblMinimalnaDuljina.Hide();
+            }
+            else lblMinimalnaDuljina.Show();
+
+            return dobraDuljina;
+        }
+
+        /// <summary>
+        /// Metoda koja provjerava jesu li nova lozinka i njen ponovni upis jednaki.
+        /// </summary>
+        /// <returns></returns>
+        bool ProvjeriIspravnostLozinki()
+        {
+            bool isteLozinke = false;
+
+            if (txtNovaLozinka.Text == txtNovaPonovno.Text)
+            {
+                isteLozinke = true;
+                lblRazliciteLozinke.Hide();
+            }
+            else lblRazliciteLozinke.Show();
+
+            return isteLozinke;
         }
 
         private void txtNovaLozinka_TextChanged(object sender, EventArgs e)
@@ -116,5 +128,6 @@ namespace PocetniZaslon.MDI_Forme
             if (ProvjeriDuljinu() && ProvjeriIspravnostLozinki()) btnPromjeniLozinku.Enabled = true;
             else btnPromjeniLozinku.Enabled = false;
         }
+        #endregion
     }
 }
