@@ -36,24 +36,17 @@ namespace PocetniZaslon
             izvornaSlikaRacuna.Save(@folderZaTemporary, ImageFormat.Bmp);
             Bitmap slikaRacunaBitmap = Image.FromFile(@folderZaTemporary) as Bitmap;
 
-            string rezultatSkeniranja = barcodeReader.Decode(slikaRacunaBitmap).ToString();
-
-            // Okrećemo sliku 4 puta(360°)°, kako bi provjerili je li moguće skenirati barkod.
-            if (rezultatSkeniranja == null)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    OkreniSliku(slikaRacunaBitmap);
-                    rezultatSkeniranja = barcodeReader.Decode(Image.FromFile(Path.GetTempPath() + "tmpRacunOkrenuto.bmp") as Bitmap).ToString();
-
-                    if (rezultatSkeniranja != null) break;
-                }
-            }
+            var rezultatSkeniranja = barcodeReader.Decode(slikaRacunaBitmap);
 
             // Trenutno je hardcode-ano da se prihvaća i uzima samo sadržaj sa HUB30 tipa uplatnice.
-            if (rezultatSkeniranja.Contains("HRVHUB30"))
+            if (rezultatSkeniranja == null)
             {
-                List<string> skeniraniTekst = (rezultatSkeniranja.Split(Environment.NewLine.ToCharArray())).ToList();
+                System.Windows.Forms.MessageBox.Show("Barkod nije pronađen!");
+            }
+
+            else if (rezultatSkeniranja.ToString().Contains("HRVHUB30"))
+            {
+                List<string> skeniraniTekst = (rezultatSkeniranja.ToString().Split(Environment.NewLine.ToCharArray())).ToList();
 
                 skeniraniIznos = (decimal.Parse(skeniraniTekst.ElementAt(2)) / 100);
 
@@ -63,14 +56,9 @@ namespace PocetniZaslon
                 skeniraniOpis += skeniraniTekst.ElementAt(13) + Environment.NewLine;
             }
 
-            else if (!string.IsNullOrEmpty(rezultatSkeniranja))
+            else if (!string.IsNullOrEmpty(rezultatSkeniranja.ToString()))
             {
                 System.Windows.Forms.MessageBox.Show("Format barkoda nije podržan!");
-            }
-
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Barkod nije pronađen!");
             }
         }
 
@@ -83,19 +71,6 @@ namespace PocetniZaslon
             GC.Collect();
             GC.WaitForPendingFinalizers();
             File.Delete(lokacija);
-        }
-
-        /// <summary>
-        /// Metoda koja okreće sliku za 90° te ju sprema u temporary folder Windows OS-a.
-        /// </summary>
-        /// <param name="slikaRacuna"></param>
-        private void OkreniSliku(Bitmap slikaRacuna)
-        {
-            // Brisanje prijašnje slike ako se mora okrenuti više puta za redom.
-            IzbrisiSliku(Path.GetTempPath() + "tmpRacunOkrenuto.bmp");
-
-            slikaRacuna.RotateFlip(RotateFlipType.Rotate90FlipNone);
-            slikaRacuna.Save(Path.GetTempPath() + "tmpRacunOkrenuto.bmp");
         }
     }
 }
