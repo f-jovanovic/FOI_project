@@ -407,12 +407,18 @@ namespace PocetniZaslon.MDI_Forme
 			DohvatiSveKorisnikoveZapise();
 		}
 
+		//Klik gumba btnReport otvara dialog formu koja prikazuje report sa trenutnim prikazov dgvPregledTransakcija
 		private void btnReport_Click(object sender, EventArgs e)
 		{
 			Dialog_forme.FrmReportTransakcija frmReportTransakcija = new Dialog_forme.FrmReportTransakcija(listaFiltriranihPrikazaTransakcije);
 			frmReportTransakcija.ShowDialog();
 		}
 
-
+		//Označavanjem reda u dgvPregledTransakcija prikazuje nam se opis odabrane transakcije u text boxu ispod dataGridView-a
+		private void dgvPregledTransakcija_SelectionChanged(object sender, EventArgs e)
+		{
+			PrikazTransakcije prikazTransakcije = dgvPregledTransakcija.CurrentRow.DataBoundItem as PrikazTransakcije;
+			txtOpis.Text = "Opis:" + System.Environment.NewLine + prikazTransakcije.Opis;
+		}
 	}
 }

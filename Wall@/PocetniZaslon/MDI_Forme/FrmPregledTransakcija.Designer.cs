@@ -82,6 +82,7 @@
 			this.btnObrisi = new System.Windows.Forms.Button();
 			this.bankovniracunBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.btnReport = new System.Windows.Forms.Button();
+			this.txtOpis = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvPregledTransakcija)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourceBankovniRacuni)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourcePregledTransakcija)).BeginInit();
@@ -120,6 +121,7 @@
 			this.dgvPregledTransakcija.Size = new System.Drawing.Size(729, 596);
 			this.dgvPregledTransakcija.TabIndex = 0;
 			this.dgvPregledTransakcija.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvPregledTransakcija_RowsAdded);
+			this.dgvPregledTransakcija.SelectionChanged += new System.EventHandler(this.dgvPregledTransakcija_SelectionChanged);
 			// 
 			// vrijemeDataGridViewTextBoxColumn
 			// 
@@ -628,11 +630,21 @@
 			this.btnReport.UseVisualStyleBackColor = true;
 			this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
 			// 
+			// txtOpis
+			// 
+			this.txtOpis.Location = new System.Drawing.Point(2, 715);
+			this.txtOpis.Multiline = true;
+			this.txtOpis.Name = "txtOpis";
+			this.txtOpis.ReadOnly = true;
+			this.txtOpis.Size = new System.Drawing.Size(569, 95);
+			this.txtOpis.TabIndex = 21;
+			// 
 			// FrmPregledTransakcija
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1147, 822);
+			this.Controls.Add(this.txtOpis);
 			this.Controls.Add(this.btnReport);
 			this.Controls.Add(this.btnObrisi);
 			this.Controls.Add(this.btnOsvjeziTransakcije);
@@ -727,5 +739,6 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn transakcijaDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn transakcijainvesticijeDataGridViewTextBoxColumn;
 		private System.Windows.Forms.Button btnReport;
+		private System.Windows.Forms.TextBox txtOpis;
 	}
 }

@@ -322,7 +322,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>= "Od" + System.Environment.NewLine + First(Fields!DatumTransakcije.Value) 
-+ System.Environment.NewLine + "do \n" + System.Environment.NewLine 
++ System.Environment.NewLine + "do" + System.Environment.NewLine 
 + Last(Fields!DatumTransakcije.Value)</Value>
                               <Style>
                                 <FontFamily>segoe ui</FontFamily>
