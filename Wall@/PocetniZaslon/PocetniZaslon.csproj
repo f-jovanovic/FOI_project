@@ -41,6 +41,24 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -76,6 +94,12 @@
     </Compile>
     <Compile Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.Designer.cs">
       <DependentUpon>FrmKategorijeTransakcijaDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog_forme\FrmReportTransakcija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog_forme\FrmReportTransakcija.Designer.cs">
+      <DependentUpon>FrmReportTransakcija.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmGlavniIzbornik.cs">
       <SubType>Form</SubType>
@@ -137,6 +161,12 @@
     <Compile Include="MDI_Forme\FrmPregledTransakcija.Designer.cs">
       <DependentUpon>FrmPregledTransakcija.cs</DependentUpon>
     </Compile>
+    <Compile Include="MDI_Forme\FrmStatistika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Forme\FrmStatistika.Designer.cs">
+      <DependentUpon>FrmStatistika.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDI_Forme\FrmUnosTransakcija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +194,7 @@
     <Compile Include="PrikazTransakcija.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Stanje_investicije.cs">
       <DependentUpon>WalletDatabseModel.tt</DependentUpon>
     </Compile>
@@ -202,6 +233,9 @@
     <EmbeddedResource Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.resx">
       <DependentUpon>FrmKategorijeTransakcijaDodaj.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialog_forme\FrmReportTransakcija.resx">
+      <DependentUpon>FrmReportTransakcija.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGlavniIzbornik.resx">
       <DependentUpon>FrmGlavniIzbornik.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +260,9 @@
     <EmbeddedResource Include="MDI_Forme\FrmPregledTransakcija.resx">
       <DependentUpon>FrmPregledTransakcija.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Forme\FrmStatistika.resx">
+      <DependentUpon>FrmStatistika.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcija.resx">
       <DependentUpon>FrmUnosTransakcija.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +275,7 @@
     <EmbeddedResource Include="MDI_Forme\FrmUnosTransakcijaRashod.resx">
       <DependentUpon>FrmUnosTransakcijaRashod.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PregledTransakcija.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -252,6 +290,7 @@
     <None Include="Properties\DataSources\Bankovni_racun.datasource" />
     <None Include="Properties\DataSources\Investicija.datasource" />
     <None Include="Properties\DataSources\Stanje_investicije.datasource" />
+    <None Include="Properties\DataSources\Transakcija.datasource" />
     <None Include="Properties\DataSources\Transakcija_investicije.datasource" />
     <None Include="Properties\DataSources\Vrsta_investicije.datasource" />
     <None Include="Properties\DataSources\Kategorije_transakcije.datasource" />
@@ -288,6 +327,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="WalletDatabseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>WalletDatabseModel.edmx</DependentUpon>
