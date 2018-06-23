@@ -53,7 +53,7 @@ namespace PocetniZaslon.MDI_Forme
             List<string> kategorijeRashod = new List<string>();
             kategorijeRashod.Add("Ostali rashodi");
 
-            return dodavanjeTransakcije.DodajTransakciju(2, bankovniracunBindingSource, txtIznosInterni.Text, dtpDatumTransakcijeInterni.Value.Date + dtpVrijemeTransakcijeInterni.Value.TimeOfDay, txtOpisInterni.Text, kategorijeRashod);
+            return dodavanjeTransakcije.DodajTransakciju(2, bankovniracunBindingSource, txtIznosInterni.Text, dtpDatumTransakcijeInterni.Value.Date + dtpVrijemeTransakcijeInterni.Value.TimeOfDay, txtOpisInterni.Text, kategorijeRashod, null);
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace PocetniZaslon.MDI_Forme
             List<string> kategorijePrihod = new List<string>();
             kategorijePrihod.Add("Ostali prihodi");
 
-            return dodavanjeTransakcije.DodajTransakciju(1, bankovniracunBindingSource1, txtIznosInterni.Text, dtpDatumTransakcijeInterni.Value.Date + dtpVrijemeTransakcijeInterni.Value.TimeOfDay, txtOpisInterni.Text, kategorijePrihod);
+            return dodavanjeTransakcije.DodajTransakciju(1, bankovniracunBindingSource1, txtIznosInterni.Text, dtpDatumTransakcijeInterni.Value.Date + dtpVrijemeTransakcijeInterni.Value.TimeOfDay, txtOpisInterni.Text, kategorijePrihod, null);
         }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace PocetniZaslon.MDI_Forme
 
             SpojiTransakcije(noviRashod, noviPrihod);
             SpojiTransakcije(noviPrihod, noviRashod);
-            
+
             MessageBox.Show("Transakcija uspješno unesena!");
 
             // Prolazi se kroz sve kontrole glavne forme, i izvršava se click na gumb UnosTransakcije.
@@ -109,11 +109,13 @@ namespace PocetniZaslon.MDI_Forme
         #region Provjera unesenih podataka
         private void cboBankovniRacunPosiljateljInterni_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ProvjeriIznos();
             ProvjeriBankovneRacune();
         }
 
         private void cboBankovniRacunPrimateljInterni_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ProvjeriIznos();
             ProvjeriBankovneRacune();
         }
 
@@ -126,13 +128,15 @@ namespace PocetniZaslon.MDI_Forme
             }
             else
             {
-                btnSpremiTransakcijuInterni.Enabled = true;
+                if (ProvjeriIznos()) btnSpremiTransakcijuInterni.Enabled = true;
                 lblBankovniError.Hide();
             }
         }
 
-        private void txtIznosInterni_TextChanged(object sender, EventArgs e)
+        private bool ProvjeriIznos()
         {
+            bool tocanIznos = false;
+
             if (!string.IsNullOrWhiteSpace(txtIznosInterni.ToString()))
             {
                 decimal iznosProvjera;
@@ -140,14 +144,23 @@ namespace PocetniZaslon.MDI_Forme
                 {
                     lblNeispravanIznos.Hide();
                     btnSpremiTransakcijuInterni.Enabled = true;
+                    tocanIznos = true;
                 }
                 else
                 {
                     lblNeispravanIznos.Show();
                     btnSpremiTransakcijuInterni.Enabled = false;
+                    tocanIznos = false;
                 }
             }
             else btnSpremiTransakcijuInterni.Enabled = false;
+
+            return tocanIznos;
+        }
+
+        private void txtIznosInterni_TextChanged(object sender, EventArgs e)
+        {
+            ProvjeriIznos();
         }
         #endregion
     }
