@@ -45,6 +45,21 @@
 			this.lblVrj3 = new System.Windows.Forms.Label();
 			this.lblNazivInv4 = new System.Windows.Forms.Label();
 			this.lblVrj4 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.lblNazivR1 = new System.Windows.Forms.Label();
+			this.lblNazivR2 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.lblVrstaR1 = new System.Windows.Forms.Label();
+			this.lblVrstaR2 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.lblStanjeR1 = new System.Windows.Forms.Label();
+			this.lblStanjeR2 = new System.Windows.Forms.Label();
+			this.lblNazivR3 = new System.Windows.Forms.Label();
+			this.lblVrstaR3 = new System.Windows.Forms.Label();
+			this.lblStanjeR3 = new System.Windows.Forms.Label();
+			this.label13 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.gBoxBankovniRacuni.SuspendLayout();
 			this.gBoxInvesticije.SuspendLayout();
 			this.gBoxStatistika.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.chartStatistika)).BeginInit();
@@ -62,6 +77,18 @@
 			// 
 			// gBoxBankovniRacuni
 			// 
+			this.gBoxBankovniRacuni.Controls.Add(this.lblStanjeR3);
+			this.gBoxBankovniRacuni.Controls.Add(this.lblStanjeR2);
+			this.gBoxBankovniRacuni.Controls.Add(this.lblVrstaR3);
+			this.gBoxBankovniRacuni.Controls.Add(this.lblVrstaR2);
+			this.gBoxBankovniRacuni.Controls.Add(this.lblNazivR3);
+			this.gBoxBankovniRacuni.Controls.Add(this.lblNazivR2);
+			this.gBoxBankovniRacuni.Controls.Add(this.lblStanjeR1);
+			this.gBoxBankovniRacuni.Controls.Add(this.lblVrstaR1);
+			this.gBoxBankovniRacuni.Controls.Add(this.lblNazivR1);
+			this.gBoxBankovniRacuni.Controls.Add(this.label7);
+			this.gBoxBankovniRacuni.Controls.Add(this.label4);
+			this.gBoxBankovniRacuni.Controls.Add(this.label1);
 			this.gBoxBankovniRacuni.Font = new System.Drawing.Font("Segoe UI", 22F);
 			this.gBoxBankovniRacuni.Location = new System.Drawing.Point(36, 189);
 			this.gBoxBankovniRacuni.Name = "gBoxBankovniRacuni";
@@ -72,6 +99,8 @@
 			// 
 			// gBoxInvesticije
 			// 
+			this.gBoxInvesticije.Controls.Add(this.label14);
+			this.gBoxInvesticije.Controls.Add(this.label13);
 			this.gBoxInvesticije.Controls.Add(this.lblVrj4);
 			this.gBoxInvesticije.Controls.Add(this.lblVrj3);
 			this.gBoxInvesticije.Controls.Add(this.lblVrj2);
@@ -129,82 +158,222 @@
 			// lblNazivInv1
 			// 
 			this.lblNazivInv1.AutoSize = true;
-			this.lblNazivInv1.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.lblNazivInv1.Location = new System.Drawing.Point(89, 69);
+			this.lblNazivInv1.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblNazivInv1.Location = new System.Drawing.Point(96, 102);
 			this.lblNazivInv1.Name = "lblNazivInv1";
-			this.lblNazivInv1.Size = new System.Drawing.Size(90, 37);
+			this.lblNazivInv1.Size = new System.Drawing.Size(79, 32);
 			this.lblNazivInv1.TabIndex = 0;
 			this.lblNazivInv1.Text = "label1";
 			// 
 			// lblVrj1
 			// 
 			this.lblVrj1.AutoSize = true;
-			this.lblVrj1.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.lblVrj1.Location = new System.Drawing.Point(330, 69);
+			this.lblVrj1.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblVrj1.Location = new System.Drawing.Point(337, 102);
 			this.lblVrj1.Name = "lblVrj1";
-			this.lblVrj1.Size = new System.Drawing.Size(90, 37);
+			this.lblVrj1.Size = new System.Drawing.Size(79, 32);
 			this.lblVrj1.TabIndex = 0;
 			this.lblVrj1.Text = "label1";
 			// 
 			// lblNazivInv2
 			// 
 			this.lblNazivInv2.AutoSize = true;
-			this.lblNazivInv2.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.lblNazivInv2.Location = new System.Drawing.Point(89, 136);
+			this.lblNazivInv2.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblNazivInv2.Location = new System.Drawing.Point(96, 169);
 			this.lblNazivInv2.Name = "lblNazivInv2";
-			this.lblNazivInv2.Size = new System.Drawing.Size(90, 37);
+			this.lblNazivInv2.Size = new System.Drawing.Size(79, 32);
 			this.lblNazivInv2.TabIndex = 0;
 			this.lblNazivInv2.Text = "label1";
 			// 
 			// lblVrj2
 			// 
 			this.lblVrj2.AutoSize = true;
-			this.lblVrj2.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.lblVrj2.Location = new System.Drawing.Point(330, 136);
+			this.lblVrj2.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblVrj2.Location = new System.Drawing.Point(337, 169);
 			this.lblVrj2.Name = "lblVrj2";
-			this.lblVrj2.Size = new System.Drawing.Size(90, 37);
+			this.lblVrj2.Size = new System.Drawing.Size(79, 32);
 			this.lblVrj2.TabIndex = 0;
 			this.lblVrj2.Text = "label1";
 			// 
 			// lblNazivInv3
 			// 
 			this.lblNazivInv3.AutoSize = true;
-			this.lblNazivInv3.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.lblNazivInv3.Location = new System.Drawing.Point(89, 200);
+			this.lblNazivInv3.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblNazivInv3.Location = new System.Drawing.Point(96, 233);
 			this.lblNazivInv3.Name = "lblNazivInv3";
-			this.lblNazivInv3.Size = new System.Drawing.Size(90, 37);
+			this.lblNazivInv3.Size = new System.Drawing.Size(79, 32);
 			this.lblNazivInv3.TabIndex = 0;
 			this.lblNazivInv3.Text = "label1";
 			// 
 			// lblVrj3
 			// 
 			this.lblVrj3.AutoSize = true;
-			this.lblVrj3.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.lblVrj3.Location = new System.Drawing.Point(330, 200);
+			this.lblVrj3.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblVrj3.Location = new System.Drawing.Point(337, 233);
 			this.lblVrj3.Name = "lblVrj3";
-			this.lblVrj3.Size = new System.Drawing.Size(90, 37);
+			this.lblVrj3.Size = new System.Drawing.Size(79, 32);
 			this.lblVrj3.TabIndex = 0;
 			this.lblVrj3.Text = "label1";
 			// 
 			// lblNazivInv4
 			// 
 			this.lblNazivInv4.AutoSize = true;
-			this.lblNazivInv4.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.lblNazivInv4.Location = new System.Drawing.Point(89, 271);
+			this.lblNazivInv4.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblNazivInv4.Location = new System.Drawing.Point(96, 304);
 			this.lblNazivInv4.Name = "lblNazivInv4";
-			this.lblNazivInv4.Size = new System.Drawing.Size(90, 37);
+			this.lblNazivInv4.Size = new System.Drawing.Size(79, 32);
 			this.lblNazivInv4.TabIndex = 0;
 			this.lblNazivInv4.Text = "label1";
 			// 
 			// lblVrj4
 			// 
 			this.lblVrj4.AutoSize = true;
-			this.lblVrj4.Font = new System.Drawing.Font("Segoe UI", 16F);
-			this.lblVrj4.Location = new System.Drawing.Point(330, 271);
+			this.lblVrj4.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblVrj4.Location = new System.Drawing.Point(337, 304);
 			this.lblVrj4.Name = "lblVrj4";
-			this.lblVrj4.Size = new System.Drawing.Size(90, 37);
+			this.lblVrj4.Size = new System.Drawing.Size(79, 32);
 			this.lblVrj4.TabIndex = 0;
 			this.lblVrj4.Text = "label1";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 16F);
+			this.label1.Location = new System.Drawing.Point(39, 69);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(175, 37);
+			this.label1.TabIndex = 2;
+			this.label1.Text = "Naziv računa:";
+			// 
+			// lblNazivR1
+			// 
+			this.lblNazivR1.AutoSize = true;
+			this.lblNazivR1.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblNazivR1.Location = new System.Drawing.Point(39, 136);
+			this.lblNazivR1.Name = "lblNazivR1";
+			this.lblNazivR1.Size = new System.Drawing.Size(79, 32);
+			this.lblNazivR1.TabIndex = 2;
+			this.lblNazivR1.Text = "label1";
+			// 
+			// lblNazivR2
+			// 
+			this.lblNazivR2.AutoSize = true;
+			this.lblNazivR2.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblNazivR2.Location = new System.Drawing.Point(39, 200);
+			this.lblNazivR2.Name = "lblNazivR2";
+			this.lblNazivR2.Size = new System.Drawing.Size(79, 32);
+			this.lblNazivR2.TabIndex = 2;
+			this.lblNazivR2.Text = "label1";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 16F);
+			this.label4.Location = new System.Drawing.Point(301, 69);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(168, 37);
+			this.label4.TabIndex = 2;
+			this.label4.Text = "Vrsta računa:";
+			// 
+			// lblVrstaR1
+			// 
+			this.lblVrstaR1.AutoSize = true;
+			this.lblVrstaR1.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblVrstaR1.Location = new System.Drawing.Point(301, 136);
+			this.lblVrstaR1.Name = "lblVrstaR1";
+			this.lblVrstaR1.Size = new System.Drawing.Size(79, 32);
+			this.lblVrstaR1.TabIndex = 2;
+			this.lblVrstaR1.Text = "label1";
+			// 
+			// lblVrstaR2
+			// 
+			this.lblVrstaR2.AutoSize = true;
+			this.lblVrstaR2.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblVrstaR2.Location = new System.Drawing.Point(301, 200);
+			this.lblVrstaR2.Name = "lblVrstaR2";
+			this.lblVrstaR2.Size = new System.Drawing.Size(79, 32);
+			this.lblVrstaR2.TabIndex = 2;
+			this.lblVrstaR2.Text = "label1";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Segoe UI", 16F);
+			this.label7.Location = new System.Drawing.Point(589, 69);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(181, 37);
+			this.label7.TabIndex = 2;
+			this.label7.Text = "Stanje računa:";
+			// 
+			// lblStanjeR1
+			// 
+			this.lblStanjeR1.AutoSize = true;
+			this.lblStanjeR1.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblStanjeR1.Location = new System.Drawing.Point(635, 136);
+			this.lblStanjeR1.Name = "lblStanjeR1";
+			this.lblStanjeR1.Size = new System.Drawing.Size(79, 32);
+			this.lblStanjeR1.TabIndex = 2;
+			this.lblStanjeR1.Text = "label1";
+			// 
+			// lblStanjeR2
+			// 
+			this.lblStanjeR2.AutoSize = true;
+			this.lblStanjeR2.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblStanjeR2.Location = new System.Drawing.Point(635, 200);
+			this.lblStanjeR2.Name = "lblStanjeR2";
+			this.lblStanjeR2.Size = new System.Drawing.Size(79, 32);
+			this.lblStanjeR2.TabIndex = 2;
+			this.lblStanjeR2.Text = "label1";
+			// 
+			// lblNazivR3
+			// 
+			this.lblNazivR3.AutoSize = true;
+			this.lblNazivR3.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblNazivR3.Location = new System.Drawing.Point(39, 260);
+			this.lblNazivR3.Name = "lblNazivR3";
+			this.lblNazivR3.Size = new System.Drawing.Size(79, 32);
+			this.lblNazivR3.TabIndex = 2;
+			this.lblNazivR3.Text = "label1";
+			// 
+			// lblVrstaR3
+			// 
+			this.lblVrstaR3.AutoSize = true;
+			this.lblVrstaR3.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblVrstaR3.Location = new System.Drawing.Point(301, 260);
+			this.lblVrstaR3.Name = "lblVrstaR3";
+			this.lblVrstaR3.Size = new System.Drawing.Size(79, 32);
+			this.lblVrstaR3.TabIndex = 2;
+			this.lblVrstaR3.Text = "label1";
+			// 
+			// lblStanjeR3
+			// 
+			this.lblStanjeR3.AutoSize = true;
+			this.lblStanjeR3.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblStanjeR3.Location = new System.Drawing.Point(635, 260);
+			this.lblStanjeR3.Name = "lblStanjeR3";
+			this.lblStanjeR3.Size = new System.Drawing.Size(79, 32);
+			this.lblStanjeR3.TabIndex = 2;
+			this.lblStanjeR3.Text = "label1";
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Font = new System.Drawing.Font("Segoe UI", 16F);
+			this.label13.Location = new System.Drawing.Point(28, 52);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(212, 37);
+			this.label13.TabIndex = 1;
+			this.label13.Text = "Naziv investicije:";
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.Font = new System.Drawing.Font("Segoe UI", 16F);
+			this.label14.Location = new System.Drawing.Point(308, 52);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(143, 37);
+			this.label14.TabIndex = 2;
+			this.label14.Text = "Vrijednost:";
 			// 
 			// FrmPocetniZaslon
 			// 
@@ -219,6 +388,8 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "FrmPocetniZaslon";
 			this.Text = "FrmPocetniZaslon";
+			this.gBoxBankovniRacuni.ResumeLayout(false);
+			this.gBoxBankovniRacuni.PerformLayout();
 			this.gBoxInvesticije.ResumeLayout(false);
 			this.gBoxInvesticije.PerformLayout();
 			this.gBoxStatistika.ResumeLayout(false);
@@ -244,5 +415,19 @@
 		private System.Windows.Forms.Label lblNazivInv1;
 		private System.Windows.Forms.Label lblVrj4;
 		private System.Windows.Forms.Label lblNazivInv4;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lblStanjeR3;
+		private System.Windows.Forms.Label lblStanjeR2;
+		private System.Windows.Forms.Label lblVrstaR3;
+		private System.Windows.Forms.Label lblVrstaR2;
+		private System.Windows.Forms.Label lblNazivR3;
+		private System.Windows.Forms.Label lblNazivR2;
+		private System.Windows.Forms.Label lblStanjeR1;
+		private System.Windows.Forms.Label lblVrstaR1;
+		private System.Windows.Forms.Label lblNazivR1;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Label label13;
 	}
 }
