@@ -80,7 +80,8 @@ namespace PocetniZaslon.MDI_Forme
 							transakcija.iznos_transakcije,
 							listaKategorijaTransakcijeListeTransakcija,
 							transakcija.opis_transakcije,
-							kategorije.id_kategorije_transakcije
+							kategorije.id_kategorije_transakcije,
+							transakcija.lokacija_slike_racuna
 							);
 						db.Entry(transakcija).State = System.Data.Entity.EntityState.Detached;
 						db.Entry(kategorije).State = System.Data.Entity.EntityState.Detached;

@@ -84,7 +84,7 @@
 			this.btnReport = new System.Windows.Forms.Button();
 			this.txtOpis = new System.Windows.Forms.TextBox();
 			this.btnPrikaziSliku = new System.Windows.Forms.Button();
-			this.lblLokacijaSlike = new System.Windows.Forms.Label();
+			this.txtLokacijaSlike = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgvPregledTransakcija)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourceBankovniRacuni)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSourcePregledTransakcija)).BeginInit();
@@ -651,24 +651,23 @@
 			this.btnPrikaziSliku.Text = "Prikazi sliku";
 			this.btnPrikaziSliku.UseVisualStyleBackColor = true;
 			this.btnPrikaziSliku.Visible = false;
+			this.btnPrikaziSliku.Click += new System.EventHandler(this.btnPrikaziSliku_Click);
 			// 
-			// lblLokacijaSlike
+			// txtLokacijaSlike
 			// 
-			this.lblLokacijaSlike.AutoSize = true;
-			this.lblLokacijaSlike.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblLokacijaSlike.Location = new System.Drawing.Point(-2, 826);
-			this.lblLokacijaSlike.Name = "lblLokacijaSlike";
-			this.lblLokacijaSlike.Size = new System.Drawing.Size(52, 21);
-			this.lblLokacijaSlike.TabIndex = 23;
-			this.lblLokacijaSlike.Text = "label1";
-			this.lblLokacijaSlike.Visible = false;
+			this.txtLokacijaSlike.Location = new System.Drawing.Point(2, 829);
+			this.txtLokacijaSlike.Name = "txtLokacijaSlike";
+			this.txtLokacijaSlike.ReadOnly = true;
+			this.txtLokacijaSlike.Size = new System.Drawing.Size(569, 20);
+			this.txtLokacijaSlike.TabIndex = 23;
+			this.txtLokacijaSlike.Visible = false;
 			// 
 			// FrmPregledTransakcija
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1147, 861);
-			this.Controls.Add(this.lblLokacijaSlike);
+			this.Controls.Add(this.txtLokacijaSlike);
 			this.Controls.Add(this.btnPrikaziSliku);
 			this.Controls.Add(this.txtOpis);
 			this.Controls.Add(this.btnReport);
@@ -767,6 +766,6 @@
 		private System.Windows.Forms.Button btnReport;
 		private System.Windows.Forms.TextBox txtOpis;
 		private System.Windows.Forms.Button btnPrikaziSliku;
-		private System.Windows.Forms.Label lblLokacijaSlike;
+		private System.Windows.Forms.TextBox txtLokacijaSlike;
 	}
 }

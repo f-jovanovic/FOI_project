@@ -39,10 +39,11 @@ namespace PocetniZaslon.MDI_Forme
 			InitializeComponent();
 		}
 
+		//postavljanje početnih vrijednosti
 		private void FrmPregledTransakcija_Load(object sender, EventArgs e)
 		{
 			PrilagodiIzgledForme();
-
+			//postavljanje raspon datuma između današnjeg dana i onog mjesec dana kasnije
 			dtpVrijemeOd.Value = DateTime.Now.Date;
 			dtpVrijemeDo.Value = DateTime.Now.AddMonths(1).AddDays(1).AddMinutes(-1);
 
@@ -110,7 +111,8 @@ namespace PocetniZaslon.MDI_Forme
 							transakcija.iznos_transakcije,
 							listaKategorijaTransakcijeListeTransakcija,
 							transakcija.opis_transakcije,
-							kategorija.id_vrsta_transakcije
+							kategorija.id_vrsta_transakcije,
+							transakcija.lokacija_slike_racuna
 							);
 
 						db.Entry(transakcija).State = System.Data.Entity.EntityState.Detached;
@@ -150,11 +152,19 @@ namespace PocetniZaslon.MDI_Forme
 		/// </summary>
 		private void OsvjeziPrikazTransakcija()
 		{
+			//Provjera jesu li odznačene i obične transakcije i transakcije investicija s pripadajućom povratnom porukom
 			if (chkTransakcijeInvesticija.Checked == false && chkObicneTransakcije.Checked == false)
 			{
 				MessageBox.Show("Moraju biti označene barem 'Obične transakcije' ili 'Transakcije investicija'");
 				return;
 			}
+			//Provjera jesu li odznačene i prihodi i rashodi s pripadajućom povratnom porukom
+			if (chkPrihodi.Checked == false && chkRashodi.Checked == false)
+			{
+				MessageBox.Show("Moraju biti označene barem 'Prihodi' ili 'Rashodi'");
+				return;
+			}
+
 			//Dohvaćanje vremena sa forme.
 			vrijemeOd = null;
 			vrijemeDo = null;
@@ -165,9 +175,9 @@ namespace PocetniZaslon.MDI_Forme
 			}
 
 			//Dohvaćanje vrste transakcije: prihod(1) ili rashod(2) ili i prihodi i rashodi(0)
-			if (chkPrihodi.Checked == true && chkRashodi.Checked == true) vrstaTransakcije = 0;
-			else if (chkPrihodi.Checked == true && chkRashodi.Checked == false) vrstaTransakcije = 1;
-			else if (chkPrihodi.Checked == false && chkRashodi.Checked == true) vrstaTransakcije = 2;
+			if		(chkPrihodi.Checked == true  && chkRashodi.Checked == true)	 vrstaTransakcije = 0;
+			else if (chkPrihodi.Checked == true	 && chkRashodi.Checked == false) vrstaTransakcije = 1;
+			else if (chkPrihodi.Checked == false && chkRashodi.Checked == true)	 vrstaTransakcije = 2;
 
 			//Dohvaćamo označene bankovne račune iz dataGridView-a bankovnih računa.
 			listaOznacenihBankovnihRacuna = new BindingList<Bankovni_racun>();
@@ -232,10 +242,7 @@ namespace PocetniZaslon.MDI_Forme
 
 				//Provjera kategorija
 				uvjet = false;
-				if (prikazTransakcije.TransakcijaInvesticije != null)
-				{
-					uvjet = true;
-				}
+				if (prikazTransakcije.TransakcijaInvesticije != null) uvjet = true;
 				else
 				{
 					using (var db = new WalletEntities())
@@ -417,8 +424,28 @@ namespace PocetniZaslon.MDI_Forme
 		//Označavanjem reda u dgvPregledTransakcija prikazuje nam se opis odabrane transakcije u text boxu ispod dataGridView-a
 		private void dgvPregledTransakcija_SelectionChanged(object sender, EventArgs e)
 		{
+			if (dgvPregledTransakcija.CurrentRow == null) return;
 			PrikazTransakcije prikazTransakcije = dgvPregledTransakcija.CurrentRow.DataBoundItem as PrikazTransakcije;
+			if (prikazTransakcije == null) return;
 			txtOpis.Text = "Opis:" + System.Environment.NewLine + prikazTransakcije.Opis;
+			if (prikazTransakcije.LokacijaSlike != null)
+			{
+				txtLokacijaSlike.Text = prikazTransakcije.LokacijaSlike;
+				txtLokacijaSlike.Visible = true;
+				btnPrikaziSliku.Visible = true;
+			}
+			else
+			{
+				txtLokacijaSlike.Text = null;
+				txtLokacijaSlike.Visible = false;
+				btnPrikaziSliku.Visible = false;
+			}
+		}
+
+		private void btnPrikaziSliku_Click(object sender, EventArgs e)
+		{
+			Dialog_forme.FrmPrikazSlike prikazSlike = new Dialog_forme.FrmPrikazSlike(txtLokacijaSlike.Text);
+			prikazSlike.ShowDialog();
 		}
 	}
 }
