@@ -20,11 +20,12 @@ namespace PocetniZaslon
 		public Bankovni_racun BankovniRacun { get; set; }
 		public Transakcija ObicnaTransakcija { get; set; }
 		public Transakcija_investicije TransakcijaInvesticije { get; set; }
+		public string LokacijaSlike { get; set; }
 
 		/// <summary>
 		/// Konstruktor za spremanje obične transakcije.
 		/// </summary>
-		public PrikazTransakcije(Transakcija obicnaTransakcija, DateTime datum, Bankovni_racun bankovniRacun, string IBAN, decimal iznos, BindingList<Kategorije_transakcije> kategorijeTransakcije, string opis, int vrstaTransakcije)
+		public PrikazTransakcije(Transakcija obicnaTransakcija, DateTime datum, Bankovni_racun bankovniRacun, string IBAN, decimal iznos, BindingList<Kategorije_transakcije> kategorijeTransakcije, string opis, int vrstaTransakcije, string lokacijaSlike)
 		{
 			ObicnaTransakcija = obicnaTransakcija;
 			Vrijeme = datum;
@@ -36,6 +37,7 @@ namespace PocetniZaslon
 			Opis = opis;
 			VrstaTransakcije = vrstaTransakcije;
 			DatumTransakcije = Vrijeme.ToString("dd/MM/yyyy");
+			if (lokacijaSlike != null) LokacijaSlike = lokacijaSlike;
 		}
 		
 		/// <summary>

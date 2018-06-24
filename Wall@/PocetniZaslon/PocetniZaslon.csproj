@@ -95,6 +95,12 @@
     <Compile Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.Designer.cs">
       <DependentUpon>FrmKategorijeTransakcijaDodaj.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialog_forme\FrmPrikazSlike.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog_forme\FrmPrikazSlike.Designer.cs">
+      <DependentUpon>FrmPrikazSlike.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog_forme\FrmReportTransakcija.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,9 @@
     </Compile>
     <EmbeddedResource Include="Dialog_forme\FrmKategorijeTransakcijaDodaj.resx">
       <DependentUpon>FrmKategorijeTransakcijaDodaj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog_forme\FrmPrikazSlike.resx">
+      <DependentUpon>FrmPrikazSlike.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog_forme\FrmReportTransakcija.resx">
       <DependentUpon>FrmReportTransakcija.cs</DependentUpon>
