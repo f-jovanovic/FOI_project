@@ -13,6 +13,9 @@ namespace PocetniZaslon.MDI_Forme
 {
 	public partial class FrmPocetniZaslon : Form
 	{
+		UpravljanjeBankovnimRacunima upravljanjeBankovnimRacunima = new UpravljanjeBankovnimRacunima();
+		BindingList<Bankovni_racun> listaBankovnihRacuna = null;
+
 		MDI_Forme.FrmStatistika frmStatistika = null;
 		Korisnik trenutniKorisnik = null;
 		public FrmPocetniZaslon(Korisnik korisnik)
@@ -23,6 +26,7 @@ namespace PocetniZaslon.MDI_Forme
 			DohvacanjeStatistike();
 			DohvacanjeInvesticija();
 			DohvacanjeBankovnihRacuna();
+			DohvacanjeTransakcija();
 
 			//sakrivanje stanja investicija ako korisnik nema investicijski portfolio
 			bool portfolioPostoji = true;
@@ -124,7 +128,6 @@ namespace PocetniZaslon.MDI_Forme
 		/// </summary>
 		public void DohvacanjeBankovnihRacuna()
 		{
-			UpravljanjeBankovnimRacunima upravljanjeBankovnimRacunima = new UpravljanjeBankovnimRacunima();
 			BindingList<Bankovni_racun> listaRacuna = upravljanjeBankovnimRacunima.PrikaziBankovneRacunePremaKorisniku(trenutniKorisnik);
 			int brojac = 0;
 			string[] naziv = new string[2];
@@ -190,6 +193,27 @@ namespace PocetniZaslon.MDI_Forme
 			lblNazivR3.Text = naziv[2].ToString();
 			lblVrstaR3.Text = vrsta[2].ToString();
 			lblStanjeR3.Text = stanje[2].ToString();
+		}
+
+		public void DohvacanjeTransakcija()
+		{
+			UpravljanjeTransakcijom upravljanjeTransakcijom = new UpravljanjeTransakcijom();
+			listaBankovnihRacuna = new BindingList<Bankovni_racun>();
+			listaBankovnihRacuna = upravljanjeBankovnimRacunima.PrikaziBankovneRacunePremaKorisniku(trenutniKorisnik);
+
+			BindingList<Transakcija> listaTransakcija = upravljanjeTransakcijom.DohvatiSveTransakcije(listaBankovnihRacuna);
+
+			lblDatumT1.Text = listaTransakcija[0].vrijeme_transakcije.Value.ToString();
+			lblNazivT1.Text = listaTransakcija[0].opis_transakcije.ToString();
+			lblIznosT1.Text = listaTransakcija[0].iznos_transakcije.ToString();
+
+			lblDatumT2.Text = listaTransakcija[1].vrijeme_transakcije.Value.ToString();
+			lblNazivT2.Text = listaTransakcija[1].opis_transakcije.ToString();
+			lblIznosT2.Text = listaTransakcija[1].iznos_transakcije.ToString();
+
+			lblDatumT3.Text = listaTransakcija[2].vrijeme_transakcije.Value.ToString();
+			lblNazivT3.Text = listaTransakcija[2].opis_transakcije.ToString();
+			lblIznosT3.Text = listaTransakcija[2].iznos_transakcije.ToString();
 		}
 	}
 }

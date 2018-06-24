@@ -58,6 +58,8 @@
 			this.vrstainvesticijeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.btnDohvati = new System.Windows.Forms.Button();
 			this.lblTekst = new System.Windows.Forms.Label();
+			this.lblUkIznostekst = new System.Windows.Forms.Label();
+			this.lblUkupanIznos = new System.Windows.Forms.Label();
 			this.gBoxTransakcija.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
@@ -81,6 +83,8 @@
 			// 
 			// gBoxTransakcija
 			// 
+			this.gBoxTransakcija.Controls.Add(this.lblUkupanIznos);
+			this.gBoxTransakcija.Controls.Add(this.lblUkIznostekst);
 			this.gBoxTransakcija.Controls.Add(this.lblKriviTipPodatakaIznos);
 			this.gBoxTransakcija.Controls.Add(this.lblKriviTipPodatakaKolicina);
 			this.gBoxTransakcija.Controls.Add(this.cboNazivInvesticije);
@@ -109,7 +113,7 @@
 			this.lblKriviTipPodatakaIznos.AutoSize = true;
 			this.lblKriviTipPodatakaIznos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblKriviTipPodatakaIznos.ForeColor = System.Drawing.Color.Red;
-			this.lblKriviTipPodatakaIznos.Location = new System.Drawing.Point(275, 698);
+			this.lblKriviTipPodatakaIznos.Location = new System.Drawing.Point(275, 682);
 			this.lblKriviTipPodatakaIznos.Name = "lblKriviTipPodatakaIznos";
 			this.lblKriviTipPodatakaIznos.Size = new System.Drawing.Size(266, 28);
 			this.lblKriviTipPodatakaIznos.TabIndex = 11;
@@ -121,7 +125,7 @@
 			this.lblKriviTipPodatakaKolicina.AutoSize = true;
 			this.lblKriviTipPodatakaKolicina.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblKriviTipPodatakaKolicina.ForeColor = System.Drawing.Color.Red;
-			this.lblKriviTipPodatakaKolicina.Location = new System.Drawing.Point(275, 595);
+			this.lblKriviTipPodatakaKolicina.Location = new System.Drawing.Point(275, 593);
 			this.lblKriviTipPodatakaKolicina.Name = "lblKriviTipPodatakaKolicina";
 			this.lblKriviTipPodatakaKolicina.Size = new System.Drawing.Size(266, 28);
 			this.lblKriviTipPodatakaKolicina.TabIndex = 11;
@@ -173,7 +177,7 @@
 			// txtIznosTransInv
 			// 
 			this.txtIznosTransInv.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtIznosTransInv.Location = new System.Drawing.Point(266, 654);
+			this.txtIznosTransInv.Location = new System.Drawing.Point(266, 645);
 			this.txtIznosTransInv.Name = "txtIznosTransInv";
 			this.txtIznosTransInv.Size = new System.Drawing.Size(274, 34);
 			this.txtIznosTransInv.TabIndex = 6;
@@ -191,7 +195,7 @@
 			// btnIzvrsiTransakciju
 			// 
 			this.btnIzvrsiTransakciju.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-			this.btnIzvrsiTransakciju.Location = new System.Drawing.Point(128, 747);
+			this.btnIzvrsiTransakciju.Location = new System.Drawing.Point(128, 761);
 			this.btnIzvrsiTransakciju.Name = "btnIzvrsiTransakciju";
 			this.btnIzvrsiTransakciju.Size = new System.Drawing.Size(402, 50);
 			this.btnIzvrsiTransakciju.TabIndex = 7;
@@ -227,7 +231,7 @@
 			// 
 			this.lblIznos.AutoSize = true;
 			this.lblIznos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblIznos.Location = new System.Drawing.Point(138, 657);
+			this.lblIznos.Location = new System.Drawing.Point(138, 645);
 			this.lblIznos.Name = "lblIznos";
 			this.lblIznos.Size = new System.Drawing.Size(66, 28);
 			this.lblIznos.TabIndex = 3;
@@ -340,6 +344,26 @@
 			this.lblTekst.TabIndex = 12;
 			this.lblTekst.Text = "Vrijednosti dionica za današnji dan su dohvaćene";
 			// 
+			// lblUkIznostekst
+			// 
+			this.lblUkIznostekst.AutoSize = true;
+			this.lblUkIznostekst.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.lblUkIznostekst.Location = new System.Drawing.Point(69, 716);
+			this.lblUkIznostekst.Name = "lblUkIznostekst";
+			this.lblUkIznostekst.Size = new System.Drawing.Size(144, 28);
+			this.lblUkIznostekst.TabIndex = 12;
+			this.lblUkIznostekst.Text = "Ukupan iznos:";
+			// 
+			// lblUkupanIznos
+			// 
+			this.lblUkupanIznos.AutoSize = true;
+			this.lblUkupanIznos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.lblUkupanIznos.Location = new System.Drawing.Point(262, 716);
+			this.lblUkupanIznos.Name = "lblUkupanIznos";
+			this.lblUkupanIznos.Size = new System.Drawing.Size(70, 28);
+			this.lblUkupanIznos.TabIndex = 13;
+			this.lblUkupanIznos.Text = "label3";
+			// 
 			// FrmInvesticijskiPortfolio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -402,5 +426,7 @@
 		private System.Windows.Forms.Label lblKriviTipPodatakaIznos;
 		private System.Windows.Forms.Button btnDohvati;
 		private System.Windows.Forms.Label lblTekst;
+		private System.Windows.Forms.Label lblUkupanIznos;
+		private System.Windows.Forms.Label lblUkIznostekst;
 	}
 }

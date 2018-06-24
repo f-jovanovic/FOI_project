@@ -28,9 +28,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.lblPocetniZasalon = new System.Windows.Forms.Label();
 			this.gBoxBankovniRacuni = new System.Windows.Forms.GroupBox();
 			this.gBoxInvesticije = new System.Windows.Forms.GroupBox();
@@ -59,9 +59,22 @@
 			this.lblStanjeR3 = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
 			this.label14 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.lblDatumT2 = new System.Windows.Forms.Label();
+			this.lblDatumT3 = new System.Windows.Forms.Label();
+			this.lblNazivT1 = new System.Windows.Forms.Label();
+			this.lblNazivT2 = new System.Windows.Forms.Label();
+			this.lblNazivT3 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.lblIznosT1 = new System.Windows.Forms.Label();
+			this.lblIznosT2 = new System.Windows.Forms.Label();
+			this.lblIznosT3 = new System.Windows.Forms.Label();
+			this.label16 = new System.Windows.Forms.Label();
+			this.lblDatumT1 = new System.Windows.Forms.Label();
 			this.gBoxBankovniRacuni.SuspendLayout();
 			this.gBoxInvesticije.SuspendLayout();
 			this.gBoxStatistika.SuspendLayout();
+			this.gBoxTransakcije.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.chartStatistika)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -81,7 +94,6 @@
 			this.gBoxBankovniRacuni.Controls.Add(this.lblStanjeR2);
 			this.gBoxBankovniRacuni.Controls.Add(this.lblVrstaR3);
 			this.gBoxBankovniRacuni.Controls.Add(this.lblVrstaR2);
-			this.gBoxBankovniRacuni.Controls.Add(this.lblNazivR3);
 			this.gBoxBankovniRacuni.Controls.Add(this.lblNazivR2);
 			this.gBoxBankovniRacuni.Controls.Add(this.lblStanjeR1);
 			this.gBoxBankovniRacuni.Controls.Add(this.lblVrstaR1);
@@ -89,6 +101,7 @@
 			this.gBoxBankovniRacuni.Controls.Add(this.label7);
 			this.gBoxBankovniRacuni.Controls.Add(this.label4);
 			this.gBoxBankovniRacuni.Controls.Add(this.label1);
+			this.gBoxBankovniRacuni.Controls.Add(this.lblNazivR3);
 			this.gBoxBankovniRacuni.Font = new System.Drawing.Font("Segoe UI", 22F);
 			this.gBoxBankovniRacuni.Location = new System.Drawing.Point(36, 189);
 			this.gBoxBankovniRacuni.Name = "gBoxBankovniRacuni";
@@ -130,6 +143,18 @@
 			// 
 			// gBoxTransakcije
 			// 
+			this.gBoxTransakcije.Controls.Add(this.label16);
+			this.gBoxTransakcije.Controls.Add(this.label10);
+			this.gBoxTransakcije.Controls.Add(this.lblDatumT1);
+			this.gBoxTransakcije.Controls.Add(this.label2);
+			this.gBoxTransakcije.Controls.Add(this.lblIznosT3);
+			this.gBoxTransakcije.Controls.Add(this.lblNazivT3);
+			this.gBoxTransakcije.Controls.Add(this.lblDatumT3);
+			this.gBoxTransakcije.Controls.Add(this.lblIznosT2);
+			this.gBoxTransakcije.Controls.Add(this.lblIznosT1);
+			this.gBoxTransakcije.Controls.Add(this.lblNazivT2);
+			this.gBoxTransakcije.Controls.Add(this.lblNazivT1);
+			this.gBoxTransakcije.Controls.Add(this.lblDatumT2);
 			this.gBoxTransakcije.Font = new System.Drawing.Font("Segoe UI", 22F);
 			this.gBoxTransakcije.Location = new System.Drawing.Point(36, 562);
 			this.gBoxTransakcije.Name = "gBoxTransakcije";
@@ -140,17 +165,17 @@
 			// 
 			// chartStatistika
 			// 
-			chartArea1.Name = "ChartArea1";
-			this.chartStatistika.ChartAreas.Add(chartArea1);
-			legend1.Name = "Legend1";
-			this.chartStatistika.Legends.Add(legend1);
+			chartArea2.Name = "ChartArea1";
+			this.chartStatistika.ChartAreas.Add(chartArea2);
+			legend2.Name = "Legend1";
+			this.chartStatistika.Legends.Add(legend2);
 			this.chartStatistika.Location = new System.Drawing.Point(11, 52);
 			this.chartStatistika.Name = "chartStatistika";
-			series1.ChartArea = "ChartArea1";
-			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-			series1.Legend = "Legend1";
-			series1.Name = "Stat";
-			this.chartStatistika.Series.Add(series1);
+			series2.ChartArea = "ChartArea1";
+			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+			series2.Legend = "Legend1";
+			series2.Name = "Stat";
+			this.chartStatistika.Series.Add(series2);
 			this.chartStatistika.Size = new System.Drawing.Size(506, 295);
 			this.chartStatistika.TabIndex = 0;
 			this.chartStatistika.Text = "chartStatistika";
@@ -329,7 +354,7 @@
 			// 
 			this.lblNazivR3.AutoSize = true;
 			this.lblNazivR3.Font = new System.Drawing.Font("Segoe UI", 14F);
-			this.lblNazivR3.Location = new System.Drawing.Point(39, 260);
+			this.lblNazivR3.Location = new System.Drawing.Point(40, 260);
 			this.lblNazivR3.Name = "lblNazivR3";
 			this.lblNazivR3.Size = new System.Drawing.Size(79, 32);
 			this.lblNazivR3.TabIndex = 2;
@@ -375,6 +400,126 @@
 			this.label14.TabIndex = 2;
 			this.label14.Text = "Vrijednost:";
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.label2.Location = new System.Drawing.Point(39, 84);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(92, 32);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Datum:";
+			// 
+			// lblDatumT2
+			// 
+			this.lblDatumT2.AutoSize = true;
+			this.lblDatumT2.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblDatumT2.Location = new System.Drawing.Point(39, 214);
+			this.lblDatumT2.Name = "lblDatumT2";
+			this.lblDatumT2.Size = new System.Drawing.Size(57, 32);
+			this.lblDatumT2.TabIndex = 2;
+			this.lblDatumT2.Text = "N/A";
+			// 
+			// lblDatumT3
+			// 
+			this.lblDatumT3.AutoSize = true;
+			this.lblDatumT3.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblDatumT3.Location = new System.Drawing.Point(39, 279);
+			this.lblDatumT3.Name = "lblDatumT3";
+			this.lblDatumT3.Size = new System.Drawing.Size(57, 32);
+			this.lblDatumT3.TabIndex = 2;
+			this.lblDatumT3.Text = "N/A";
+			// 
+			// lblNazivT1
+			// 
+			this.lblNazivT1.AutoSize = true;
+			this.lblNazivT1.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblNazivT1.Location = new System.Drawing.Point(301, 146);
+			this.lblNazivT1.Name = "lblNazivT1";
+			this.lblNazivT1.Size = new System.Drawing.Size(57, 32);
+			this.lblNazivT1.TabIndex = 2;
+			this.lblNazivT1.Text = "N/A";
+			// 
+			// lblNazivT2
+			// 
+			this.lblNazivT2.AutoSize = true;
+			this.lblNazivT2.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblNazivT2.Location = new System.Drawing.Point(301, 214);
+			this.lblNazivT2.Name = "lblNazivT2";
+			this.lblNazivT2.Size = new System.Drawing.Size(57, 32);
+			this.lblNazivT2.TabIndex = 2;
+			this.lblNazivT2.Text = "N/A";
+			// 
+			// lblNazivT3
+			// 
+			this.lblNazivT3.AutoSize = true;
+			this.lblNazivT3.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblNazivT3.Location = new System.Drawing.Point(301, 279);
+			this.lblNazivT3.Name = "lblNazivT3";
+			this.lblNazivT3.Size = new System.Drawing.Size(57, 32);
+			this.lblNazivT3.TabIndex = 2;
+			this.lblNazivT3.Text = "N/A";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.label10.Location = new System.Drawing.Point(301, 84);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(79, 32);
+			this.label10.TabIndex = 2;
+			this.label10.Text = "Naziv:";
+			// 
+			// lblIznosT1
+			// 
+			this.lblIznosT1.AutoSize = true;
+			this.lblIznosT1.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblIznosT1.Location = new System.Drawing.Point(635, 146);
+			this.lblIznosT1.Name = "lblIznosT1";
+			this.lblIznosT1.Size = new System.Drawing.Size(57, 32);
+			this.lblIznosT1.TabIndex = 2;
+			this.lblIznosT1.Text = "N/A";
+			// 
+			// lblIznosT2
+			// 
+			this.lblIznosT2.AutoSize = true;
+			this.lblIznosT2.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblIznosT2.Location = new System.Drawing.Point(635, 214);
+			this.lblIznosT2.Name = "lblIznosT2";
+			this.lblIznosT2.Size = new System.Drawing.Size(57, 32);
+			this.lblIznosT2.TabIndex = 2;
+			this.lblIznosT2.Text = "N/A";
+			// 
+			// lblIznosT3
+			// 
+			this.lblIznosT3.AutoSize = true;
+			this.lblIznosT3.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblIznosT3.Location = new System.Drawing.Point(635, 279);
+			this.lblIznosT3.Name = "lblIznosT3";
+			this.lblIznosT3.Size = new System.Drawing.Size(57, 32);
+			this.lblIznosT3.TabIndex = 2;
+			this.lblIznosT3.Text = "N/A";
+			// 
+			// label16
+			// 
+			this.label16.AutoSize = true;
+			this.label16.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.label16.Location = new System.Drawing.Point(635, 84);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(75, 32);
+			this.label16.TabIndex = 2;
+			this.label16.Text = "lznos:";
+			// 
+			// lblDatumT1
+			// 
+			this.lblDatumT1.AutoSize = true;
+			this.lblDatumT1.Font = new System.Drawing.Font("Segoe UI", 14F);
+			this.lblDatumT1.Location = new System.Drawing.Point(39, 146);
+			this.lblDatumT1.Name = "lblDatumT1";
+			this.lblDatumT1.Size = new System.Drawing.Size(57, 32);
+			this.lblDatumT1.TabIndex = 2;
+			this.lblDatumT1.Text = "N/A";
+			// 
 			// FrmPocetniZaslon
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -393,6 +538,8 @@
 			this.gBoxInvesticije.ResumeLayout(false);
 			this.gBoxInvesticije.PerformLayout();
 			this.gBoxStatistika.ResumeLayout(false);
+			this.gBoxTransakcije.ResumeLayout(false);
+			this.gBoxTransakcije.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.chartStatistika)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -429,5 +576,17 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label lblDatumT1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label lblIznosT3;
+		private System.Windows.Forms.Label lblNazivT3;
+		private System.Windows.Forms.Label lblDatumT3;
+		private System.Windows.Forms.Label lblIznosT2;
+		private System.Windows.Forms.Label lblIznosT1;
+		private System.Windows.Forms.Label lblNazivT2;
+		private System.Windows.Forms.Label lblNazivT1;
+		private System.Windows.Forms.Label lblDatumT2;
 	}
 }
