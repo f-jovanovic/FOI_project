@@ -46,6 +46,11 @@ namespace PocetniZaslon
 		private void btnZaslon_Click(object sender, EventArgs e)
 		{
 			UgasiSveOtvoreneProzore();
+			MDI_Forme.FrmPocetniZaslon frmPocetniZaslon = new MDI_Forme.FrmPocetniZaslon(trenutniKorisnik);
+			frmPocetniZaslon.MdiParent = this;
+			frmPocetniZaslon.Dock = DockStyle.Fill;
+			frmPocetniZaslon.Show();
+			PrilagodiElementeChild(frmPocetniZaslon);
 		}
 
 		private void btnUnosTransakcije_Click(object sender, EventArgs e)
@@ -152,6 +157,16 @@ namespace PocetniZaslon
 			}
 		}
 		#endregion
+
+		private void FrmGlavniIzbornik_Load(object sender, EventArgs e)
+		{
+			UgasiSveOtvoreneProzore();
+			MDI_Forme.FrmPocetniZaslon frmPocetniZaslon = new MDI_Forme.FrmPocetniZaslon(trenutniKorisnik);
+			frmPocetniZaslon.MdiParent = this;
+			frmPocetniZaslon.Dock = DockStyle.Fill;
+			frmPocetniZaslon.Show();
+			PrilagodiElementeChild(frmPocetniZaslon);
+		}
 	}
 }
 
