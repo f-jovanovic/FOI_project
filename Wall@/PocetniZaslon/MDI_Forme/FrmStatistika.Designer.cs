@@ -28,12 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.lblStatistikaNaslov = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.chartLinearRashodi = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -74,36 +74,36 @@
 			// 
 			// chartLinearRashodi
 			// 
-			chartArea1.Name = "ChartArea1";
-			this.chartLinearRashodi.ChartAreas.Add(chartArea1);
-			legend1.Name = "Legend1";
-			this.chartLinearRashodi.Legends.Add(legend1);
+			chartArea3.Name = "ChartArea1";
+			this.chartLinearRashodi.ChartAreas.Add(chartArea3);
+			legend3.Name = "Legend1";
+			this.chartLinearRashodi.Legends.Add(legend3);
 			this.chartLinearRashodi.Location = new System.Drawing.Point(6, 76);
 			this.chartLinearRashodi.Name = "chartLinearRashodi";
-			series1.ChartArea = "ChartArea1";
-			series1.Legend = "Legend1";
-			series1.Name = "Rashodi";
-			series1.XValueMember = "vrijeme_transakcije";
-			series1.YValueMembers = "iznos_transakcije";
-			this.chartLinearRashodi.Series.Add(series1);
+			series3.ChartArea = "ChartArea1";
+			series3.Legend = "Legend1";
+			series3.Name = "Rashodi";
+			series3.XValueMember = "vrijeme_transakcije";
+			series3.YValueMembers = "iznos_transakcije";
+			this.chartLinearRashodi.Series.Add(series3);
 			this.chartLinearRashodi.Size = new System.Drawing.Size(1167, 534);
 			this.chartLinearRashodi.TabIndex = 0;
 			this.chartLinearRashodi.Text = "chartLinearRashodi";
 			// 
 			// chartPrihodivRashodi
 			// 
-			chartArea2.Name = "ChartArea1";
-			this.chartPrihodivRashodi.ChartAreas.Add(chartArea2);
-			legend2.Name = "Legend1";
-			this.chartPrihodivRashodi.Legends.Add(legend2);
+			chartArea4.Name = "ChartArea1";
+			this.chartPrihodivRashodi.ChartAreas.Add(chartArea4);
+			legend4.Name = "Legend1";
+			this.chartPrihodivRashodi.Legends.Add(legend4);
 			this.chartPrihodivRashodi.Location = new System.Drawing.Point(6, 76);
 			this.chartPrihodivRashodi.Name = "chartPrihodivRashodi";
-			series2.ChartArea = "ChartArea1";
-			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-			series2.Legend = "Legend1";
-			series2.Name = "PChart";
-			series2.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-			this.chartPrihodivRashodi.Series.Add(series2);
+			series4.ChartArea = "ChartArea1";
+			series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+			series4.Legend = "Legend1";
+			series4.Name = "PChart";
+			series4.XAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+			this.chartPrihodivRashodi.Series.Add(series4);
 			this.chartPrihodivRashodi.Size = new System.Drawing.Size(534, 372);
 			this.chartPrihodivRashodi.TabIndex = 0;
 			this.chartPrihodivRashodi.Text = "chartPrihodivRashodi";
@@ -143,7 +143,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(12, 764);
+			this.label3.Location = new System.Drawing.Point(12, 775);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(296, 32);
 			this.label3.TabIndex = 2;
@@ -173,7 +173,7 @@
 			// 
 			this.lblRazlika.AutoSize = true;
 			this.lblRazlika.Font = new System.Drawing.Font("Segoe UI", 14F);
-			this.lblRazlika.Location = new System.Drawing.Point(439, 764);
+			this.lblRazlika.Location = new System.Drawing.Point(439, 775);
 			this.lblRazlika.Name = "lblRazlika";
 			this.lblRazlika.Size = new System.Drawing.Size(79, 32);
 			this.lblRazlika.TabIndex = 3;
@@ -183,7 +183,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1762, 1169);
+			this.ClientSize = new System.Drawing.Size(1762, 1102);
 			this.Controls.Add(this.lblRazlika);
 			this.Controls.Add(this.lblPrihodi);
 			this.Controls.Add(this.lblRashodi);

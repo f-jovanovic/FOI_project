@@ -24,7 +24,6 @@ namespace PocetniZaslon.MDI_Forme
 		Korisnik trenutniKorisnik = null;
 
 		BindingList<PrikazTransakcije> listaPrikazaTransacija = new BindingList<PrikazTransakcije>();
-
 		public FrmStatistika(Korisnik korisnik)
 		{
 			trenutniKorisnik = korisnik;
@@ -40,7 +39,7 @@ namespace PocetniZaslon.MDI_Forme
 		/// <summary>
 		/// metoda koja sluzi da se izračunaju ukupni iznosi rashoda za svaki dan
 		/// </summary>
-		public void DohvatiSveZapise()
+		public decimal DohvatiSveZapise()
 		{
 			//trebam:
 			//vrstu transakcije, rashod
@@ -146,7 +145,23 @@ namespace PocetniZaslon.MDI_Forme
 			lblRashodi.Text = ukupniIznosRashoda.ToString();
 			lblPrihodi.Text = ukupniIznosPrihoda.ToString();
 			lblRazlika.Text = (ukupniIznosPrihoda + ukupniIznosRashoda).ToString();
+
+			return ukupniIznosSvihTransackija;
+
 		}
 
+
+		public decimal VratiUkupniRashod()
+		{
+			decimal ukupniRashod = 0;
+			ukupniRashod = decimal.Parse(lblRashodi.Text);
+			return ukupniRashod;
+		}
+		public decimal VratiUkupniPrihod()
+		{
+			decimal ukupniPrihod = 0;
+			ukupniPrihod = decimal.Parse(lblPrihodi.Text);
+			return ukupniPrihod;
+		}
 	}
 }

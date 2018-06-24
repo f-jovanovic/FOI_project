@@ -20,10 +20,18 @@ namespace PocetniZaslon.MDI_Forme
 			trenutniKorisnik = korisnik;
 			frmStatistika = new FrmStatistika(trenutniKorisnik);
 			InitializeComponent();
+			DohvacanjeStatistike();
 		}
 
 		public void DohvacanjeStatistike()
 		{
+			decimal ukupniIznosTransakcija = frmStatistika.DohvatiSveZapise();
+			decimal ukupniPrihodi = frmStatistika.VratiUkupniPrihod();
+			decimal ukupniRashodi = frmStatistika.VratiUkupniRashod();
+			
+
+			chartStatistika.Series["Stat"].Points.AddXY("Prihodi",  ukupniPrihodi/ ukupniIznosTransakcija);
+			chartStatistika.Series["Stat"].Points.AddXY("Rashodi", ukupniRashodi / ukupniIznosTransakcija);
 
 		}
 	}
