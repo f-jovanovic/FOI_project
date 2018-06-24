@@ -139,9 +139,18 @@ namespace PocetniZaslon.MDI_Forme
 			}
 			decimal ukupniIznosSvihTransackija = ukupniIznosPrihoda + ukupniIznosRashoda;
 			//punjenje pie charta
-			chartPrihodivRashodi.Series["PChart"].Points.AddXY("Rashodi", ukupniIznosRashoda/ukupniIznosSvihTransackija);
-			chartPrihodivRashodi.Series["PChart"].Points.AddXY("Prihodi", ukupniIznosPrihoda/ukupniIznosSvihTransackija);
+			try
+			{
+				chartPrihodivRashodi.Series["PChart"].Points.AddXY("Rashodi", ukupniIznosRashoda / ukupniIznosSvihTransackija);
+				chartPrihodivRashodi.Series["PChart"].Points.AddXY("Prihodi", ukupniIznosPrihoda / ukupniIznosSvihTransackija);
 
+			}
+			catch (Exception)
+			{
+				chartPrihodivRashodi.Hide();
+				
+			}
+			
 			lblRashodi.Text = ukupniIznosRashoda.ToString();
 			lblPrihodi.Text = ukupniIznosPrihoda.ToString();
 			lblRazlika.Text = (ukupniIznosPrihoda + ukupniIznosRashoda).ToString();

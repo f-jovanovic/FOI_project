@@ -12,18 +12,19 @@ namespace PocetniZaslon.Dialog_forme
 {
 	public partial class FrmPrikazSlike : Form
 	{
-		public string LokacijaSlike { get; set; }
+		string lokacijaSlike;
+
 		public FrmPrikazSlike(string text)
 		{
 			InitializeComponent();
-			LokacijaSlike = text;
+			lokacijaSlike = text;
 		}
 
 		private void FrmPrikazSlike_Load(object sender, EventArgs e)
 		{
 			try
 			{
-				pictureBoxSlika.Image = Image.FromFile(LokacijaSlike);
+				pictureBoxSlika.Image = Image.FromFile(lokacijaSlike);
 				this.Size = new Size(pictureBoxSlika.Image.Width + 15, pictureBoxSlika.Image.Height + 40);
 			}
 			catch (Exception)

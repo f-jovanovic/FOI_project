@@ -212,13 +212,13 @@ namespace PocetniZaslon.MDI_Forme
 			{
 				ProdajInvesticiju();
 			}
-			DohvacanjePodatakaZaDGW();
+			DohvacanjePodatakaZaDGV();
 		}
 
 		/// <summary>
 		/// metoda koja sluzi da se dohvate svi podaci potrebni za prikaz investicije (stanje naziv itd)
 		/// </summary>
-		private void DohvacanjePodatakaZaDGW()
+		private void DohvacanjePodatakaZaDGV()
 		{
 			UpravljanjeTransakcijom upravljanjeTransakcijom = new UpravljanjeTransakcijom();
 			UpravljanjeBankovnimRacunima upravljanjeBankovnimRacunima = new UpravljanjeBankovnimRacunima();
@@ -226,16 +226,16 @@ namespace PocetniZaslon.MDI_Forme
 
 			BindingList<Transakcija_investicije> listaSvihTransakcijaInvesticija = upravljanjeTransakcijom.DohvatiSveTransakcijeInvesticija(listaBankovnikRacuna);
 
-			dgwVlastiteInvesticije.Rows.Clear();
+			dgvVlastiteInvesticije.Rows.Clear();
 
-			dgwVlastiteInvesticije.ColumnCount = 6;
+			dgvVlastiteInvesticije.ColumnCount = 6;
 
-			dgwVlastiteInvesticije.Columns[0].Name = "Naziv investicije";
-			dgwVlastiteInvesticije.Columns[1].Name = "Vrijeme transakcije investicije";
-			dgwVlastiteInvesticije.Columns[2].Name = "Naziv vrste investicije";
-			dgwVlastiteInvesticije.Columns[3].Name = "Vrijednost investicije";
-			dgwVlastiteInvesticije.Columns[4].Name = "Kolicina investicije";
-			dgwVlastiteInvesticije.Columns[5].Name = "Ukupni iznos";
+			dgvVlastiteInvesticije.Columns[0].Name = "Naziv investicije";
+			dgvVlastiteInvesticije.Columns[1].Name = "Vrijeme transakcije investicije";
+			dgvVlastiteInvesticije.Columns[2].Name = "Naziv vrste investicije";
+			dgvVlastiteInvesticije.Columns[3].Name = "Vrijednost investicije";
+			dgvVlastiteInvesticije.Columns[4].Name = "Kolicina investicije";
+			dgvVlastiteInvesticije.Columns[5].Name = "Ukupni iznos";
 
 			string naziv = "";
 			DateTime? vrijeme;
@@ -271,19 +271,19 @@ namespace PocetniZaslon.MDI_Forme
 					db.Entry(transakcijaInvesticije).State = System.Data.Entity.EntityState.Detached;
 
 					string[] row = new string[] { naziv, vrijeme.ToString(), nazivVrsteInvesticije, vrijednost.ToString(), kolicina.ToString(), (vrijednost * kolicina).ToString() };
-					dgwVlastiteInvesticije.Rows.Add(row);
+					dgvVlastiteInvesticije.Rows.Add(row);
 				}
 			}
 
-			dgwVlastiteInvesticije.Columns[2].ValueType = typeof(DateTime);
-			dgwVlastiteInvesticije.Sort(dgwVlastiteInvesticije.Columns["Vrijeme transakcije investicije"], ListSortDirection.Descending);
+			dgvVlastiteInvesticije.Columns[2].ValueType = typeof(DateTime);
+			dgvVlastiteInvesticije.Sort(dgvVlastiteInvesticije.Columns["Vrijeme transakcije investicije"], ListSortDirection.Descending);
 			
 		}
 
 		private void FrmInvesticijskiPortfolio_Load(object sender, EventArgs e)
 		{
 			lblTekst.Visible = false;
-			DohvacanjePodatakaZaDGW();
+			DohvacanjePodatakaZaDGV();
 			btnIzvrsiTransakciju.Enabled = false;
 			//provjerava ako je stanje već uzeto da korisnik na taj dan ne moze uzimati ponovno stanje
 			using (var db = new WalletEntities())
@@ -388,7 +388,7 @@ namespace PocetniZaslon.MDI_Forme
 			{
 				foreach (var item in db.Stanje_investicije)
 				{
-					if (item.id_investicije == (cBoxNazivInvesticije.SelectedItem as Investicija).id_investicije)
+					if (item.id_investicije == (cboNazivInvesticije.SelectedItem as Investicija).id_investicije)
 					{
 						txtIznosTransInv.Text = item.vrijednost_investicije.ToString();
 					}
@@ -399,7 +399,7 @@ namespace PocetniZaslon.MDI_Forme
 
 		private void FrmInvesticijskiPortfolio_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			cBoxNazivInvesticije.Dispose();
+			cboNazivInvesticije.Dispose();
 		}
 
 		private void btnDohvati_Click(object sender, EventArgs e)

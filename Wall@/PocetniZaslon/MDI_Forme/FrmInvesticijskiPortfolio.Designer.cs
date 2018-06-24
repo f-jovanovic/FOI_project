@@ -33,9 +33,9 @@
 			this.gBoxTransakcija = new System.Windows.Forms.GroupBox();
 			this.lblKriviTipPodatakaIznos = new System.Windows.Forms.Label();
 			this.lblKriviTipPodatakaKolicina = new System.Windows.Forms.Label();
-			this.cBoxNazivInvesticije = new System.Windows.Forms.ComboBox();
+			this.cboNazivInvesticije = new System.Windows.Forms.ComboBox();
 			this.investicijaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.cBoxBankovniRačun = new System.Windows.Forms.ComboBox();
+			this.cboBankovniRačun = new System.Windows.Forms.ComboBox();
 			this.bankovniracunBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dtpDatum = new System.Windows.Forms.DateTimePicker();
 			this.txtIznosTransInv = new System.Windows.Forms.TextBox();
@@ -51,7 +51,7 @@
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.vrstainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.label1 = new System.Windows.Forms.Label();
-			this.dgwVlastiteInvesticije = new System.Windows.Forms.DataGridView();
+			this.dgvVlastiteInvesticije = new System.Windows.Forms.DataGridView();
 			this.stanjeinvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.transakcijainvesticijeBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.bankovniracunBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -62,7 +62,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgwVlastiteInvesticije)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvVlastiteInvesticije)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.stanjeinvesticijeBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.transakcijainvesticijeBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource1)).BeginInit();
@@ -83,8 +83,8 @@
 			// 
 			this.gBoxTransakcija.Controls.Add(this.lblKriviTipPodatakaIznos);
 			this.gBoxTransakcija.Controls.Add(this.lblKriviTipPodatakaKolicina);
-			this.gBoxTransakcija.Controls.Add(this.cBoxNazivInvesticije);
-			this.gBoxTransakcija.Controls.Add(this.cBoxBankovniRačun);
+			this.gBoxTransakcija.Controls.Add(this.cboNazivInvesticije);
+			this.gBoxTransakcija.Controls.Add(this.cboBankovniRačun);
 			this.gBoxTransakcija.Controls.Add(this.dtpDatum);
 			this.gBoxTransakcija.Controls.Add(this.txtIznosTransInv);
 			this.gBoxTransakcija.Controls.Add(this.txtKolicina);
@@ -128,34 +128,34 @@
 			this.lblKriviTipPodatakaKolicina.Text = "Unijeli ste krivi tip podataka";
 			this.lblKriviTipPodatakaKolicina.Visible = false;
 			// 
-			// cBoxNazivInvesticije
+			// cboNazivInvesticije
 			// 
-			this.cBoxNazivInvesticije.DataSource = this.investicijaBindingSource;
-			this.cBoxNazivInvesticije.DisplayMember = "naziv_investicije";
-			this.cBoxNazivInvesticije.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.cBoxNazivInvesticije.FormattingEnabled = true;
-			this.cBoxNazivInvesticije.Location = new System.Drawing.Point(267, 239);
-			this.cBoxNazivInvesticije.Name = "cBoxNazivInvesticije";
-			this.cBoxNazivInvesticije.Size = new System.Drawing.Size(273, 36);
-			this.cBoxNazivInvesticije.TabIndex = 2;
-			this.cBoxNazivInvesticije.ValueMember = "id_investicije";
-			this.cBoxNazivInvesticije.SelectedIndexChanged += new System.EventHandler(this.cBoxNazivInvesticije_SelectedIndexChanged);
+			this.cboNazivInvesticije.DataSource = this.investicijaBindingSource;
+			this.cboNazivInvesticije.DisplayMember = "naziv_investicije";
+			this.cboNazivInvesticije.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.cboNazivInvesticije.FormattingEnabled = true;
+			this.cboNazivInvesticije.Location = new System.Drawing.Point(267, 239);
+			this.cboNazivInvesticije.Name = "cboNazivInvesticije";
+			this.cboNazivInvesticije.Size = new System.Drawing.Size(273, 36);
+			this.cboNazivInvesticije.TabIndex = 2;
+			this.cboNazivInvesticije.ValueMember = "id_investicije";
+			this.cboNazivInvesticije.SelectedIndexChanged += new System.EventHandler(this.cBoxNazivInvesticije_SelectedIndexChanged);
 			// 
 			// investicijaBindingSource
 			// 
 			this.investicijaBindingSource.DataSource = typeof(PocetniZaslon.Investicija);
 			// 
-			// cBoxBankovniRačun
+			// cboBankovniRačun
 			// 
-			this.cBoxBankovniRačun.DataSource = this.bankovniracunBindingSource;
-			this.cBoxBankovniRačun.DisplayMember = "naziv_racuna";
-			this.cBoxBankovniRačun.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.cBoxBankovniRačun.FormattingEnabled = true;
-			this.cBoxBankovniRačun.Location = new System.Drawing.Point(267, 449);
-			this.cBoxBankovniRačun.Name = "cBoxBankovniRačun";
-			this.cBoxBankovniRačun.Size = new System.Drawing.Size(274, 36);
-			this.cBoxBankovniRačun.TabIndex = 4;
-			this.cBoxBankovniRačun.ValueMember = "iban";
+			this.cboBankovniRačun.DataSource = this.bankovniracunBindingSource;
+			this.cboBankovniRačun.DisplayMember = "naziv_racuna";
+			this.cboBankovniRačun.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+			this.cboBankovniRačun.FormattingEnabled = true;
+			this.cboBankovniRačun.Location = new System.Drawing.Point(267, 449);
+			this.cboBankovniRačun.Name = "cboBankovniRačun";
+			this.cboBankovniRačun.Size = new System.Drawing.Size(274, 36);
+			this.cboBankovniRačun.TabIndex = 4;
+			this.cboBankovniRačun.ValueMember = "iban";
 			// 
 			// bankovniracunBindingSource
 			// 
@@ -287,21 +287,21 @@
 			this.label1.TabIndex = 9;
 			this.label1.Text = "Moje investicije:";
 			// 
-			// dgwVlastiteInvesticije
+			// dgvVlastiteInvesticije
 			// 
-			this.dgwVlastiteInvesticije.AllowUserToAddRows = false;
-			this.dgwVlastiteInvesticije.AllowUserToDeleteRows = false;
-			this.dgwVlastiteInvesticije.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dgwVlastiteInvesticije.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-			this.dgwVlastiteInvesticije.BackgroundColor = System.Drawing.SystemColors.Control;
-			this.dgwVlastiteInvesticije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgwVlastiteInvesticije.Location = new System.Drawing.Point(35, 252);
-			this.dgwVlastiteInvesticije.Name = "dgwVlastiteInvesticije";
-			this.dgwVlastiteInvesticije.ReadOnly = true;
-			this.dgwVlastiteInvesticije.RowTemplate.Height = 24;
-			this.dgwVlastiteInvesticije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgwVlastiteInvesticije.Size = new System.Drawing.Size(979, 647);
-			this.dgwVlastiteInvesticije.TabIndex = 10;
+			this.dgvVlastiteInvesticije.AllowUserToAddRows = false;
+			this.dgvVlastiteInvesticije.AllowUserToDeleteRows = false;
+			this.dgvVlastiteInvesticije.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvVlastiteInvesticije.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+			this.dgvVlastiteInvesticije.BackgroundColor = System.Drawing.SystemColors.Control;
+			this.dgvVlastiteInvesticije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvVlastiteInvesticije.Location = new System.Drawing.Point(35, 252);
+			this.dgvVlastiteInvesticije.Name = "dgvVlastiteInvesticije";
+			this.dgvVlastiteInvesticije.ReadOnly = true;
+			this.dgvVlastiteInvesticije.RowTemplate.Height = 24;
+			this.dgvVlastiteInvesticije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvVlastiteInvesticije.Size = new System.Drawing.Size(979, 647);
+			this.dgvVlastiteInvesticije.TabIndex = 10;
 			// 
 			// stanjeinvesticijeBindingSource
 			// 
@@ -347,7 +347,7 @@
 			this.ClientSize = new System.Drawing.Size(1640, 948);
 			this.Controls.Add(this.lblTekst);
 			this.Controls.Add(this.btnDohvati);
-			this.Controls.Add(this.dgwVlastiteInvesticije);
+			this.Controls.Add(this.dgvVlastiteInvesticije);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.gBoxTransakcija);
 			this.Controls.Add(this.lblInvesticijskiPortfolio);
@@ -361,7 +361,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.vrstainvesticijeBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.dgwVlastiteInvesticije)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvVlastiteInvesticije)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.stanjeinvesticijeBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.transakcijainvesticijeBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource1)).EndInit();
@@ -383,20 +383,20 @@
 		private System.Windows.Forms.Label lblDatum;
 		private System.Windows.Forms.Label lblKolicina;
 		private System.Windows.Forms.Label lblNaziv;
-		private System.Windows.Forms.ComboBox cBoxBankovniRačun;
+		private System.Windows.Forms.ComboBox cboBankovniRačun;
 		private System.Windows.Forms.DateTimePicker dtpDatum;
 		private System.Windows.Forms.TextBox txtKolicina;
 		private System.Windows.Forms.Button btnIzvrsiTransakciju;
 		private System.Windows.Forms.BindingSource bankovniracunBindingSource;
 		private System.Windows.Forms.BindingSource bankovniracunBindingSource1;
 		private System.Windows.Forms.BindingSource vrstainvesticijeBindingSource;
-		private System.Windows.Forms.ComboBox cBoxNazivInvesticije;
+		private System.Windows.Forms.ComboBox cboNazivInvesticije;
 		private System.Windows.Forms.BindingSource investicijaBindingSource;
 		private System.Windows.Forms.TextBox txtIznosTransInv;
 		private System.Windows.Forms.BindingSource transakcijainvesticijeBindingSource;
 		private System.Windows.Forms.BindingSource vrstainvesticijeBindingSource1;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.DataGridView dgwVlastiteInvesticije;
+		private System.Windows.Forms.DataGridView dgvVlastiteInvesticije;
 		private System.Windows.Forms.BindingSource stanjeinvesticijeBindingSource;
 		private System.Windows.Forms.Label lblKriviTipPodatakaKolicina;
 		private System.Windows.Forms.Label lblKriviTipPodatakaIznos;

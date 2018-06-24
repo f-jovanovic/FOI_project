@@ -13,13 +13,13 @@ namespace PocetniZaslon.Dialog_forme
     public partial class FrmKategorijeTransakcijaDodaj : Form
     {
         Korisnik trenutniKorisnik = null;
-        int vrsta_id;
+        int idVrste;
         Kategorije_transakcije odabranaKategorija = null;
         public FrmKategorijeTransakcijaDodaj(Korisnik korisnik, int vrsta_id, Kategorije_transakcije kategorija)
         {
             odabranaKategorija = kategorija;
             trenutniKorisnik = korisnik;
-            this.vrsta_id = vrsta_id;
+            this.idVrste = vrsta_id;
 
             InitializeComponent();
 
@@ -59,7 +59,7 @@ namespace PocetniZaslon.Dialog_forme
                         {
                             naziv_kategorije = txtNazivKategorije.Text,
                             id_korisnik = trenutniKorisnik.id_korisnik,
-                            id_vrsta_transakcije = vrsta_id
+                            id_vrsta_transakcije = idVrste
                         };
                         db.Kategorije_transakcije.Add(novaKategorija);
                     }
