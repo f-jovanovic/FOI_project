@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocetniZaslon", "PocetniZaslon\PocetniZaslon.csproj", "{4019AC7E-BF0B-44AE-90D2-C88A85BECA40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wall@", "PocetniZaslon\Wall@.csproj", "{4019AC7E-BF0B-44AE-90D2-C88A85BECA40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
