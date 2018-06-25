@@ -197,23 +197,26 @@ namespace PocetniZaslon.MDI_Forme
 
 		public void DohvacanjeTransakcija()
 		{
+
 			UpravljanjeTransakcijom upravljanjeTransakcijom = new UpravljanjeTransakcijom();
 			listaBankovnihRacuna = new BindingList<Bankovni_racun>();
 			listaBankovnihRacuna = upravljanjeBankovnimRacunima.PrikaziBankovneRacunePremaKorisniku(trenutniKorisnik);
 
 			BindingList<Transakcija> listaTransakcija = upravljanjeTransakcijom.DohvatiSveTransakcije(listaBankovnihRacuna);
+			List<Transakcija> lista = listaTransakcija.ToList();
+			lista = lista.OrderByDescending(x => x.vrijeme_transakcije).ToList();
 
-			lblDatumT1.Text = listaTransakcija[0].vrijeme_transakcije.Value.ToString();
-			lblNazivT1.Text = listaTransakcija[0].opis_transakcije.ToString();
-			lblIznosT1.Text = listaTransakcija[0].iznos_transakcije.ToString();
+			lblDatumT1.Text = lista[0].vrijeme_transakcije.ToString();
+			lblNazivT1.Text = lista[0].opis_transakcije.ToString();
+			lblIznosT1.Text = lista[0].iznos_transakcije.ToString();
 
-			lblDatumT2.Text = listaTransakcija[1].vrijeme_transakcije.Value.ToString();
-			lblNazivT2.Text = listaTransakcija[1].opis_transakcije.ToString();
-			lblIznosT2.Text = listaTransakcija[1].iznos_transakcije.ToString();
+			lblDatumT2.Text = lista[1].vrijeme_transakcije.ToString();
+			lblNazivT2.Text = lista[1].opis_transakcije.ToString();
+			lblIznosT2.Text = lista[1].iznos_transakcije.ToString();
 
-			lblDatumT3.Text = listaTransakcija[2].vrijeme_transakcije.Value.ToString();
-			lblNazivT3.Text = listaTransakcija[2].opis_transakcije.ToString();
-			lblIznosT3.Text = listaTransakcija[2].iznos_transakcije.ToString();
+			lblDatumT3.Text = lista[2].vrijeme_transakcije.ToString();
+			lblNazivT3.Text = lista[2].opis_transakcije.ToString();
+			lblIznosT3.Text = lista[2].iznos_transakcije.ToString();
 		}
 	}
 }

@@ -135,7 +135,7 @@ namespace PocetniZaslon
 				}
 			}
 			
-			listaTransakcija.OrderBy(x => x.vrijeme_transakcije);
+			listaTransakcija.OrderByDescending(x => x.vrijeme_transakcije);
 			return listaTransakcija;
 		}
 
