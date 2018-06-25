@@ -218,5 +218,11 @@ namespace PocetniZaslon.MDI_Forme
 			lblNazivT3.Text = lista[2].opis_transakcije.ToString();
 			lblIznosT3.Text = lista[2].iznos_transakcije.ToString();
 		}
+
+		private void FrmPocetniZaslon_HelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			string keyword = "pocetni";
+			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+		}
 	}
 }

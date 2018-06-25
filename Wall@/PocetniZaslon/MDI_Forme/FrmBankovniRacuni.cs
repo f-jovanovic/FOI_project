@@ -75,5 +75,11 @@ namespace PocetniZaslon.MDI_Forme
 			radnjaNadBankovnimRacunom.ObrisiRacun(odabraniRacun);
 			bankovniracunBindingSource.DataSource = radnjaNadBankovnimRacunom.PrikaziBankovneRacunePremaKorisniku(trenutniKorisnik);
 		}
+
+		private void FrmBankovniRacuni_HelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			string keyword = "racun";
+			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+		}
 	}
 }

@@ -64,6 +64,12 @@ namespace PocetniZaslon.MDI_Forme
             frmUnosTransakcijaInterni.Show();
             frmGlavni.PrilagodiElementeChild(frmUnosTransakcijaInterni);
         }
-        #endregion
-    }
+		#endregion
+
+		private void FrmUnosTransakcija_HelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			string keyword = "unosTr";
+			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+		}
+	}
 }

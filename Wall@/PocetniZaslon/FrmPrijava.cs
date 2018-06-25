@@ -82,5 +82,11 @@ namespace PocetniZaslon
             registracija.ShowDialog();
             this.Show();
         }
-    }
+
+		private void FrmPrijava_HelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			string keyword = "prijava";
+			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+		}
+	}
 }

@@ -162,6 +162,12 @@ namespace PocetniZaslon.MDI_Forme
         {
             ProvjeriIznos();
         }
-        #endregion
-    }
+		#endregion
+
+		private void FrmUnosTransakcijaInterni_HelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			string keyword = "interni";
+			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+		}
+	}
 }

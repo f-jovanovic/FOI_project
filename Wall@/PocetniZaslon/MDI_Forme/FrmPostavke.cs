@@ -128,6 +128,12 @@ namespace PocetniZaslon.MDI_Forme
             if (ProvjeriDuljinu() && ProvjeriIspravnostLozinki()) btnPromjeniLozinku.Enabled = true;
             else btnPromjeniLozinku.Enabled = false;
         }
-        #endregion
-    }
+		#endregion
+
+		private void FrmPostavke_HelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			string keyword = "postavke";
+			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+		}
+	}
 }

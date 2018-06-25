@@ -205,5 +205,11 @@ namespace PocetniZaslon.MDI_Forme
             }
             else btnSpremiTransakcijuPrihod.Enabled = false;
         }
-    }
+
+		private void FrmUnosTransakcijaPrihod_HelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			string keyword = "prihod";
+			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+		}
+	}
 }

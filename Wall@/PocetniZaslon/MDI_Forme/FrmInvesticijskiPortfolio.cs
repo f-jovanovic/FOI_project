@@ -409,5 +409,11 @@ namespace PocetniZaslon.MDI_Forme
 			btnDohvati.Enabled = false;
 
 		}
+
+		private void FrmInvesticijskiPortfolio_HelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			string keyword = "investicijski";
+			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+		}
 	}
 }

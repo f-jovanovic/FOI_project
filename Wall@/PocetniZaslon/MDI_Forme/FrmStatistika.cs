@@ -172,5 +172,11 @@ namespace PocetniZaslon.MDI_Forme
 			ukupniPrihod = decimal.Parse(lblPrihodi.Text);
 			return ukupniPrihod;
 		}
+
+		private void FrmStatistika_HelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			string keyword = "stat";
+			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+		}
 	}
 }

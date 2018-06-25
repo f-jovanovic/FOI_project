@@ -447,5 +447,11 @@ namespace PocetniZaslon.MDI_Forme
 			Dialog_forme.FrmPrikazSlike prikazSlike = new Dialog_forme.FrmPrikazSlike(txtLokacijaSlike.Text);
 			prikazSlike.ShowDialog();
 		}
+
+		private void FrmPregledTransakcija_HelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			string keyword = "pregled";
+			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+		}
 	}
 }

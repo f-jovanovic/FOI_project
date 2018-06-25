@@ -58,8 +58,6 @@
 			this.vrstainvesticijeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
 			this.btnDohvati = new System.Windows.Forms.Button();
 			this.lblTekst = new System.Windows.Forms.Label();
-			this.lblUkIznostekst = new System.Windows.Forms.Label();
-			this.lblUkupanIznos = new System.Windows.Forms.Label();
 			this.gBoxTransakcija.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.bankovniracunBindingSource)).BeginInit();
@@ -83,8 +81,6 @@
 			// 
 			// gBoxTransakcija
 			// 
-			this.gBoxTransakcija.Controls.Add(this.lblUkupanIznos);
-			this.gBoxTransakcija.Controls.Add(this.lblUkIznostekst);
 			this.gBoxTransakcija.Controls.Add(this.lblKriviTipPodatakaIznos);
 			this.gBoxTransakcija.Controls.Add(this.lblKriviTipPodatakaKolicina);
 			this.gBoxTransakcija.Controls.Add(this.cboNazivInvesticije);
@@ -344,26 +340,6 @@
 			this.lblTekst.TabIndex = 12;
 			this.lblTekst.Text = "Vrijednosti dionica za današnji dan su dohvaćene";
 			// 
-			// lblUkIznostekst
-			// 
-			this.lblUkIznostekst.AutoSize = true;
-			this.lblUkIznostekst.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblUkIznostekst.Location = new System.Drawing.Point(69, 716);
-			this.lblUkIznostekst.Name = "lblUkIznostekst";
-			this.lblUkIznostekst.Size = new System.Drawing.Size(144, 28);
-			this.lblUkIznostekst.TabIndex = 12;
-			this.lblUkIznostekst.Text = "Ukupan iznos:";
-			// 
-			// lblUkupanIznos
-			// 
-			this.lblUkupanIznos.AutoSize = true;
-			this.lblUkupanIznos.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-			this.lblUkupanIznos.Location = new System.Drawing.Point(262, 716);
-			this.lblUkupanIznos.Name = "lblUkupanIznos";
-			this.lblUkupanIznos.Size = new System.Drawing.Size(70, 28);
-			this.lblUkupanIznos.TabIndex = 13;
-			this.lblUkupanIznos.Text = "label3";
-			// 
 			// FrmInvesticijskiPortfolio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -380,6 +356,7 @@
 			this.Text = "2";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmInvesticijskiPortfolio_FormClosing);
 			this.Load += new System.EventHandler(this.FrmInvesticijskiPortfolio_Load);
+			this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.FrmInvesticijskiPortfolio_HelpRequested);
 			this.gBoxTransakcija.ResumeLayout(false);
 			this.gBoxTransakcija.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.investicijaBindingSource)).EndInit();
@@ -426,7 +403,5 @@
 		private System.Windows.Forms.Label lblKriviTipPodatakaIznos;
 		private System.Windows.Forms.Button btnDohvati;
 		private System.Windows.Forms.Label lblTekst;
-		private System.Windows.Forms.Label lblUkupanIznos;
-		private System.Windows.Forms.Label lblUkIznostekst;
 	}
 }
