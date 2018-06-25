@@ -86,7 +86,8 @@ namespace PocetniZaslon
 		private void FrmPrijava_HelpRequested(object sender, HelpEventArgs hlpevent)
 		{
 			string keyword = "prijava";
-			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+			//C: \Users\Luna\Documents\r18027\Wall@\PocetniZaslon\Resources
+			Help.ShowHelp(this, @"..\\..\\Resources\\Korisnicka.chm", HelpNavigator.TopicId, keyword);
 		}
 	}
 }

@@ -222,7 +222,7 @@ namespace PocetniZaslon.MDI_Forme
 		private void FrmPocetniZaslon_HelpRequested(object sender, HelpEventArgs hlpevent)
 		{
 			string keyword = "pocetni";
-			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+			Help.ShowHelp(this, @"..\\..\\Resources\\Korisnicka.chm", HelpNavigator.TopicId, keyword);
 		}
 	}
 }

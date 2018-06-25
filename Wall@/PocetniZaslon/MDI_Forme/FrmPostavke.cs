@@ -133,7 +133,7 @@ namespace PocetniZaslon.MDI_Forme
 		private void FrmPostavke_HelpRequested(object sender, HelpEventArgs hlpevent)
 		{
 			string keyword = "postavke";
-			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+			Help.ShowHelp(this, @"..\\..\\Resources\\Korisnicka.chm", HelpNavigator.TopicId, keyword);
 		}
 	}
 }

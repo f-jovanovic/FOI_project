@@ -209,7 +209,7 @@ namespace PocetniZaslon.MDI_Forme
 		private void FrmUnosTransakcijaPrihod_HelpRequested(object sender, HelpEventArgs hlpevent)
 		{
 			string keyword = "prihod";
-			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+			Help.ShowHelp(this, @"..\\..\\Resources\\Korisnicka.chm", HelpNavigator.TopicId, keyword);
 		}
 	}
 }

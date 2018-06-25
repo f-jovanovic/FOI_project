@@ -255,7 +255,7 @@ namespace PocetniZaslon.MDI_Forme
 		private void FrmUnosTransakcijaRashod_HelpRequested(object sender, HelpEventArgs hlpevent)
 		{
 			string keyword = "trosak";
-			Help.ShowHelp(this, @"C:\Users\Luna\Desktop\Korisnicka.chm", HelpNavigator.TopicId, keyword);
+			Help.ShowHelp(this, @"..\\..\\Resources\\Korisnicka.chm", HelpNavigator.TopicId, keyword);
 		}
 	}
 }
