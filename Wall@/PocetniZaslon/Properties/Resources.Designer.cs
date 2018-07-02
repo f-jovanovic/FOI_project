@@ -63,9 +63,9 @@ namespace PocetniZaslon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Wall__logo {
+        internal static System.Drawing.Bitmap logo_text {
             get {
-                object obj = ResourceManager.GetObject("Wall@_logo", resourceCulture);
+                object obj = ResourceManager.GetObject("logo_text", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -32,10 +32,10 @@
             this.lblLozinka = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtLozinka = new System.Windows.Forms.TextBox();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnPrijava = new System.Windows.Forms.Button();
             this.btnRegistracija = new System.Windows.Forms.Button();
             this.cboxMaskLozinka = new System.Windows.Forms.CheckBox();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +44,7 @@
             this.lblEmail.AutoSize = true;
             this.lblEmail.BackColor = System.Drawing.Color.White;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblEmail.Location = new System.Drawing.Point(39, 321);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(93, 38);
@@ -55,6 +56,7 @@
             this.lblLozinka.AutoSize = true;
             this.lblLozinka.BackColor = System.Drawing.Color.White;
             this.lblLozinka.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblLozinka.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblLozinka.Location = new System.Drawing.Point(11, 382);
             this.lblLozinka.Name = "lblLozinka";
             this.lblLozinka.Size = new System.Drawing.Size(121, 38);
@@ -78,50 +80,60 @@
             this.txtLozinka.TabIndex = 3;
             this.txtLozinka.UseSystemPasswordChar = true;
             // 
-            // pbLogo
-            // 
-            this.pbLogo.BackColor = System.Drawing.Color.White;
-            this.pbLogo.BackgroundImage = global::PocetniZaslon.Properties.Resources.Wall__logo;
-            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbLogo.Location = new System.Drawing.Point(12, 12);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(458, 257);
-            this.pbLogo.TabIndex = 4;
-            this.pbLogo.TabStop = false;
-            // 
             // btnPrijava
             // 
+            this.btnPrijava.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnPrijava.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnPrijava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrijava.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPrijava.ForeColor = System.Drawing.Color.White;
             this.btnPrijava.Location = new System.Drawing.Point(12, 482);
             this.btnPrijava.Name = "btnPrijava";
             this.btnPrijava.Size = new System.Drawing.Size(458, 64);
             this.btnPrijava.TabIndex = 5;
             this.btnPrijava.Text = "Prijava";
-            this.btnPrijava.UseVisualStyleBackColor = true;
+            this.btnPrijava.UseVisualStyleBackColor = false;
             this.btnPrijava.Click += new System.EventHandler(this.btnPrijava_Click);
             // 
             // btnRegistracija
             // 
+            this.btnRegistracija.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnRegistracija.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRegistracija.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistracija.Font = new System.Drawing.Font("Segoe UI Semilight", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnRegistracija.ForeColor = System.Drawing.Color.White;
             this.btnRegistracija.Location = new System.Drawing.Point(12, 577);
             this.btnRegistracija.Name = "btnRegistracija";
             this.btnRegistracija.Size = new System.Drawing.Size(458, 64);
             this.btnRegistracija.TabIndex = 6;
             this.btnRegistracija.Text = "Registracija";
-            this.btnRegistracija.UseVisualStyleBackColor = true;
+            this.btnRegistracija.UseVisualStyleBackColor = false;
             this.btnRegistracija.Click += new System.EventHandler(this.btnRegistracija_Click);
             // 
             // cboxMaskLozinka
             // 
             this.cboxMaskLozinka.AutoSize = true;
             this.cboxMaskLozinka.BackColor = System.Drawing.Color.White;
+            this.cboxMaskLozinka.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cboxMaskLozinka.ForeColor = System.Drawing.SystemColors.Highlight;
             this.cboxMaskLozinka.Location = new System.Drawing.Point(138, 426);
             this.cboxMaskLozinka.Name = "cboxMaskLozinka";
-            this.cboxMaskLozinka.Size = new System.Drawing.Size(120, 21);
+            this.cboxMaskLozinka.Size = new System.Drawing.Size(123, 23);
             this.cboxMaskLozinka.TabIndex = 7;
             this.cboxMaskLozinka.Text = "Prikaži lozinku";
             this.cboxMaskLozinka.UseVisualStyleBackColor = false;
             this.cboxMaskLozinka.CheckedChanged += new System.EventHandler(this.cboxMaskLozinka_CheckedChanged);
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.BackColor = System.Drawing.Color.White;
+            this.pbLogo.BackgroundImage = global::PocetniZaslon.Properties.Resources.logo_text;
+            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbLogo.Location = new System.Drawing.Point(12, 12);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(458, 257);
+            this.pbLogo.TabIndex = 4;
+            this.pbLogo.TabStop = false;
             // 
             // FrmPrijava
             // 

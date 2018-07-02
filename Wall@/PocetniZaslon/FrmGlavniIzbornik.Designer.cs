@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGlavniIzbornik));
             this.splitterMenuScreen = new System.Windows.Forms.Splitter();
             this.btnOdjava = new System.Windows.Forms.Button();
             this.btnPostavke = new System.Windows.Forms.Button();
@@ -56,9 +55,11 @@
             // 
             // btnOdjava
             // 
-            this.btnOdjava.BackColor = System.Drawing.Color.White;
+            this.btnOdjava.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnOdjava.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOdjava.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnOdjava.ForeColor = System.Drawing.Color.White;
             this.btnOdjava.Location = new System.Drawing.Point(12, 896);
             this.btnOdjava.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOdjava.Name = "btnOdjava";
@@ -70,9 +71,11 @@
             // 
             // btnPostavke
             // 
-            this.btnPostavke.BackColor = System.Drawing.Color.White;
+            this.btnPostavke.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnPostavke.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnPostavke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPostavke.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPostavke.ForeColor = System.Drawing.Color.White;
             this.btnPostavke.Location = new System.Drawing.Point(12, 814);
             this.btnPostavke.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPostavke.Name = "btnPostavke";
@@ -84,9 +87,11 @@
             // 
             // btnStatistika
             // 
-            this.btnStatistika.BackColor = System.Drawing.Color.White;
+            this.btnStatistika.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnStatistika.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnStatistika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistika.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnStatistika.ForeColor = System.Drawing.Color.White;
             this.btnStatistika.Location = new System.Drawing.Point(12, 730);
             this.btnStatistika.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStatistika.Name = "btnStatistika";
@@ -98,9 +103,11 @@
             // 
             // btnInvesticijskiPortfolio
             // 
-            this.btnInvesticijskiPortfolio.BackColor = System.Drawing.Color.White;
+            this.btnInvesticijskiPortfolio.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnInvesticijskiPortfolio.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnInvesticijskiPortfolio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInvesticijskiPortfolio.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnInvesticijskiPortfolio.ForeColor = System.Drawing.Color.White;
             this.btnInvesticijskiPortfolio.Location = new System.Drawing.Point(12, 647);
             this.btnInvesticijskiPortfolio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInvesticijskiPortfolio.Name = "btnInvesticijskiPortfolio";
@@ -112,9 +119,11 @@
             // 
             // btnPregled
             // 
-            this.btnPregled.BackColor = System.Drawing.Color.White;
+            this.btnPregled.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnPregled.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnPregled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPregled.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPregled.ForeColor = System.Drawing.Color.White;
             this.btnPregled.Location = new System.Drawing.Point(12, 564);
             this.btnPregled.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPregled.Name = "btnPregled";
@@ -126,9 +135,11 @@
             // 
             // btnUnosTransakcije
             // 
-            this.btnUnosTransakcije.BackColor = System.Drawing.Color.White;
+            this.btnUnosTransakcije.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnUnosTransakcije.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnUnosTransakcije.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnosTransakcije.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnUnosTransakcije.ForeColor = System.Drawing.Color.White;
             this.btnUnosTransakcije.Location = new System.Drawing.Point(12, 481);
             this.btnUnosTransakcije.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUnosTransakcije.Name = "btnUnosTransakcije";
@@ -140,9 +151,11 @@
             // 
             // btnBankovniRacun
             // 
-            this.btnBankovniRacun.BackColor = System.Drawing.Color.White;
+            this.btnBankovniRacun.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnBankovniRacun.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnBankovniRacun.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBankovniRacun.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnBankovniRacun.ForeColor = System.Drawing.Color.White;
             this.btnBankovniRacun.Location = new System.Drawing.Point(12, 398);
             this.btnBankovniRacun.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBankovniRacun.Name = "btnBankovniRacun";
@@ -154,9 +167,11 @@
             // 
             // btnZaslon
             // 
-            this.btnZaslon.BackColor = System.Drawing.Color.White;
+            this.btnZaslon.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.btnZaslon.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnZaslon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZaslon.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnZaslon.ForeColor = System.Drawing.Color.White;
             this.btnZaslon.Location = new System.Drawing.Point(12, 315);
             this.btnZaslon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnZaslon.Name = "btnZaslon";
@@ -170,22 +185,24 @@
             // 
             this.lblTrenutniKorisnikImePrezime.AutoSize = true;
             this.lblTrenutniKorisnikImePrezime.BackColor = System.Drawing.Color.White;
+            this.lblTrenutniKorisnikImePrezime.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTrenutniKorisnikImePrezime.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblTrenutniKorisnikImePrezime.Location = new System.Drawing.Point(12, 247);
             this.lblTrenutniKorisnikImePrezime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTrenutniKorisnikImePrezime.Name = "lblTrenutniKorisnikImePrezime";
-            this.lblTrenutniKorisnikImePrezime.Size = new System.Drawing.Size(46, 17);
+            this.lblTrenutniKorisnikImePrezime.Size = new System.Drawing.Size(45, 19);
             this.lblTrenutniKorisnikImePrezime.TabIndex = 20;
             this.lblTrenutniKorisnikImePrezime.Text = "label1";
             // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.White;
-            this.pictureBoxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.BackgroundImage")));
-            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(12, 12);
+            this.pictureBoxLogo.BackgroundImage = global::PocetniZaslon.Properties.Resources.logo_text;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(12, 60);
             this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(233, 194);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(233, 101);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxLogo.TabIndex = 18;
             this.pictureBoxLogo.TabStop = false;
@@ -209,7 +226,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmGlavniIzbornik";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Wall@";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
