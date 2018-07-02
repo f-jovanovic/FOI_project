@@ -151,17 +151,17 @@ namespace PocetniZaslon.MDI_Forme
 
 			if (brojac == 0)
 			{
-				lblNazivR1.Text = "N/A";
+				lblNazivR1.Text = "";
 				lblVrstaR1.Text = "N/A";
-				lblStanjeR1.Text = "N/A";
+				lblStanjeR1.Text = "";
 
-				lblNazivR2.Text = "N/A";
+				lblNazivR2.Text = "";
 				lblVrstaR2.Text = "N/A";
-				lblStanjeR2.Text = "N/A";
+				lblStanjeR2.Text = "";
 
-				lblNazivR3.Text = "N/A";
+				lblNazivR3.Text = "";
 				lblVrstaR3.Text = "N/A";
-				lblStanjeR3.Text = "N/A";
+				lblStanjeR3.Text = "";
 
 				return;
 			}
@@ -170,13 +170,13 @@ namespace PocetniZaslon.MDI_Forme
 			lblStanjeR1.Text = stanje[0].ToString();
 			if (brojac == 1)
 			{
-				lblNazivR2.Text = "N/A";
+				lblNazivR2.Text = "";
 				lblVrstaR2.Text = "N/A";
-				lblStanjeR2.Text = "N/A";
+				lblStanjeR2.Text = "";
 
-				lblNazivR3.Text = "N/A";
+				lblNazivR3.Text = "";
 				lblVrstaR3.Text = "N/A";
-				lblStanjeR3.Text = "N/A";
+				lblStanjeR3.Text = "";
 
 				return;
 			}
@@ -185,9 +185,9 @@ namespace PocetniZaslon.MDI_Forme
 			lblStanjeR2.Text = stanje[1].ToString();
 			if (brojac == 2)
 			{
-				lblNazivR3.Text = "N/A";
+				lblNazivR3.Text = "";
 				lblVrstaR3.Text = "N/A";
-				lblStanjeR3.Text = "N/A";
+				lblStanjeR3.Text = "";
 				return;
 			}
 			lblNazivR3.Text = naziv[2].ToString();
@@ -206,18 +206,64 @@ namespace PocetniZaslon.MDI_Forme
 			List<Transakcija> lista = listaTransakcija.ToList();
 			lista = lista.OrderByDescending(x => x.vrijeme_transakcije).ToList();
 
-			lblDatumT1.Text = lista[0].vrijeme_transakcije.ToString();
-			lblNazivT1.Text = lista[0].opis_transakcije.ToString();
-			lblIznosT1.Text = lista[0].iznos_transakcije.ToString();
+            if (lista.Count >= 3)
+            {
 
-			lblDatumT2.Text = lista[1].vrijeme_transakcije.ToString();
-			lblNazivT2.Text = lista[1].opis_transakcije.ToString();
-			lblIznosT2.Text = lista[1].iznos_transakcije.ToString();
+                lblDatumT1.Text = lista[0].vrijeme_transakcije.ToString();
+                lblNazivT1.Text = lista[0].opis_transakcije.ToString();
+                lblIznosT1.Text = lista[0].iznos_transakcije.ToString();
 
-			lblDatumT3.Text = lista[2].vrijeme_transakcije.ToString();
-			lblNazivT3.Text = lista[2].opis_transakcije.ToString();
-			lblIznosT3.Text = lista[2].iznos_transakcije.ToString();
-		}
+                lblDatumT2.Text = lista[1].vrijeme_transakcije.ToString();
+                lblNazivT2.Text = lista[1].opis_transakcije.ToString();
+                lblIznosT2.Text = lista[1].iznos_transakcije.ToString();
+
+                lblDatumT3.Text = lista[2].vrijeme_transakcije.ToString();
+                lblNazivT3.Text = lista[2].opis_transakcije.ToString();
+                lblIznosT3.Text = lista[2].iznos_transakcije.ToString();
+            }
+            else if (lista.Count == 2)
+            {
+                lblDatumT1.Text = lista[0].vrijeme_transakcije.ToString();
+                lblNazivT1.Text = lista[0].opis_transakcije.ToString();
+                lblIznosT1.Text = lista[0].iznos_transakcije.ToString();
+
+                lblDatumT2.Text = lista[1].vrijeme_transakcije.ToString();
+                lblNazivT2.Text = lista[1].opis_transakcije.ToString();
+                lblIznosT2.Text = lista[1].iznos_transakcije.ToString();
+
+                lblDatumT3.Text = "";
+                lblNazivT3.Text = "N/A";
+                lblIznosT3.Text = "";
+            }
+            else if (lista.Count == 1)
+            {
+                lblDatumT1.Text = lista[0].vrijeme_transakcije.ToString();
+                lblNazivT1.Text = lista[0].opis_transakcije.ToString();
+                lblIznosT1.Text = lista[0].iznos_transakcije.ToString();
+
+                lblDatumT2.Text = "";
+                lblNazivT2.Text = "N/A";
+                lblIznosT2.Text = "";
+
+                lblDatumT3.Text = "";
+                lblNazivT3.Text = "N/A";
+                lblIznosT3.Text = "";
+            }
+            else
+            {
+                lblDatumT1.Text = "";
+                lblNazivT1.Text = "N/A";
+                lblIznosT1.Text = "";
+
+                lblDatumT2.Text = "";
+                lblNazivT2.Text = "N/A";
+                lblIznosT2.Text = "";
+
+                lblDatumT3.Text = "";
+                lblNazivT3.Text = "N/A";
+                lblIznosT3.Text = "";
+            }
+        }
 
 		private void FrmPocetniZaslon_HelpRequested(object sender, HelpEventArgs hlpevent)
 		{
