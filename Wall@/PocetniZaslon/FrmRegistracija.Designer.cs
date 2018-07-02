@@ -48,6 +48,7 @@
             // lblNaslov
             // 
             this.lblNaslov.AutoSize = true;
+            this.lblNaslov.BackColor = System.Drawing.Color.White;
             this.lblNaslov.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblNaslov.Location = new System.Drawing.Point(169, 9);
             this.lblNaslov.Name = "lblNaslov";
@@ -58,6 +59,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
+            this.lblEmail.BackColor = System.Drawing.Color.White;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblEmail.Location = new System.Drawing.Point(40, 111);
             this.lblEmail.Name = "lblEmail";
@@ -68,6 +70,7 @@
             // lblIme
             // 
             this.lblIme.AutoSize = true;
+            this.lblIme.BackColor = System.Drawing.Color.White;
             this.lblIme.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblIme.Location = new System.Drawing.Point(57, 179);
             this.lblIme.Name = "lblIme";
@@ -78,6 +81,7 @@
             // lblPrezime
             // 
             this.lblPrezime.AutoSize = true;
+            this.lblPrezime.BackColor = System.Drawing.Color.White;
             this.lblPrezime.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblPrezime.Location = new System.Drawing.Point(12, 247);
             this.lblPrezime.Name = "lblPrezime";
@@ -88,6 +92,7 @@
             // lblLozinka
             // 
             this.lblLozinka.AutoSize = true;
+            this.lblLozinka.BackColor = System.Drawing.Color.White;
             this.lblLozinka.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblLozinka.Location = new System.Drawing.Point(88, 360);
             this.lblLozinka.Name = "lblLozinka";
@@ -98,6 +103,7 @@
             // lblPonoviLozinku
             // 
             this.lblPonoviLozinku.AutoSize = true;
+            this.lblPonoviLozinku.BackColor = System.Drawing.Color.White;
             this.lblPonoviLozinku.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblPonoviLozinku.Location = new System.Drawing.Point(12, 433);
             this.lblPonoviLozinku.Name = "lblPonoviLozinku";
@@ -167,6 +173,7 @@
             // lblWarningLozinka
             // 
             this.lblWarningLozinka.AutoSize = true;
+            this.lblWarningLozinka.BackColor = System.Drawing.Color.White;
             this.lblWarningLozinka.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblWarningLozinka.ForeColor = System.Drawing.Color.Red;
             this.lblWarningLozinka.Location = new System.Drawing.Point(197, 399);
@@ -179,6 +186,7 @@
             // lblWarningEmail
             // 
             this.lblWarningEmail.AutoSize = true;
+            this.lblWarningEmail.BackColor = System.Drawing.Color.White;
             this.lblWarningEmail.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblWarningEmail.ForeColor = System.Drawing.Color.Red;
             this.lblWarningEmail.Location = new System.Drawing.Point(127, 149);
@@ -191,6 +199,7 @@
             // lblWarningPonoviLozinku
             // 
             this.lblWarningPonoviLozinku.AutoSize = true;
+            this.lblWarningPonoviLozinku.BackColor = System.Drawing.Color.White;
             this.lblWarningPonoviLozinku.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblWarningPonoviLozinku.ForeColor = System.Drawing.Color.Red;
             this.lblWarningPonoviLozinku.Location = new System.Drawing.Point(197, 471);
@@ -204,6 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(682, 653);
             this.Controls.Add(this.lblWarningPonoviLozinku);
             this.Controls.Add(this.lblWarningEmail);
