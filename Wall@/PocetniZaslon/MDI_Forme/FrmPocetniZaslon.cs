@@ -128,73 +128,90 @@ namespace PocetniZaslon.MDI_Forme
 		/// </summary>
 		public void DohvacanjeBankovnihRacuna()
 		{
-            return;
 			BindingList<Bankovni_racun> listaRacuna = upravljanjeBankovnimRacunima.PrikaziBankovneRacunePremaKorisniku(trenutniKorisnik);
-			int brojac = 0;
-			string[] naziv = new string[2];
-			string[] vrsta = new string[2];
-			decimal?[] stanje = new decimal?[2];
-			Vrsta_racuna vrstaRacuna = null;
-			foreach (Bankovni_racun racun in listaRacuna)
-			{
-				if (brojac == 3) break;
-				using (WalletEntities db = new WalletEntities())
-				{
-					db.Bankovni_racun.Attach(racun);
-					naziv[brojac] = racun.naziv_racuna;
-					stanje[brojac] = racun.stanje_racuna;
-					vrstaRacuna = racun.Vrsta_racuna;
-					db.Vrsta_racuna.Attach(vrstaRacuna);
-					vrsta[brojac] = vrstaRacuna.naziv_vrste_racuna;
-				}
-				brojac++;
-			}
 
-			if (brojac == 0)
-			{
-				lblNazivR1.Text = "";
-				lblVrstaR1.Text = "N/A";
-				lblStanjeR1.Text = "";
+            if (listaRacuna.Count >= 3)
+            {
+                lblNazivR1.Text = PodaciRacuna(listaRacuna[0])[0];
+                lblVrstaR1.Text = PodaciRacuna(listaRacuna[0])[2];
+                lblStanjeR1.Text = PodaciRacuna(listaRacuna[0])[1];
 
-				lblNazivR2.Text = "";
-				lblVrstaR2.Text = "N/A";
-				lblStanjeR2.Text = "";
+                lblNazivR2.Text = PodaciRacuna(listaRacuna[1])[0];
+                lblVrstaR2.Text = PodaciRacuna(listaRacuna[1])[2];
+                lblStanjeR2.Text = PodaciRacuna(listaRacuna[1])[1];
 
-				lblNazivR3.Text = "";
-				lblVrstaR3.Text = "N/A";
-				lblStanjeR3.Text = "";
+                lblNazivR3.Text = PodaciRacuna(listaRacuna[2])[0];
+                lblVrstaR3.Text = PodaciRacuna(listaRacuna[2])[2];
+                lblStanjeR3.Text = PodaciRacuna(listaRacuna[2])[1];
+            }
 
-				return;
-			}
-			lblNazivR1.Text = naziv[0].ToString();
-			lblVrstaR1.Text = vrsta[0].ToString();
-			lblStanjeR1.Text = stanje[0].ToString();
-			if (brojac == 1)
-			{
-				lblNazivR2.Text = "";
-				lblVrstaR2.Text = "N/A";
-				lblStanjeR2.Text = "";
+            else if (listaRacuna.Count == 2)
+            {
+                lblNazivR1.Text = PodaciRacuna(listaRacuna[0])[0];
+                lblVrstaR1.Text = PodaciRacuna(listaRacuna[0])[2];
+                lblStanjeR1.Text = PodaciRacuna(listaRacuna[0])[1];
 
-				lblNazivR3.Text = "";
-				lblVrstaR3.Text = "N/A";
-				lblStanjeR3.Text = "";
+                lblNazivR2.Text = PodaciRacuna(listaRacuna[1])[0];
+                lblVrstaR2.Text = PodaciRacuna(listaRacuna[1])[2];
+                lblStanjeR2.Text = PodaciRacuna(listaRacuna[1])[1];
 
-				return;
-			}
-			lblNazivR2.Text = naziv[1].ToString();
-			lblVrstaR2.Text = vrsta[1].ToString();
-			lblStanjeR2.Text = stanje[1].ToString();
-			if (brojac == 2)
-			{
-				lblNazivR3.Text = "";
-				lblVrstaR3.Text = "N/A";
-				lblStanjeR3.Text = "";
-				return;
-			}
-			lblNazivR3.Text = naziv[2].ToString();
-			lblVrstaR3.Text = vrsta[2].ToString();
-			lblStanjeR3.Text = stanje[2].ToString();
+                lblNazivR3.Text = "";
+                lblVrstaR3.Text = "N/A";
+                lblStanjeR3.Text = "";
+            }
+
+            else if (listaRacuna.Count == 1)
+            {
+                lblNazivR1.Text = PodaciRacuna(listaRacuna[0])[0];
+                lblVrstaR1.Text = PodaciRacuna(listaRacuna[0])[2];
+                lblStanjeR1.Text = PodaciRacuna(listaRacuna[0])[1];
+
+                lblNazivR2.Text = "";
+                lblVrstaR2.Text = "N/A";
+                lblStanjeR2.Text = "";
+
+                lblNazivR3.Text = "";
+                lblVrstaR3.Text = "N/A";
+                lblStanjeR3.Text = "";
+            }
+
+            else
+            {
+                lblNazivR1.Text = "";
+                lblVrstaR1.Text = "N/A";
+                lblStanjeR1.Text = "";
+
+                lblNazivR2.Text = "";
+                lblVrstaR2.Text = "N/A";
+                lblStanjeR2.Text = "";
+
+                lblNazivR3.Text = "";
+                lblVrstaR3.Text = "N/A";
+                lblStanjeR3.Text = "";
+            }
 		}
+
+        /// <summary>
+        /// Dohvati listu s podacima o danom bankovnom računu.
+        /// </summary>
+        /// <param name="racun"></param>
+        /// <returns></returns>
+        private List<string> PodaciRacuna(Bankovni_racun racun)
+        {
+            List<string> detaljiRacuna = new List<string>();
+
+            using (WalletEntities db = new WalletEntities())
+            {
+                db.Bankovni_racun.Attach(racun);
+                detaljiRacuna.Add(racun.naziv_racuna);
+                detaljiRacuna.Add(racun.stanje_racuna.ToString());
+
+                db.Vrsta_racuna.Attach(racun.Vrsta_racuna);
+                detaljiRacuna.Add(racun.Vrsta_racuna.naziv_vrste_racuna);
+            }
+
+            return detaljiRacuna;
+        }
 
 		public void DohvacanjeTransakcija()
 		{
