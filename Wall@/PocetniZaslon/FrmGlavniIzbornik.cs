@@ -18,8 +18,7 @@ namespace PocetniZaslon
 			trenutniKorisnik = korisnik;
 
 			InitializeComponent();
-
-			lblTrenutniKorisnikImePrezime.Text = trenutniKorisnik.ime_korisnika + " " + trenutniKorisnik.prezime_korisnika;
+            KorisnikImePrezime();
 		}
 
 		#region Upravljanje Gumbima Glavnog Izbornika
@@ -35,7 +34,8 @@ namespace PocetniZaslon
 
 		private void btnBankovniRacun_Click(object sender, EventArgs e) // Klikom na Bankovni racuni otvara se forma FrmBankovniRacuni unutar MDI containera
 		{
-			UgasiSveOtvoreneProzore();
+            KorisnikImePrezime();
+            UgasiSveOtvoreneProzore();
 			MDI_Forme.FrmBankovniRacuni formaBankovniRacun = new MDI_Forme.FrmBankovniRacuni(trenutniKorisnik);
 			formaBankovniRacun.MdiParent = this;
 			formaBankovniRacun.Dock = DockStyle.Fill;
@@ -45,7 +45,8 @@ namespace PocetniZaslon
 
 		private void btnZaslon_Click(object sender, EventArgs e)
 		{
-			UgasiSveOtvoreneProzore();
+            KorisnikImePrezime();
+            UgasiSveOtvoreneProzore();
 			MDI_Forme.FrmPocetniZaslon frmPocetniZaslon = new MDI_Forme.FrmPocetniZaslon(trenutniKorisnik);
 			frmPocetniZaslon.MdiParent = this;
 			frmPocetniZaslon.Dock = DockStyle.Fill;
@@ -55,7 +56,8 @@ namespace PocetniZaslon
 
 		private void btnUnosTransakcije_Click(object sender, EventArgs e)
 		{
-			UgasiSveOtvoreneProzore();
+            KorisnikImePrezime();
+            UgasiSveOtvoreneProzore();
             MDI_Forme.FrmUnosTransakcija frmUnosTransakcija = new MDI_Forme.FrmUnosTransakcija(trenutniKorisnik);
             frmUnosTransakcija.MdiParent = this;
             frmUnosTransakcija.Dock = DockStyle.Fill;
@@ -65,7 +67,8 @@ namespace PocetniZaslon
 
 		private void btnPregled_Click(object sender, EventArgs e)
 		{
-			UgasiSveOtvoreneProzore();
+            KorisnikImePrezime();
+            UgasiSveOtvoreneProzore();
 			MDI_Forme.FrmPregledTransakcija frmPregledTransakcija = new MDI_Forme.FrmPregledTransakcija(trenutniKorisnik);
 			frmPregledTransakcija.MdiParent = this;
 			frmPregledTransakcija.Dock = DockStyle.Fill;
@@ -75,7 +78,8 @@ namespace PocetniZaslon
 
 		private void btnInvesticijskiPortfolio_Click(object sender, EventArgs e)
 		{
-			UgasiSveOtvoreneProzore();
+            KorisnikImePrezime();
+            UgasiSveOtvoreneProzore();
 			MDI_Forme.FrmInvesticijskiPortfolio formaInvesticijskiPortfolio = new MDI_Forme.FrmInvesticijskiPortfolio(trenutniKorisnik);
 			formaInvesticijskiPortfolio.MdiParent = this;
 			formaInvesticijskiPortfolio.Dock = DockStyle.Fill;
@@ -86,7 +90,8 @@ namespace PocetniZaslon
 
 		private void btnStatistika_Click(object sender, EventArgs e)
 		{
-			UgasiSveOtvoreneProzore();
+            KorisnikImePrezime();
+            UgasiSveOtvoreneProzore();
 			MDI_Forme.FrmStatistika formaStatistika = new MDI_Forme.FrmStatistika(trenutniKorisnik);
 			formaStatistika.MdiParent = this;
 			formaStatistika.Dock = DockStyle.Fill;
@@ -96,7 +101,8 @@ namespace PocetniZaslon
 
 		private void btnPostavke_Click(object sender, EventArgs e)
 		{
-			UgasiSveOtvoreneProzore();
+            KorisnikImePrezime();
+            UgasiSveOtvoreneProzore();
             MDI_Forme.FrmPostavke frmPostavke = new MDI_Forme.FrmPostavke(trenutniKorisnik);
             frmPostavke.MdiParent = this;
             frmPostavke.Dock = DockStyle.Fill;
@@ -167,6 +173,12 @@ namespace PocetniZaslon
 			frmPocetniZaslon.Show();
 			PrilagodiElementeChild(frmPocetniZaslon);
 		}
+
+        private void KorisnikImePrezime ()
+        {
+            lblIme.Text = trenutniKorisnik.ime_korisnika;
+            lblPrezime.Text = trenutniKorisnik.prezime_korisnika;
+        }
 	}
 }
 

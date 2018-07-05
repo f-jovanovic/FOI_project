@@ -648,6 +648,7 @@
             // txtOpis
             // 
             this.txtOpis.BackColor = System.Drawing.Color.White;
+            this.txtOpis.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txtOpis.Location = new System.Drawing.Point(2, 704);
             this.txtOpis.Multiline = true;
             this.txtOpis.Name = "txtOpis";
@@ -673,10 +674,11 @@
             // txtLokacijaSlike
             // 
             this.txtLokacijaSlike.BackColor = System.Drawing.Color.White;
-            this.txtLokacijaSlike.Location = new System.Drawing.Point(2, 816);
+            this.txtLokacijaSlike.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txtLokacijaSlike.Location = new System.Drawing.Point(3, 813);
             this.txtLokacijaSlike.Name = "txtLokacijaSlike";
             this.txtLokacijaSlike.ReadOnly = true;
-            this.txtLokacijaSlike.Size = new System.Drawing.Size(606, 20);
+            this.txtLokacijaSlike.Size = new System.Drawing.Size(606, 25);
             this.txtLokacijaSlike.TabIndex = 23;
             this.txtLokacijaSlike.Visible = false;
             // 
