@@ -32,8 +32,10 @@ namespace PocetniZaslon.MDI_Forme
 			InitializeComponent();
 			//mijenjanje izgleda i unaprijed unesenih stvari u formu jer se radi nad postojećim računom
 			this.Text = "Uređivanje računa";
-			lblMojiBankovniRacuni.Text = "Uređivanje bankovnog računa.";
-			btnDodajNoviRacun.Text = "Promijeni";
+			lblMojiBankovniRacuni.Text = "Uređivanje bankovnog računa";
+            lblMojiBankovniRacuni.Location = new Point(this.Width / 2 - lblMojiBankovniRacuni.Width / 2, lblMojiBankovniRacuni.Location.Y);
+
+            btnDodajNoviRacun.Text = "Promijeni";
 			txtIban.Enabled = false;
 			txtStanjeRacuna.Enabled = false;
 			cboVrstaRacuna.Enabled = false;

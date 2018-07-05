@@ -28,9 +28,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblPocetniZasalon = new System.Windows.Forms.Label();
             this.gBoxBankovniRacuni = new System.Windows.Forms.GroupBox();
             this.lblStanjeR3 = new System.Windows.Forms.Label();
@@ -82,6 +82,7 @@
             // 
             this.lblPocetniZasalon.AutoSize = true;
             this.lblPocetniZasalon.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold);
+            this.lblPocetniZasalon.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lblPocetniZasalon.Location = new System.Drawing.Point(463, 40);
             this.lblPocetniZasalon.Name = "lblPocetniZasalon";
             this.lblPocetniZasalon.Size = new System.Drawing.Size(438, 81);
@@ -103,6 +104,7 @@
             this.gBoxBankovniRacuni.Controls.Add(this.label1);
             this.gBoxBankovniRacuni.Controls.Add(this.lblNazivR3);
             this.gBoxBankovniRacuni.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.gBoxBankovniRacuni.ForeColor = System.Drawing.SystemColors.Highlight;
             this.gBoxBankovniRacuni.Location = new System.Drawing.Point(36, 189);
             this.gBoxBankovniRacuni.Name = "gBoxBankovniRacuni";
             this.gBoxBankovniRacuni.Size = new System.Drawing.Size(823, 341);
@@ -114,6 +116,7 @@
             // 
             this.lblStanjeR3.AutoSize = true;
             this.lblStanjeR3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblStanjeR3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblStanjeR3.Location = new System.Drawing.Point(635, 260);
             this.lblStanjeR3.Name = "lblStanjeR3";
             this.lblStanjeR3.Size = new System.Drawing.Size(79, 32);
@@ -124,6 +127,7 @@
             // 
             this.lblStanjeR2.AutoSize = true;
             this.lblStanjeR2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblStanjeR2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblStanjeR2.Location = new System.Drawing.Point(635, 200);
             this.lblStanjeR2.Name = "lblStanjeR2";
             this.lblStanjeR2.Size = new System.Drawing.Size(79, 32);
@@ -134,6 +138,7 @@
             // 
             this.lblVrstaR3.AutoSize = true;
             this.lblVrstaR3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblVrstaR3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblVrstaR3.Location = new System.Drawing.Point(301, 260);
             this.lblVrstaR3.Name = "lblVrstaR3";
             this.lblVrstaR3.Size = new System.Drawing.Size(79, 32);
@@ -144,6 +149,7 @@
             // 
             this.lblVrstaR2.AutoSize = true;
             this.lblVrstaR2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblVrstaR2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblVrstaR2.Location = new System.Drawing.Point(301, 200);
             this.lblVrstaR2.Name = "lblVrstaR2";
             this.lblVrstaR2.Size = new System.Drawing.Size(79, 32);
@@ -154,6 +160,7 @@
             // 
             this.lblNazivR2.AutoSize = true;
             this.lblNazivR2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblNazivR2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNazivR2.Location = new System.Drawing.Point(39, 200);
             this.lblNazivR2.Name = "lblNazivR2";
             this.lblNazivR2.Size = new System.Drawing.Size(79, 32);
@@ -164,6 +171,7 @@
             // 
             this.lblStanjeR1.AutoSize = true;
             this.lblStanjeR1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblStanjeR1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblStanjeR1.Location = new System.Drawing.Point(635, 136);
             this.lblStanjeR1.Name = "lblStanjeR1";
             this.lblStanjeR1.Size = new System.Drawing.Size(79, 32);
@@ -174,6 +182,7 @@
             // 
             this.lblVrstaR1.AutoSize = true;
             this.lblVrstaR1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblVrstaR1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblVrstaR1.Location = new System.Drawing.Point(301, 136);
             this.lblVrstaR1.Name = "lblVrstaR1";
             this.lblVrstaR1.Size = new System.Drawing.Size(79, 32);
@@ -184,6 +193,7 @@
             // 
             this.lblNazivR1.AutoSize = true;
             this.lblNazivR1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblNazivR1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNazivR1.Location = new System.Drawing.Point(39, 136);
             this.lblNazivR1.Name = "lblNazivR1";
             this.lblNazivR1.Size = new System.Drawing.Size(79, 32);
@@ -194,6 +204,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label7.Location = new System.Drawing.Point(589, 69);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(181, 37);
@@ -204,6 +215,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(301, 69);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(168, 37);
@@ -214,6 +226,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(39, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 37);
@@ -224,6 +237,7 @@
             // 
             this.lblNazivR3.AutoSize = true;
             this.lblNazivR3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblNazivR3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNazivR3.Location = new System.Drawing.Point(40, 260);
             this.lblNazivR3.Name = "lblNazivR3";
             this.lblNazivR3.Size = new System.Drawing.Size(79, 32);
@@ -243,6 +257,7 @@
             this.gBoxInvesticije.Controls.Add(this.lblVrj1);
             this.gBoxInvesticije.Controls.Add(this.lblNazivInv1);
             this.gBoxInvesticije.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.gBoxInvesticije.ForeColor = System.Drawing.SystemColors.Highlight;
             this.gBoxInvesticije.Location = new System.Drawing.Point(946, 189);
             this.gBoxInvesticije.Name = "gBoxInvesticije";
             this.gBoxInvesticije.Size = new System.Drawing.Size(529, 341);
@@ -254,6 +269,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label14.Location = new System.Drawing.Point(308, 52);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(143, 37);
@@ -264,6 +280,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label13.Location = new System.Drawing.Point(28, 52);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(212, 37);
@@ -274,6 +291,7 @@
             // 
             this.lblVrj4.AutoSize = true;
             this.lblVrj4.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblVrj4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblVrj4.Location = new System.Drawing.Point(337, 304);
             this.lblVrj4.Name = "lblVrj4";
             this.lblVrj4.Size = new System.Drawing.Size(79, 32);
@@ -284,6 +302,7 @@
             // 
             this.lblVrj3.AutoSize = true;
             this.lblVrj3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblVrj3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblVrj3.Location = new System.Drawing.Point(337, 233);
             this.lblVrj3.Name = "lblVrj3";
             this.lblVrj3.Size = new System.Drawing.Size(79, 32);
@@ -294,6 +313,7 @@
             // 
             this.lblVrj2.AutoSize = true;
             this.lblVrj2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblVrj2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblVrj2.Location = new System.Drawing.Point(337, 169);
             this.lblVrj2.Name = "lblVrj2";
             this.lblVrj2.Size = new System.Drawing.Size(79, 32);
@@ -304,6 +324,7 @@
             // 
             this.lblNazivInv4.AutoSize = true;
             this.lblNazivInv4.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblNazivInv4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNazivInv4.Location = new System.Drawing.Point(96, 304);
             this.lblNazivInv4.Name = "lblNazivInv4";
             this.lblNazivInv4.Size = new System.Drawing.Size(79, 32);
@@ -314,6 +335,7 @@
             // 
             this.lblNazivInv3.AutoSize = true;
             this.lblNazivInv3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblNazivInv3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNazivInv3.Location = new System.Drawing.Point(96, 233);
             this.lblNazivInv3.Name = "lblNazivInv3";
             this.lblNazivInv3.Size = new System.Drawing.Size(79, 32);
@@ -324,6 +346,7 @@
             // 
             this.lblNazivInv2.AutoSize = true;
             this.lblNazivInv2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblNazivInv2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNazivInv2.Location = new System.Drawing.Point(96, 169);
             this.lblNazivInv2.Name = "lblNazivInv2";
             this.lblNazivInv2.Size = new System.Drawing.Size(79, 32);
@@ -334,6 +357,7 @@
             // 
             this.lblVrj1.AutoSize = true;
             this.lblVrj1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblVrj1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblVrj1.Location = new System.Drawing.Point(337, 102);
             this.lblVrj1.Name = "lblVrj1";
             this.lblVrj1.Size = new System.Drawing.Size(79, 32);
@@ -344,6 +368,7 @@
             // 
             this.lblNazivInv1.AutoSize = true;
             this.lblNazivInv1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblNazivInv1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNazivInv1.Location = new System.Drawing.Point(96, 102);
             this.lblNazivInv1.Name = "lblNazivInv1";
             this.lblNazivInv1.Size = new System.Drawing.Size(79, 32);
@@ -354,6 +379,7 @@
             // 
             this.gBoxStatistika.Controls.Add(this.chartStatistika);
             this.gBoxStatistika.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.gBoxStatistika.ForeColor = System.Drawing.SystemColors.Highlight;
             this.gBoxStatistika.Location = new System.Drawing.Point(946, 562);
             this.gBoxStatistika.Name = "gBoxStatistika";
             this.gBoxStatistika.Size = new System.Drawing.Size(529, 356);
@@ -363,17 +389,17 @@
             // 
             // chartStatistika
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartStatistika.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartStatistika.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chartStatistika.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartStatistika.Legends.Add(legend2);
             this.chartStatistika.Location = new System.Drawing.Point(11, 52);
             this.chartStatistika.Name = "chartStatistika";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Stat";
-            this.chartStatistika.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Stat";
+            this.chartStatistika.Series.Add(series2);
             this.chartStatistika.Size = new System.Drawing.Size(506, 295);
             this.chartStatistika.TabIndex = 0;
             this.chartStatistika.Text = "chartStatistika";
@@ -393,6 +419,7 @@
             this.gBoxTransakcije.Controls.Add(this.lblNazivT1);
             this.gBoxTransakcije.Controls.Add(this.lblDatumT2);
             this.gBoxTransakcije.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.gBoxTransakcije.ForeColor = System.Drawing.SystemColors.Highlight;
             this.gBoxTransakcije.Location = new System.Drawing.Point(36, 562);
             this.gBoxTransakcije.Name = "gBoxTransakcije";
             this.gBoxTransakcije.Size = new System.Drawing.Size(823, 356);
@@ -404,6 +431,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label16.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label16.Location = new System.Drawing.Point(635, 84);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(75, 32);
@@ -414,6 +442,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label10.Location = new System.Drawing.Point(301, 84);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(68, 32);
@@ -424,6 +453,7 @@
             // 
             this.lblDatumT1.AutoSize = true;
             this.lblDatumT1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblDatumT1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblDatumT1.Location = new System.Drawing.Point(39, 146);
             this.lblDatumT1.Name = "lblDatumT1";
             this.lblDatumT1.Size = new System.Drawing.Size(57, 32);
@@ -434,6 +464,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(39, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 32);
@@ -444,6 +475,7 @@
             // 
             this.lblIznosT3.AutoSize = true;
             this.lblIznosT3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblIznosT3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblIznosT3.Location = new System.Drawing.Point(635, 279);
             this.lblIznosT3.Name = "lblIznosT3";
             this.lblIznosT3.Size = new System.Drawing.Size(57, 32);
@@ -454,6 +486,7 @@
             // 
             this.lblNazivT3.AutoSize = true;
             this.lblNazivT3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblNazivT3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNazivT3.Location = new System.Drawing.Point(301, 279);
             this.lblNazivT3.Name = "lblNazivT3";
             this.lblNazivT3.Size = new System.Drawing.Size(57, 32);
@@ -464,6 +497,7 @@
             // 
             this.lblDatumT3.AutoSize = true;
             this.lblDatumT3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblDatumT3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblDatumT3.Location = new System.Drawing.Point(39, 279);
             this.lblDatumT3.Name = "lblDatumT3";
             this.lblDatumT3.Size = new System.Drawing.Size(57, 32);
@@ -474,6 +508,7 @@
             // 
             this.lblIznosT2.AutoSize = true;
             this.lblIznosT2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblIznosT2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblIznosT2.Location = new System.Drawing.Point(635, 214);
             this.lblIznosT2.Name = "lblIznosT2";
             this.lblIznosT2.Size = new System.Drawing.Size(57, 32);
@@ -484,6 +519,7 @@
             // 
             this.lblIznosT1.AutoSize = true;
             this.lblIznosT1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblIznosT1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblIznosT1.Location = new System.Drawing.Point(635, 146);
             this.lblIznosT1.Name = "lblIznosT1";
             this.lblIznosT1.Size = new System.Drawing.Size(57, 32);
@@ -494,6 +530,7 @@
             // 
             this.lblNazivT2.AutoSize = true;
             this.lblNazivT2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblNazivT2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNazivT2.Location = new System.Drawing.Point(301, 214);
             this.lblNazivT2.Name = "lblNazivT2";
             this.lblNazivT2.Size = new System.Drawing.Size(57, 32);
@@ -504,6 +541,7 @@
             // 
             this.lblNazivT1.AutoSize = true;
             this.lblNazivT1.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblNazivT1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNazivT1.Location = new System.Drawing.Point(301, 146);
             this.lblNazivT1.Name = "lblNazivT1";
             this.lblNazivT1.Size = new System.Drawing.Size(57, 32);
@@ -514,6 +552,7 @@
             // 
             this.lblDatumT2.AutoSize = true;
             this.lblDatumT2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            this.lblDatumT2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblDatumT2.Location = new System.Drawing.Point(39, 214);
             this.lblDatumT2.Name = "lblDatumT2";
             this.lblDatumT2.Size = new System.Drawing.Size(57, 32);
@@ -524,6 +563,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1513, 942);
             this.Controls.Add(this.gBoxTransakcije);
             this.Controls.Add(this.gBoxStatistika);
