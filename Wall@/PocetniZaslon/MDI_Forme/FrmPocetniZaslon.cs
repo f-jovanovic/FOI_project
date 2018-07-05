@@ -128,6 +128,7 @@ namespace PocetniZaslon.MDI_Forme
 		/// </summary>
 		public void DohvacanjeBankovnihRacuna()
 		{
+            return;
 			BindingList<Bankovni_racun> listaRacuna = upravljanjeBankovnimRacunima.PrikaziBankovneRacunePremaKorisniku(trenutniKorisnik);
 			int brojac = 0;
 			string[] naziv = new string[2];

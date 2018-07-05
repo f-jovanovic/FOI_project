@@ -50,7 +50,7 @@
             this.txtNazivRacuna.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNazivRacuna.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtNazivRacuna.Location = new System.Drawing.Point(271, 283);
-            this.txtNazivRacuna.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNazivRacuna.Margin = new System.Windows.Forms.Padding(4);
             this.txtNazivRacuna.Name = "txtNazivRacuna";
             this.txtNazivRacuna.Size = new System.Drawing.Size(804, 47);
             this.txtNazivRacuna.TabIndex = 0;
@@ -61,7 +61,7 @@
             this.txtIban.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIban.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtIban.Location = new System.Drawing.Point(271, 352);
-            this.txtIban.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIban.Margin = new System.Windows.Forms.Padding(4);
             this.txtIban.Name = "txtIban";
             this.txtIban.Size = new System.Drawing.Size(804, 47);
             this.txtIban.TabIndex = 1;
@@ -72,7 +72,7 @@
             this.txtStanjeRacuna.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStanjeRacuna.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtStanjeRacuna.Location = new System.Drawing.Point(271, 475);
-            this.txtStanjeRacuna.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStanjeRacuna.Margin = new System.Windows.Forms.Padding(4);
             this.txtStanjeRacuna.Name = "txtStanjeRacuna";
             this.txtStanjeRacuna.Size = new System.Drawing.Size(804, 47);
             this.txtStanjeRacuna.TabIndex = 3;
@@ -86,7 +86,7 @@
             this.cboVrstaRacuna.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cboVrstaRacuna.FormattingEnabled = true;
             this.cboVrstaRacuna.Location = new System.Drawing.Point(271, 414);
-            this.cboVrstaRacuna.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboVrstaRacuna.Margin = new System.Windows.Forms.Padding(4);
             this.cboVrstaRacuna.Name = "cboVrstaRacuna";
             this.cboVrstaRacuna.Size = new System.Drawing.Size(804, 49);
             this.cboVrstaRacuna.TabIndex = 2;
@@ -164,7 +164,7 @@
             this.btnOtkazi.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOtkazi.ForeColor = System.Drawing.Color.White;
             this.btnOtkazi.Location = new System.Drawing.Point(768, 583);
-            this.btnOtkazi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOtkazi.Margin = new System.Windows.Forms.Padding(4);
             this.btnOtkazi.Name = "btnOtkazi";
             this.btnOtkazi.Size = new System.Drawing.Size(308, 66);
             this.btnOtkazi.TabIndex = 5;
@@ -181,7 +181,7 @@
             this.btnDodajNoviRacun.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDodajNoviRacun.ForeColor = System.Drawing.Color.White;
             this.btnDodajNoviRacun.Location = new System.Drawing.Point(437, 583);
-            this.btnDodajNoviRacun.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDodajNoviRacun.Margin = new System.Windows.Forms.Padding(4);
             this.btnDodajNoviRacun.Name = "btnDodajNoviRacun";
             this.btnDodajNoviRacun.Size = new System.Drawing.Size(308, 66);
             this.btnDodajNoviRacun.TabIndex = 4;
@@ -220,7 +220,7 @@
             this.Controls.Add(this.txtIban);
             this.Controls.Add(this.txtNazivRacuna);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmBankovniRacunDodaj";
