@@ -360,9 +360,7 @@ namespace PocetniZaslon.MDI_Forme
 						foreach (var it in db.Investicija)
 						{
 							if (item.Simbol == it.naziv_investicije)
-							{
-									decimal USD = 6.3m;
-									decimal vrijednostUKunama = decimal.Multiply(decimal.Parse(item.Vrijednost), USD);
+							{									
 									Investicija investicija = it;
 									db.Investicija.Attach(investicija);
 									idInv = investicija.id_investicije;
@@ -370,7 +368,7 @@ namespace PocetniZaslon.MDI_Forme
 									Stanje_investicije stanje_Investicije = new Stanje_investicije
 									{
 										id_investicije = idInv,
-										vrijednost_investicije = vrijednostUKunama,
+										vrijednost_investicije = decimal.Parse(item.Vrijednost),
 										vrijeme_stanja = DateTime.Parse(item.Datum)
 									};
 									db.Stanje_investicije.Add(stanje_Investicije);
@@ -406,7 +404,7 @@ namespace PocetniZaslon.MDI_Forme
 		{
 			DohvacanjeStanjaInvesticija();
 
-			btnDohvati.Enabled = false;
+			btnDohvati.Enabled = true;
 
 		}
 
